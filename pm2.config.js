@@ -9,7 +9,8 @@ module.exports = {
             script: 'start.sh',
             args: '--no-autorestart',
             exec_interpreter: "bash",
-            exec_mode: "fork_mode"
+            exec_mode: "fork_mode",
+            autorestart: false
         }
 
     ]
