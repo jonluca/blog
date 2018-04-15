@@ -7,7 +7,9 @@ module.exports = {
         {
             name: 'blog',
             script: 'start.sh',
-            args: '--no-autorestart'
+            args: '--no-autorestart',
+            exec_interpreter: "bash",
+            exec_mode: "fork_mode"
         }
 
     ]
