@@ -44,8 +44,10 @@ This view helps show how the information spread, but it does a poor job of illus
 
 <div class="graph" id="cyTime"></div>
 
-<button onClick="animateBFS()">Start Animation</button>
 
+<p class="caption">
+<button onClick="animateBFS()" class="bttn-fill bttn-md">Start Animation</button>
+</p>
 
 Under this view we can model the scales and periods of information growth (and death). All arbitrary information will have an end point - a time in which that information can be considered lost, dead, or waiting for rediscovery. In times of yore, information used to be an extremely fragile system - it was usually clustered around the same few nodes, with it rarely escaping, regardless of your interpretation of the nodes. You'd get the occasional jump from one cluster to the other, which would quickly infect the cluster, but it would again wait a while. 
 
