@@ -1,19 +1,19 @@
+# ----------- CONFIGURABLE START -----------
 title:             JonLuca's Blog
-email:             jdecaro@usc.edu
-description:       
-author:            JonLuca De Caro
-baseurl:           "/"
-url:               "https://blog.jonlu.ca"
+description:      
+url:              https://blog.jonlu.ca # Site url, without a slash at the end.
+signoff:          "JonLuca" # Your name
 
-# Social Profiles
-twitter_username:  jonlucadecaro
-github_username:   jonluca
+links:
+  - name:         Posts
+    url:          /
+    external:     false
+  - name:         About
+    url:          /about
+    external:     false
+# ------------ CONFIGURABLE END ------------
 
-# Build settings
-markdown:          kramdown
-theme: jekyll-theme-clean-blog
-paginate:          5
-paginate_path:     "/posts/page:num/"
-plugins:
-  - jekyll-feed
-  - jekyll-paginate
+permalink:        /posts/:title
+defaults:
+  - values:
+      layout: "default"

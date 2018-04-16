@@ -1,8 +1,6 @@
 ---
-layout: post
 title:  "Words per minute is not a good measure of typing speed"
 date:   2018-04-15 13:48:35 -0700
-background: '/images/wpm.jpg'
 ---
 
 After spending a while within the CS community you'll invariably come upon an argument over typing speed - a point of pride for many, deriding anyone that types below 100, many programmers take it upon themselves to post about their words per minute. While it's not isolated to the CS community (take transcribers, assistants, or secretaries), few are as dogmatic in their beliefs about typing (DVORAK vs QWERTY, Cherry MX Blue vs Cherry MX Brown, etc) as programmers. 
