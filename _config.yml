@@ -3,7 +3,7 @@ title:             JonLuca's Blog
 description:      
 url:              https://blog.jonlu.ca # Site url, without a slash at the end.
 signoff:          "JonLuca" # Your name
-
+markdown: kramdown
 links:
   - name:         Posts
     url:          /

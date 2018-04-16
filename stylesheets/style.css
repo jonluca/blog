@@ -32,3 +32,21 @@
   padding-left: 3.8rem;
 }
 /* end Markdown styles */
+
+.centered-image{
+  margin: 0 auto;
+  display: block;
+  padding-bottom: 15px;
+}
+
+.caption {
+  font-size: 12px;
+  padding: 20px;
+  text-align: center;
+}
+
+.graph {
+  margin: 0 auto;
+  width: 100%;
+  height: 500px;
+}
