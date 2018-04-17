@@ -13,7 +13,7 @@ Understanding economies of scale does not come naturally for humans. It's often 
 
 Let's use a few examples to wrap our heads around this. The now-famous video *Powers of 10*, published in 1977, is a great way to start thinking in powers of 10.
 
-<iframe alt="Powers of 10" width="638" height="478" src="http://www.youtube.com/embed/0fKBhvDjuy0" frameborder="0"> </iframe>
+<iframe alt="Powers of 10" width="638" height="478" src="https://www.youtube.com/embed/0fKBhvDjuy0" frameborder="0"> </iframe>
 
 Size is a great introduction because it's easy to visualize. Things get a bit difficult when you think about abstract things like time. 
 
@@ -49,8 +49,9 @@ This view helps show how the information spread, but it does a poor job of illus
 <button onClick="animateBFS()" class="bttn-fill bttn-md">Start Animation</button>
 </p>
 
-Under this view we can model the scales and periods of information growth (and death). All arbitrary information will have an end point - a time in which that information can be considered lost, dead, or waiting for rediscovery. In times of yore, information used to be an extremely fragile system - it was usually clustered around the same few nodes, with it rarely escaping, regardless of your interpretation of the nodes. You'd get the occasional jump from one cluster to the other, which would quickly infect the cluster, but it would again wait a while. 
+Using this model we can see the the scales and periods of information growth. All arbitrary information will have an end point - a time in which that information can be considered lost, dead, or waiting for rediscovery. In times of yore, information used to be an extremely fragile system - it was usually clustered around the same few nodes, with it rarely escaping, regardless of your interpretation of the nodes. You'd get the occasional jump from one cluster to the other, which would quickly infect the cluster, but it would again wait a while. 
 
+Our modern informational framework has data persist significantly longer - so much so that an adage has come out, "nothing is ever deleted on the internet". 
 
 ## The Information Age
 

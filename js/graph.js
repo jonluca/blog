@@ -51,7 +51,7 @@ for (let i = 25; i < 50; i++) {
 }
 
 /*Generate some random pairings between the two clusters*/
-for (let i = 0; i < 6; i++) {
+for (let i = 0; i < 3; i++) {
   let firstNode = getRandomIntExcludingOrig(0, 25);
   let secondNode = getRandomIntExcludingOrig(25, 50);
   nodes.push({
