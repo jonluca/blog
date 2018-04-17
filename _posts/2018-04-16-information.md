@@ -25,6 +25,8 @@ $$ 10^9 $$ (1 Billion) seconds is 31 years.
 
 The topic becomes especially unintuitive when we get to information. What does it mean, from a sociological perspective, for a viral video to have been seen 10,000 times? What's the difference between 10,000 and 100,000? How can we model this, and what it means for an order of magnitude (or a couple!) more people to have access to information? 
 
+It's fairly easy to understand what it means for something to go locally viral - say, a rumor in a high school. It's also pretty easy to understand what it means for something to go as "viral" as possible - such news of the new President of the United States after an election. But the differences in the propagation between these two extremes is massive, and there is no single algorithm that works at all scales. 
+
 ## Information 
 
 Which brings me to the main topic of this blog post - Information, and it's propagation within society. Information can be viewed as arbitrary data such as ideologies, facts, and discoveries, as flow through a [directed graph](https://en.wikipedia.org/wiki/Directed_graph). 
