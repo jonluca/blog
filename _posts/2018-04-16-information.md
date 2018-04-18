@@ -25,11 +25,11 @@ $$ 10^9 $$ (1 Billion) seconds is 31 years.
 
 The topic becomes especially unintuitive when we get to information. What does it mean, from a sociological perspective, for a viral video to have been seen 10,000 times? What's the difference between 10,000 and 100,000? How can we model this, and what it means for an order of magnitude (or a couple!) more people to have access to information? 
 
-It's fairly easy to understand what it means for something to go locally viral - say, a rumor in a high school. It's also pretty easy to understand what it means for something to go as "viral" as possible - such news of the new President of the United States after an election. But the differences in the propagation between these two extremes is massive, and there is no single algorithm that works at all scales. 
+It's fairly easy to understand what it means for something to go locally viral - say, a rumor in a high school. It's also pretty straightforward to understand what it means for something to go as "viral" as possible - such news of the new President of the United States after an election. But the differences in the propagation between these two extremes is massive, and there is no single algorithm that works at all scales. A great paper on [Simple Graph Models](http://rsos.royalsocietypublishing.org/content/2/5/150028) was published in 2015 regarding this exact problem. 
 
 ## Information 
 
-Which brings me to the main topic of this blog post - Information, and it's propagation within society. Information can be viewed as arbitrary data such as ideologies, facts, and discoveries, as flow through a [directed graph](https://en.wikipedia.org/wiki/Directed_graph). 
+Information can be viewed as arbitrary data such as ideologies, facts, and discoveries, as flow through a [directed graph](https://en.wikipedia.org/wiki/Directed_graph). 
 
 <p class="caption">
 <img class="centered-image" src="/images/graph.svg" width="200"/>
@@ -51,7 +51,9 @@ This view helps show how the information spread, but it does a poor job of illus
 <button onClick="animateBFS()" class="bttn-fill bttn-md">Start Animation</button>
 </p>
 
-Using this model we can see the the scales and periods of information growth. All arbitrary information will have an end point - a time in which that information can be considered lost, dead, or waiting for rediscovery. In times of yore, information used to be an extremely fragile system - it was usually clustered around the same few nodes, with it rarely escaping, regardless of your interpretation of the nodes. You'd get the occasional jump from one cluster to the other, which would quickly infect the cluster, but it would again wait a while. 
+Using this model we can see the the scales and periods of information growth. All arbitrary information will have an end point - a time in which that information can be considered lost, dead, or waiting for rediscovery. In times of yore, information used to be an extremely fragile system - it was usually clustered around the same few nodes, with it rarely escaping, regardless of your interpretation of the nodes. You'd get the occasional jump from one cluster to the other, which would quickly infect the cluster, but it would again wait a while. The graph above was explicitly designed to be connected, however - it's guaranteed that every node in the graph will be visited. 
+
+A much more accurate representation of friend groups and information propagation would be a disjoint, e
 
 Our modern informational framework has data persist significantly longer - so much so that an adage has come out, "nothing is ever deleted on the internet". 
 
