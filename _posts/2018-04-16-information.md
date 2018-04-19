@@ -27,7 +27,7 @@ The topic becomes especially unintuitive when we get to information. What does i
 
 This blog post will primarily focus on modeling the propagation of information through society, and how there have been a few key revolutions that have changed the way we treat information. 
 
-It's fairly easy to understand what it means for something to go locally viral - say, a rumor in a high school. It's also pretty straightforward to understand what it means for something to go as "viral" as possible - such news of the new President of the United States after an election. But the differences in the propagation between these two extremes is massive, and there is no single algorithm that works at all scales. A great paper on [Simple Graph Models](http://rsos.royalsocietypublishing.org/content/2/5/150028) was published in 2015 regarding this exact problem. 
+It's fairly easy to understand what it means for something to go locally viral - say, a rumor in a high school. It's also pretty straightforward to understand what it means for something to go as "viral" as possible, like news of the new President of the United States after an election. But the differences in the propagation between these two extremes is massive, and there is no single algorithm that works at all scales. A great paper on [Simple Graph Models](http://rsos.royalsocietypublishing.org/content/2/5/150028) was published in 2015 regarding this exact problem. 
 
 ## Information 
 
@@ -53,9 +53,9 @@ This view helps show how the information spreads, but it does a poor job of illu
 <button onClick="animateBFS()" class="bttn-fill bttn-md">Start Animation</button>
 </p>
 
-Using this model we can see the the scales and periods of information growth. All arbitrary information will have an end point - a time in which that information can be considered lost, dead, or waiting for rediscovery. In times of yore, information used to be an extremely fragile system - it was usually clustered around the same few nodes, with it rarely escaping, regardless of your interpretation of the nodes. You'd get the occasional jump from one cluster to the other, which would quickly infect the cluster, but it would again wait a while. The graph above was explicitly designed to be connected, however - it's guaranteed that every node in the graph will be visited. 
+Using this model we can see the the scales and periods of information growth. All arbitrary information will have an end point, a time in which that information can be considered lost, dead, or waiting for rediscovery. Up until recently, information used to be an extremely fragile system - it was usually clustered around the same few nodes (social groups), with it rarely escaping. You'd get the occasional jump from one cluster to the other, which would quickly infect the cluster, but it would again wait a while. The graph above was explicitly designed to be connected, so it's only an accurate model for relatively recent times. 
 
-Our modern informational framework has data persist significantly longer - so much so that an adage has come out, "nothing is ever deleted on the internet". This is an extremely recent development though - we have the privilege of treating information as a commodity, but this wasn't actually true. 
+Our modern informational framework has data persist significantly longer - so much so that an adage has come out, "nothing is ever deleted on the internet". We have the privilege of treating information as a commodity, which is an extremely recent development.
 
 ## Information as Memory
 
