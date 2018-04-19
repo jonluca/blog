@@ -11,6 +11,9 @@ links:
   - name:         About
     url:          /about
     external:     false
+  - name:         Contact
+    url:          /contact
+    external:     false
 # ------------ CONFIGURABLE END ------------
 
 permalink:        /posts/:title

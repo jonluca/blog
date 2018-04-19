@@ -294,3 +294,6 @@
 .bttn-fill.bttn-royal:before {
     background: #fff;
 }
+.width {
+    max-width: 57rem;
+}
