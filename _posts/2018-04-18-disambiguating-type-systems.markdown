@@ -47,7 +47,7 @@ mNum = "hello"; // Valid!
 
 ### Notes
 
-As far as I know, all **strongly** typed languages are *static* - strong is a superset of static. There are also very few languages that are statically typed but not strongly typed. Below are some examples of languages and where they fit in the type system described above.
+As far as I know, all **strongly** typed languages are *static* - strong is a superset of static. There are also very few languages that are weakly statically typed. Below are some examples of languages and where they fit in the type system described above.
 
 <div class="table100 tableTop ver1 m-b-110">
 	<table data-vertable="ver1">
