@@ -33,8 +33,8 @@ A *statically* typed language is one in which the type of an object cannot chang
 
 
 ```java
-String mString = "Hello";
 int mNum = 3;
+String mString = "Hello";
 mString = 2; // Error!
 ```
 
@@ -44,7 +44,6 @@ A *dynamically* typed language is one in which the type of the object *can* chan
 let mNum = 3;
 mNum = "hello"; // Valid!
 ```
-
 
 ### Notes
 
