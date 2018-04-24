@@ -12,3 +12,17 @@ First, it's been neutered. The original Stanford class has **4** projects that n
 Second, there's too many resources. There was a guide written by a CP a couple years ago that is so in depth and accurate that it trivializes the class. The guide itself is amazing - well written, clearly laid out, and with code snippets. It simply walks you through each section of each project, with hints so strong that they lay the entire project out for you. This is even more insulting - OS is supposed to be a class where you're not just digging around in the weeds of C and POSIX guidelines - you're also making architecture decisions, figuring out the most efficient way of implementing each part, and coming up with your processes and methodologies that you'll take on with you after graduation. We're provided so many resources that you basically just follow along with what you're told. It's a plight that, while making the course easier, lowers the quality of the education for each student leaving the curriculum. 
 
 Finally, with the addition of CSCI-356 (Computer Systems), a lot of the issues previous students have had in the class have disappeared. A whole class before hand that explains virtual memory, caching, locks, and assembly takes a lot of the monotonous learning out of OS, and leaves you free to make better decisions. I sincerely hope the department fixes the class now that there is a more robust and cohesive path to 350. 
+
+On another note, for people reading this before taking the class, I'd recommend spending some time getting your environment right. I recommend the following:
+
+* Fix the sources.list in the VM so that it points to the Xenial Archive
+
+* That should allow you to install `openssh-server`, which means you don't need to use Xserver at all
+
+* On your local machine, install CLion (by JetBrains) and get your project set up (generate a CMakeLists and make sure the paths are correct)
+
+* Recompile gdb locally with the `--target` flag, so that you can run gdb on your host OS but debug a linux environment
+
+* Finally, point CLion to your kernel.o, the recompiled gdb, your sysroot, and create the mapping for your mounted folder (probably /media/sf_pintos) and your local folder
+
+Now you should be able to debug it with a real IDE!
