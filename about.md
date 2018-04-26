@@ -2,6 +2,8 @@
 title: About
 ---
 
-This is a collection of short stories or thoughts that I didn't necessarily think needed to be full blown articles. More personal and opinionated and less objective than my freeCodeCamp/Hackernoon/Medium articles.
+This is a collection of short stories or thoughts that I didn't necessarily think needed to be full blown articles. More personal and opinionated and less objective than my publicized articles.
 
-You can return to the main site, or read more about me, [here](https://jonlu.ca).
+I also write for HackerNoon and freeCodeCamp on Medium, [here](https://medium.com/@jonluca).
+
+You can return to the main site [here](https://jonlu.ca).
