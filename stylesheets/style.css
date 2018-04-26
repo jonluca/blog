@@ -9,7 +9,8 @@
 }
 
 .link:hover {
-    background: url(/images/line.png) repeat-x left bottom;
+    border-bottom: dotted #0000004f;
+    border-width: 1px;
 }
 
 /* Markdown styles */
