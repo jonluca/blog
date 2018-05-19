@@ -62,6 +62,23 @@ zsh -xv
 
 This enables `xtrace`ing and `verbose` output. It's not particularly great, though - it does not include timestamps, so we have to eyeball the speed. It's easy to catch a few immediate culprits - for instance, mine hung for at least a second on loading `nvm`. Anything that is a few orders of magnitude slower than the other commands will stick out like a sore thumb. 
 
+The second is an order-blind profiler - at the top of `.zshrc`, insert `zmodload zsh/zprof`. This will enable the built in profiling.
+
+At the end of `.zshrc` insert `zprof`.
+
+The output will look as follows:
+
+	num  calls                time                       self            name
+	-----------------------------------------------------------------------------------
+	 1)    1         177.88   177.88   33.99%    177.88   177.88   33.99%  compdump
+	 2)    1         485.28   485.28   92.72%    172.35   172.35   32.93%  compinit
+	 3)  658         118.96     0.18   22.73%    118.96     0.18   22.73%  compdef
+	 4)    2          16.41     8.21    3.14%     16.41     8.21    3.14%  compaudit
+	 5)    2          10.27     5.13    1.96%     10.27     5.13    1.96%  env_default
+	 ...
+
+This will tell us exactly where `zsh` is spending most of it's time. 
+
 ### Fixing the problem
 
 I started by playing around with high-level entry points. For instance, disabling `source $ZSH/oh-my-zsh.sh` from my `~/.zshrc` cut my load time down by half, to roughly 1.7 seconds average. I then disabled `nvm` and my times plummeted. I had found the main two culprits of slow load times. 
@@ -73,25 +90,51 @@ My new average had become only 40 milliseconds. I didn't want to lose the functi
 I started profiling specific subsections of oh-my-zsh like so: 
 
 ```bash
-  timer=$(($(gdate +%s%N)/1000000))
+#I use gdate from brew's core-utils because macOS date does not support nanoseconds
+timer=$(($(gdate +%s%N)/1000000)) 
 
-  # command/source/opt setting you'd like to profile
+# command/source/opt setting you'd like to profile
 
-  now=$(($(gdate +%s%N)/1000000))
-  elapsed=$(($now-$timer))
-  echo $elapsed":" $plugin
+now=$(($(gdate +%s%N)/1000000))
+elapsed=$(($now-$timer))
+echo $elapsed":" $plugin
 ```
 
 I wrapped all the plugin loading and sourcing, and profiled each one.
 
 <img src="/images/profiledfuncs.png">
 
+The plugin `command-not-found` was the main slow down of `Oh-My-Zsh`. I went through and disabled the plugins I didn't use much and got my shell load time down. 
+
+<img src="/images/postopt.png">
+
+My new shell start time was about half a second. `Oh-My-Zsh` still took up the majority of it, but I believe it to be a valuable addition. I do wish it put a bit more of an emphasis on performance, however. 
+
+The last thing to do is to lazy load functions and services that I don't need. I found a [great sandbox lazyloader here](https://github.com/benvan/sandboxd) that was useful for nvm/rvm. Any command invocation of nvm from terminal, script, or otherwise still succeeds, it just gets lazy loaded the first time it's invoked. 
 
 ### Other Notes
 
-Oh-My-Zsh is great and provides a lot of functionality, but it comes at a fairly heavy cost. For instance, if you have the `git` branch/status in your prompt, all it's doing is running `git status` [behind the scenes](https://github.com/bhilburn/powerlevel9k/blob/master/functions/vcs.zsh). In large projects with a heavy git history this can hang for seconds just for it tell you that you have an untracked file. 
+Oh-My-Zsh is great and provides a lot of functionality, but it comes at a fairly heavy cost. As you can see above, it's overhead accounts for nearly 70% of my load time. 
 
+There is one other thing of note - `zsh` provides a built in function, `vcs_info`, to provide information about the the version control status of the current working directory. However, this is quite slow! For the actual Zsh git repo, it takes about *200ms* to parse. In large projects with a heavy git history this can hang for seconds just for it tell you that you have an untracked file. I'm not sure how to best resolve this, as now it's established behavior and many projects rely on this functionality. This won't necessarily impact shell start time, but it will impact the amount of time it takes to actually display the prompt when navigating within a VCS-belonging directory. This can be slightly fixed with git config oh-my-zsh.hide-status 1 on problematic repos, but it would be nice if it did so automatically. Setting the option `DISABLE_UNTRACKED_FILES_DIRTY="true"` in your `.zshrc` can help as well, but comes with a loss of functionality. 
+
+Finally, a lot of time is spent in `compinit` and `compdef`. There are a few hacks floating around GitHub, HackerNews, and various forums that try to remedy this (only check once a day, only check on new shell logins, etc), but none are particularly robust/without side effects.
 
 ### Conclusion
 
-In the future I hope to actually recompile zsh with additional profiling techniques. 
+In the future I hope to actually recompile zsh with additional profiling techniques and debug information - keeping an internal timer and having a flag output current time for each command in a tree fashion would make building heat maps really easy. 
+
+
+#### Resources
+
+Here are a few resources I consulted while working on this post.
+
+* https://gist.github.com/ctechols/ca1035271ad134841284
+* https://carlosbecker.com/posts/speeding-up-zsh/
+* https://wpsuperheroes.com/slow-osx-terminal-oh-my-zsh/
+* https://bennycwong.github.io/post/speeding-up-oh-my-zsh/
+* https://github.com/robbyrussell/oh-my-zsh/issues/5327
+* https://github.com/robbyrussell/oh-my-zsh/issues/6056
+* https://blog.peiyingchi.com/2017/08/17/speed-up-oh-my-zsh/
+* https://superuser.com/questions/236953/zsh-starts-incredibly-slowly
+* https://blog.patshead.com/2011/04/improve-your-oh-my-zsh-startup-time-maybe.html
