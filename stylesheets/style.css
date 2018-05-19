@@ -13,6 +13,10 @@
     border-width: 1px;
 }
 
+.link:focus {
+    outline: 0px !important;
+}
+
 /* Markdown styles */
 .markdown-body a {
     text-decoration: none;
