@@ -13,7 +13,7 @@ You can time your own with:
 for i in $(seq 1 10); do /usr/bin/time $SHELL -i -c exit; done
 ``` 
 
-Raw `bash`, as a comparison, was blazing fast - it averaged 0.03 seconds, with about 0.02 in user-land and 0.01 in kernel. This is with an empty .bashrc and other dotfiles, so it would prove to be a lower bound/goal.
+Raw `bash`, as a comparison, was blazing fast - it averaged 0.03 seconds, with about 0.02 in user-land and 0.01 in kernel. This is with an empty `.bashrc` and other dotfiles, so it would prove to be a lower bound/goal.
 
 <img src="/images/rawbash.png">
 
@@ -45,11 +45,11 @@ ${TMPPREFIX}*   (default is /tmp/zsh*)
 /etc/zlogout    (installation-specific - /etc is the default)
 ```
 
-This gives a general flow of execution, and where zsh starts. My .zshrc just leads to `source`ing a few other files, which just behaves as if the contents of those files was passed directly into the shell as standard input. 
+This gives a general flow of execution, and where zsh starts. My `.zshrc` just leads to `source`ing a few other files, which just behaves as if the contents of those files was passed directly into the shell as standard input. 
 
 ### Profiling
 
-We can start by profiling raw zsh - it's even faster than raw bash. 
+We can start by profiling raw `zsh` - it's even faster than raw bash. 
 
 <img src="/images/rawzsh.png">
 
