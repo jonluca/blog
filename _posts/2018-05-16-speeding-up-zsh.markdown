@@ -1,6 +1,6 @@
 ---
 title: Speeding up zsh
-date: 2018-05-16 11:43:26
+date: 2018-05-16 11:43:26 -0700
 ---
 
 A while back I was checking out my shell, and realized that it took a few seconds to load. I timed my shell with 
@@ -17,7 +17,7 @@ My zsh setup at the time fared considerably worse.
 
 <img src="/images/origzsh.png">
 
-I was averaging 2.83 seconds, with 1.54 in user-land and 1.29 in kernel-land. 
+I was averaging 3.14 seconds, with 1.64 in user-land and 1.5 in kernel-land. 
 
 My zsh set up was nearly 10 times slower than raw bash. I wanted to investigate what was going on, and why it was so much slower. 
 
@@ -124,17 +124,22 @@ Finally, a lot of time is spent in `compinit` and `compdef`. There are a few hac
 
 In the future I hope to actually recompile zsh with additional profiling techniques and debug information - keeping an internal timer and having a flag output current time for each command in a tree fashion would make building heat maps really easy. 
 
+<img src="/images/zsh_final.png">
+
+I ended with zsh taking about 0.42 seconds, or 420 milliseconds, to start up. I'm fairly satisfied with the result, but might try to get it down to about 250ms sometime in the future. It'll require a more deep dive into `Oh-My-Zsh` and `zsh` itself, though.
+
 
 #### Resources
 
 Here are a few resources I consulted while working on this post.
 
-* https://gist.github.com/ctechols/ca1035271ad134841284
-* https://carlosbecker.com/posts/speeding-up-zsh/
-* https://wpsuperheroes.com/slow-osx-terminal-oh-my-zsh/
-* https://bennycwong.github.io/post/speeding-up-oh-my-zsh/
-* https://github.com/robbyrussell/oh-my-zsh/issues/5327
-* https://github.com/robbyrussell/oh-my-zsh/issues/6056
-* https://blog.peiyingchi.com/2017/08/17/speed-up-oh-my-zsh/
-* https://superuser.com/questions/236953/zsh-starts-incredibly-slowly
-* https://blog.patshead.com/2011/04/improve-your-oh-my-zsh-startup-time-maybe.html
+* [https://gist.github.com/ctechols/ca1035271ad134841284](https://gist.github.com/ctechols/ca1035271ad134841284)
+* [https://carlosbecker.com/posts/speeding-up-zsh/](https://carlosbecker.com/posts/speeding-up-zsh/)
+* [https://wpsuperheroes.com/slow-osx-terminal-oh-my-zsh/](https://wpsuperheroes.com/slow-osx-terminal-oh-my-zsh/)
+* [https://bennycwong.github.io/post/speeding-up-oh-my-zsh/](https://bennycwong.github.io/post/speeding-up-oh-my-zsh/)
+* [https://github.com/robbyrussell/oh-my-zsh/issues/5327](https://github.com/robbyrussell/oh-my-zsh/issues/5327)
+* [https://github.com/robbyrussell/oh-my-zsh/issues/6056](https://github.com/robbyrussell/oh-my-zsh/issues/6056)
+* [https://blog.peiyingchi.com/2017/08/17/speed-up-oh-my-zsh/](https://blog.peiyingchi.com/2017/08/17/speed-up-oh-my-zsh/)
+* [https://superuser.com/questions/236953/zsh-starts-incredibly-slowly](https://superuser.com/questions/236953/zsh-starts-incredibly-slowly)
+* [https://blog.patshead.com/2011/04/improve-your-oh-my-zsh-startup-time-maybe.html](https://blog.patshead.com/2011/04/improve-your-oh-my-zsh-startup-time-maybe.html)
+* [https://github.com/benvan/sandboxd](https://github.com/benvan/sandboxd)
