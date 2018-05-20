@@ -2,7 +2,8 @@
 title:  "Information and economies of scale"
 date:   2018-04-16 09:52:00 -0700
 ---
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+        type="text/javascript"></script>
 I was recently in a discussion about the propagation of information, and how our intuitions about the general level of exposure of things we might take for granted within society is wrong. I wanted to wrap my head around a few key notions of our perception of the world and it's changes in the last 3 decades.
 
 ## Exponentiation 
