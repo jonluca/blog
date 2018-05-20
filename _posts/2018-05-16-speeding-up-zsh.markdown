@@ -142,3 +142,5 @@ Here are a few resources I consulted while working on this post.
 * [https://superuser.com/questions/236953/zsh-starts-incredibly-slowly](https://superuser.com/questions/236953/zsh-starts-incredibly-slowly)
 * [https://blog.patshead.com/2011/04/improve-your-oh-my-zsh-startup-time-maybe.html](https://blog.patshead.com/2011/04/improve-your-oh-my-zsh-startup-time-maybe.html)
 * [https://github.com/benvan/sandboxd](https://github.com/benvan/sandboxd)
+
+Additionally, the specific dot files that I used above, in their original state, can be found [here.](https://github.com/jonluca/dotfiles/tree/551234df4d4527d6990ae3ea681bf015da8a0570)
