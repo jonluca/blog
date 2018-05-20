@@ -19,7 +19,7 @@ Raw `bash`, as a comparison, was blazing fast - it averaged 0.03 seconds, with a
 
 I was averaging 3.14 seconds, with 1.64 in user-land and 1.5 in kernel-land. 
 
-My zsh set up was 10 times slower than raw bash. I wanted to investigate what was going on, and why it was so much slower. 
+My zsh set up was nearly 100x slower than raw bash. I wanted to investigate what was going on, and why it was so much slower. 
 
 ### Intro
 
