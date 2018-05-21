@@ -125,7 +125,7 @@ In the future I hope to actually recompile zsh with additional profiling techniq
 
 <img src="/images/zsh_final.png">
 
-I ended with zsh taking about 0.42 seconds, or 420 milliseconds, to start up. I'm fairly satisfied with the result, but might try to get it down to about 250ms sometime in the future. It'll require a more deep dive into `Oh-My-Zsh` and `zsh` itself, though.
+I ended with zsh taking about 0.42 seconds, or 420 milliseconds, to start up. If I disable OhMyZsh (which really just disables the theming and prompt), my time gets down to an average of 50ms. For now the extra 380 or so milliseconds are worth it, but I might be tempted to try another framework if I can't get it any faster.
 
 
 #### Resources
