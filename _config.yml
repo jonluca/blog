@@ -1,9 +1,11 @@
 # ----------- CONFIGURABLE START -----------
 title:             JonLuca's Blog
-description:      
+description:      JonLuca's Blog - A blog about tech, programming, and information
 url:              https://blog.jonlu.ca # Site url, without a slash at the end.
 signoff:          "JonLuca" # Your name
 markdown: kramdown
+plugins:
+  - jekyll-seo-tag
 links:
   - name:         Posts
     url:          /
