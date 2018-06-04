@@ -24,8 +24,11 @@ GEM
       ffi (>= 1.3.0)
     eventmachine (1.2.7)
     execjs (2.7.0)
+    extras (0.3.0)
+      forwardable-extended (~> 2.5)
     faraday (0.15.2)
       multipart-post (>= 1.2, < 3)
+    fastimage (2.1.3)
     ffi (1.9.25)
     forwardable-extended (2.6.0)
     gemoji (3.0.0)
@@ -99,6 +102,14 @@ GEM
       pathutil (~> 0.9)
       rouge (>= 1.7, < 4)
       safe_yaml (~> 1.0)
+    jekyll-assets (2.4.0)
+      concurrent-ruby (~> 1.0)
+      extras (~> 0.2)
+      fastimage (~> 2.0, >= 1.8)
+      jekyll (~> 3.1, >= 3.0)
+      pathutil (>= 0.8)
+      rack (~> 1.6)
+      sprockets (~> 3.3, < 3.8)
     jekyll-avatar (0.5.0)
       jekyll (~> 3.0)
     jekyll-coffeescript (1.1.1)
@@ -213,6 +224,7 @@ GEM
     pathutil (0.16.1)
       forwardable-extended (~> 2.6)
     public_suffix (2.0.5)
+    rack (1.6.10)
     rb-fsevent (0.10.3)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
@@ -230,6 +242,9 @@ GEM
     sawyer (0.8.1)
       addressable (>= 2.3.5, < 2.6)
       faraday (~> 0.8, < 1.0)
+    sprockets (3.7.1)
+      concurrent-ruby (~> 1.0)
+      rack (> 1, < 3)
     terminal-table (1.8.0)
       unicode-display_width (~> 1.1, >= 1.1.1)
     thread_safe (0.3.6)
@@ -245,6 +260,7 @@ PLATFORMS
 DEPENDENCIES
   github-pages
   jekyll
+  jekyll-assets
   jekyll-seo-tag
 
 BUNDLED WITH

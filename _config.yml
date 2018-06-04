@@ -6,6 +6,11 @@ signoff:          "JonLuca" # Your name
 markdown: kramdown
 plugins:
   - jekyll-seo-tag
+  - jekyll-assets
+
+assets:
+  gzip: true
+
 links:
   - name:         Posts
     url:          /
@@ -22,3 +27,6 @@ permalink:        /posts/:title
 defaults:
   - values:
       layout: "default"
+
+sass:
+  style: compressed
