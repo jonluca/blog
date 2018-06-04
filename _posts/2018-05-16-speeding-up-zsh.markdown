@@ -89,10 +89,10 @@ My new average had become only 40 milliseconds. I didn't want to lose the functi
 I started profiling specific subsections of oh-my-zsh like so: 
 
 ```bash
-#I use gdate from brew's core-utils because macOS date does not support nanoseconds
+# I use gdate from brew's core-utils because macOS date does not support nanoseconds
 timer=$(($(gdate +%s%N)/1000000)) 
 
-# command/source/opt setting you'd like to profile
+# Original .zshrc/config file
 
 now=$(($(gdate +%s%N)/1000000))
 elapsed=$(($now-$timer))
