@@ -3,7 +3,7 @@ title: Speeding up zsh and Oh-My-Zsh
 date: 2018-05-16 11:43:26 -0700
 ---
 
-I was quickly opening multiple shells for an unrelated project today and noticed how abysmal my shell load speed was. Once it was actually open it was relatively fast, but the actual shell start up was noticeably slow. I decided to time it with `time`.
+I was quickly opening multiple shells for an unrelated project today and noticed how abysmal my shell load speed was. After the initial load it was relatively fast, but the actual shell start up was noticeably slow. I decided to time it with `time`.
 
 <img src="/images/origzsh.png">
 
@@ -111,13 +111,13 @@ My new shell start time was about half a second. `Oh-My-Zsh` still took up the m
 
 The last thing to do is to lazy load functions and services that I don't need. I found a [great sandbox lazyloader here](https://github.com/benvan/sandboxd) that was useful for nvm/rvm. Any command invocation of nvm from terminal, script, or otherwise still succeeds, it just gets lazy loaded the first time it's invoked. 
 
-### Other Notes
+### Observations
 
 Oh-My-Zsh is great and provides a lot of functionality, but it comes at a fairly heavy cost. As you can see above, it's overhead accounts for nearly 70% of my load time. 
 
 There is one other thing of note - `zsh` provides a built in function, `vcs_info`, to provide information about the the version control status of the current working directory. However, this is quite slow! For the actual Zsh git repo, it takes about *200ms* to parse. In large projects with a heavy git history this can hang for seconds just for it tell you that you have an untracked file. I'm not sure how to best resolve this, as now it's established behavior and many projects rely on this functionality. This won't necessarily impact shell start time, but it will impact the amount of time it takes to actually display the prompt when navigating within a VCS-belonging directory. This can be slightly fixed with `git config oh-my-zsh.hide-status 1` on problematic repos, but it would be nice if it did so automatically. Setting the option `DISABLE_UNTRACKED_FILES_DIRTY="true"` in your `.zshrc` can help as well, but comes with a loss of functionality. 
 
-Finally, a lot of time is spent in `compinit` and `compdef`. There are a few hacks floating around GitHub, HackerNews, and various forums that try to remedy this (only check once a day, only check on new shell logins, etc), but none are particularly robust/without side effects.
+Finally, a lot of time is spent in `compinit` and `compdef`. These are functions that create/define entries in the local completions cache (the `~/.zcompdump-machinename` file you might've noticed). There are a few hacks floating around GitHub, HackerNews, and various forums that try to remedy this (only check once a day, only check on new shell logins, etc), but none are particularly robust/without side effects.
 
 ### Conclusion
 
@@ -125,7 +125,14 @@ In the future I hope to actually recompile zsh with additional profiling techniq
 
 <img src="/images/zsh_final.png">
 
-I ended with zsh taking about 0.42 seconds, or 420 milliseconds, to start up. If I disable OhMyZsh (which really just disables the theming and prompt), my time gets down to an average of 50ms. For now the extra 380 or so milliseconds are worth it, but I might be tempted to try another framework if I can't get it any faster.
+I ended with zsh taking about 0.42 seconds, or 420 milliseconds, to start up. Disabling Oh-My-Zsh gets the average down further to roughly 50ms. For now the extra 380 or so milliseconds are worth it, but I might be tempted to try another framework if I can't get it any faster.
+
+
+### Final Note
+
+While initial start time can (and should) be optimized, it pales in comparison to the importance of *prompt* return time. 
+
+In a typical workflow you're returning to your prompt orders of magnitude more times than you're actually starting new shell sessions. I'd like to profile prompt time much more, as I've noticed that even a 10% gain is noticeable (and much more important, as waiting any longer than half a second for a prompt will quickly become infuriating).
 
 
 #### Resources
