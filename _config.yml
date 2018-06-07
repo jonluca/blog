@@ -26,3 +26,5 @@ defaults:
 
 sass:
   style: compressed
+
+timezone: America/Los_Angeles
