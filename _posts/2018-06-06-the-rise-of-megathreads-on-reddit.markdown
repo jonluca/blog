@@ -3,7 +3,7 @@ title: The Rise of Megathreads on Reddit
 date: 2018-06-06 19:06:43 -0700
 ---
 
-An interesting discussion came up on [tildes](https://tildes.net] about whether megathreads should be introduced. This lead me to look back on five years of moderating subreddits, and my experiences with megathreads.
+An interesting discussion came up on [tildes](https://tildes.net) about whether megathreads should be introduced. This lead me to look back on five years of moderating subreddits, and my experiences with megathreads.
 
 
 ### Original Comment 
