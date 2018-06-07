@@ -6,6 +6,7 @@ signoff:          "JonLuca" # Your name
 markdown: kramdown
 plugins:
   - jekyll-seo-tag
+  - jekyll-feed
 
 links:
   - name:         Posts
