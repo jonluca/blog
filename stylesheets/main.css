@@ -27,8 +27,7 @@ table {
   background-color: #fff;
 }
 
-th,
-td {
+th, td {
   font-weight: unset;
   padding-right: 10px;
 }
