@@ -7,7 +7,7 @@ date: 2018-07-07 19:06:19
 
 ## Background
 
-The Federalist Papers is a collection of 85 articles and essays written in the latter half of 1780 by Alexander Hamilton, James Madison, and John Jay under the pseudonym "Publius" to promote the ratification of the United States Constitution. Hamilton chose "Publius" as the pseudonym under which the series would be written - the authorship at the time of publication was a closely guarded secret. 
+The Federalist Papers are a collection of 85 articles and essays written in the latter half of 1780 by Alexander Hamilton, James Madison, and John Jay under the pseudonym "Publius" to promote the ratification of the United States Constitution. Hamilton chose "Publius" as the pseudonym under which the series would be written - the authorship at the time of publication was a closely guarded secret. 
 
 Following Hamilton's death in 1804, a list he wrote became public, which attributed a majority of the papers to himself, including some that seemed more likely the work of Madison (No. 49–58 and 62–63). The truth of who wrote the papers is still a little murky - there is general consensus on who wrote each paper, but unfortunately the truth has been lost to the annals of time. 
 
@@ -161,6 +161,7 @@ results.append([classifications[2].predict(disputed_set[2]),"Syntactic Features"
 
 <i>Note: M = Madison, H = Hamilton</i>
 
+The models predict that 10 of the 12 papers were written by Madison.
 
 The results mirror those found in the 1960s Mosteller and Wallace. There does seem to be some disagreement on a few papers, and our classifier labels papers 49 and 50 as Hamilton's, but overall the results seem fairly accurate!
 
