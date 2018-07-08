@@ -151,14 +151,97 @@ results.append([classifications[2].predict(disputed_set[2]),"Syntactic Features"
 ```
 
 ## Results
-
+<div class="table-container">
+<table>
+  <thead>
+    <tr>
+      <th>&nbsp;</th>
+      <th>49</th>
+      <th>50</th>
+      <th>51</th>
+      <th>52</th>
+      <th>53</th>
+      <th>54</th>
+      <th>55</th>
+      <th>56</th>
+      <th>57</th>
+      <th>58</th>
+      <th>62</th>
+      <th>63</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Lexical Features</td>
+      <td>H</td>
+      <td>H</td>
+      <td>M</td>
+      <td>M</td>
+      <td>M</td>
+      <td>M</td>
+      <td>M</td>
+      <td>M</td>
+      <td>M</td>
+      <td>M</td>
+      <td>H</td>
+      <td>M</td>
+    </tr>
+    <tr>
+      <td>Lexical Features - Punctuation</td>
+      <td>H</td>
+      <td>H</td>
+      <td>M</td>
+      <td>H</td>
+      <td>H</td>
+      <td>M</td>
+      <td>H</td>
+      <td>H</td>
+      <td>H</td>
+      <td>M</td>
+      <td>M</td>
+      <td>M</td>
+    </tr>
+    <tr>
+      <td>Syntactic Features</td>
+      <td>M</td>
+      <td>M</td>
+      <td>M</td>
+      <td>M</td>
+      <td>M</td>
+      <td>H</td>
+      <td>M</td>
+      <td>M</td>
+      <td>M</td>
+      <td>M</td>
+      <td>M</td>
+      <td>M</td>
+    </tr>
+    <tr>
+      <td><b>Final Results<b></b></b></td>
+      <td>H</td>
+      <td>H</td>
+      <td>M</td>
+      <td>M</td>
+      <td>M</td>
+      <td>M</td>
+      <td>M</td>
+      <td>M</td>
+      <td>M</td>
+      <td>M</td>
+      <td>M</td>
+      <td>M</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<!--
 |           | 49  | 50  | 51 | 52  | 53  | 54  | 55  | 56  | 57  | 58 | 62  | 63 | 
 |------------------------------------|---|---|---|---|---|---|---|---|---|---|---|
 | Lexical Features               | H | H | M | M | M | M | M | M | M | M | H | M | 
 | Lexical Features - Punctuation | H | H | M | H | H | M | H | H | H | M | M | M | 
 | Syntactic Features             | M | M | M | M | M | H | M | M | M | M | M | M | 
 | <b>Final Results<b>            | H | H | M | M | M | M | M | M | M | M | M | M | 
-
+-->
 <i>Note: M = Madison, H = Hamilton</i>
 
 The models predict that 10 of the 12 papers were written by Madison.
