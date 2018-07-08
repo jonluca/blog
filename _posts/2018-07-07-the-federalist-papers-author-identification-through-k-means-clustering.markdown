@@ -48,7 +48,7 @@ The next step was to train a model on this data.
 
 This being my first foray into the world of unsupervised NLP, I wanted to get a good feel for prior work on author attribution. I read a lot of papers, articles, and blog posts to get an intuition on how to get started. I put some of my favorites in the Resources and Prior Work section below. 
 
-I decided to go with 4 features - lexical similarity in sentence structure, lexical similarity in punctuation,  and syntactic similarity. 
+I decided to go with 3 features - lexical similarity in sentence structure, lexical similarity in punctuation, and syntactic similarity. 
 
 I imported all the definitive Madison and Hamilton papers and created my original K-Means fit.
 
@@ -59,6 +59,8 @@ K-means clustering aims to partition n observations into k clusters in which eac
 Once the data has been converted into workable features, we can fit them onto a 2-cluster model. This is unsupervised - we are effectively just pouring in our (ideally) significant data and telling it that there are two distinct sets within it, and to try and extricate them. 
 
 ## Feature Sets
+
+Feature sets are what we'll use as indicators - we need to transform our text into machine-workable data based on criteria we select. 
 
 ### Lexical Similarity 
 
