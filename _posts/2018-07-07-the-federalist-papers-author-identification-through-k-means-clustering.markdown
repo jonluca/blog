@@ -54,7 +54,7 @@ I imported all the definitive Madison and Hamilton papers and created my origina
 
 ## K-Means Clustering 
 
-K-means clustering aims to partition n observations into k clusters in which each observation belongs to the cluster with the nearest mean, serving as a prototype of the cluster. This results in a partitioning of the data space into Voronoi cells. For our example we'll have 69 observations (papers) into 2 clusters (2 authors, Madison and Hamilton). 
+K-means clustering aims to partition n observations into k clusters in which each observation belongs to the cluster with the nearest mean, serving as a prototype of the cluster. This results in a partitioning of the data space into Voronoi cells. For our example we'll have 68 observations (papers) into 2 clusters (2 authors, Madison and Hamilton). 
 
 Once the data has been converted into workable features, we can fit them onto a 2-cluster model. This is unsupervised - we are effectively just pouring in our (ideally) significant data and telling it that there are two distinct sets within it, and to try and extricate them. 
 
