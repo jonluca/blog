@@ -15,6 +15,9 @@ A significant amount of prior research has been done on the Federalist Papers, i
 
 My goal is to recreate the results found by Mosteller and Wallace through modern statistical methods - namely K-Means clustering and TFIDF.
 
+<p style="text-align: center;">
+<img src="/images/federalist_cover.jpg">
+</p>
 ## Data Gathering
 
 The first step was to retrieve and clean the data. Luckily all the papers are in the public domain (and a piece of American History!), so they're hosted by the Gutenberg Library in a raw text document [here](http://www.gutenberg.org/cache/epub/18/pg18.txt).s
