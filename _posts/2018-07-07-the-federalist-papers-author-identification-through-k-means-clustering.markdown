@@ -259,6 +259,20 @@ Overall this was a fun introduction to statistical methods and k-means clusterin
 
 If it looks like I did anything obviously wrong or have the wrong intuition about anything, please don't hesitate to reach out!
 
+## Update 7/25/18
+
+Jon Miller, from the University of Akron, replied with the following:
+
+> [Your blog post] led to a quick question: what evidence do we have that these men did their own punctuation?
+
+> It's my understanding that until about the Civil War most publications were submitted as handwritten documents. Someone in the printer's office then did the manual labor of adding the "points." In the decades before the Civil War there was popular demand for books that described general rules--Edgar A. Poe wrote that no such book existed. And the ones that appear to have been the most popular were popular with typesetters. Plus there are a lot of jokes and warnings in newspaper editorial columns to the effect of "if we cannot read your handwriting, do not complain if we guess incorrectly."
+
+> There are exceptions and these papers are so important, it may well be the case that H and M reviewed printed proofs for the book edition and corrected the points. But the default, I would imagine, would have been that they let some dirty typo do that work. And so if two or more people did the pages, there might be two or three styles. And they did not set up pages sequentially -- one man might have done 4, 16, 28, and 40 while another did 5, 17, 29, and 41. They would count words and draw lines in the manuscript to determine which sections would fall on which pages in the final product.
+
+This is an interesting problem - it's entirely possible that the punctuation feature is inaccurate, and that the punctuation added in each paper was done by different copy editors or someone in the printers office. 
+
+I invite any one who is a Madison or Hamilton historian to reach out if you know anything about this. 
+
 ## Additional Resources and Prior Work
 
 * [Textual Analysis of the Federalist Papers](https://medium.com/@mattzhou/hamilton-a-text-analysis-of-the-federalist-papers-e64cb1764fbf)
