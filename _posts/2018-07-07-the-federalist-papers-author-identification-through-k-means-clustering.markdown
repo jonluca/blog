@@ -259,7 +259,7 @@ Overall this was a fun introduction to statistical methods and k-means clusterin
 
 If it looks like I did anything obviously wrong or have the wrong intuition about anything, please don't hesitate to reach out!
 
-## Update 7/25/18
+### Update 7/25/18
 
 Jon Miller, from the University of Akron, replied with the following:
 
