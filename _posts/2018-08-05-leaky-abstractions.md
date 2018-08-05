@@ -1,9 +1,9 @@
 ---
 title: "Leaky vs Punch-Through Abstractions"
-date: 2018-08-05 11:07:47
+date: 2018-08-04 11:07:47
 ---
 
-Leaky abstractions are bad - they do not properly hide away all the complexity of the system they are covering. Unfortunately *every* abstraction is leaky to some degree[^1] - that's why you need
+Leaky abstractions are bad - they do not properly hide away all the complexity of the system they are covering. Unfortunately *every* abstraction is leaky to some degree[^1] - that's why the best designed abstractions offer the ability to **punch through** them.
 
 ### Background
 
