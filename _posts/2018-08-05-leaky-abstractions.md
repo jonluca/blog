@@ -27,7 +27,7 @@ No abstraction is actually perfect - there will *always* be cases when the provi
 
 ### Implementation
 
-All abstractions are leaky. To pretend otherwise would be to lie to ourselves. When designing an abstraction layer identify the core parts you *need to do well*, and then design a way to circumvent or add on functionality in an intuitive manner. It's importnant not to fixate on a perfect abstraction - instead focus on handling the majority of use cases, and providing an intuitive way for the user to handle the remaining edge ones. 
+All abstractions are leaky. To pretend otherwise would be to lie to ourselves. When designing an abstraction layer identify the core parts you *need to do well*, and then design a way to circumvent or add on functionality in an intuitive manner. It's important not to fixate on a perfect abstraction - instead focus on handling the majority of use cases, and providing an intuitive way for the user to handle the remaining edge ones. 
 
 
 [^1]: <p style="font-size: 10px;">See <a href="https://www.joelonsoftware.com/2002/11/11/the-law-of-leaky-abstractions/">The Law of Leaky Abstractions</a></p>
