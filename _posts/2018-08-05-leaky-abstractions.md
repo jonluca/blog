@@ -30,4 +30,45 @@ No abstraction is actually perfect - there will *always* be cases when the provi
 All abstractions are leaky. To pretend otherwise would be to lie to ourselves. When designing an abstraction layer identify the core parts you *need to do well*, and then design a way to circumvent or add on functionality in an intuitive manner. It's important not to fixate on a perfect abstraction - instead focus on handling the majority of use cases, and providing an intuitive way for the user to handle the remaining edge ones. 
 
 
-[^1]: <p style="font-size: 10px;">See <a href="https://www.joelonsoftware.com/2002/11/11/the-law-of-leaky-abstractions/">The Law of Leaky Abstractions</a></p>
+### Examples
+
+One of the clearest examples of when this is needed is when using an ORM API. Take the following snippet of C# code[^2]:
+
+```c#
+String sql = "SELECT id, first_name, last_name, phone, birth_date FROM Persons WHERE id = 10";
+Result res = db.execSql(sql);
+String name = res[0]["FIRST_NAME"];
+```
+
+An ORM is a great abstraction layer that turns the above into something like:
+
+```java
+Person p = repository.GetPerson(10);
+String name = p.getFirstName();
+```
+
+It's easier to read (and code) when the SQL is abstracted away behind `GetPerson` functions. 
+
+Unfortunately no ORM could sufficiently provide all the functionality - as your queries get more complicated the ORM will start to strain and either force to you perform bad code practices or look for a solution elsewhare. A punchthrough would be a method like so:
+
+```c#
+Person p = repository.GetPerson(10);
+String name = p.getFirstName();
+RawSqlBuilder r = repository.buildSql(@"SELECT Orders.id FROM Orders 
+	INNER JOIN Persons ON Orders.id=Persons.id 
+	WHERE first_name=" + name + ";");
+Transaction t = repository.execSql(r).getTransaction(0);
+```
+
+A library built like this acknowledges that it won't provide functionality for all usecases and offers the ability to punch straight through it - in this case, writing raw SQL that it then interprets and brings back to the ORM layer gracefully.
+
+### Multi Layer Abstraction Punch-Throughs
+
+One of the biggest issues that arise when designing multiple abstraction layers is the methodology of punch through. 
+
+
+###### Footnotes
+
+[^1]: See <a href="https://www.joelonsoftware.com/2002/11/11/the-law-of-leaky-abstractions/">The Law of Leaky Abstractions</a>
+
+[^2]: Credit to <a href="https://en.wikipedia.org/wiki/Object-relational_mapping">Wikipedia</a>
