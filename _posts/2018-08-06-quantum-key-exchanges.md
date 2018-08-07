@@ -61,7 +61,7 @@ Imagine that Alice and Bob want to communicate with each other, and there is an 
 
 In the scenario above, **Eve cannot intercept the communication without altering it, thus exposing herself**. Any attempt to read the original data results in its destruction, thus preventing man-in-the-middle attacks or allowing Eve to reconstruct the original qubits.
 
-After Alice has sent all the data, Bob uses the public bit channel to disclose his choices of basis for each bit sent. Alice then replies with the original, true basis and they both discard any bits where Bob guessed incorrectly. Statistically, Bob will guess correctly around 50\% of the time. The verification that they weren't eavesdropped is now simple - they select a random subset of the message and compare it over the bit channel. If it matches, they can ascertain with a high degree of certainty that Eve did not intercept their message. 
+After Alice has sent all the data, Bob uses the public bit channel to disclose his choices of basis for each bit sent. Alice then replies with the original, true basis and they both discard any bits where Bob guessed incorrectly. Statistically, Bob will guess correctly around 50% of the time. The verification that they weren't eavesdropped is now simple - they select a random subset of the message and compare it over the bit channel. If it matches, they can ascertain with a high degree of certainty that Eve did not intercept their message. 
 
 This is mathematically secure - however, it does not take into account the possibility of the regular channel being attacked by Eve in a MitM style attack. This issue is rectified with other common cryptographical tools, however, such as Wegman-Carter authentication. 
 
