@@ -308,6 +308,27 @@
 	font-size: 10px;
 	line-height: 1;
 }
+
+.abstractionLayer {
+	min-height: 30px;
+	margin: 10px auto;
+	align-items: center;
+	color: white;
+	text-align: center;
+	width: 40%;
+	display:flex;
+	justify-content:center;
+}
+
+.firstAl{
+	background-color: #45A995;
+}
+.secondAl{
+	background-color: #378F76;
+}
+.thirdAl{
+	background-color: #214D3C;
+}
 .highlighter-rouge { background: #f4f4f4; }
 .highlight .c { color: #999988; font-style: italic } /* Comment */
 .highlight .err { color: #a61717; background-color: #e3d2d2 } /* Error */

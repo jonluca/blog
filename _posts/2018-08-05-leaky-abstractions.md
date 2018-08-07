@@ -66,6 +66,27 @@ A library built like this acknowledges that it won't provide functionality for a
 
 One of the biggest issues that arise when designing multiple abstraction layers is the methodology of punch through. 
 
+In the example below we have a moderately complex application - there are three distinct abstraction layers that are each built on top of each, with a clear separation of duties.
+
+<div class="abstractionLayer firstAl">First Service</div>
+<div class="abstractionLayer secondAl">Second Service</div>
+<div class="abstractionLayer thirdAl">Third Service</div>
+
+The question then becomes whether the punch through should go all the way through, or whether it should be limited to just the next layer. 
+
+Should the design of the system allow the first layer to modify the third one directly? 
+
+The obvious benefit is functionality. You add the ability for the user to not have to learn anything about the second layer - if they are dealing with the first service and just need to modify something on the third, they can punch straight through. 
+
+The negatives are a bit more nuanced. When designing a straight punch-through system, you remove the locality of code. A code base could end up with poorly delineated files which touch a lot of functionality. 
+
+The other potential issue is precedence. If layer one exercises its right to punch through to layer 3, but layer 2 does as well, and they conflict, which takes precedence? It's not immediately clear if it's one or the other, and would probably lay in the field of undefined behavior. 
+
+Restricting punch through to just the layer below would rectify this problem, at the cost of more functionality. I don't believe there's a firm answer to this, and the right choice ends up being project dependent. 
+
+### Give the choice, not the obligation
+
+When designing an abstraction layer it's important to give your users the ability to punch through without being leaky. When you design the leaks yourself, and hide them behind "Advanced User" warnings, you cater to a larger audience, and you extend the functionality of your service.
 
 ###### Footnotes
 
