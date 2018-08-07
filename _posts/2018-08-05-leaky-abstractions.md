@@ -2,8 +2,7 @@
 title: "Leaky vs Punch-Through Abstractions"
 date: 2018-08-04 11:07:47
 ---
-
-Leaky abstractions are bad - they do not properly hide away all the complexity of the system they are covering. Unfortunately *every* abstraction is leaky to some degree[^1] - that's why the best designed abstractions offer the ability to **punch through** them.
+Leaky abstractions are the cause of much frustration - they do not properly hide away all the complexity of the system they are covering. Unfortunately *every* abstraction is leaky to some degree[^1] - that's why the best designed abstractions offer the ability to **punch through** them.
 
 ### Background
 
@@ -30,7 +29,7 @@ No abstraction is actually perfect - there will *always* be cases when the provi
 All abstractions are leaky. To pretend otherwise would be to lie to ourselves. When designing an abstraction layer identify the core parts you *need to do well*, and then design a way to circumvent or add on functionality in an intuitive manner. It's important not to fixate on a perfect abstraction - instead focus on handling the majority of use cases, and providing an intuitive way for the user to handle the remaining edge ones. 
 
 
-### Examples
+### ORM
 
 One of the clearest examples of when this is needed is when using an ORM API. Take the following snippet of C# code[^2]:
 
@@ -42,7 +41,7 @@ String name = res[0]["FIRST_NAME"];
 
 An ORM is a great abstraction layer that turns the above into something like:
 
-```java
+```c#
 Person p = repository.GetPerson(10);
 String name = p.getFirstName();
 ```
@@ -68,8 +67,8 @@ One of the biggest issues that arise when designing multiple abstraction layers 
 
 In the example below we have a moderately complex application - there are three distinct abstraction layers that are each built on top of each, with a clear separation of duties.
 
-<div class="abstractionLayer firstAl">First Service</div>
-<div class="abstractionLayer secondAl">Second Service</div>
+<div id="1" class="abstractionLayer firstAl">First Service</div>
+<div id="2" class="abstractionLayer secondAl">Second Service</div>
 <div class="abstractionLayer thirdAl">Third Service</div>
 
 The question then becomes whether the punch through should go all the way through, or whether it should be limited to just the next layer. 
@@ -78,11 +77,13 @@ Should the design of the system allow the first layer to modify the third one di
 
 The obvious benefit is functionality. You add the ability for the user to not have to learn anything about the second layer - if they are dealing with the first service and just need to modify something on the third, they can punch straight through. 
 
-The negatives are a bit more nuanced. When designing a straight punch-through system, you remove the locality of code. A code base could end up with poorly delineated files which touch a lot of functionality. 
+The negatives are a bit more nuanced. When designing a straight punch-through system, you remove the locality of code. A code base could end up with poorly delineated files which touch a lot of functionality. Allowing the a high level service to directly modify low level functionality leads to a lack of intuition on where the code would reside. Since *every* layer of a service can modify any below it, there's a lot more places for misbehaving code to show up. 
 
 The other potential issue is precedence. If layer one exercises its right to punch through to layer 3, but layer 2 does as well, and they conflict, which takes precedence? It's not immediately clear if it's one or the other, and would probably lay in the field of undefined behavior. 
 
-Restricting punch through to just the layer below would rectify this problem, at the cost of more functionality. I don't believe there's a firm answer to this, and the right choice ends up being project dependent. 
+Restricting punch through to just the layer below would rectify this problem, at the cost of more functionality. 
+
+I don't believe there's a firm answer to this, and the right choice ends up being project dependent. The coupling of the system should also be taken into account - if these layers are all tightly coupled and are unlikely to be reused, then a direct punch through might be ideal. If instead this is a genericized project that is meant to have a clear separation of duties, single layer punch through is preferred.
 
 ### Give the choice, not the obligation
 
