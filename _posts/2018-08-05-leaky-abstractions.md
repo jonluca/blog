@@ -1,6 +1,7 @@
 ---
 title: "Leaky vs Punch-Through Abstractions"
 date: 2018-08-04 11:07:47
+comments: true
 ---
 Leaky abstractions are the cause of much frustration - they do not properly hide away all the complexity of the system they are covering. Unfortunately *every* abstraction is leaky to some degree[^1] - that's why the best designed abstractions offer the ability to **punch through** them.
 
@@ -55,12 +56,15 @@ Person p = repository.GetPerson(10);
 String name = p.getFirstName();
 RawSqlBuilder r = repository.buildSql(@"SELECT Orders.id FROM Orders 
 	INNER JOIN Persons ON Orders.id=Persons.id 
-	WHERE first_name=" + name + ";");
-Transaction t = repository.execSql(r).getTransaction(0);
+	WHERE first_name=" + escapeSql(name) + ";");
+String orderName = repository.execSql(r).getOrderName(0);
 ```
 
 A library built like this acknowledges that it won't provide functionality for all usecases and offers the ability to punch straight through it - in this case, writing raw SQL that it then interprets and brings back to the ORM layer gracefully.
 
+There's an argument here that a library that does not have the above functionality is just a poorly made abstraction - that's not the point of the example, though. The point is the fact that no library will cover all use cases, and it's a significantly better experience when the library helps you and guides you through it's abstraction rather than forcing you to fork the project and modify the code yourself to fit your needs. In a perfect world the library would be adapted for your specific use case so that it fully covers it, but that's just not a reasonable approach to the problem. 
+
+Even the best made abstractions wil 
 ### Multi Layer Abstraction Punch-Throughs
 
 One of the biggest issues that arise when designing multiple abstraction layers is the methodology of punch through. 

@@ -1,6 +1,7 @@
 ---
 title: "The Federalist Papers: Author Identification Through K-Means Clustering"
 date: 2018-07-07 19:06:19
+comments: true
 ---
 
 <link rel="stylesheet" href="{{ site.url }}/stylesheets/federalist.css"/>
