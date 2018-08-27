@@ -44,13 +44,11 @@ for i in range(len(elem)):
 
 I manually moved each paper into it's respective authors folder and cleaned up the Gutenberg header/footer. John Jay only wrote 4 papers (2, 3, 4, and 5), but then fell ill and contributed only one more essay, Federalist No. 64, to the series. For the purposes of this paper I discount him as having authored any of the disputed papers, as current historical consensus says that they were written by either Hamilton or Madison. 
 
-The disputed papers were papers 49 through 58 and 62 and 63, for a total of 12 of the 85. 
-
-The next step was to train a model on this data.
+The disputed papers were papers 49 through 58 and 62 and 63, for a total of 12 of the 85. Now we could start training our model on the data.
 
 ## Initial Attempts
 
-This being my first foray into the world of unsupervised NLP, I wanted to get a good feel for prior work on author attribution. I read a lot of papers, articles, and blog posts to get an intuition on how to get started. I put some of my favorites in the Resources and Prior Work section below. 
+This being my first foray into the world of unsupervised NLP, I wanted to get a good feel for prior work on author attribution. I read a lot of papers, articles, and blog posts to get an intuition on how to get started. I put some of my favorites in the Resources and Prior Work section below.  Note that because we have a (semi) ground truth, supervised learning would be a better approach - however, this was a learning exercise, and I wanted to see if I could replicate the results in an unsupervised manner.
 
 I decided to go with 3 features - lexical similarity in sentence structure, lexical similarity in punctuation, and syntactic similarity. 
 
