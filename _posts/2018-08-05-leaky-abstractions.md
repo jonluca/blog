@@ -1,5 +1,5 @@
 ---
-title: "Leaky vs Punch-Through Abstractions"
+title: "Leaky vs punch-through abstractions"
 date: 2018-08-04 11:07:47
 comments: true
 ---

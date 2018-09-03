@@ -1,5 +1,5 @@
 ---
-title: The Rise of Megathreads on Reddit
+title: The rise of megathreads on reddit
 date: 2018-06-06 19:06:43 -0700
 ---
 

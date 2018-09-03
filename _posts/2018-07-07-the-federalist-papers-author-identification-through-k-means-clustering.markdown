@@ -1,5 +1,5 @@
 ---
-title: "The Federalist Papers: Author Identification Through K-Means Clustering"
+title: "The Federalist Papers: author identification through K-means clustering"
 date: 2018-07-07 19:06:19
 comments: true
 ---
