@@ -160,11 +160,11 @@ The streamers would override the XMLHttpRequest `open` function, and if the url 
 (function (open) {
     XMLHttpRequest.prototype.open = function (method, url, async, user, pass) {
         if (url.indexOf('media-api') != -1) {
-            rewrittenUrl = url.replace("https://media-api.foxsportsgo.com/programs/", "http://mmrepo.000webhostapp.com/fskey.php?gth=");
+            rewrittenUrl = url.replace("https://media-api.foxsportsgo.com/programs/", "http://<redacted>.000webhostapp.com/fskey.php?gth=");
         } else if (url.indexOf('media-api') != -1) {
-            rewrittenUrl = url.replace("https://media-api.foxsportsgo.com/programs/", "http://mmrepo.000webhostapp.com/fskey.php?gth=");
+            rewrittenUrl = url.replace("https://media-api.foxsportsgo.com/programs/", "http://<redacted>.000webhostapp.com/fskey.php?gth=");
         }  else if (url.indexOf('playback.svcs.plus.espn.com') != -1) {
-            rewrittenUrl = url.replace("https://playback.svcs.plus.espn.com/events/", "http://mmrepo.000webhostapp.com/espnplus.php?gth=");
+            rewrittenUrl = url.replace("https://playback.svcs.plus.espn.com/events/", "http://<redacted>.000webhostapp.com/espnplus.php?gth=");
         } else {
             rewrittenUrl = url;
         }
@@ -172,6 +172,7 @@ The streamers would override the XMLHttpRequest `open` function, and if the url 
     };
 })(XMLHttpRequest.prototype.open);
 ```
+
 <p class="footnote">Code snippet taken directly from one of their streams</p>
 
 At this point I wanted to know what these streams were doing. Certain streams would Base64 encode the URL actually being requested and pass it on to their proxies. 
@@ -197,3 +198,6 @@ In the interest of privacy I've commented out partial credentials, but they're e
 ## Moving Forward
 
 Unfortunately implementing reverse AES keyservers was a bit beyond the scope of what I wanted this weekend project to be. I settled for the Electron app I made - the best part is that this will stream directly to a Chromecast, or behave like a native video. There are 0 (non-stream) ads, and I have much more direct, low level control of the stream myself. This has worked for pretty much every live event I've watched online, including Apple's keynotes.
+
+I don't think there's much else to explore here - most streams are exactly reproducible at the touch of a button, and those that aren't are so complicated that it's not worth investing the effort. If you find a stream that you can't seem to reverse I'd love to hear about it! Leave it in the comments or email me directly.
+
