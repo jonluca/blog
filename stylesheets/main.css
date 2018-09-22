@@ -86,3 +86,8 @@ th, td {
   background-color: red !important;
   color: #fff;
 }
+
+.footnote {
+  font-size: 10px;
+  text-align: center;
+}
