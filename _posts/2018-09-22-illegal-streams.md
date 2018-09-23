@@ -110,6 +110,9 @@ At this point, I could scan a page for playlist files, retrieve the HAR, encode 
 
 Chrome refuses to set certain headers, one of which is 'Referer'. Any time I tried to deconstruct the HAR and recreate the `XMLHttpRequest` it would warn me in the console that the headers I chose to set were unsafe, and refuse to apply them. There was no way around this, unfortunately. So I turned to the fastest way of keeping the work I had done so far while reaching a working solution - Electron.
 
+<img src="/images/unsafe-headers.png">
+<p class="footnote">Chrome refuses to set certain headers</p>
+
 ## Electron
 
 Electron is a cross platform open source framework for creating desktop apps. While it is a little bloated (you're effectively running Chrome + Node, which makes anyone with limited amounts of RAM shudder), it is effectively a way to run webapps on your desktop. The real plus is that it doesn't suffer from the same restrictions as a static HTML page. 
@@ -131,7 +134,7 @@ There are a few libraries out there that emulate XMLHttpRequest in Node. I found
 
 Unfortunately this library *also* refused to set unsafe headers. This time it was easy to fix though - I could just fork it, and remove the code that checks for those headers! Thus, `node-xhr2-unsafe` was born (published [here](https://github.com/jonluca/node-xhr2-unsafe) and on npm).
 
-After all those changes, and an experiencing in yak shaving that would've made Donald Knuth proud, I got the streams working. I also added some options to make the viewing experience better, such as dark mode and forcing LIVE mode. 
+After all those changes, and an experience in yak shaving that would've made Donald Knuth proud, I got the streams working. I also added some options to make the viewing experience better, such as dark mode and forcing LIVE mode. 
 
 <img src="/images/dark-mode-hls.png">
 <p class="footnote">Options to my static site</p>
