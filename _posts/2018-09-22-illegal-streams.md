@@ -10,7 +10,7 @@ I wanted to do some research and figure out if there was a way to quickly export
 
 ## Background
 
-[HTTP Live Streaming](https://developer.apple.com/streaming/), or HLS, is the defacto live streaming standard. There's a healthy open source community around building tools and infrastructure for HLS, most notably [hls.js](https://github.com/video-dev/hls.js/). HLS is designed for reliability and dynamically adapts to network conditions by optimizing playback for the available speed of wired and wireless connections. It's a fairly complicated spec, but the core of it is as follows.
+[HTTP Live Streaming](https://developer.apple.com/streaming/), or HLS, is one of the most common live streaming standards. There's a healthy open source community around building tools and infrastructure for HLS, most notably [hls.js](https://github.com/video-dev/hls.js/). HLS is designed for reliability and dynamically adapts to network conditions by optimizing playback for the available speed of wired and wireless connections. It's a fairly complicated spec, but the core of it is as follows.
 
 Live streams start at the input, which is usually either a live event or a static file that is being streamed. For live events, the server requires a media encoder, which can be off-the-shelf hardware, and a way to break the encoded media into segments and save them as files. These files are then categorized into a playlist file, usually with a file extension `.m3u8`.
 
@@ -43,7 +43,7 @@ media-uqjt9f59i_1814.ts
 media-uqjt9f59i_1815.ts
 ```
 
-Each of these ts files is the actual media chunk, either a part of an MP4, HEVC, or some other media format.
+Each of these ts files is the actual media chunk file, which use the file format `MPEG2-TS`.
 
 The client is responsible for fetching any decryption keys, authenticating or presenting a user interface to allow authentication, and decrypting media files as needed.
 
