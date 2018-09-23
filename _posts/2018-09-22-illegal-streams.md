@@ -124,7 +124,7 @@ I started by just porting everything over to electron - it worked pretty much ou
 
 However, since Electron is based on Chromium, and I was making regular XMLHttpRequests, it *still* wouldn't let me apply those headers. I'd have to use a Node library to make my HTTP requests, but the library I was using (hls.js) is only a browser library, and lacks a direct integration with Node.
 
-Fortunately hls.js provides a way to overlaod their HTTP loader function. I didn't really need a custom loader though - I just needed a version of XMLHttpRequest that didn't need to go through Chromium.
+Fortunately hls.js provides a way to overload their HTTP loader function. I didn't really need a custom loader though - I just needed a version of XMLHttpRequest that didn't need to go through Chromium.
 
 Enter node-xhr2-unsafe.
 
