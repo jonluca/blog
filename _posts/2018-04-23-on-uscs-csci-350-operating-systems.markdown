@@ -1,6 +1,6 @@
 ---
 title: On USC's CSCI-350 (Operating Systems)
-date: 2018-04-23 20:10:25
+date: 2018-04-23 20:10:25 -0700
 ---
 
 As a USC CS student, you hear tales about OS - the long nights, the difficult debugging, the memory problems, and other terrifying stories. I was excited to take this course - I was hoping it would be another course like CSCI-104 (Data Structures). I entered 104 not knowing how little I knew about CS, and left both feeling like I learned a lot and as if there was just so much more for me to know. 

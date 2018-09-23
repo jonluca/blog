@@ -1,6 +1,6 @@
 ---
 title: "Illegal streams, decrypting m3u8's, and building a better stream experience"
-date: 2018-09-22 11:14:32
+date: 2018-09-22 11:14:32  -0400
 comments: true
 ---
 <link rel="stylesheet" href="/stylesheets/main.css"/>
