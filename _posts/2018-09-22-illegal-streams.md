@@ -43,7 +43,7 @@ media-uqjt9f59i_1814.ts
 media-uqjt9f59i_1815.ts
 ```
 
-Each of these ts files is the actual media chunk file, which use the file format `MPEG2-TS`.
+Each of these `ts` files is the actual media chunk file, which use the file format `MPEG2-TS`.
 
 The client is responsible for fetching any decryption keys, authenticating or presenting a user interface to allow authentication, and decrypting media files as needed.
 
@@ -53,7 +53,7 @@ This process continues until the client encounters the EXT-X-ENDLIST tag in the 
 
 This means that it should be fairly trivial to extract the `.m3u8` (the live stream playlist format) from a livestream and just plug it into a site that's nothing more than a wrapper for a `<video>` element.
 
-I experimented with it for a bit, and found the fastest way to do so would be to go to the Network tab and just filter by m3u8. At that point you can just copy and paste the URL into any program that plays m3u8 and watch the stream (VLC and QuickTime both work).
+I experimented with it for a bit, and found the fastest way to do so would be to go to the Network tab and just filter by `m3u8`. At that point you can just copy and paste the URL into any program that plays `m3u8` and watch the stream (VLC and QuickTime both work).
 
 <img src="/images/chunklist.png">
 <p class="footnote">Finding the m3u8</p>
