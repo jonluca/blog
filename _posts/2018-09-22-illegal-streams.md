@@ -187,7 +187,7 @@ I tried changing the URL to my person site, and what do you know, it replies bac
 
 The "aHR0cHM6Ly9qb25sdS5jYQ==" in the URL is just `https://jonlu.ca` base64 encoded.
 
-At this point I made an educated guess - it takes the URL passed in the URL parameter, applies the hard coded authentication from the server, makes the request, then replies back with the results. However, the server isn't currently checking if the host it's sending it's cookies/headers to is the correct one (i.e. espn, fox, cbs, etc). 
+At this point I made an educated guess - it takes the URL passed in the URL parameter, applies the hard coded authentication from the server, makes the request, then replies back with the results. However, the server isn't currently checking if the host it's sending its cookies/headers to is the correct one (i.e. ESPN, Fox, CBS, etc). 
 
 I built up a quick HTTP server that would just dump all the requests contents to stdout. I threw this up on my server at `https://jonlu.ca/stream/` and then base64 encoded that and sent it to their proxy key server.
 
