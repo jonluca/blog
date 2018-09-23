@@ -141,7 +141,7 @@ After all those changes, and an experience in yak shaving that would've made Don
 
 ## ESPN and Fox?
 
-Within the last 6 months an interesting trend has arisen - the illegal streams actually link to the *actual ESPN, Fox, and CBS streams*. If you inspect the network requests you'll see the streamer is linking directly to these companies streams. The streams were beautiful quality and would now hardly every stutter or have the awkward "let me minimize the window I'm streaming and check my email" problem you'd get with bootlegged streamers.
+Within the last 6 months an interesting trend has arisen - the illegal streams link to the *actual ESPN, Fox, and CBS streams*. If you inspect the network requests you'll see the streamer is linking directly to these companies' streams. The streams were beautiful quality and would now hardly every stutter or have the awkward "let me minimize the window I'm streaming and check my email" problem you'd get with bootlegged streamers.
 
 <img src="/images/fox-hls.png">
 <p class="footnote">Illegal stream to Fox</p>
