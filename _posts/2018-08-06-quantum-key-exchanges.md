@@ -1,7 +1,6 @@
 ---
 title: "Quantum key exchanges"
 date: 2018-08-06 21:15:22 -0700
-comments: true
 ---
 <link href='{{ site.url }}/stylesheets/main.css' rel='stylesheet' type='text/css' />
 

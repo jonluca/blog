@@ -1,7 +1,6 @@
 ---
 title: "Illegal streams, decrypting m3u8's, and building a better stream experience"
 date: 2018-09-22 11:14:32  -0400
-comments: true
 ---
 <link rel="stylesheet" href="/stylesheets/main.css"/>
 Having not lived in the US for the majority of my life, I often needed to rely on illegal streams to watch America sports games. The experience on these streams is, to say the least, extremely poor. Most have some sort of crypto miner running in the background, as well as dozens of ads covering the stream. I wholeheartedly support ads for free content but unfortunately the sorts of ads that show up on these streams are terrible at best and malicious at worst. 
@@ -204,3 +203,4 @@ Unfortunately implementing reverse AES keyservers was a bit beyond the scope of 
 
 I don't think there's much else to explore here - most streams are exactly reproducible at the touch of a button, and those that aren't are so complicated that it's not worth investing the effort. If you find a stream that you can't seem to reverse I'd love to hear about it! Leave it in the comments or email me directly.
 
+*Comments can be found on reddit, [here](https://www.reddit.com/r/jonluca/comments/9jz5l0/illegal_streams_decrypting_m3u8s_and_building_a/?)*
