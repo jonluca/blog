@@ -2,9 +2,10 @@
 <!doctype>
 <html lang="en">
 <head>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     {% if page.title %}
     <meta content="{{ page.title }} - {{ site.title}}" name='title'/>
-    <meta content="{{ page.title }} - {{ site.title}}"name='og:title'/>
+    <meta content="{{ page.title }} - {{ site.title}}" name='og:title'/>
     <title>{{ page.title }} - {{ site.title }}</title>
     {% else %}
     <meta content="{{ site.title  | markdownify}}" name='title'/>
@@ -18,7 +19,7 @@
     <p>{{ site.title }}</p>
 </header>
 <div class="width bg-white mt4 mb3 center br2-ns bt bb ba-ns b--light-gray">
-    <nav class="bb b--light-gray pv4 tc" aria-label="Main">
+    <nav aria-label="Main" class="bb b--light-gray pv4 tc">
         {% for link in site.links %}
         <a class="link blue hover-mid-gray mh2 pv1"
            href="{% unless link.external %}{{ site.url }}{% endunless %}{{ link.url }}">
@@ -26,7 +27,6 @@
         </a>
         {% endfor %}
     </nav>
-
     <main class="tl f6 relative pa4 pa5-ns overflow-hidden">
         {% if page.title %}
         <div class="mb4">
@@ -43,16 +43,29 @@
         <div class="markdown-body">
             {{ content }}
         </div>
-        {% if is_post %}{% include signoff.html %}{% endif %}
+        {% if is_post %}
+        <!-- <div class="share-page">
+            <i>Share this on
+            <a href="https://twitter.com/intent/tweet?text={{ page.title }}&url={{ site.url }}{{ page.url }}&via={{ site.twitter_username }}&related={{ site.twitter_username }}" rel="nofollow" target="_blank" title="Share on Twitter">Twitter</a>
+            <a href="https://facebook.com/sharer.php?u={{ site.url }}{{ page.url }}" rel="nofollow" target="_blank" title="Share on Facebook">Facebook</a>
+            <a href="https://plus.google.com/share?url={{ site.url }}{{ page.url }}" rel="nofollow" target="_blank" title="Share on Google+">Google+</a></i>i
+        </div> -->
+        {% include signoff.html %}
+        {% include share.html %}
+        {% endif %}
     </main>
 </div>
-<script id="dsq-count-scr" src="//jonlucas-blog.disqus.com/count.js" async></script>
+<script async id="dsq-count-scr" src="//jonlucas-blog.disqus.com/count.js"></script>
 </body>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-90475221-1"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
+
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+
   gtag('js', new Date());
   gtag('config', 'UA-90475221-1');
 </script>
