@@ -2,7 +2,7 @@
 title: About
 ---
 
-Hi! I'm JonLuca DeCaro. I'm currently a Software Engineering Intern at Google. Before this I was a Security Engineer at Apple. I go to the University of Southern Californai. 
+Hi! I'm JonLuca DeCaro. I'm currently a Software Engineering Intern at Google. Before this I was a Security Engineer at Apple.
 
 I enjoy blogging about tech, programming, and security. 
 
