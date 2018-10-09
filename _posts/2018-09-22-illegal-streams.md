@@ -147,7 +147,7 @@ Within the last 6 months an interesting trend has arisen - the illegal streams l
 
 How were they doing this? All the real providers use the encryption built into HLS to prevent illegal streams. 
 
-The streamers had done something much more clever. They were actually authenticating all these streams with valid keys. They did this by setting up an actual semi-proxy server to the official keyservers and wrapping the requests with the valid keys. 
+The streamers had done something much more clever. They were actually authenticating all these streams with valid keys. They did this by setting up an semi-proxy server to the official keyservers and wrapping the requests with the valid keys. 
 
 Let me explain. 
 
