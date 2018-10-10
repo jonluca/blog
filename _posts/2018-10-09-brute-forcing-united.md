@@ -148,7 +148,7 @@ And there you have it! Today's WiFi password is `GLOBAL9980`.
 
 The best part about it was that the valid attempt automatically whitelisted that mac address - I didn't even need to type the password in myself.
 
-## Protections and prevent brute forcing
+## Preventing brute force attacks
 
 I was worried I'd run into ratelimiting or start getting `429`'s from United. Fortunately that never happend, but I've run into similar services that will lock you out. A good way around this is to spoof your mac address - at that point, there is no way for a router to recognize that it's your device that has made all these attempts, and will allow you to keep doing so uninhibited. 
 
