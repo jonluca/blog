@@ -5,6 +5,7 @@ url:              https://blog.jonlu.ca # Site url, without a slash at the end.
 signoff:          "JonLuca" # Your name
 markdown: kramdown
 twitter_username: jonlucadecaro
+encoding: utf-8
 plugins:
   - jekyll-seo-tag
 
