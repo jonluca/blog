@@ -159,3 +159,5 @@ As an aside spoofing your mac address on the 2018 MacBook Pro's seems to not wor
 This also would've been possible to do with BurpSuite and setting up repeater, but I didn't really want to go to that effort. This was a quick exercise in seeing how easy this would be if I was standing *outside* the lounge, without access to the password. Any online service that uses a captive portal is susceptible to this attack. One of these days I'm planning on building an airport-centric wordlist (i.e. Lounge, WiFi, &lt;airport name&gt;, &lt;airline name&gt;, current year, etc.) so that bruteforcing *without* any preexisting knowledge also becomes feasible.
 
 Overall fairly successful for 10 minutes of work!
+
+Comments can be found on reddit, [here](https://www.reddit.com/r/jonluca/comments/9mvg4s/bruteforcing_united_clubs_wifi_password/?)
