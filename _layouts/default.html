@@ -3,6 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="author" content="JonLuca DeCaro">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     {% if page.title %}
     <meta content="{{ page.title }} - {{ site.title}}" name='title'/>
@@ -15,6 +16,7 @@
     {% endif %}
     {% if page.header-img %}
     <meta property="og:image" content="{{ site.url }}{{ page.header-img }}" />
+    <meta property="image" content="{{ site.url }}{{ page.header-img }}" />
     {% endif %}
     {% include head.html %}
 </head>
