@@ -4,19 +4,19 @@ layout: null
 ---
 <html>
 <head>
-    <meta content='Scribble' property='og:title'/>
-    <title>Scribble</title>
+    <meta content='404 Not Found' property='og:title'/>
+    <title>Not Found</title>
     <link href='{{ site.url }}/images/fav.png' rel='shortcut icon'>
-    <link href="{{ site.url }}/stylesheets/style.css" rel="stylesheet"/>
     <meta content='width=device-width, initial-scale=1.0, user-scalable=no' name='viewport'>
     <meta content='text/html; charset=utf-8' http-equiv='content-type'/>
     <meta content='{{ site.url }}' property='og:url'/>
     <meta content="{{ site.description }}" property='og:description'/>
     <meta content="blog" property="og:type"/>
+    {% include head.html %}
 </head>
 <body class="lh-copy dark-gray ph3 pv5 f6 sans-serif tc bg-super-white">
-<img alt="not found" class="mb3" src="{{ site.url }}/images/404.png" width="160"/><br>
-<a class="link blue hover-gray" href="{{ site.url }}">Home</a>
+	<h1>404</h1>
+	<h6>Page not found - <a class="link blue hover-gray" href="{{ site.url }}">Home</a></h6>
 </div>
 </body>
 </html>
