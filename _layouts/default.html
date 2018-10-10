@@ -2,11 +2,11 @@
 <!doctype>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     {% if page.title %}
     <meta content="{{ page.title }} - {{ site.title}}" name='title'/>
     <meta content="{{ page.title }} - {{ site.title}}" name='og:title'/>
-    <meta charset="UTF-8">
     <title>{{ page.title }} - {{ site.title }}</title>
     {% else %}
     <meta content="{{ site.title  | markdownify}}" name='title'/>
