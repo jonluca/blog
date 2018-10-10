@@ -1,6 +1,7 @@
 ---
 title: Speeding up zsh and Oh-My-Zsh
 date: 2018-05-16 11:43:26 -0700
+header-img: "/images/rawbash.png"
 ---
 
 I was quickly opening multiple shells for an unrelated project today and noticed how abysmal my shell load speed was. After the initial load it was relatively fast, but the actual shell start up was noticeably slow. I decided to time it with `time`.
