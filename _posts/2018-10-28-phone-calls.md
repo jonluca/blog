@@ -82,3 +82,5 @@ Then we use the inverse short time fourier transform to get back the modified ti
 This sounds almost *exactly* like a phone call. This was a suprisingly quick and fun exploration into signal processing, and into making high quality audio sound like a phone call. 
 
 I want to play around with implementing Linear predictive coding (LPC) to synthesize the speech from a residual waveform. There are a few signal processing books on my reading list, and I'll update this blog post with any corrections or fun discoveries as I get through those.
+
+The code for this project lives [here](https://github.com/jonluca/Phone-Audio-Processing)
