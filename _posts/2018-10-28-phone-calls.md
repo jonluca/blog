@@ -24,7 +24,7 @@ First I just wanted to see if I could emulate the sound of a phone call from a h
 
 The original sound file: 
 
-<audio controls>
+<audio controls class="audio-block">
   <source src="/assets/game.wav" type="audio/wav">
   <p>Your browser doesn't support HTML5 audio. Here is
      a <a href="https://github.com/jonluca/Phone-Audio-Processing/tree/master/input">link to the audio</a> instead.</p>
@@ -46,7 +46,7 @@ librosa.output.write_wav("output/eightkhz_resampled.wav", resampled_time_series,
 
 You can listen to the resample result here:
 
-<audio controls>
+<audio controls class="audio-block">
   <source src="/assets/eightkhz_resampled.wav" type="audio/wav">
   <p>Your browser doesn't support HTML5 audio. Here is
      a <a href="https://github.com/jonluca/Phone-Audio-Processing/tree/master/output">link to the audio</a> instead.</p>
@@ -73,7 +73,7 @@ librosa.output.write_wav("output/eightkhz_resampled_unfrequencied.wav", reconstr
 
 Then we use the inverse short time fourier transform to get back the modified time series, and write that out. The final audio result is below.
 
-<audio controls>
+<audio controls class="audio-block">
   <source src="/assets/eightkhz_resampled_unfrequencied.wav" type="audio/wav">
   <p>Your browser doesn't support HTML5 audio. Here is
      a <a href="https://github.com/jonluca/Phone-Audio-Processing/tree/master/output">link to the audio</a> instead.</p>

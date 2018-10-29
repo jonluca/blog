@@ -91,3 +91,9 @@ th, td {
   font-size: 10px;
   text-align: center;
 }
+
+.audio-block {
+  display: block;
+  margin: auto;
+  text-align: center;
+}
