@@ -3,8 +3,9 @@ title: "Churning primer"
 date: 2018-11-11 12:11:41 -0500
 header-img: "/images/wallet_status.png"
 ---
-<link rel="stylesheet" href="/stylesheets/main.css"/>
-
+<style>
+    {%  include main.css  %}
+</style>
 I've been asked before about a hobby I take part in called *churning*. I thought I'd write up a post that explains what it is, how I got into it, and how much value it can provide. 
 
 ## How I got into churning

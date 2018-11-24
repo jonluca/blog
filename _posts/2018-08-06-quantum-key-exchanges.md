@@ -2,8 +2,9 @@
 title: "Quantum key exchanges"
 date: 2018-08-06 21:15:22 -0700
 ---
-<link href='{{ site.url }}/stylesheets/main.css' rel='stylesheet' type='text/css' />
-
+<style>
+    {%  include main.css  %}
+</style>
 
 The one-time pad offers a mathematical guarantee of perfect security, with a few drawbacks - you are required to exchange keys that are at least as long as your message, and you can only use these keys once. 
 
