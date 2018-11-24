@@ -26,9 +26,9 @@ My zsh set up was nearly 100x slower than raw bash. I wanted to investigate what
 
 Before we begin, it might be helpful to understand how shells in general start up. Shells are just an executable like any other on your machine - their purpose is to just take user input and behave like an old terminal. They have predefined control sequences, but in general are fairly extensible. The following is from ZSH man pages:
 
-<i>Commands are first read from /etc/zshenv; this cannot be overridden. ... Commands are then read from $ZDOTDIR/.zshenv. If the shell is a login shell, commands are read from /etc/zprofile and then $ZDOTDIR/.zprofile. Then, if the shell is interactive, commands are read from /etc/zshrc and then $ZDOT-DIR/.zshrc. Finally, if the shell is a login shell, /etc/zlogin and $ZDOTDIR/.zlogin are read.</i>
+> Commands are first read from /etc/zshenv; this cannot be overridden. ... Commands are then read from $ZDOTDIR/.zshenv. If the shell is a login shell, commands are read from /etc/zprofile and then $ZDOTDIR/.zprofile. Then, if the shell is interactive, commands are read from /etc/zshrc and then $ZDOT-DIR/.zshrc. Finally, if the shell is a login shell, /etc/zlogin and $ZDOTDIR/.zlogin are read.
 
-<i>When a login shell exits, the files $ZDOTDIR/.zlogout and then /etc/zlogout are read.</i>
+> When a login shell exits, the files $ZDOTDIR/.zlogout and then /etc/zlogout are read.
 
 The following files are read:
 
@@ -46,7 +46,7 @@ ${TMPPREFIX}*   (default is /tmp/zsh*)
 /etc/zlogout    (installation-specific - /etc is the default)
 ```
 
-This gives a general flow of execution, and where zsh starts. My `.zshrc` just leads to `source`ing a few other files, which just behaves as if the contents of those files was passed directly into the shell as standard input. 
+This gives a general flow of execution, and where zsh starts. My `.zshrc` leads to `source`ing a few other files, which just behaves as if the contents of those files was passed directly into the shell as standard input. 
 
 ### Profiling
 
