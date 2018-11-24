@@ -19,7 +19,7 @@ This was promising. Some of the core features of AMR are:
 * Sampling frequency 8 kHz/13-bit (160 samples for 20 ms frames), filtered to 200–3400 Hz.
 * The AMR codec uses eight source codecs with bit-rates of 12.2, 10.2, 7.95, 7.40, 6.70, 5.90, 5.15 and 4.75 kbit/s.
 
-There are some more advanced properties, such as the compression during silent periods of the call and how it handles both speech parameters and a waveform signal, but I didn't want to get into that yet
+There are some more advanced properties, such as the compression during silent periods of the call and how it handles both speech parameters and a waveform signal, but I didn't want to get into that yet.
 
 First I just wanted to see if I could emulate the sound of a phone call from a high quality audio file. I found a site that has [high fidelity audio sampled at 44khz](https://sampleswap.org/filebrowser-new.php?d=VOCALS+and+SPOKEN+WORD%2FSPOKEN+WORD%2F) and tried it on one of them. 
 
@@ -82,6 +82,6 @@ Then we use the inverse short time fourier transform to get back the modified ti
 
 This sounds almost *exactly* like a phone call. This was a suprisingly quick and fun exploration into signal processing, and into making high quality audio sound like a phone call. 
 
-I want to play around with implementing Linear predictive coding (LPC) to synthesize the speech from a residual waveform. There are a few signal processing books on my reading list, and I'll update this blog post with any corrections or fun discoveries as I get through those.
+I want to play around with implementing linear predictive coding (LPC) to synthesize the speech from a residual waveform. There are a few signal processing books on my reading list, and I'll update this blog post with any corrections or fun discoveries as I get through those.
 
 The code for this project lives [here](https://github.com/jonluca/Phone-Audio-Processing)
