@@ -84,4 +84,4 @@ This sounds almost *exactly* like a phone call. This was a suprisingly quick and
 
 I want to play around with implementing linear predictive coding (LPC) to synthesize the speech from a residual waveform. There are a few signal processing books on my reading list, and I'll update this blog post with any corrections or fun discoveries as I get through those.
 
-The code for this project lives [here](https://github.com/jonluca/Phone-Audio-Processing)
+The code for this project lives [here](https://github.com/jonluca/Phone-Audio-Processing).

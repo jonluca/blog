@@ -21,9 +21,9 @@ My goal is to recreate the results found by Mosteller and Wallace through modern
 </p>
 ## Data Gathering
 
-The first step was to retrieve and clean the data. Luckily all the papers are in the public domain (and a piece of American History!), so they're hosted by the Gutenberg Library in a raw text document [here](http://www.gutenberg.org/cache/epub/18/pg18.txt).s
+The first step was to retrieve and clean the data. Luckily all the papers are in the public domain (and a piece of American History!), so they're hosted by the Gutenberg Library in a raw text document [here](http://www.gutenberg.org/cache/epub/18/pg18.txt).
 
-I did some data processing to clean up all the collection into its constituent papers:
+I did some data processing to clean up all the collection into it's constituent papers:
 
 ```python
 import re
@@ -68,7 +68,7 @@ Feature sets are what we'll use as indicators - we need to transform our text in
 
 We first tokenize each paper with `tokens = nltk.word_tokenize(single_paper_text.lower())` - this gives us an array of lowercase words with adjoined punctuation. Then we extract just the words with `words = word_tokenizer.tokenize(single_paper_text.lower())`. 
 
-Our goal is twofold - the first is to a straightforward measure of the average number of words per sentence, and the second is to somehow score the lexical diversity of the paper. 
+Our goal is two-fold - the first is to get a straightforward measure of the average number of words per sentence, and the second is to somehow score the lexical diversity of the paper. 
 
 We can arrive to a rough estimate of the lexical diversity by taking the vocabulary (number of unique words) divided by the total number of words. As an example, take the following snippet:
 
@@ -82,7 +82,7 @@ The number of unique words is 7, while the total number of words would be 8. The
 
 ### Lexical Similarity - Punctuation
 
-This feature is fairly straightforward - we count the average number of times they use a semicolon, a colon, and a dash in their writing. 
+This feature is also fairly straightforward - we count the average number of times they use a semicolon, a colon, and a dash in their writing. 
 
 ### Syntactic Similarity 
 
