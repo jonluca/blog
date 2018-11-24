@@ -216,3 +216,10 @@ th, td {
 #path-header{
   display: none;
 }
+
+.to-remove {
+  font-size: 20px;
+  text-align: center;
+  padding-top: 10px;
+
+}

@@ -9407,6 +9407,7 @@ function start() {
   }
   started = true;
   $(".blacked-background").removeAttr('disabled');
+  $(".to-remove").remove();
   $(".blacked-background").removeClass('blacked-background');
   for (const airport of airports.allAirportsList) {
     let id = airport.id; //format airport:XYZ
