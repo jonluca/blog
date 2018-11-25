@@ -9425,7 +9425,9 @@ function start() {
       routes = routes.map(entry => entry.split(":")[1]);
       routes = routes.map(entry => entry.split("|")[0]);
       for (const route of routes) {
-        mappings[iata].add(route);
+        if (route !== iata) {
+          mappings[iata].add(route);
+        }
       }
     }
   }
@@ -9657,10 +9659,14 @@ function checkValidStops() {
 }
 
 function routeHelper(start, goal, depth) {
-  if (depth == 0) {
+  if (depth === 0) {
     return [];
   }
   let airports = Array.from(mappings[start]);
+  let index = airports.indexOf(start);
+  if (index > -1) {
+    airports.splice(index, 1);
+  }
   let valid = [];
   for (const airport of airports) {
     if (mappings[airport].has(goal)) {
@@ -9676,11 +9682,15 @@ function routeHelper(start, goal, depth) {
 }
 
 function getPreRoute() {
+  if ($(".stop").length === 0) {
+    return "";
+  }
   let start = $("#start").val();
   let pre = start;
   $(".stop:not(:last)").each((ind, e) => {
     pre += " => " + $(e).val();
   });
+
   return pre;
 }
 
@@ -9697,15 +9707,17 @@ function findRoute() {
     return b.length - a.length;
   });
   let pre = getPreRoute();
-  valid = valid.map(e => {
-    return pre + " => " + e;
-  });
+  if (pre) {
+    valid = valid.map(e => {
+      return pre + " => " + e;
+    });
+  }
   let html = `<div id="valid-routes-found"><h3>Valid Routes</h3>`;
   for (const entry of valid) {
     html += `<p>${entry}</p>`;
   }
-  if(valid.length === 0){
-    html += "<p>No valid routes found</p>"
+  if (valid.length === 0) {
+    html += "<p>No valid routes found</p>";
   }
   html += `</div>`;
 
