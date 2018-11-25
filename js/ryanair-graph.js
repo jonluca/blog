@@ -9678,7 +9678,7 @@ function routeHelper(start, goal, depth) {
 function getPreRoute() {
   let start = $("#start").val();
   let pre = start;
-  $(".stop:not(:last)").each(e => {
+  $(".stop:not(:last)").each((ind, e) => {
     pre += " => " + $(e).val();
   });
   return pre;
@@ -9703,6 +9703,9 @@ function findRoute() {
   let html = `<div id="valid-routes-found"><h3>Valid Routes</h3>`;
   for (const entry of valid) {
     html += `<p>${entry}</p>`;
+  }
+  if(valid.length === 0){
+    html += "<p>No valid routes found</p>"
   }
   html += `</div>`;
 
