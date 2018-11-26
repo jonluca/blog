@@ -2,7 +2,8 @@
 title: Contact
 ---
 
-<a href="mailto:jonlucadecaro96@gmail.com"><span class="label">Email</span></a>
+<a href="mailto:jdecaro@usc.edu"><span class="label">Email</span></a>
+<br>
 <a href="https://twitter.com/jonlucadecaro"><span class="label">Twitter</span></a>
 
 
