@@ -101,7 +101,7 @@ I'm not going to make recommendations on where to start or how to do this - chan
 
 ## Personal stats
 
-I'm now a [moderator of /r/churning](https://reddit.com/r/churning/about/moderators), hit a grand total of a million miles earned, and haven't paid full price for a flight since 2015. I have status at most hotels and all the major US airlines, and have access to at least one lounge every time I fly. I've been consistently doubling the number of flights I take per year (I'm on track for 36 in 2018, while being a full time student). I've been to 20 countries by the time I was 21.
+I'm now a [moderator of /r/churning](https://reddit.com/r/churning/about/moderators), hit a grand total of a million miles earned, and haven't paid full price for a flight since 2015. I have status at most hotels and all the major US airlines, and have access to at least one lounge every time I fly. I've been consistently doubling the number of flights I take per year (I'm on track for 36 in 2018, while being a full time student). I've been to 20 countries by the time I was 21. This is while having a *negative* net worth (student loans) and only 3 months of income per year.
 
 The real value from this comes from the fact that I'm still in college - this allows me to travel in a way that's way above my means, in a type of luxury that I could never afford.
 
