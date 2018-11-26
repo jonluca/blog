@@ -6,11 +6,11 @@ header-img: "/images/wallet_status.png"
 <style>
     {%  include main.css  %}
 </style>
-I've been asked before about a hobby I take part in called *churning*. I thought I'd write up a post that explains what it is, how I got into it, and how much value it can provide. 
+I've been asked a lot about a hobby I take part in called *churning*. I thought I'd write up a post that explains what it is, how I got into it, and how much value it can provide. 
 
 ## How I got into churning
 
-Starry-eyed and full of young naïveté, I moved from Italy to Los Angeles, California in 2014. I was coming into my freshman year of college, and moving to the United States - it was a time of extreme change and shock, both from a cultural and personal perspective. I didn't know much about finance, banking, or credit in the US, but I knew I wanted to be financially responsible and independent. I started by opening an account at our local credit union and used it for my direct deposit from my on-campus job. Near the end of the year I thought I should get started on building out my credit - I didn't know much about credit scores, so I did a quick search for "college credit cards" and the Capital One QuickSilver popped up. Thinking nothing of it, I applied and got immediately approved. I didn't look at the bonus, requirements, or interest rate - I just knew I wanted a credit card, and that I wouldn't ever carry a balance, so what did it matter.
+Completely unaware of American finances, I moved from Italy to Los Angeles, California in 2014. I was coming into my freshman year of college, and moving to the United States - it was a time of extreme change and shock, both from a cultural and personal perspective. I didn't know much about finance, banking, or credit in the US, but I knew I wanted to be financially responsible and independent. I started by opening an account at my university's credit union and used it for my direct deposit from my on-campus job. Near the end of the year I thought I should get started on building out my credit - I didn't know much about credit scores, so I did a quick search for "college credit cards" and the Capital One QuickSilver popped up. Thinking nothing of it, I applied and got immediately approved. I didn't look at the bonus, requirements, or interest rate - I just knew I wanted a credit card, and that I wouldn't ever carry a balance, so what did it matter.
 
 I didn't know it at the time but the bonus attached was get $100 after spending $500 in the first 3 months. I easily spent that and got an email confirming that I got the bonus. I didn't even realize this was possible - I cashed it out and received a check in the mail for $100 and some odd change. This was a huge amount of "free" money for a college freshman. 
 
@@ -22,7 +22,7 @@ I started doing my research - would opening a lot of cards "hurt" me financially
 
 > At its core, churning is taking advanted of credit cards, bank accounts, travel rewards programs, and various other promotions. That's it - it comes down to doing your research about the best available offers and maximizing your potential value. 
 
-The logic behind the lucrative rewards, as far as I can tell, is the fact that most people *won't* open up 50 credit cards. The average consumer will take a look for a credit card, maybe research the current best offer, then sign up for it and keep it for 20 years. The banks and airlines can afford a really high initial investment in the form of miles/cash because they assume the consumer will either A) carry a balance and pay interest or B) use the card for such a long time that the interchange fees will dwarf the initial bonus. 
+The logic behind the lucrative rewards, as far as I can tell, is the fact that most people *won't* open up 50 credit cards. The average consumer will look for a credit card, maybe research the current best offer, then sign up for it and keep it for 20 years. The banks and airlines can afford a really high initial investment in the form of miles/cash because they assume the consumer will either A) carry a balance and pay interest or B) use the card for such a long time that the interchange fees will dwarf the initial bonus. 
 
 Take the Chase Sapphire Reserve when it originally came out - the 100k UR sign up bonus + other benefits was *easily* worth $1,500 in total. These benefits were handed over pretty much as soon as you got the card and met the bonus. 
 
@@ -30,7 +30,13 @@ Take the Chase Sapphire Reserve when it originally came out - the 100k UR sign u
 
 It seemed a little crazy that I could get a free $1,500 by paying for my rent on my credit card instead of directly from my bank account. The reason this works and isn't a scam is that most people do not take full advantage of these offers - some people can't financially support the amount of required spend, some aren't fiscally responsible, and others just don't want to expend the effort.
 
-// Insert facts
+* American credit card debt hit $1,027,000,000,000 in March 2018, according to the federal reserver[^1].
+
+* 38% of US households have revolving credit card debt (debt they are carrying month-over-month, and paying interest on)
+
+* The average American has 3.1 credit cards with $6,354 of debt[^2].
+
+These statistics paint a scary picture as a consumer but are extremely lucrative for the banks.
 
 The banks make money primarily in two ways:
 
@@ -101,3 +107,9 @@ The real value from this comes from the fact that I'm still in college - this al
 
 <img src="/images/wallet_status.png">
 <p class="footnote">Screenshot of my iOS wallet with some of my frequent traveler cards</p>
+
+###### Footnotes
+
+[^1]: https://www.federalreserve.gov/releases/g19/current/
+[^2]: https://www.valuepenguin.com/credit-cards/statistics/usage-and-ownership
+
