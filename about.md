@@ -11,3 +11,5 @@ I also write for HackerNoon and freeCodeCamp on Medium, [here](https://medium.co
 You can get an RSS feed of the blog <a href="/feed.xml">here.</a>
 
 You can return to my personal site (non-blog) [here](https://jonlu.ca).
+
+<a href="https://twitter.com/jonlucadecaro?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">Follow @jonlucadecaro</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
