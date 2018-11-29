@@ -1,7 +1,6 @@
 ---
 title: "Phone calls, signal processing, and audio formats"
 date: 2018-10-28 18:17:38 -0700
-header-img: "/images/electron-hls.png"
 ---
 <style>
     {%  include main.css  %}
