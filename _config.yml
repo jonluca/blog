@@ -8,6 +8,7 @@ twitter_username: jonlucadecaro
 encoding: utf-8
 plugins:
   - jekyll-seo-tag
+  - jekyll-sitemap
 
 links:
   - name:         Posts
