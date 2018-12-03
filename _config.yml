@@ -32,3 +32,18 @@ sass:
   style: compressed
 
 timezone: America/Los_Angeles
+
+zopfli:
+  extensions:
+    - '.html'
+    - '.css'
+    - '.js'
+    - '.svg'
+    - '.txt'
+    - '.ttf'
+    - '.atom'
+    - '.stl'
+    - '.xml'
+    - '.png'
+    - '.eot'
+    - '.wav'
