@@ -44,6 +44,7 @@ zopfli:
     - '.atom'
     - '.stl'
     - '.xml'
+    - '.jpg'
     - '.png'
     - '.eot'
     - '.wav'
