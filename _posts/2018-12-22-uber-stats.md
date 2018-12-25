@@ -9,7 +9,7 @@ header-img: "/images/uber-graphs.png"
 
 Earlier this week I wanted to see how much I've spent on uber across my roughly 4 years on the platform. I realized there was no easy way to do this. One option would be to go through my bank statements, but I have used a ton of different cards over the years. I could connect all my accounts to a service like Mint and search for it there, but that was time consuming and cumbersome. The goal would be to have a first party solution provided by uber, but no such service exists. 
 
-I started poking around Uber's [rides website](https://riders.uber.com/trips)  and found the route that Uber uses to get their trip information. It was surprisingly rich in data - it provided cost, start and end times, distance, and more. I thought it would be fairly straightforward to create a chrome extension that uses your auth token to get all your info, then processes it and shows you relevant information.  The endpoint was a `POST` request to:
+I started poking around Uber's [rides website](https://riders.uber.com/trips). It was surprisingly rich in data - it provided cost, start and end times, distance, and more. I wanted to see how they were getting the data. If they were server side rendering it then it would be significantly harder to scrape it and it would remove the possibility of interesting data that was returned but not used in the front end. Fortunately for us they just had a `getTrips` endpoint. The endpoint was a `POST` request to:
 
 ```
 https://riders.uber.com/api/getTripsForClient
@@ -20,8 +20,26 @@ https://riders.uber.com/api/getTripsForClient
 
 From there I could just start make the `XMLHTTPRequest` from any JavaScript file injected into the page. The best way to do that (and have it be easily deployed and installable) was a chrome extension. 
 
-I tried it at first and kept getting `Unauthorized` errors. I realized that the request was missing the CSRF token. However, since this was a Chrome Extension running code in the same context as the page, and since it had full access to the DOM, I could just retrieve it. Fortunately it was stored in a `<script>` tag at the very beginning of the HTML, with `id=__CSRF_TOKEN__`. I took this token, added it as a header, and the API began replying back succesfully. 
+I tried it at first and kept getting `Unauthorized` errors. I realized that the request was missing the CSRF token. However, since this was a Chrome Extension running code in the same context as the page, and since it had full access to the DOM, I could just retrieve it and pass it along. Fortunately it was stored in a `<script>` tag at the very beginning of the HTML, with `id=__CSRF_TOKEN__`. I took this token, added it as a header, and the API began replying back succesfully. 
 
+```js
+if (!csrf) {
+	let text = $("#__CSRF_TOKEN__").text();
+	csrf = text.replace(/\\u0022/g, ''); //Strip unicode quotes
+} 
+
+$.ajax({
+	method: 'POST',
+	url: TRIP_ENDPOINT,
+	data: {
+	  "tripUUID": tripUUID
+	},
+	headers: {
+	  "x-csrf-token": csrf
+	},
+	...
+}
+```
 Their API returns a maximum of 50 results per query, so I simply make the first one and then call it NUM_TOTAL / 50 times more. 
 
 ```js
@@ -91,7 +109,19 @@ This endpoing took a `POST` request with a body containing the `uuid` from the r
 
 Unfortunately the "Split Payment" wasn't returned as JSON, it was a server side rendered HTML blob. I could scrape it but did not think it would be worth the effort - plus, it would be an additional API call that slowed down the initial data collection.
 
-This was now enough data to start running some queries. I wanted to visualize this on a page, so I built out a page that would receive the data and iterate over it to create a few graphs and populate some stats. 
+This was now enough data to start running some queries. I wanted to visualize this on a page, so I built out a page that would receive the data and iterate over it to create a few graphs and populate some stats, such as how much you've spent in every currency.
+
+```js
+  // $ spent stats
+  $("#total-payment").text("$" + totalAcrossAllCurrencies.toFixed(2));
+  let totalSpentText = "";
+  let currencyKeys = getSortedKeysFromObject(totalSpent, true);
+  for (const key of currencyKeys) {
+    let currencySymbol = getSymbolFromCode(key);
+    totalSpentText += `<span class="subheading">${key}</span><span class="stat"> ${currencySymbol + totalSpent[key].toFixed(2)}</span><br>`;
+  }
+  $("#total-spent").html(totalSpentText);
+``` 
 
 Using that data I made [UberStats (source code here)](https://github.com/jonluca/Uber-Trip-Stats), which is live on the Chrome Web Store [here](https://chrome.google.com/webstore/detail/uber-trip-stats/kddlnbejbpknoedebeojobofnbdfhpnm?ref=producthunt).
 
