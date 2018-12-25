@@ -1,5 +1,5 @@
 ---
-title: "Uber, statistics, and chrome extension"
+title: "Uber, statistics, and a chrome extension"
 date: 2018-12-22 16:39:48 +0100
 header-img: "/images/ryanair-flight-prices.png"
 ---
