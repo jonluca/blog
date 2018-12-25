@@ -24,20 +24,20 @@ I tried it at first and kept getting `Unauthorized` errors. I realized that the 
 
 ```js
 if (!csrf) {
-	let text = $("#__CSRF_TOKEN__").text();
-	csrf = text.replace(/\\u0022/g, ''); //Strip unicode quotes
+  let text = $("#__CSRF_TOKEN__").text();
+  csrf = text.replace(/\\u0022/g, ''); //Strip unicode quotes
 } 
 
 $.ajax({
-	method: 'POST',
-	url: TRIP_ENDPOINT,
-	data: {
-	  "tripUUID": tripUUID
-	},
-	headers: {
-	  "x-csrf-token": csrf
-	},
-	...
+  method: 'POST',
+  url: TRIP_ENDPOINT,
+  data: {
+    "tripUUID": tripUUID
+  },
+  headers: {
+    "x-csrf-token": csrf
+  },
+  ...
 }
 ```
 Their API returns a maximum of 50 results per query, so I simply make the first one and then call it NUM_TOTAL / 50 times more. 
