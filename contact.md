@@ -18,4 +18,4 @@ style="background-color:#ececec;border:1px solid #e6e6e8;border-radius:18px;colo
 <span class="label">Follow @jonlucadecaro</span>
 </a>
 <p>Additionally, my PGP key can be found <a href="https://jonlu.ca/assets/public.asc">here.</a> Verification hashes
-have been also uploaded to pastebin, <a href="https://pastebin.com/GZe3ryrz"> here. </a></p>
+have been also uploaded to pastebin, <a href="https://pastebin.com/kVACTX5Y"> here. </a></p>
