@@ -1,7 +1,7 @@
 ---
 title: "Class schedules, a cease and desist from Viacom, and accidental monetization"
 date: 2019-01-28 20:57:33
-header-img: "/images/rmp-cd.png"
+header-img: "/images/usc-venmo4.png"
 ---
 
 <style>
