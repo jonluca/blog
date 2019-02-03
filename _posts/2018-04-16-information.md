@@ -70,7 +70,7 @@ Information, specifically our current information about history, is our societal
   <img alt="XKCD history" class="centered-image" src="https://imgs.xkcd.com/comics/history_2x.png">
 </picture>
 
-It's the most enduring version of <a rel="noopener"` or `rel="noreferrer" href="https://en.wikipedia.org/wiki/Survivorship_bias">survivorship bias</a> - we treat history as this concrete, tree of events, when in reality it has been pruned, over and over, such that what is left, or what we consider to be ancient history, is but a shadow of reality. 
+It's the most enduring version of <a rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Survivorship_bias">survivorship bias</a> - we treat history as this concrete, tree of events, when in reality it has been pruned, over and over, such that what is left, or what we consider to be ancient history, is but a shadow of reality. 
 
 ## The Information Age
 

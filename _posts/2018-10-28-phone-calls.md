@@ -27,7 +27,7 @@ The original sound file:
 <audio controls class="audio-block">
   <source src="/assets/game.wav" type="audio/wav">
   <p>Your browser doesn't support HTML5 audio. Here is
-     a <a rel="noopener"` or `rel="noreferrer" href="https://github.com/jonluca/Phone-Audio-Processing/tree/master/input">link to the audio</a> instead.</p>
+     a <a rel="noopener noreferrer" href="https://github.com/jonluca/Phone-Audio-Processing/tree/master/input">link to the audio</a> instead.</p>
 </audio>
 
 The first step is to see how it sounds like resampled - let's go from `44khz` to `8khz`.
@@ -49,7 +49,7 @@ You can listen to the resample result here:
 <audio controls class="audio-block">
   <source src="/assets/eightkhz_resampled.wav" type="audio/wav">
   <p>Your browser doesn't support HTML5 audio. Here is
-     a <a rel="noopener"` or `rel="noreferrer" href="https://github.com/jonluca/Phone-Audio-Processing/tree/master/output">link to the audio</a> instead.</p>
+     a <a rel="noopener noreferrer" href="https://github.com/jonluca/Phone-Audio-Processing/tree/master/output">link to the audio</a> instead.</p>
 </audio>
 
 It already sounds fairly tin-y. Minimizing the sample rate has a huge effect on the audio. It still sounds a *little* too good though - you can make out background noises, and the frequencies are still distinct.
@@ -76,7 +76,7 @@ Then we use the inverse short time fourier transform to get back the modified ti
 <audio controls class="audio-block">
   <source src="/assets/eightkhz_resampled_unfrequencied.wav" type="audio/wav">
   <p>Your browser doesn't support HTML5 audio. Here is
-     a <a rel="noopener"` or `rel="noreferrer" href="https://github.com/jonluca/Phone-Audio-Processing/tree/master/output">link to the audio</a> instead.</p>
+     a <a rel="noopener noreferrer" href="https://github.com/jonluca/Phone-Audio-Processing/tree/master/output">link to the audio</a> instead.</p>
 </audio>
 
 This sounds almost *exactly* like a phone call. This was a suprisingly quick and fun exploration into signal processing, and into making high quality audio sound like a phone call. 
