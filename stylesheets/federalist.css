@@ -18,7 +18,7 @@ tr:nth-child(even) {
 }
 
 tbody > tr:last-child {
-  border-top: 2px solid #357ddd;
+  border-top: 2px solid #244EBC;
 }
 
 tr:hover {
@@ -29,7 +29,7 @@ th {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
-  background-color: #357ddd;
+  background-color: #244EBC;
   color: white;
 }
 

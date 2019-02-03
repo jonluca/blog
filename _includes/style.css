@@ -628,7 +628,7 @@ img {
 }
 
 .b--blue {
-  border-color: #357edd
+  border-color: #244EBC
 }
 
 .b--light-blue {
@@ -1915,7 +1915,7 @@ code {
 }
 
 .blue {
-  color: #357edd
+  color: #244EBC
 }
 
 .light-blue {
@@ -2139,7 +2139,7 @@ code {
 }
 
 .bg-blue {
-  background-color: #357edd
+  background-color: #244EBC
 }
 
 .bg-light-blue {
@@ -2553,7 +2553,7 @@ code {
 
 .hover-blue:focus,
 .hover-blue:hover {
-  color: #357edd
+  color: #244EBC
 }
 
 .hover-light-blue:focus,
@@ -2678,7 +2678,7 @@ code {
 
 .hover-bg-blue:focus,
 .hover-bg-blue:hover {
-  background-color: #357edd
+  background-color: #244EBC
 }
 
 .hover-bg-light-blue:focus,
@@ -3729,7 +3729,7 @@ code {
 }
 
 .nested-links a {
-  color: #357edd;
+  color: #244EBC;
   -webkit-transition: color .15s ease-in;
   transition: color .15s ease-in
 }
@@ -9178,7 +9178,7 @@ code {
 
 .markdown-body a {
   text-decoration: none;
-  color: #357edd
+  color: #244EBC
 }
 
 .markdown-body .highlighter-rouge {
