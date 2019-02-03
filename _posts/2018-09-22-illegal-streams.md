@@ -16,7 +16,11 @@ I wanted to do some research and figure out if there was a way to quickly export
 
 Live streams start at the input, which is usually either a live event or a static file that is being streamed. For live events, the server requires a media encoder, which can be off-the-shelf hardware, and a way to break the encoded media into segments and save them as files. These files are then categorized into a playlist file, usually with a file extension `.m3u8`.
 
-<img class="centered-image" src="/images/hls.png">
+<picture class="centered-image">
+  <source srcset="/images/hls.webp" type="image/webp">
+  <source srcset="/images/hls.png" type="image/jpeg"> 
+  <img class="centered-image" src="/images/hls.png">
+</picture>
 <p class="footnote">Courtesy <a href="https://developer.apple.com/documentation/http_live_streaming">apple.com</a></p>
 
 The client software begins by fetching the index file, using a URL that identifies the stream. The index file, in turn, specifies the location of the available media files, decryption keys, and any alternate streams available. For the selected stream, the client downloads each available media file in sequence. Each file contains a consecutive segment of the stream. Once it has a sufficient amount of data downloaded, the client begins presenting the reassembled stream to the user. A playlist, example below, is just a collection of these `ts` links.
@@ -57,10 +61,18 @@ This means that it should be fairly trivial to extract the `.m3u8` (the live str
 
 I experimented with it for a bit, and found the fastest way to do so would be to go to the Network tab and just filter by `m3u8`. At that point you can just copy and paste the URL into any program that plays `m3u8` and watch the stream (VLC and QuickTime both work).
 
-<img class="centered-image" src="/images/chunklist.png">
+<picture class="centered-image">
+  <source srcset="/images/chunklist.webp" type="image/webp">
+  <source srcset="/images/chunklist.png" type="image/jpeg"> 
+  <img class="centered-image" src="/images/chunklist.png">
+</picture>
 <p class="footnote">Finding the m3u8</p>
 
-<img class="centered-image" src="/images/vlc-hls.png">
+<picture class="centered-image">
+  <source srcset="/images/vlc-hls.webp" type="image/webp">
+  <source srcset="/images/vlc-hls.png" type="image/jpeg"> 
+  <img class="centered-image" src="/images/vlc-hls.png">
+</picture>
 <p class="footnote">Watching the stream in VLC with no ads</p>
 
 
@@ -78,7 +90,11 @@ I wanted to make a tool that would quickly extract the stream and start playing 
 
 I built a quick [chrome extension](https://github.com/jonluca/Stream-Enhancer) that would do just that. 
 
-<img class="centered-image" src="/images/scan-extension.png">
+<picture class="centered-image">
+  <source srcset="/images/scan-extension.webp" type="image/webp">
+  <source srcset="/images/scan-extension.png" type="image/jpeg"> 
+  <img class="centered-image" src="/images/scan-extension.png">
+</picture>
 <p class="footnote">Scanning the current page for streams</p>
 
 Once I had the HAR blob, I could just base64 encode it and pass it to an HTML file I created that was a simple wrapper around hls.js, seen below. 
@@ -103,7 +119,11 @@ function loadHar() {
 }
 ```
 
-<img class="centered-image" src="/images/hls-index.png">
+<picture class="centered-image">
+  <source srcset="/images/hls-index.webp" type="image/webp">
+  <source srcset="/images/hls-index.png" type="image/jpeg"> 
+  <img class="centered-image" src="/images/hls-index.png">
+</picture>
 <p class="footnote">Wrapper to hls.js</p>
 
 At this point, I could scan a page for playlist files, retrieve the HAR, encode it, and pass it onto my small static site. It *still* didn't work though.
@@ -112,7 +132,11 @@ At this point, I could scan a page for playlist files, retrieve the HAR, encode 
 
 Chrome refuses to set certain headers, one of which is 'Referer'. Any time I tried to deconstruct the HAR and recreate the `XMLHttpRequest` it would warn me in the console that the headers I chose to set were unsafe, and refuse to apply them. There was no way around this, unfortunately. So I turned to the fastest way of keeping the work I had done so far while reaching a working solution - Electron.
 
-<img class="centered-image" src="/images/unsafe-headers.png">
+<picture class="centered-image">
+  <source srcset="/images/unsafe-headers.webp" type="image/webp">
+  <source srcset="/images/unsafe-headers.png" type="image/jpeg"> 
+  <img class="centered-image" src="/images/unsafe-headers.png">
+</picture>
 <p class="footnote">Chrome refuses to set certain headers</p>
 
 ## Electron
@@ -121,7 +145,11 @@ Electron is a cross platform open source framework for creating desktop apps. Wh
 
 I started by just porting everything over to electron - it worked pretty much out of the box, displaying my custom site. 
 
-<img class="centered-image" src="/images/electron-hls.png">
+<picture class="centered-image">
+  <source srcset="/images/electron-hls.webp" type="image/webp">
+  <source srcset="/images/electron-hls.png" type="image/jpeg"> 
+  <img class="centered-image" src="/images/electron-hls.png">
+</picture>
 <p class="footnote">My static site running in Electron</p>
 
 However, since Electron is based on Chromium, and I was making regular XMLHttpRequests, it *still* wouldn't let me apply those headers. I'd have to use a Node library to make my HTTP requests, but the library I was using (hls.js) is only a browser library, and lacks a direct integration with Node.
@@ -138,14 +166,22 @@ Unfortunately this library *also* refused to set unsafe headers. This time it wa
 
 After all those changes, and an experience in yak shaving that would've made Donald Knuth proud, I got the streams working. I also added some options to make the viewing experience better, such as dark mode and forcing LIVE mode. 
 
-<img class="centered-image" src="/images/dark-mode-hls.png">
+<picture class="centered-image">
+  <source srcset="/images/dark-mode-hls.webp" type="image/webp">
+  <source srcset="/images/dark-mode-hls.png" type="image/jpeg"> 
+  <img class="centered-image" src="/images/dark-mode-hls.png">
+</picture>
 <p class="footnote">Options to my static site</p>
 
 ## ESPN and Fox?
 
 Within the last 6 months an interesting trend has arisen - the illegal streams link to the *actual ESPN, Fox, and CBS streams*. If you inspect the network requests you'll see the streamer is linking directly to these companies' streams. The streams were beautiful quality and would now hardly every stutter or have the awkward "let me minimize the window I'm streaming and check my email" problem you'd get with bootlegged streamers.
 
-<img class="centered-image" src="/images/fox-hls.png">
+<picture class="centered-image">
+  <source srcset="/images/fox-hls.webp" type="image/webp">
+  <source srcset="/images/fox-hls.png" type="image/jpeg"> 
+  <img class="centered-image" src="/images/fox-hls.png">
+</picture>
 <p class="footnote">Illegal stream to Fox</p>
 
 How were they doing this? All the real providers use the encryption built into HLS to prevent illegal streams. 
@@ -156,7 +192,11 @@ Let me explain.
 
 Each playlist file has a field where you can go and retrieve the keys to decrypt the stream. 
 
-<img class="centered-image" src="/images/keyserver-hls.png">
+<picture class="centered-image">
+  <source srcset="/images/keyserver-hls.webp" type="image/webp">
+  <source srcset="/images/keyserver-hls.png" type="image/jpeg"> 
+  <img class="centered-image" src="/images/keyserver-hls.png">
+</picture>
 <p class="footnote">Fox keyservers in the playlist file</p>
 
 The streamers would override the XMLHttpRequest `open` function, and if the url was to the keyserver, they would send it to their proxies. 
@@ -184,7 +224,11 @@ At this point I wanted to know what these streams were doing. Certain streams wo
 
 I tried changing the URL to my person site, and what do you know, it replies back with my site! 
 
-<img class="centered-image" src="/images/site-proxied.png">
+<picture class="centered-image">
+  <source srcset="/images/site-proxied.webp" type="image/webp">
+  <source srcset="/images/site-proxied.png" type="image/jpeg"> 
+  <img class="centered-image" src="/images/site-proxied.png">
+</picture>
 <p class="footnote">Proxied site is just shuttling along the content passed to its url parameter</p>
 
 The "aHR0cHM6Ly9qb25sdS5jYQ==" in the URL is just `https://jonlu.ca` base64 encoded.
@@ -195,7 +239,11 @@ I built up a quick HTTP server that would just dump all the requests contents to
 
 I monitored my logs and all of a sudden there it was - the valid session for the streamer!
 
-<img class="centered-image" src="/images/streamer-session.png">
+<picture class="centered-image">
+  <source srcset="/images/streamer-session.webp" type="image/webp">
+  <source srcset="/images/streamer-session.png" type="image/jpeg"> 
+  <img class="centered-image" src="/images/streamer-session.png">
+</picture>
 <p class="footnote">Valid streamer session credentials</p>
 
 In the interest of privacy I've commented out partial credentials, but they're entirely valid and work for any stream on ESPN. 

@@ -62,7 +62,11 @@ This credit score is broken down in the following categories and weights:
 * 30% - Amount Owed
 * 35% - Payment History
 
-<img class="centered-image" src="/images/credit_percents.png">
+<picture class="centered-image">
+  <source srcset="/images/credit_percents.webp" type="image/webp">
+  <source srcset="/images/credit_percents.png" type="image/jpeg"> 
+  <img class="centered-image" src="/images/credit_percents.png">
+</picture>
 <p class="footnote">Credit score breakdown</p>
 
 If you see here the lion's share of your credit score is going to be the amount you owe at the end of each month, and your history in paying that off. If you're doing churning right those will be $0 and 100% ontime payments, respectively.
@@ -105,7 +109,11 @@ I'm now a [moderator of /r/churning](https://reddit.com/r/churning/about/moderat
 
 The real value from this comes from the fact that I'm still in college - this allows me to travel in a way that's way above my means, in a type of luxury that I could never afford.
 
-<img class="centered-image" src="/images/wallet_status.png">
+<picture class="centered-image">
+  <source srcset="/images/wallet_status.webp" type="image/webp">
+  <source srcset="/images/wallet_status.png" type="image/jpeg"> 
+  <img class="centered-image" src="/images/wallet_status.png">
+</picture>
 <p class="footnote">Screenshot of my iOS wallet with some of my frequent traveler cards</p>
 
 ###### Footnotes

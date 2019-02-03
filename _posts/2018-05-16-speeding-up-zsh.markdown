@@ -6,7 +6,11 @@ header-img: "/images/rawbash.png"
 
 I was quickly opening multiple shells for an unrelated project today and noticed how abysmal my shell load speed was. After the initial load it was relatively fast, but the actual shell start up was noticeably slow. I decided to time it with `time`.
 
-<img src="/images/origzsh.png">
+<picture class="centered-image">
+  <source srcset="/images/origzsh.webp" type="image/webp">
+  <source srcset="/images/origzsh.png" type="image/jpeg"> 
+  <img class="centered-image" src="/images/origzsh.png">
+</picture>
 
 You can time your own with: 
 
@@ -16,7 +20,11 @@ for i in $(seq 1 10); do /usr/bin/time $SHELL -i -c exit; done
 
 Raw `bash`, as a comparison, was blazing fast - it averaged 0.03 seconds, with about 0.02 in user-land and 0.01 in kernel. This is with an empty `.bashrc` and other dotfiles, so it would prove to be a lower bound/goal.
 
-<img src="/images/rawbash.png">
+<picture class="centered-image">
+  <source srcset="/images/rawbash.webp" type="image/webp">
+  <source srcset="/images/rawbash.png" type="image/jpeg"> 
+  <img class="centered-image" src="/images/rawbash.png">
+</picture>
 
 I was averaging 3.14 seconds, with 1.64 in user-land and 1.5 in kernel-land. 
 
@@ -52,7 +60,11 @@ This gives a general flow of execution, and where zsh starts. My `.zshrc` leads 
 
 We can start by profiling raw `zsh` - it's even faster than raw bash. 
 
-<img src="/images/rawzsh.png">
+<picture class="centered-image">
+  <source srcset="/images/rawzsh.webp" type="image/webp">
+  <source srcset="/images/rawzsh.png" type="image/jpeg"> 
+  <img class="centered-image" src="/images/rawzsh.png">
+</picture>
 
 The first step is to figure out exactly what's taking so long - there are a variety of tools to measure performance, but the most useful will be `zsh`'s native debug tools. 
 
@@ -83,7 +95,11 @@ This will tell us exactly where `zsh` is spending most of it's time.
 
 I started by playing around with high-level entry points. For instance, disabling `source $ZSH/oh-my-zsh.sh` from my `~/.zshrc` cut my load time down by half, to roughly 1.7 seconds average. I then disabled `nvm` and my times plummeted. I had found the main two culprits of slow load times. 
 
-<img src="/images/zshNoOmzNoNvm.png">
+<picture class="centered-image">
+  <source srcset="/images/zshNoOmzNoNvm.webp" type="image/webp">
+  <source srcset="/images/zshNoOmzNoNvm.png" type="image/jpeg"> 
+  <img class="centered-image" src="/images/zshNoOmzNoNvm.png">
+</picture>
 
 My new average had become only 40 milliseconds. I didn't want to lose the functionality that oh-my-zsh provided, however, so I looked into improving it. 
 
@@ -102,11 +118,19 @@ echo $elapsed":" $plugin
 
 I wrapped all the plugin loading and sourcing, and profiled each one.
 
-<img src="/images/profiledfuncs.png">
+<picture class="centered-image">
+  <source srcset="/images/profiledfuncs.webp" type="image/webp">
+  <source srcset="/images/profiledfuncs.png" type="image/jpeg"> 
+  <img class="centered-image" src="/images/profiledfuncs.png">
+</picture>
 
 The plugin `command-not-found` was the main slow down of `Oh-My-Zsh`. I went through and disabled the plugins I didn't use much and got my shell load time down. 
 
-<img src="/images/postopt.png">
+<picture class="centered-image">
+  <source srcset="/images/postopt.webp" type="image/webp">
+  <source srcset="/images/postopt.png" type="image/jpeg"> 
+  <img class="centered-image" src="/images/postopt.png">
+</picture>
 
 My new shell start time was about half a second. `Oh-My-Zsh` still took up the majority of it, but I believe it to be a valuable addition. I do wish it put a bit more of an emphasis on performance, however. 
 
@@ -124,7 +148,11 @@ Finally, a lot of time is spent in `compinit` and `compdef`. These are functions
 
 In the future I hope to actually recompile zsh with additional profiling techniques and debug information - keeping an internal timer and having a flag output current time for each command in a tree fashion would make building heat maps really easy. 
 
-<img src="/images/zsh_final.png">
+<picture class="centered-image">
+  <source srcset="/images/zsh_final.webp" type="image/webp">
+  <source srcset="/images/zsh_final.png" type="image/jpeg"> 
+  <img class="centered-image" src="/images/zsh_final.png">
+</picture>
 
 I ended with zsh taking about 0.42 seconds, or 420 milliseconds, to start up. Disabling Oh-My-Zsh gets the average down further to roughly 50ms. For now the extra 380 or so milliseconds are worth it, but I might be tempted to try another framework if I can't get it any faster.
 

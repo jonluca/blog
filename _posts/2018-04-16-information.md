@@ -64,7 +64,11 @@ The generational transfer of information used to be much less formalized and abs
 
 Information, specifically our current information about history, is our societal memory. The vast majority of human history and events has been lost - facts have been mangled, the actual reasons and motivations behind pivotal events lost to the sands of time. 
 
-<img src="https://imgs.xkcd.com/comics/history_2x.png">
+<picture class="centered-image">
+  <source srcset="https://imgs.xkcd.com/comics/history_2x.webp" type="image/webp">
+  <source srcset="https://imgs.xkcd.com/comics/history_2x.png" type="image/jpeg"> 
+  <img class="centered-image" src="https://imgs.xkcd.com/comics/history_2x.png">
+</picture>
 
 It's the most enduring version of <a href="https://en.wikipedia.org/wiki/Survivorship_bias">survivorship bias</a> - we treat history as this concrete, tree of events, when in reality it has been pruned, over and over, such that what is left, or what we consider to be ancient history, is but a shadow of reality. 
 

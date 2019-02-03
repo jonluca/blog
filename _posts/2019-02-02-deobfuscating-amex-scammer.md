@@ -10,7 +10,11 @@ Whenever I get a scam email that manages to circumvent both my and gmail's email
 
 Today I got a curious looking email from "American Express" titled "RREMINDER: We've issue a concern". They were not redirecting you to a URL - they attached an HTML file and told you to "verify your account" through that file.
 
-<img class="centered" src="/images/amex-scam-email.png">
+<picture class="centered-image">
+  <source srcset="/images/amex-scam-email.webp" type="image/webp">
+  <source srcset="/images/amex-scam-email.png" type="image/jpeg"> 
+  <img class="centered-image" src="/images/amex-scam-email.png">
+</picture>
 <p class="footnote">"American Express" Email</p>
 
 They managed to emulate the notice email very accurately, and even knew about the way Amex generates their card numbers.
@@ -81,7 +85,11 @@ URL of the ICANN Whois Inaccuracy Complaint Form: https://www.icann.org/wicf/
 
 The domain was registered 2 weeks ago using PublicDomainRegistry.com. A `DNS` query leads to where it currently resides. They prevent `ANY` queries so I had to write a short script to get all the DNS entries myself.
 
-<img class="centered" src="/images/amex-dns.png">
+<picture class="centered-image">
+  <source srcset="/images/amex-dns.webp" type="image/webp">
+  <source srcset="/images/amex-dns.png" type="image/jpeg"> 
+  <img class="centered-image" src="/images/amex-dns.png">
+</picture>
 <p class="footnote">Preventing ANY DNS queries</p>
 
 ```bash
@@ -98,12 +106,20 @@ dig +noall +short +noshort +answer $query 2>/dev/null
 
 I ran it on a few subdomains that I found in the email headers/DNS responses.
 
-<img class="centered" src="/images/amex-dns-valid.png">
+<picture class="centered-image">
+  <source srcset="/images/amex-dns-valid.webp" type="image/webp">
+  <source srcset="/images/amex-dns-valid.png" type="image/jpeg"> 
+  <img class="centered-image" src="/images/amex-dns-valid.png">
+</picture>
 <p class="footnote">Getting all records with any hostnames</p>
 
 They all point to `208.91.197.90`. An nmap scan reveals that the only two ports open are 53 and 80.
 
-<img class="centered" src="/images/amex-nmap.png">
+<picture class="centered-image">
+  <source srcset="/images/amex-nmap.webp" type="image/webp">
+  <source srcset="/images/amex-nmap.png" type="image/jpeg"> 
+  <img class="centered-image" src="/images/amex-nmap.png">
+</picture>
 <p class="footnote">Nmap scan of the domain.</p>
 
 The IP address is registered to CONFLUENCE-NETWORK-INC in the British Virgin Islands. 
@@ -133,7 +149,11 @@ The contents were very straight forward - it was completely empty besides a `scr
 There HTML loads javascript from `transfrmedia.com`, which is apparently a "multidisciplinary media agency that aims to provide premium end-to-end media solutions to the event and music industries in a timely and cost effective manner". It's unknown if their service was compromised and used to host malware, whether they're a fake agency used as a front for distribution, or if they're the actual ones behind the faux email. Not relevant, but they also have a NS entry in their DNS that points to <a hre="kanye.ns.cloudflare.com">kanye.ns.cloudflare.com</a>.
 
 
-<img class="centered" src="/images/trnsfrmedia.png">
+<picture class="centered-image">
+  <source srcset="/images/trnsfrmedia.webp" type="image/webp">
+  <source srcset="/images/trnsfrmedia.png" type="image/jpeg"> 
+  <img class="centered-image" src="/images/trnsfrmedia.png">
+</picture>
 <p class="footnote">Host of the JS file</p>
 
 The JS file, in turn, sits at a massive 3mb, and is completely obfuscated.
@@ -718,7 +738,11 @@ There is another large, encrypted blob, stored in ``. Fortunately we don't have 
 </form>
 ```
 
-<img class="centered" src="/images/amex-scam-site.png">
+<picture class="centered-image">
+  <source srcset="/images/amex-scam-site.webp" type="image/webp">
+  <source srcset="/images/amex-scam-site.png" type="image/jpeg"> 
+  <img class="centered-image" src="/images/amex-scam-site.png">
+</picture>
 <p class="footnote">"American Express" site</p>
 
 This renders as above. They really try to milk you for as much information as possible - card number, mothers maiden name, place of birth, elementary school, security pin, and sign in details. 
@@ -727,7 +751,11 @@ This renders as above. They really try to milk you for as much information as po
 
 Upon clicking submit, your data get's `POST`ed to a URL.
 
-<img class="centered" src="/images/amex-scam-route.png">
+<picture class="centered-image">
+  <source srcset="/images/amex-scam-route.webp" type="image/webp">
+  <source srcset="/images/amex-scam-route.png" type="image/jpeg"> 
+  <img class="centered-image" src="/images/amex-scam-route.png">
+</picture>
 <p class="footnote">"American Express" data submission</p>
 
 This is hosted on `http://souzoku-roots.com/gzipdb/data.php`. We can see that their server lives at `203.83.243.114`, which is also registered in the British Virgin Islands.

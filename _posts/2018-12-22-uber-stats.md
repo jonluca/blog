@@ -15,7 +15,11 @@ I started poking around Uber's [rides website](https://riders.uber.com/trips). I
 https://riders.uber.com/api/getTripsForClient
 ```
 
-<img class="centered-image" src="/images/uber-netrequest.png">
+<picture class="centered-image">
+  <source srcset="/images/uber-netrequest.webp" type="image/webp">
+  <source srcset="/images/uber-netrequest.png" type="image/jpeg"> 
+  <img class="centered-image" src="/images/uber-netrequest.png">
+</picture>
 <p class="footnote">The response from the API</p>
 
 From there I could just start make the `XMLHTTPRequest` from any JavaScript file injected into the page. The best way to do that (and have it be easily deployed and installable) was a chrome extension. 
@@ -125,10 +129,18 @@ This was now enough data to start running some queries. I wanted to visualize th
 
 Using that data I made [UberStats (source code here)](https://github.com/jonluca/Uber-Trip-Stats), which is live on the Chrome Web Store [here](https://chrome.google.com/webstore/detail/uber-trip-stats/kddlnbejbpknoedebeojobofnbdfhpnm?ref=producthunt).
 
-<img class="centered-image" src="/images/uber.png">
+<picture class="centered-image">
+  <source srcset="/images/uber.webp" type="image/webp">
+  <source srcset="/images/uber.png" type="image/jpeg"> 
+  <img class="centered-image" src="/images/uber.png">
+</picture>
 <p class="footnote">Stats (personal info redacted) on my uber history</p>
 
-<img class="centered-image" src="/images/uber-graphs.png">
+<picture class="centered-image">
+  <source srcset="/images/uber-graphs.webp" type="image/webp">
+  <source srcset="/images/uber-graphs.png" type="image/jpeg"> 
+  <img class="centered-image" src="/images/uber-graphs.png">
+</picture>
 <p class="footnote">Graphs of months I've taken Ubers</p>
 
 You can get it [here](https://chrome.google.com/webstore/detail/uber-trip-stats/kddlnbejbpknoedebeojobofnbdfhpnm).
