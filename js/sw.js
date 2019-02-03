@@ -17,14 +17,13 @@
  *
  */
 
-const version = "0.6.11";
-const cacheName = `airhorner-${version}`;
+const version = "1.0";
+const cacheName = `blog-${version}`;
 self.addEventListener('install', e => {
   e.waitUntil(
     caches.open(cacheName).then(cache => {
       return cache.addAll([
         '/',
-        '/posts/',
         '/about',
         '/fav/favicon.ico',
         '/contact'
@@ -38,12 +37,28 @@ self.addEventListener('activate', event => {
   event.waitUntil(self.clients.claim());
 });
 
-self.addEventListener('fetch', event => {
+self.addEventListener('fetch', function (event) {
+  console.log('Service Worker Fetch...');
+
   event.respondWith(
-    caches.open(cacheName)
-      .then(cache => cache.match(event.request, {ignoreSearch: true}))
-      .then(response => {
-        return response || fetch(event.request);
-      })
-  );
+    caches.match(event.request)
+      .then(function (response) {
+        if (event.request.url.indexOf('facebook') > -1) {
+          return fetch(event.request);
+        }
+        if (response) {
+          console.log('Serve from cache', response);
+          return response;
+        }
+        return fetch(event.request)
+          .then(response =>
+            caches.open(cacheName)
+              .then((cache) => {
+                // cache response after making a request
+                cache.put(event.request, response.clone());
+                // return original response
+                return response;
+              })
+          );
+      }));
 });
