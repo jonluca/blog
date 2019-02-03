@@ -51,11 +51,6 @@ zopfli:
     - '.eot'
     - '.wav'
 
-image_optim:
-  archive_dir: "images/full-res-images"
-  cache_file: "tmp/image-cache.yml"
-  image_glob: "images/*.{gif,png,jpg,jpeg}"
-
 jekyll-minifier:
   preserve_php: true                # Default: false
   remove_spaces_inside_tags: true   # Default: true
