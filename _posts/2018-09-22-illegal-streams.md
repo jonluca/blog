@@ -21,7 +21,7 @@ Live streams start at the input, which is usually either a live event or a stati
   <source srcset="/images/hls.png" type="image/jpeg"> 
   <img alt="HLS" class="centered-image" src="/images/hls.png">
 </picture>
-<p class="footnote">Courtesy <a href="https://developer.apple.com/documentation/http_live_streaming">apple.com</a></p>
+<p class="footnote">Courtesy <a rel="noopener"` or `rel="noreferrer" href="https://developer.apple.com/documentation/http_live_streaming">apple.com</a></p>
 
 The client software begins by fetching the index file, using a URL that identifies the stream. The index file, in turn, specifies the location of the available media files, decryption keys, and any alternate streams available. For the selected stream, the client downloads each available media file in sequence. Each file contains a consecutive segment of the stream. Once it has a sufficient amount of data downloaded, the client begins presenting the reassembled stream to the user. A playlist, example below, is just a collection of these `ts` links.
 

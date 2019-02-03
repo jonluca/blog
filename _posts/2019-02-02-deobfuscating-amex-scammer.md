@@ -25,7 +25,7 @@ American Express card numbers always follow the format 3XXX XXXXXX XABBC[^1].
 
 **BB** = "00" for first primary card on the account. Increases by 1 for every new card on the account (01, 02, 03, etc.)
 
-**C** = Check digit according to the <a href="https://en.wikipedia.org/wiki/Luhn_algorithm">Luhn algorithm</a>
+**C** = Check digit according to the <a rel="noopener"` or `rel="noreferrer" href="https://en.wikipedia.org/wiki/Luhn_algorithm">Luhn algorithm</a>
 
 The scammers correctly had `00` and had a 1 in 10 chance of guessing the Luhn check digit.
 
@@ -146,7 +146,7 @@ The contents were very straight forward - it was completely empty besides a `scr
 </html>
 ```
 
-There HTML loads javascript from `transfrmedia.com`, which is apparently a "multidisciplinary media agency that aims to provide premium end-to-end media solutions to the event and music industries in a timely and cost effective manner". It's unknown if their service was compromised and used to host malware, whether they're a fake agency used as a front for distribution, or if they're the actual ones behind the faux email. Not relevant, but they also have a NS entry in their DNS that points to <a hre="kanye.ns.cloudflare.com">kanye.ns.cloudflare.com</a>.
+There HTML loads javascript from `transfrmedia.com`, which is apparently a "multidisciplinary media agency that aims to provide premium end-to-end media solutions to the event and music industries in a timely and cost effective manner". It's unknown if their service was compromised and used to host malware, whether they're a fake agency used as a front for distribution, or if they're the actual ones behind the faux email. Not relevant, but they also have a NS entry in their DNS that points to <a rel="noopener"` or `rel="noreferrer" href="kanye.ns.cloudflare.com">kanye.ns.cloudflare.com</a>.
 
 
 <picture class="centered-image">
@@ -171,7 +171,7 @@ It was time to deobfuscate it.
 
 ### Deobfuscating JS
 
-I turned to <a href="http://jsnice.org/">JSNice</a> to do some of the initial work. It's not a particularly smart tool but it removes a lot of the manual effort like type inference, hex->text, and function inference ordering.
+I turned to <a rel="noopener"` or `rel="noreferrer" href="http://jsnice.org/">JSNice</a> to do some of the initial work. It's not a particularly smart tool but it removes a lot of the manual effort like type inference, hex->text, and function inference ordering.
 
 At this point we had something much more reasonable. Note that this will be a long file with lots of code, and we'll unpack it piece by piece.
 
