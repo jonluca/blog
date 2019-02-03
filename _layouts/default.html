@@ -1,8 +1,9 @@
 {% assign is_post = page.date %}
-<!doctype>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="preconnect" href="https://www.google-analytics.com">
     <meta name="author" content="JonLuca DeCaro">
     {% if page.title %}
     <meta content="{{ page.title }} - {{ site.title}}" name='title'/>
@@ -14,8 +15,8 @@
     <title>{{ site.title }}</title>
     {% endif %}
     {% if page.header-img %}
-    <meta property="og:image" content="{{ site.url }}{{ page.header-img }}" />
-    <meta property="image" content="{{ site.url }}{{ page.header-img }}" />
+    <meta property="og:image" content="{{ site.url }}{{ page.header-img }}"/>
+    <meta property="image" content="{{ site.url }}{{ page.header-img }}"/>
     {% endif %}
     <meta name="og:email" content="hi@jonlu.ca"/>
     {% include head.html %}
@@ -67,5 +68,9 @@
 
   gtag('js', new Date());
   gtag('config', 'UA-90475221-1');
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker
+      .register('/js/sw.js');
+  }
 </script>
 </html>
