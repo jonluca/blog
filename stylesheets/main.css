@@ -1,3 +1,215 @@
-.limiter{width:100%;margin:0 auto}.container-table100{width:100%;min-height:100vh;background:#d1d1d1;display:-webkit-box;display:-webkit-flex;display:-moz-box;display:-ms-flexbox;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;padding:33px 30px}table{width:100%;background-color:#fff}th,td{font-weight:unset;padding-right:10px}.column100{padding-left:25px}.row100.head th{padding:8px}.row100 td{padding-top:18px;padding-bottom:14px}.table100.ver1 td{font-size:14px;color:#808080;line-height:1.4}.tableTop{margin-top:40px}.table100.ver1 th{font-size:12px;color:#fff;line-height:1.4;text-transform:uppercase;background-color:#36304a}.table100.ver1 .row100:hover{background-color:#f2f2f2}.table100.ver1 .hov-column-ver1{background-color:#f2f2f2}.table100.ver1 .hov-column-head-ver1{background-color:#484848!important}.table100.ver1 .row100 td:hover{background-color:#6c7ae0;color:#fff}.columnred:hover{background-color:red!important;color:#fff}.footnote{font-size:10px;text-align:center}.audio-block{display:block;margin:auto;text-align:center}.ryanair-graph{margin:0 auto;width:100%;height:500px}.blacked-background{background:url(
+.limiter {
+  width: 100%;
+  margin: 0 auto
+}
+
+.container-table100 {
+  width: 100%;
+  min-height: 100vh;
+  background: #d1d1d1;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 33px 30px
+}
+
+table {
+  width: 100%;
+  background-color: #fff
+}
+
+th, td {
+  font-weight: unset;
+  padding-right: 10px
+}
+
+.column100 {
+  padding-left: 25px
+}
+
+.row100.head th {
+  padding: 8px
+}
+
+.row100 td {
+  padding-top: 18px;
+  padding-bottom: 14px
+}
+
+.table100.ver1 td {
+  font-size: 14px;
+  color: #808080;
+  line-height: 1.4
+}
+
+.tableTop {
+  margin-top: 40px
+}
+
+.table100.ver1 th {
+  font-size: 12px;
+  color: #fff;
+  line-height: 1.4;
+  text-transform: uppercase;
+  background-color: #36304a
+}
+
+.table100.ver1 .row100:hover {
+  background-color: #f2f2f2
+}
+
+.table100.ver1 .hov-column-ver1 {
+  background-color: #f2f2f2
+}
+
+.table100.ver1 .hov-column-head-ver1 {
+  background-color: #484848 !important
+}
+
+.table100.ver1 .row100 td:hover {
+  background-color: #6c7ae0;
+  color: #fff
+}
+
+.columnred:hover {
+  background-color: red !important;
+  color: #fff
+}
+
+.footnote {
+  font-size: 10px;
+  text-align: center
+}
+
+.audio-block {
+  display: block;
+  margin: auto;
+  text-align: center
+}
+
+.ryanair-graph {
+  margin: 0 auto;
+  width: 100%;
+  height: 500px
+}
+
+.blacked-background {
+  background: url(
   data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAATklEQVQoU2NkYGAwZmBgOMuAACA+CKCIMSIpADGRNaEYgKwQ3WQUjTCF6CYhWw2WAynEpgjmIpg7jUlSiM0TWK2GWUOUZ7ApxggeogIcABHJFtftKVfJAAAAAElFTkSuQmCC
-  ) repeat}.custom-dropdown{position:relative;display:inline-block;vertical-align:middle;margin:10px}.custom-dropdown select{background-color:#7f8c8d;color:#fff;font-size:inherit;padding:.5em;padding-right:2.5em;border:0;margin:0;border-radius:3px;text-indent:0.01px;text-overflow:'';-webkit-appearance:button}.custom-dropdown::before,.custom-dropdown::after{content:"";position:absolute;pointer-events:none}.custom-dropdown::after{content:"\25BC";height:1em;font-size:.625em;line-height:1;right:1.2em;top:50%;margin-top:-.5em}.custom-dropdown::before{width:2em;right:0;top:0;bottom:0;border-radius:0 3px 3px 0}.custom-dropdown select[disabled]{color:rgba(0,0,0,.3)}.custom-dropdown select[disabled]::after{color:rgba(0,0,0,.1)}.custom-dropdown::before{background-color:rgba(0,0,0,.15)}.custom-dropdown::after{color:rgba(0,0,0,.4)}.plus{width:50px;cursor:pointer;transition:all .3s ease 0s;height:50px;background:#0093f2;border-radius:50%;display:flex;position:relative}.plus__line{width:6px;height:25px;background:#000;border-radius:10px;position:absolute;left:calc(50% - 3px);top:calc(50% - 12.5px)}.plus__line--h{transform:rotate(90deg)}.plus__line--v{display:flex;align-items:center;justify-content:space-around;overflow:hidden;transition:all .4s ease 0s}#valid-routes-found{text-align:center;overflow-y:scroll;max-height:400px}#path-header{display:none}.to-remove{font-size:20px;text-align:center;padding-top:10px}
+  ) repeat
+}
+
+.custom-dropdown {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 10px
+}
+
+.custom-dropdown select {
+  background-color: #7f8c8d;
+  color: #fff;
+  font-size: inherit;
+  padding: .5em;
+  padding-right: 2.5em;
+  border: 0;
+  margin: 0;
+  border-radius: 3px;
+  text-indent: 0.01px;
+  text-overflow: '';
+  -webkit-appearance: button
+}
+
+.custom-dropdown::before, .custom-dropdown::after {
+  content: "";
+  position: absolute;
+  pointer-events: none
+}
+
+.custom-dropdown::after {
+  content: "\25BC";
+  height: 1em;
+  font-size: .625em;
+  line-height: 1;
+  right: 1.2em;
+  top: 50%;
+  margin-top: -.5em
+}
+
+.custom-dropdown::before {
+  width: 2em;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  border-radius: 0 3px 3px 0
+}
+
+.custom-dropdown select[disabled] {
+  color: rgba(0, 0, 0, .3)
+}
+
+.custom-dropdown select[disabled]::after {
+  color: rgba(0, 0, 0, .1)
+}
+
+.custom-dropdown::before {
+  background-color: rgba(0, 0, 0, .15)
+}
+
+.custom-dropdown::after {
+  color: rgba(0, 0, 0, .4)
+}
+
+.plus {
+  width: 50px;
+  cursor: pointer;
+  transition: all .3s ease 0s;
+  height: 50px;
+  background: #0093f2;
+  border-radius: 50%;
+  display: flex;
+  position: relative
+}
+
+.plus__line {
+  width: 6px;
+  height: 25px;
+  background: #000;
+  border-radius: 10px;
+  position: absolute;
+  left: calc(50% - 3px);
+  top: calc(50% - 12.5px)
+}
+
+.plus__line--h {
+  transform: rotate(90deg)
+}
+
+.plus__line--v {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  overflow: hidden;
+  transition: all .4s ease 0s
+}
+
+#valid-routes-found {
+  text-align: center;
+  overflow-y: scroll;
+  max-height: 400px
+}
+
+#path-header {
+  display: none
+}
+
+.to-remove {
+  font-size: 20px;
+  text-align: center;
+  padding-top: 10px
+}

@@ -9535,6 +9535,8 @@ code.highlighter-rouge {
 .highlighter-rouge {
   background: #272822;
   color: #f8f8f2;
+  scrollbar-width: thin;
+  scrollbar-color: #979797 #616161;
 }
 
 .highlighter-rouge *::-webkit-scrollbar {
