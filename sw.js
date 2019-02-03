@@ -20,8 +20,13 @@ self.addEventListener('activate', event => {
 
 self.addEventListener('fetch', function (event) {
   event.respondWith(
-    fetch(event.request).catch(function () {
-      return caches.match(event.request);
+    caches.open(cacheName).then(function (cache) {
+      return fetch(event.request).then(function (response) { // always make network request
+        cache.put(event.request, response.clone()); // save in cache
+        return response;
+      }).catch(function () {
+        return caches.match(event.request); // if network fails, try to respond from cache
+      });
     })
   );
 });
