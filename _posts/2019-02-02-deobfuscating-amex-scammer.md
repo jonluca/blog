@@ -6,9 +6,9 @@ header-img: "/images/amex-nmap.png"
 <style>
     {%  include main.css  %}
 </style>
-Whenever I get a scam email that manages to circumvent my/gmail's email filters, I like to take a closer look at how it did it and what it's trying to accomplish.
+Whenever I get a scam email that manages to circumvent both my and gmail's email filters, I like to take a closer look at how it did it and what it's trying to accomplish.
 
-Today I got a curious looking email from "American Express" titled "RREMINDER: We've issue a concern". The interesting part was that they weren't redirecting you to a URL - rather, they linked an HTML file and told you to go through that. I started digging, and wanted to see what it was doing.
+Today I got a curious looking email from "American Express" titled "RREMINDER: We've issue a concern". They were not redirecting you to a URL - they attached an HTML file and told you to "verify your account" through that file.
 
 <img class="centered" src="/images/amex-scam-email.png">
 <p class="footnote">"American Express" Email</p>
