@@ -1,5 +1,5 @@
 ---
-title: "Scams, American Express, and obfuscated Javascript"
+title: "Obfuscated javascript, scam emails, and American Express"
 date: 2019-02-02 14:49:14 -0700
 header-img: "/images/amex-nmap.png"
 ---
