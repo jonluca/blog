@@ -5560,6 +5560,10 @@ code {
     vertical-align: bottom
   }
 
+  .time {
+    right: 4rem !important;
+  }
+
 }
 
 @media screen and (min-width: 30em) and (max-width: 60em) {
@@ -7368,6 +7372,9 @@ code {
     vertical-align: bottom
   }
 
+  .time {
+    right: 2em;
+  }
 }
 
 @media screen and (min-width: 60em) {
@@ -9152,6 +9159,9 @@ code {
     vertical-align: bottom
   }
 
+  .time {
+    right: 4rem;
+  }
 }
 
 .comment-container {
@@ -9864,6 +9874,15 @@ code.highlighter-rouge {
 /* Generic.Deleted & Diff Deleted */
 .highlight .gi {
   color: #a6e22e;
+}
+
+.time {
+  position: absolute;
+  right: 2em;
+}
+
+.link-text {
+  padding-right: 100px;
 }
 
 /* Generic.Inserted & Diff Inserted */
