@@ -28,7 +28,7 @@
 <div class="width bg-white mt4 mb3 center br2-ns bt bb ba-ns b--light-gray">
     <nav aria-label="Main" class="bb b--light-gray pv4 tc">
         {% for link in site.links %}
-        <a class="link blue hover-mid-gray mh2 pv1"
+        <a class="link blue mh2 pv1"
            href="{% unless link.external %}{{ site.url }}{% endunless %}{{ link.url }}">
             {{ link.name }}
         </a>
