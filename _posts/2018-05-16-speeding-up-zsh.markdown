@@ -9,7 +9,7 @@ I was quickly opening multiple shells for an unrelated project today and noticed
 <picture class="centered-image">
   <source srcset="/images/origzsh.webp" type="image/webp">
   <source srcset="/images/origzsh.png" type="image/jpeg"> 
-  <img class="centered-image" src="/images/origzsh.png">
+  <img alt="Original zsh profile" class="centered-image" src="/images/origzsh.png">
 </picture>
 
 You can time your own with: 
@@ -23,7 +23,7 @@ Raw `bash`, as a comparison, was blazing fast - it averaged 0.03 seconds, with a
 <picture class="centered-image">
   <source srcset="/images/rawbash.webp" type="image/webp">
   <source srcset="/images/rawbash.png" type="image/jpeg"> 
-  <img class="centered-image" src="/images/rawbash.png">
+  <img alt="Raw bash speeds" class="centered-image" src="/images/rawbash.png">
 </picture>
 
 I was averaging 3.14 seconds, with 1.64 in user-land and 1.5 in kernel-land. 
@@ -63,7 +63,7 @@ We can start by profiling raw `zsh` - it's even faster than raw bash.
 <picture class="centered-image">
   <source srcset="/images/rawzsh.webp" type="image/webp">
   <source srcset="/images/rawzsh.png" type="image/jpeg"> 
-  <img class="centered-image" src="/images/rawzsh.png">
+  <img alt="Raw zsh speeds" class="centered-image" src="/images/rawzsh.png">
 </picture>
 
 The first step is to figure out exactly what's taking so long - there are a variety of tools to measure performance, but the most useful will be `zsh`'s native debug tools. 
@@ -98,7 +98,7 @@ I started by playing around with high-level entry points. For instance, disablin
 <picture class="centered-image">
   <source srcset="/images/zshNoOmzNoNvm.webp" type="image/webp">
   <source srcset="/images/zshNoOmzNoNvm.png" type="image/jpeg"> 
-  <img class="centered-image" src="/images/zshNoOmzNoNvm.png">
+  <img alt="Zsh speeds with no Oh my zsh or nvm" class="centered-image" src="/images/zshNoOmzNoNvm.png">
 </picture>
 
 My new average had become only 40 milliseconds. I didn't want to lose the functionality that oh-my-zsh provided, however, so I looked into improving it. 
@@ -121,7 +121,7 @@ I wrapped all the plugin loading and sourcing, and profiled each one.
 <picture class="centered-image">
   <source srcset="/images/profiledfuncs.webp" type="image/webp">
   <source srcset="/images/profiledfuncs.png" type="image/jpeg"> 
-  <img class="centered-image" src="/images/profiledfuncs.png">
+  <img alt="Profile functions" class="centered-image" src="/images/profiledfuncs.png">
 </picture>
 
 The plugin `command-not-found` was the main slow down of `Oh-My-Zsh`. I went through and disabled the plugins I didn't use much and got my shell load time down. 
@@ -129,7 +129,7 @@ The plugin `command-not-found` was the main slow down of `Oh-My-Zsh`. I went thr
 <picture class="centered-image">
   <source srcset="/images/postopt.webp" type="image/webp">
   <source srcset="/images/postopt.png" type="image/jpeg"> 
-  <img class="centered-image" src="/images/postopt.png">
+  <img alt="Post changes to startup" class="centered-image" src="/images/postopt.png">
 </picture>
 
 My new shell start time was about half a second. `Oh-My-Zsh` still took up the majority of it, but I believe it to be a valuable addition. I do wish it put a bit more of an emphasis on performance, however. 
@@ -151,7 +151,7 @@ In the future I hope to actually recompile zsh with additional profiling techniq
 <picture class="centered-image">
   <source srcset="/images/zsh_final.webp" type="image/webp">
   <source srcset="/images/zsh_final.png" type="image/jpeg"> 
-  <img class="centered-image" src="/images/zsh_final.png">
+  <img alt="Final zsh speeds" class="centered-image" src="/images/zsh_final.png">
 </picture>
 
 I ended with zsh taking about 0.42 seconds, or 420 milliseconds, to start up. Disabling Oh-My-Zsh gets the average down further to roughly 50ms. For now the extra 380 or so milliseconds are worth it, but I might be tempted to try another framework if I can't get it any faster.

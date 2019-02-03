@@ -19,7 +19,7 @@ Live streams start at the input, which is usually either a live event or a stati
 <picture class="centered-image">
   <source srcset="/images/hls.webp" type="image/webp">
   <source srcset="/images/hls.png" type="image/jpeg"> 
-  <img class="centered-image" src="/images/hls.png">
+  <img alt="HLS" class="centered-image" src="/images/hls.png">
 </picture>
 <p class="footnote">Courtesy <a href="https://developer.apple.com/documentation/http_live_streaming">apple.com</a></p>
 
@@ -64,14 +64,14 @@ I experimented with it for a bit, and found the fastest way to do so would be to
 <picture class="centered-image">
   <source srcset="/images/chunklist.webp" type="image/webp">
   <source srcset="/images/chunklist.png" type="image/jpeg"> 
-  <img class="centered-image" src="/images/chunklist.png">
+  <img alt="List of chunks" class="centered-image" src="/images/chunklist.png">
 </picture>
 <p class="footnote">Finding the m3u8</p>
 
 <picture class="centered-image">
   <source srcset="/images/vlc-hls.webp" type="image/webp">
   <source srcset="/images/vlc-hls.png" type="image/jpeg"> 
-  <img class="centered-image" src="/images/vlc-hls.png">
+  <img alt="VLC playing HLS standard" class="centered-image" src="/images/vlc-hls.png">
 </picture>
 <p class="footnote">Watching the stream in VLC with no ads</p>
 
@@ -93,7 +93,7 @@ I built a quick [chrome extension](https://github.com/jonluca/Stream-Enhancer) t
 <picture class="centered-image">
   <source srcset="/images/scan-extension.webp" type="image/webp">
   <source srcset="/images/scan-extension.png" type="image/jpeg"> 
-  <img class="centered-image" src="/images/scan-extension.png">
+  <img alt="Chrome extension network scan" class="centered-image" src="/images/scan-extension.png">
 </picture>
 <p class="footnote">Scanning the current page for streams</p>
 
@@ -122,7 +122,7 @@ function loadHar() {
 <picture class="centered-image">
   <source srcset="/images/hls-index.webp" type="image/webp">
   <source srcset="/images/hls-index.png" type="image/jpeg"> 
-  <img class="centered-image" src="/images/hls-index.png">
+  <img alt="HLS index" class="centered-image" src="/images/hls-index.png">
 </picture>
 <p class="footnote">Wrapper to hls.js</p>
 
@@ -135,7 +135,7 @@ Chrome refuses to set certain headers, one of which is 'Referer'. Any time I tri
 <picture class="centered-image">
   <source srcset="/images/unsafe-headers.webp" type="image/webp">
   <source srcset="/images/unsafe-headers.png" type="image/jpeg"> 
-  <img class="centered-image" src="/images/unsafe-headers.png">
+  <img alt="Unsafe headers in XHR" class="centered-image" src="/images/unsafe-headers.png">
 </picture>
 <p class="footnote">Chrome refuses to set certain headers</p>
 
@@ -148,7 +148,7 @@ I started by just porting everything over to electron - it worked pretty much ou
 <picture class="centered-image">
   <source srcset="/images/electron-hls.webp" type="image/webp">
   <source srcset="/images/electron-hls.png" type="image/jpeg"> 
-  <img class="centered-image" src="/images/electron-hls.png">
+  <img alt="Electron wrapper to site" class="centered-image" src="/images/electron-hls.png">
 </picture>
 <p class="footnote">My static site running in Electron</p>
 
@@ -169,7 +169,7 @@ After all those changes, and an experience in yak shaving that would've made Don
 <picture class="centered-image">
   <source srcset="/images/dark-mode-hls.webp" type="image/webp">
   <source srcset="/images/dark-mode-hls.png" type="image/jpeg"> 
-  <img class="centered-image" src="/images/dark-mode-hls.png">
+  <img alt="Dark mode electron app" class="centered-image" src="/images/dark-mode-hls.png">
 </picture>
 <p class="footnote">Options to my static site</p>
 
@@ -180,7 +180,7 @@ Within the last 6 months an interesting trend has arisen - the illegal streams l
 <picture class="centered-image">
   <source srcset="/images/fox-hls.webp" type="image/webp">
   <source srcset="/images/fox-hls.png" type="image/jpeg"> 
-  <img class="centered-image" src="/images/fox-hls.png">
+  <img alt="Fox network requests" class="centered-image" src="/images/fox-hls.png">
 </picture>
 <p class="footnote">Illegal stream to Fox</p>
 
@@ -195,7 +195,7 @@ Each playlist file has a field where you can go and retrieve the keys to decrypt
 <picture class="centered-image">
   <source srcset="/images/keyserver-hls.webp" type="image/webp">
   <source srcset="/images/keyserver-hls.png" type="image/jpeg"> 
-  <img class="centered-image" src="/images/keyserver-hls.png">
+  <img alt="HLS keyserver" class="centered-image" src="/images/keyserver-hls.png">
 </picture>
 <p class="footnote">Fox keyservers in the playlist file</p>
 
@@ -227,7 +227,7 @@ I tried changing the URL to my person site, and what do you know, it replies bac
 <picture class="centered-image">
   <source srcset="/images/site-proxied.webp" type="image/webp">
   <source srcset="/images/site-proxied.png" type="image/jpeg"> 
-  <img class="centered-image" src="/images/site-proxied.png">
+  <img alt="Proxied requests" class="centered-image" src="/images/site-proxied.png">
 </picture>
 <p class="footnote">Proxied site is just shuttling along the content passed to its url parameter</p>
 
@@ -242,7 +242,7 @@ I monitored my logs and all of a sudden there it was - the valid session for the
 <picture class="centered-image">
   <source srcset="/images/streamer-session.webp" type="image/webp">
   <source srcset="/images/streamer-session.png" type="image/jpeg"> 
-  <img class="centered-image" src="/images/streamer-session.png">
+  <img alt="Streamers session" class="centered-image" src="/images/streamer-session.png">
 </picture>
 <p class="footnote">Valid streamer session credentials</p>
 

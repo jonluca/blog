@@ -65,7 +65,7 @@ This credit score is broken down in the following categories and weights:
 <picture class="centered-image">
   <source srcset="/images/credit_percents.webp" type="image/webp">
   <source srcset="/images/credit_percents.png" type="image/jpeg"> 
-  <img class="centered-image" src="/images/credit_percents.png">
+  <img alt="Credit percents" class="centered-image" src="/images/credit_percents.png">
 </picture>
 <p class="footnote">Credit score breakdown</p>
 
@@ -112,7 +112,7 @@ The real value from this comes from the fact that I'm still in college - this al
 <picture class="centered-image">
   <source srcset="/images/wallet_status.webp" type="image/webp">
   <source srcset="/images/wallet_status.png" type="image/jpeg"> 
-  <img class="centered-image" src="/images/wallet_status.png">
+  <img alt="My wallet status" class="centered-image" src="/images/wallet_status.png">
 </picture>
 <p class="footnote">Screenshot of my iOS wallet with some of my frequent traveler cards</p>
 

@@ -17,7 +17,7 @@ A significant amount of prior research has been done on the Federalist Papers, i
 My goal is to recreate the results found by Mosteller and Wallace through modern statistical methods - namely K-Means clustering and TFIDF.
 
 <p style="text-align: center;">
-<img class="centered-image" src="/images/federalist_cover.jpg">
+<img alt="Federalist cover" class="centered-image" src="/images/federalist_cover.jpg">
 </p>
 ## Data Gathering
 

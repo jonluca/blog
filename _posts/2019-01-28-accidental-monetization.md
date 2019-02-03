@@ -19,7 +19,7 @@ I wrote the scraper for it and managed to get all professor data, published the 
 <picture class="centered-image">
   <source srcset="/images/rmp-cd.webp" type="image/webp">
   <source srcset="/images/rmp-cd.png" type="image/jpeg"> 
-  <img class="centered-image" src="/images/rmp-cd.png">
+  <img alt="Rate my professor cease and desist" class="centered-image" src="/images/rmp-cd.png">
 </picture>
 <p class="footnote">Viacom Cease & Desist</p>
 
@@ -34,14 +34,14 @@ A few months later came USC's class registration time. I was going to be registe
 <picture class="centered-image">
   <source srcset="/images/uscsh-pre.webp" type="image/webp">
   <source srcset="/images/uscsh-pre.png" type="image/jpeg"> 
-  <img class="centered-image" src="/images/uscsh-pre.png">
+  <img alt="Schedule helper before" class="centered-image" src="/images/uscsh-pre.png">
 </picture>
 <p class="footnote">Before</p>
 
 <picture class="centered-image">
   <source srcset="/images/uscsh-after.webp" type="image/webp">
   <source srcset="/images/uscsh-after.png" type="image/jpeg"> 
-  <img class="centered-image" src="/images/uscsh-after.png">
+  <img alt="Schedule helper after" class="centered-image" src="/images/uscsh-after.png">
 </picture>
 <p class="footnote">After</p>
 
@@ -80,7 +80,7 @@ However, I wasn't about to have this extension actually *cost* me money, so I im
 <picture class="centered-image">
   <source srcset="/images/uscsh-venmo.webp" type="image/webp">
   <source srcset="/images/uscsh-venmo.png" type="image/jpeg"> 
-  <img class="centered-image" src="/images/uscsh-venmo.png">
+  <img alt="Venmo" class="centered-image" src="/images/uscsh-venmo.png">
 </picture>
 <p class="footnote">After</p>
 
@@ -101,22 +101,22 @@ This service was so successful that I actually had people venmo me *way* more th
 <picture class="centered-image">
   <source srcset="/images/usc-venmo1.webp" type="image/webp">
   <source srcset="/images/usc-venmo1.png" type="image/jpeg"> 
-  <img class="centered-image" src="/images/usc-venmo1.png">
+  <img alt="venmo" class="centered-image" src="/images/usc-venmo1.png">
 </picture>
 <picture class="centered-image">
   <source srcset="/images/usc-venmo2.webp" type="image/webp">
   <source srcset="/images/usc-venmo2.png" type="image/jpeg"> 
-  <img class="centered-image" src="/images/usc-venmo2.png">
+  <img alt="venmo" class="centered-image" src="/images/usc-venmo2.png">
 </picture>
 <picture class="centered-image">
   <source srcset="/images/usc-venmo3.webp" type="image/webp">
   <source srcset="/images/usc-venmo3.png" type="image/jpeg"> 
-  <img class="centered-image" src="/images/usc-venmo3.png">
+  <img alt="venmo" class="centered-image" src="/images/usc-venmo3.png">
 </picture>
 <picture class="centered-image">
   <source srcset="/images/usc-venmo4.webp" type="image/webp">
   <source srcset="/images/usc-venmo4.png" type="image/jpeg"> 
-  <img class="centered-image" src="/images/usc-venmo4.png">
+  <img alt="venmo" class="centered-image" src="/images/usc-venmo4.png">
 </picture>
 
 This was a weird experience in successful monetization. It's quite rare that it happens *accidentally*, much less in a way that offers insane profit margins.

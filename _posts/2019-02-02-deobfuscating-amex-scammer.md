@@ -13,7 +13,7 @@ Today I got a curious looking email from "American Express" titled "RREMINDER: W
 <picture class="centered-image">
   <source srcset="/images/amex-scam-email.webp" type="image/webp">
   <source srcset="/images/amex-scam-email.png" type="image/jpeg"> 
-  <img class="centered-image" src="/images/amex-scam-email.png">
+  <img alt="Amex scam email" class="centered-image" src="/images/amex-scam-email.png">
 </picture>
 <p class="footnote">"American Express" Email</p>
 
@@ -88,7 +88,7 @@ The domain was registered 2 weeks ago using PublicDomainRegistry.com. A `DNS` qu
 <picture class="centered-image">
   <source srcset="/images/amex-dns.webp" type="image/webp">
   <source srcset="/images/amex-dns.png" type="image/jpeg"> 
-  <img class="centered-image" src="/images/amex-dns.png">
+  <img alt="DNS of scam site" class="centered-image" src="/images/amex-dns.png">
 </picture>
 <p class="footnote">Preventing ANY DNS queries</p>
 
@@ -109,7 +109,7 @@ I ran it on a few subdomains that I found in the email headers/DNS responses.
 <picture class="centered-image">
   <source srcset="/images/amex-dns-valid.webp" type="image/webp">
   <source srcset="/images/amex-dns-valid.png" type="image/jpeg"> 
-  <img class="centered-image" src="/images/amex-dns-valid.png">
+  <img alt="Amex DNS scam site" class="centered-image" src="/images/amex-dns-valid.png">
 </picture>
 <p class="footnote">Getting all records with any hostnames</p>
 
@@ -118,7 +118,7 @@ They all point to `208.91.197.90`. An nmap scan reveals that the only two ports 
 <picture class="centered-image">
   <source srcset="/images/amex-nmap.webp" type="image/webp">
   <source srcset="/images/amex-nmap.png" type="image/jpeg"> 
-  <img class="centered-image" src="/images/amex-nmap.png">
+  <img alt="Scam amex nmap" class="centered-image" src="/images/amex-nmap.png">
 </picture>
 <p class="footnote">Nmap scan of the domain.</p>
 
@@ -152,7 +152,7 @@ There HTML loads javascript from `transfrmedia.com`, which is apparently a "mult
 <picture class="centered-image">
   <source srcset="/images/trnsfrmedia.webp" type="image/webp">
   <source srcset="/images/trnsfrmedia.png" type="image/jpeg"> 
-  <img class="centered-image" src="/images/trnsfrmedia.png">
+  <img alt="Scam site hosting js" class="centered-image" src="/images/trnsfrmedia.png">
 </picture>
 <p class="footnote">Host of the JS file</p>
 
@@ -741,7 +741,7 @@ There is another large, encrypted blob, stored in ``. Fortunately we don't have 
 <picture class="centered-image">
   <source srcset="/images/amex-scam-site.webp" type="image/webp">
   <source srcset="/images/amex-scam-site.png" type="image/jpeg"> 
-  <img class="centered-image" src="/images/amex-scam-site.png">
+  <img alt="Scam amex site" class="centered-image" src="/images/amex-scam-site.png">
 </picture>
 <p class="footnote">"American Express" site</p>
 
@@ -754,7 +754,7 @@ Upon clicking submit, your data get's `POST`ed to a URL.
 <picture class="centered-image">
   <source srcset="/images/amex-scam-route.webp" type="image/webp">
   <source srcset="/images/amex-scam-route.png" type="image/jpeg"> 
-  <img class="centered-image" src="/images/amex-scam-route.png">
+  <img alt="scam amex route" class="centered-image" src="/images/amex-scam-route.png">
 </picture>
 <p class="footnote">"American Express" data submission</p>
 
