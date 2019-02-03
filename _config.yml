@@ -12,6 +12,7 @@ plugins:
   - jekyll-feed
   - jekyll-zopfli
   - jekyll-minifier
+  - jekyll-target-blank
 
 links:
   - name:         Posts
