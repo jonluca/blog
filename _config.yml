@@ -50,6 +50,7 @@ zopfli:
     - '.png'
     - '.eot'
     - '.wav'
+    - '.webp'
 
 jekyll-minifier:
   preserve_php: true                # Default: false
