@@ -6,8 +6,8 @@
     <link rel="preconnect" href="https://www.google-analytics.com">
     <meta name="author" content="JonLuca DeCaro">
     {% if page.title %}
-    <meta content="{{ page.title }} - {{ site.title}}" name='title'/>
-    <meta content="{{ page.title }} - {{ site.title}}" name='og:title'/>
+    <meta content="{{ page.title }}" name='title'/>
+    <meta content="{{ page.title }}" name='og:title'/>
     <title>{{ page.title }} - {{ site.title }}</title>
     {% else %}
     <meta content="{{ site.title  | markdownify}}" name='title'/>
