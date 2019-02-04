@@ -790,6 +790,8 @@ This is hosted on `http://souzoku-roots.com/gzipdb/data.php`. We can see that th
 
 This domain is much older, though, and was originally registered in April of 2011. This is probably a master server that is used for all their scam campaigns.
 
+There is also an open `mysql` server running on the default port, which is potentially how the data is being downloaded periodically.
+
 ```
 Domain Name: souzoku-roots.com
 Registry Domain ID: 1648600398_DOMAIN_COM-VRSN
@@ -825,7 +827,7 @@ The website seems to be about Japanese inheritance law. It's unclear whether the
 
 ## More domain info
 
-An nmap scan shows that there are a lot of ports and services open. The host machine seems to have a few domains associated with it. The first domain found, `pck.bonyari.jp`, just runs an old version of Parallels Plesk Panel. A CVE search shows that this is A) outdated software with B) multiple 10.0 CVEs. This is most likely a compromised machine piggybacking the scammers service.
+An nmap scan shows that there are a lot of ports and services open. The host machine seems to have a few domains associated with it. The first domain found, `pck.bonyari.jp`, just runs an old version of Parallels Plesk Panel. A CVE search shows that this is A) outdated software with B) multiple 10.0 CVEs. This is most likely a compromised machine piggybacking the scammers service, but we can't know for certain.
 
 ```
 Starting Nmap 7.70 ( https://nmap.org ) at 2019-02-02 18:36 PST
@@ -904,7 +906,7 @@ Overally we:
 * Got OSINT on the server via the same methods above, and learned that this server has been up and running for a while, and is not secure or patched
 * Found the route to their DB and how they were actually extracting data
 
-The attacker did a fairly good job of disguising their work. Their DNS entries were valid and had a valid spf setup, the payload was twice encrypted to prevent static analysis, the assets and page all links to valid amex domains, and finally actualy redirected you to a valid amex domain after `POST`ing your data to their server (http://alerts-ui-prod.americanexpress.com/IPPWeb/thankyou.do?Face=en_USHEUQS001). 
+The attacker did a fairly good job of disguising their work. Their DNS entries were valid and had a valid spf setup, the payload was twice encrypted to prevent static analysis, the assets and page all links to valid amex domains, and finally actualy redirected you to a valid amex domain after `POST`ing your data to their server ([http://alerts-ui-prod.americanexpress.com/IPPWeb/thankyou.do?Face=en_USHEUQS001](http://alerts-ui-prod.americanexpress.com/IPPWeb/thankyou.do?Face=en_USHEUQS001)). 
 
 I currently have no plans to a) approach any of the hosts found or b) performing adversarial action against the attacker. I wanted to stay on the clear legal side, and am also not sure if the hosts we found were actually compromised or directly belong to the attacker.
 
@@ -912,5 +914,5 @@ It's always fun to see how attackers are disguising their code and identity. Thi
 
 ###### Footnotes
 
-[^1]: Thanks to https://ficoforums.myfico.com/t5/Credit-Cards/Amex-last-four-numbers/td-p/3384473
+[^1]: Thanks to [https://ficoforums.myfico.com/t5/Credit-Cards/Amex-last-four-numbers/td-p/3384473](https://ficoforums.myfico.com/t5/Credit-Cards/Amex-last-four-numbers/td-p/3384473)
 [^2]: See [this discussion](https://webapps.stackexchange.com/questions/23/how-can-i-search-for-a-keyword-with-special-characters-in-google-search) for more info. Bing is [also not helpful at all](https://i.imgur.com/TfNfORa.png)
