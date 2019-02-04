@@ -784,6 +784,8 @@ Upon clicking submit, your data get's `POST`ed to a URL.
 </picture>
 <p class="footnote">"American Express" data submission</p>
 
+THe server actually replies back with a `302` that links to http://alerts-ui-prod.americanexpress.com/IPPWeb/thankyou.do?Face=en_USHEUQS001, which is an *actual* American Express domain. 
+
 This is hosted on `http://souzoku-roots.com/gzipdb/data.php`. We can see that their server lives at `203.83.243.114`, which is also registered in the British Virgin Islands.
 
 This domain is much older, though, and was originally registered in April of 2011. This is probably a master server that is used for all their scam campaigns.
@@ -887,9 +889,26 @@ Network Distance: 17 hops
 Service Info: Hosts: localhost.localdomain, vz170.jpnsv.com; OS: Unix
 ```
 
+
 ### Conclusion
 
-It's always fun to see how attackers are disguising their code and identity. This was a pretty fun exploration of a single attackers point of view. We really didn't get much info, besides the registrant of the second compromised domain, but it was an interesting Saturday project none the less. 
+That's where I stopped - I didn't want to do anything further like actually run a vulnerability scan or prove how the server was compromised, as that would be a legal grey area. 
+
+Overally we:
+
+* Found the original spam domain and
+* Got OSINT on it via DNS, Nmap, and Domain/IP history
+* Found the domain the malware was being hid on
+* Reversed and deobfuscated on layer of HTML, which contained the first set of `script` tags that contained the second payload
+* Partially reversed the second payload, which contained raw `HTML` and a hardcoded path to the attackers server
+* Got OSINT on the server via the same methods above, and learned that this server has been up and running for a while, and is not secure or patched
+* Found the route to their DB and how they were actually extracting data
+
+The attacker did a fairly good job of disguising their work. Their DNS entries were valid and had a valid spf setup, the payload was twice encrypted to prevent static analysis, the assets and page all links to valid amex domains, and finally actualy redirected you to a valid amex domain after `POST`ing your data to their server (http://alerts-ui-prod.americanexpress.com/IPPWeb/thankyou.do?Face=en_USHEUQS001). 
+
+I currently have no plans to a) approach any of the hosts found or b) performing adversarial action against the attacker. I wanted to stay on the clear legal side, and am also not sure if the hosts we found were actually compromised or directly belong to the attacker.
+
+It's always fun to see how attackers are disguising their code and identity. This was a pretty fun exploration of a single attackers point of view. We really didn't get much personally actionable info, besides the registrant of the second compromised domain, but it was an interesting Saturday project none the less. 
 
 ###### Footnotes
 
