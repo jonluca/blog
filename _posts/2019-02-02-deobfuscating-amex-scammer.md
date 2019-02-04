@@ -295,7 +295,7 @@ function c(fnArgs) {
 
 #### a
 
-The first declaration is an array `a`. I've omitted the full array above because the item at index 12 is a massive (>1mb) text blob, which I've replaced with "<blob>". It will be used to reference function names, types, and variables throughout the obfuscated program. We'll rename this to `data`.
+The first declaration is an array `a`. I've omitted the full array above because the item at index 12 is a massive (>1mb) text blob, which I've replaced with `<blob>`. It will be used to reference function names, types, and variables throughout the obfuscated program. We'll rename this to `data`.
 
 ```js
 var data = [
