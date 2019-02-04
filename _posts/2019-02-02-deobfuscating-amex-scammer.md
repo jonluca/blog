@@ -146,7 +146,7 @@ The contents were very straight forward - it was completely empty besides a `scr
 </html>
 ```
 
-There HTML loads javascript from `transfrmedia.com`, which is apparently a "multidisciplinary media agency that aims to provide premium end-to-end media solutions to the event and music industries in a timely and cost effective manner". It's unknown if their service was compromised and used to host malware, whether they're a fake agency used as a front for distribution, or if they're the actual ones behind the faux email. Not relevant, but they also have a NS entry in their DNS that points to `kanye.ns.cloudflare.com`.
+The HTML loads a single javascript file from `transfrmedia.com`, which is apparently a "multidisciplinary media agency that aims to provide premium end-to-end media solutions to the event and music industries in a timely and cost effective manner". It's unknown if their service was compromised and used to host malware, whether they're a fake agency used as a front for distribution, or if they're the actual ones behind the faux email. Not relevant, but they also have a NS entry in their DNS that points to `kanye.ns.cloudflare.com`.
 
 
 <picture class="centered-image">
@@ -402,9 +402,9 @@ function c(fnArgs) {
 ```
 
 #### d
-Next up we have `d`. It's invoked immediately. It defines a variable `p` that is always true on first run, but is the first time we see an empty array literal along with a double negation to return a boolean. (As an aside, it's almost impossible to search for special characters on Google. For instance, the query " !![]; javascript" returns no results with the actual negated array. This is apparently by design by Google, which prevents certain questions from being asked at all.[^2]). Based on whether `p` is true, it returns either an empty function or a function with logic in it. 
+Next up we have `d`. It's invoked immediately. It defines a variable `p` that is always true on first run, but is the first time we see an empty array literal along with a double negation to return a boolean. (As an aside, it's almost impossible to search for special characters on Google. For instance, the query `!![]; javascript` returns no results with the actual negated array. This is apparently by design by Google, which prevents certain questions from being asked at all.[^2]). Based on whether `p` is true, it returns either an empty function or a function with logic in it. 
 
-Once the function is returned, it sets `p` to false. This means that the function with logic in it will only ever be returned once. For now we can rename `d` to `functionGenerator`, `p` to `isFirstRun`. 
+Once the function is returned, it sets `p` to `false`. This means that the function with logic in it will only ever be returned once. For now we can rename `d` to `functionGenerator`, `p` to `isFirstRun`. 
 
 We can also replace all the `retrieveDataEntry` calls with their values. It performs an equality check with the first two entries of the `data` array. If they are equal it'll invoke `debuggerProtection`, which isn't currently defined.
 
@@ -784,7 +784,7 @@ Upon clicking submit, your data get's `POST`ed to a URL.
 </picture>
 <p class="footnote">"American Express" data submission</p>
 
-THe server actually replies back with a `302` that links to http://alerts-ui-prod.americanexpress.com/IPPWeb/thankyou.do?Face=en_USHEUQS001, which is an *actual* American Express domain. 
+THe server actually replies back with a `302` that links to [http://alerts-ui-prod.americanexpress.com/IPPWeb/thankyou.do?Face=en_USHEUQS001](http://alerts-ui-prod.americanexpress.com/IPPWeb/thankyou.do?Face=en_USHEUQS001), which is an *actual* American Express domain. 
 
 This is hosted on `http://souzoku-roots.com/gzipdb/data.php`. We can see that their server lives at `203.83.243.114`, which is also registered in the British Virgin Islands.
 
@@ -896,7 +896,7 @@ Service Info: Hosts: localhost.localdomain, vz170.jpnsv.com; OS: Unix
 
 That's where I stopped - I didn't want to do anything further like actually run a vulnerability scan or prove how the server was compromised, as that would be a legal grey area. 
 
-Overally we:
+Overall we:
 
 * Found the original spam domain and
 * Got OSINT on it via DNS, Nmap, and Domain/IP history
@@ -906,11 +906,11 @@ Overally we:
 * Got OSINT on the server via the same methods above, and learned that this server has been up and running for a while, and is not secure or patched
 * Found the route to their DB and how they were actually extracting data
 
-The attacker did a fairly good job of disguising their work. Their DNS entries were valid and had a valid spf setup, the payload was twice encrypted to prevent static analysis, the assets and page all links to valid amex domains, and finally actualy redirected you to a valid amex domain after `POST`ing your data to their server ([http://alerts-ui-prod.americanexpress.com/IPPWeb/thankyou.do?Face=en_USHEUQS001](http://alerts-ui-prod.americanexpress.com/IPPWeb/thankyou.do?Face=en_USHEUQS001)). 
+The attacker did a fairly good job of disguising their work. Their DNS entries were valid and had a valid spf setup, the payload was twice encrypted to prevent static analysis, the assets and page all links to valid amex domains, and finally actually redirected you to a valid amex domain after `POST`ing your data to their server ([http://alerts-ui-prod.americanexpress.com/IPPWeb/thankyou.do?Face=en_USHEUQS001](http://alerts-ui-prod.americanexpress.com/IPPWeb/thankyou.do?Face=en_USHEUQS001)). 
 
 I currently have no plans to a) approach any of the hosts found or b) performing adversarial action against the attacker. I wanted to stay on the clear legal side, and am also not sure if the hosts we found were actually compromised or directly belong to the attacker.
 
-It's always fun to see how attackers are disguising their code and identity. This was a pretty fun exploration of a single attackers point of view. We really didn't get much personally actionable info, besides the registrant of the second compromised domain, but it was an interesting Saturday project none the less. 
+It's always fun to see how attackers are disguising their code and identity. This was a pretty fun exploration of a single attackers point of view. We really didn't get much personally actionable info, besides the registrant of the second compromised domain, but it was an interesting Saturday project nonetheless. 
 
 ###### Footnotes
 
