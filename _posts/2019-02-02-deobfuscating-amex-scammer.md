@@ -83,7 +83,7 @@ DNSSEC: unsigned
 URL of the ICANN Whois Inaccuracy Complaint Form: https://www.icann.org/wicf/
 ```
 
-The domain was registered 2 weeks ago using PublicDomainRegistry.com. A `DNS` query leads to where it currently resides. They prevent `ANY` queries so I had to write a short script to get all the DNS entries myself.
+The domain was registered 2 weeks ago using PublicDomainRegistry.com. A DNS query leads to where it currently resides. They prevent `ANY` queries so I had to write a short script to get all the DNS entries myself.
 
 <picture class="centered-image">
   <source srcset="/images/amex-dns.webp" type="image/webp">
@@ -122,9 +122,9 @@ They all point to `208.91.197.90`. An nmap scan reveals that the only two ports 
 </picture>
 <p class="footnote">Nmap scan of the domain.</p>
 
-The IP address is registered to CONFLUENCE-NETWORK-INC in the British Virgin Islands. 
+The IP address is registered to `CONFLUENCE-NETWORK-INC` in the British Virgin Islands. 
 
-As of this writing there is just a default webserver running on port 80, with one of the registrars landing pages/advertisements. 
+As of this writing there is just a default webserver running on port `80`, with one of the registrars landing pages/advertisements. 
 
 This ended up being a dead end. Their whois information was masked, there weren't any interesting services running on their machine that were exposed, and there weren't any interesting DNS entries.
 
@@ -146,7 +146,7 @@ The contents were very straight forward - it was completely empty besides a `scr
 </html>
 ```
 
-There HTML loads javascript from `transfrmedia.com`, which is apparently a "multidisciplinary media agency that aims to provide premium end-to-end media solutions to the event and music industries in a timely and cost effective manner". It's unknown if their service was compromised and used to host malware, whether they're a fake agency used as a front for distribution, or if they're the actual ones behind the faux email. Not relevant, but they also have a NS entry in their DNS that points to <a rel="noopener noreferrer" href="kanye.ns.cloudflare.com">kanye.ns.cloudflare.com</a>.
+There HTML loads javascript from `transfrmedia.com`, which is apparently a "multidisciplinary media agency that aims to provide premium end-to-end media solutions to the event and music industries in a timely and cost effective manner". It's unknown if their service was compromised and used to host malware, whether they're a fake agency used as a front for distribution, or if they're the actual ones behind the faux email. Not relevant, but they also have a NS entry in their DNS that points to `kanye.ns.cloudflare.com`.
 
 
 <picture class="centered-image">
