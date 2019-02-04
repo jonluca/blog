@@ -29,7 +29,7 @@ American Express card numbers always follow the format 3XXX XXXXXX XABBC[^1].
 
 The scammers correctly had `00` and had a 1 in 10 chance of guessing the Luhn check digit.
 
-The quality of the email was fairly high (I block image loading, otherwise it would look almost picture perfect), with the only real missteps being the double `R` in the subject line (`RREMINDER`) and the fact that the continue button did not link anywhere.
+There were a few other mistakes, like small misspellings or gramar issues, as well as the double `R` in the subject line (`RREMINDER`) and the fact that the continue button did not link anywhere. It was decenent for a spam email (it didn't break text after 80 characters) but it was far from professional.
 
 ## Domain
 
