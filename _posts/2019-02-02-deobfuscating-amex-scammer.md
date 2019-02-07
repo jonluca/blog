@@ -478,8 +478,8 @@ The function then instantiates a `RegExp` with the format:
 Broken down it matches the following:
 
 * Starts with a function and any number of spaces (`function *`)
-* Matches two backslashes (`\\\\`)
-* Starts a capture group for everything after the backslashes, until it hits two more (`( *\\\\)`)
+* Matches two backslashes (`\\`)
+* Starts a capture group for everything after the backslashes, until it hits two more (`( *\\)`)
 
 These are two sample strings that match the above regex:
 
