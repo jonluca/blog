@@ -6,9 +6,10 @@ header-img: "/images/amex-nmap.png"
 <style>
     {%  include main.css  %}
 </style>
-Whenever I get a scam email that manages to circumvent both my and gmail's email filters, I like to take a closer look at how it did it and what it's trying to accomplish.
 
-Today I got a curious looking email from "American Express" titled "RREMINDER: We've issue a concern". They were not redirecting you to a URL - they attached an HTML file and told you to "verify your account" through that file.
+Earlier today I received a scam email that managed to evade both my and gmail's email filters. I wanted to get a closer look at how it did it and what it's trying to accomplish.
+
+The email was from "American Express" and was titled "RREMINDER: We've issue a concern".
 
 <picture class="centered-image">
   <source srcset="/images/amex-scam-email.webp" type="image/webp">
@@ -17,7 +18,7 @@ Today I got a curious looking email from "American Express" titled "RREMINDER: W
 </picture>
 <p class="footnote">"American Express" Email</p>
 
-They managed to emulate the notice email very accurately, and even knew about the way Amex generates their card numbers.
+They managed to emulate the real Amex notice email very accurately, and even knew about the way Amex generates their card numbers.
 
 American Express card numbers always follow the format 3XXX XXXXXX XABBC[^1].
 
@@ -509,11 +510,18 @@ These are some sample strings that match the above regex:
 
 It seems to matching for increments to variable names. 
 
-The function then continues on, calling `c`, which we haven't seen yet, with `init` as the parameter. 
+The function then continues on, calling `c`, with `init` as the parameter. 
 
 It then performs a regex test against the returned value of `c`, with both the first regex with "chain" appended and the second regex with "input" appended to it. 
 
-Based on that result it either calls `f("0")` or `c` again. `c` and `f` are debug protection, so we can safely discard this information since we are doing static analysis.
+Based on that result it either calls `f("0")` or `c` again. `c` and `f` are debug protection, so we can safely discard this information since we are doing static analysis. This is just more wrapping against debug functions
+
+
+### Debug protection
+
+The debug protection comes in the form of adding in a `while(true){}` when it notices that it's being inspected. There are a few other articles and blog posts around explaining how to detect (and circumvent) debug protections. 
+
+It seems like the vast majority of the code above is for debug protection. There is some logic, but we can probably discard most of it. The code might be the remnants of another program, part of the obfuscation tool used, or just convoluted to prevent inspection as we're doing now. 
 
 ### Global window code
 
@@ -531,9 +539,11 @@ for (; i < payload['length']; i = i + 3) {
 document['write'](decrypted);
 ```
 
-Anytime you see a reference to `document` in a script like this it's probably where the code injection actually happens. 
+Anytime you see a reference to `document` in a script like this it's probably where the view construction and code injection actually happens.
 
-It first instantiates 3 variables - an iterator, the payload, and the "decrypted" payload. It simply grabs the large payload, iterates over it by 3 and calls `unescape` on its contents.
+It first instantiates 3 variables - an iterator, the payload, and the "decrypted" payload. It simply grabs the large payload, iterates over it by 3 and calls `unescape` on its contents. 
+
+The entire `<blob>` was just URL encoded JavaScript and HTML.
 
 The final payload is a large mix of inline scripts and HTML tags. Cleaned up (and deobfuscated again), it is as follows:
 
@@ -775,7 +785,7 @@ This renders as above. They really try to milk you for as much information as po
 
 ## Inspecting the traffic
 
-Upon clicking submit, your data get's `POST`ed to a URL.
+Upon clicking submit, your data get's `POST`ed to a URL (`http://souzoku-roots.com`).
 
 <picture class="centered-image">
   <source srcset="/images/amex-scam-route.webp" type="image/webp">
@@ -784,13 +794,11 @@ Upon clicking submit, your data get's `POST`ed to a URL.
 </picture>
 <p class="footnote">"American Express" data submission</p>
 
-THe server actually replies back with a `302` that links to [http://alerts-ui-prod.americanexpress.com/IPPWeb/thankyou.do?Face=en_USHEUQS001](http://alerts-ui-prod.americanexpress.com/IPPWeb/thankyou.do?Face=en_USHEUQS001), which is an *actual* American Express domain. 
+The server actually replies back with a `302` that links to [http://alerts-ui-prod.americanexpress.com/IPPWeb/thankyou.do?Face=en_USHEUQS001](http://alerts-ui-prod.americanexpress.com/IPPWeb/thankyou.do?Face=en_USHEUQS001), which is an *actual* American Express domain. 
 
 This is hosted on `http://souzoku-roots.com/gzipdb/data.php`. We can see that their server lives at `203.83.243.114`, which is also registered in the British Virgin Islands.
 
 This domain is much older, though, and was originally registered in April of 2011. This is probably a master server that is used for all their scam campaigns.
-
-There is also an open `mysql` server running on the default port, which is potentially how the data is being downloaded periodically.
 
 ```
 Domain Name: souzoku-roots.com
@@ -834,16 +842,11 @@ Starting Nmap 7.70 ( https://nmap.org ) at 2019-02-02 18:36 PST
 PORT     STATE    SERVICE            VERSION
 21/tcp   open     ftp                ProFTPD 1.3.1
 22/tcp   open     ssh                OpenSSH 4.3 (protocol 2.0)
-25/tcp   filtered smtp
 53/tcp   open     domain             ISC BIND 9.3.4-P1
 80/tcp   open     http               Apache httpd 2.2.3 ((CentOS))
-106/tcp  filtered pop3pw
 110/tcp  open     pop3               Courier pop3d
-135/tcp  filtered msrpc
-139/tcp  filtered netbios-ssn
 143/tcp  open     imap               Courier Imapd (released 2004)
 443/tcp  open     ssl/http           Apache httpd 2.2.3 ((CentOS))
-445/tcp  filtered microsoft-ds
 465/tcp  open     ssl/smtp           qmail smtpd
 587/tcp  open     smtp               qmail smtpd
 993/tcp  open     ssl/imap           Courier Imapd (released 2004)
@@ -857,23 +860,6 @@ PORT     STATE    SERVICE            VERSION
 |   Some Capabilities: SupportsTransactions, Speaks41ProtocolNew, Support41Auth, SupportsCompression, LongColumnFlag, ConnectWithDatabase
 |   Status: Autocommit
 |_  Salt: >cZuafZrOtz(UU,v11?-
-6666/tcp filtered irc
-6667/tcp filtered irc
-6668/tcp filtered irc
-6669/tcp filtered irc
-6689/tcp filtered tsa
-6692/tcp filtered unknown
-6699/tcp filtered napster
-6779/tcp filtered unknown
-6788/tcp filtered smc-http
-6789/tcp filtered ibm-db2-admin
-6792/tcp filtered unknown
-6839/tcp filtered unknown
-6881/tcp filtered bittorrent-tracker
-6901/tcp filtered jetstream
-6969/tcp filtered acmsoda
-7000/tcp filtered afs3-fileserver
-7777/tcp filtered cbt
 8443/tcp open     ssl/http           Apache httpd
 |_http-server-header: Apache
 | http-title:           VZPP Plesk - Plesk 8.6.0 \xE3\x81\xAB\xE3\x83\xAD\xE3\x82\xB0\xE3\x82\xA4\xE3\x83\xB3
@@ -882,7 +868,6 @@ PORT     STATE    SERVICE            VERSION
 | Not valid before: 2015-02-15T14:20:29
 |_Not valid after:  2016-02-15T14:20:29
 |_ssl-date: 2019-02-03T02:37:25+00:00; 0s from scanner time.
-9080/tcp filtered glrpc
 Device type: general purpose
 Running: Linux 2.6.X|3.X
 OS CPE: cpe:/o:linux:linux_kernel:2.6 cpe:/o:linux:linux_kernel:3
@@ -891,6 +876,7 @@ Network Distance: 17 hops
 Service Info: Hosts: localhost.localdomain, vz170.jpnsv.com; OS: Unix
 ```
 
+There is also an open `mysql` server running on the default port, which is potentially how the data is being downloaded periodically.
 
 ### Conclusion
 
@@ -908,7 +894,7 @@ Overall we:
 
 The attacker did a fairly good job of disguising their work. Their DNS entries were valid and had a valid spf setup, the payload was twice encrypted to prevent static analysis, the assets and page all links to valid amex domains, and finally actually redirected you to a valid amex domain after `POST`ing your data to their server ([http://alerts-ui-prod.americanexpress.com/IPPWeb/thankyou.do?Face=en_USHEUQS001](http://alerts-ui-prod.americanexpress.com/IPPWeb/thankyou.do?Face=en_USHEUQS001)). 
 
-I currently have no plans to a) approach any of the hosts found or b) performing adversarial action against the attacker. I wanted to stay on the clear legal side, and am also not sure if the hosts we found were actually compromised or directly belong to the attacker.
+I currently have no plans to a) approach any of the hosts found or b) performing adversarial action against the attacker. I wanted to stay on the clear legal side, and am also not sure if the hosts we found were actually compromised or directly belong to the attacker. I did report the email to American Express, but that's the extent of my interaction with this scam. 
 
 It's always fun to see how attackers are disguising their code and identity. This was a pretty fun exploration of a single attackers point of view. We really didn't get much personally actionable info, besides the registrant of the second compromised domain, but it was an interesting Saturday project nonetheless. 
 
