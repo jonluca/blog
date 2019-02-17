@@ -1,7 +1,7 @@
 ---
 title: "Illegal streams, decrypting m3u8's, and building a better stream experience"
 date: 2018-09-22 11:14:32  -0400
-header-img: "/images/electron-hls.png"
+header-img: "/images/vlc-hls.png"
 ---
 <style>
     {%  include main.css  %}
