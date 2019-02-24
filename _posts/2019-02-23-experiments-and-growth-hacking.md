@@ -1,7 +1,7 @@
 ---
 title: "Experiments, growth engineering, and the perils of not disguising your API routes"
 date: 2019-02-23 13:16:46 -0700
-header-img: "/images/amex-nmap.png"
+header-img: "/images/lyft-api-network.png"
 ---
 
 Most medium to large companies now runs [A/B tests](https://en.wikipedia.org/wiki/A/B_testing) and new feature experiments on segments of their user base. They are a great way to check whether a feature will have long time success, and get observable metrics on the repercussion of their changes.
@@ -36,7 +36,7 @@ Additionally, a significant number of experiments are prefixed with `Justin` or 
 
 While some of the experiment names are inscrutable (`exodus ETE test2: "control"`, `MichaTntTest_e89f281d-53bb-4b2b-b1b9-f28a840bb75b: "treatment"`, and `EliuTest` could mean anything), others offer a glimpse into the direction that Lyft is currently exploring. These are all guesses based on key names, but they seem to be specific enough that we can make some inference.
 
-* `PPTacticalPriceSFOV4` - Tactical pricing at SFO - they're differentiating their pricing to SFO. Airports are a really common occurence in their testing names.
+* `PPTacticalPriceSFOV4` - Tactical pricing at SFO - they're differentiating their pricing to SFO. Airports are a really common occurrence in their testing names.
 * `PXCPaxSREarlyArrival5minWaitFromAcceptV2` with a value of `"300s_from_accept"` - How long a driver should wait after accepting? 
 * `PXCPaxCancelFrictionAcceptanceEmpathy` - When canceling a ride, it looks like they might be changing the wording to modify user behavior, and perhaps lower cancel rates
 
@@ -93,7 +93,7 @@ Next I decided to intercept the experiments from the mobile app. This includes q
 
 One of the most interesting:
 
-* `vars.client.autonomous` - It looks like Lyft is experimenting with Autonomous rides. For instance, the `console_far_stops` has Lyft Level 5 HQ and the Caltrain AV Stop, which seems to be Caltrain Autonomous Vehice stop.
+* `vars.client.autonomous` - It looks like Lyft is experimenting with Autonomous rides. For instance, the `console_far_stops` has Lyft Level 5 HQ and the Caltrain AV Stop, which seems to be Caltrain Autonomous Vehicle stop.
 
 There are 1,449 keys *just in vars.client* - this doesn't include the 162 experiments being run in `variants`, or the 44 in `holdout_variants`. Lyft is running a lot of experiments!
 
@@ -124,7 +124,7 @@ The testing framework Airbnb seems to use is called Mario. Each of their experim
 },
 ```
 
-The great part is that there's no guesswork involed - the "description" key tells us exactly what each experiment is.
+The great part is that there's no guesswork involved - the "description" key tells us exactly what each experiment is.
 
 Most of their experiments are focused around referrals and support. There didn't seem to be anything particularly indicative of future direction - most of it was different wordings for referrals, different button placement, and various changes to the chat support system.
 
@@ -225,7 +225,7 @@ Some of the interesting ones are:
 * `monetization_no_flannel_login`
 ### Amazon
 
-Upon launch of the iOS Amazon app, it makes a request to `https://msh.amazon.com/mwl/assignments/v2` - this replies back witha  large object containing each of the "Assignments". The full reply can be found [here](https://pastebin.com/bUkZ61un).
+Upon launch of the iOS Amazon app, it makes a request to `https://msh.amazon.com/mwl/assignments/v2` - this replies back with a large object containing each of the "Assignments". The full reply can be found [here](https://pastebin.com/bUkZ61un).
 
 
 Some of the most interesting ones are as these.
