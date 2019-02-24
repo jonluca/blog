@@ -1,3 +1,5 @@
 # JonLuca's Blog
 
-This a Jekyll site with the Scribble theme. It can be found [here](https://blog.jonlu.ca)
+Source code and complete edit history of JonLuca's Blog.
+
+The live blog can be found [here](https://blog.jonlu.ca).
