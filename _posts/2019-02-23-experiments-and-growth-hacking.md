@@ -3,6 +3,9 @@ title: "Experiments, growth engineering, and the perils of not disguising your A
 date: 2019-02-23 13:16:46 -0700
 header-img: "/images/lyft-api-network.png"
 ---
+<style>
+    {%  include main.css  %}
+</style>
 
 Most medium to large companies now runs [A/B tests](https://en.wikipedia.org/wiki/A/B_testing) and new feature experiments on segments of their user base. They are a great way to check whether a feature will have long time success, and get observable metrics on the repercussion of their changes.
 
