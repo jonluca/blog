@@ -175,9 +175,9 @@ The full experiment list is [here](https://pastebin.com/3jZPazXs). There are cur
 * `activation_male_topic_image_replacement` - Gendered content differentiation?
 
 <picture class="centered-image">
-  <source srcset="/images/burp-pinterest.webp" type="image/webp">
-  <source srcset="/images/burp-pinterest.png" type="image/png"> 
-  <img alt="Pinterest experiments route" class="centered-image" src="/images/burp-pinterest.png">
+  <source srcset="/images/burp-pt.webp" type="image/webp">
+  <source srcset="/images/burp-pt.png" type="image/png"> 
+  <img alt="Pinterest experiments route" class="centered-image" src="/images/burp-pt.png">
 </picture>
 <p class="footnote">Burp Suite intercepting Pinterest API calls</p>
 
