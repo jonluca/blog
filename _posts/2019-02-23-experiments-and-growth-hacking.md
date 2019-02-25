@@ -7,7 +7,7 @@ header-img: "/images/lyft-api-network.png"
     {%  include main.css  %}
 </style>
 
-<i>This is the first part of a two part series on modern testing infrastructure and methodologies.</i>
+<i>This is the first part of a two part series on modern testing infrastructure and methodologies. Part 2 will focus on an analysis of these companies' testing habits - how often they introduce new tests, the methodology and thought process behind their tests, and any other information we may be able to glean from their testing configurations.</i>
 
 Most medium to large companies now runs [A/B tests](https://en.wikipedia.org/wiki/A/B_testing) and new feature experiments on segments of their user base. They are a great way to check whether a feature will have long time success, and get observable metrics on the repercussion of their changes.
 
@@ -341,9 +341,9 @@ A sample profile is below.
 
 ### Facebook and Instagram
 
-I wish I could've viewed Facebook and Instagram as well. Unfortunately they do SSL Stapling - any attempts at doing Burp Suite cert replacement fails, and no routes are shown. However, they're not infallible - if you have a jailbroken phone, you can override the admin preferences and force show all experiments. 
+I wish I could've viewed Facebook and Instagram as well. Unfortunately they do SSL Stapling - any attempts at doing Burp Suite cert replacement fails, and no routes are shown. In the past, if you had a jailbroken phone, you could override the admin preferences and force show all experiments, with toggles and state.
 
-Unfortunately I have an iPhone XS Max on 12.1.4, which doesn't have a jailbreak. Once a jailbreak comes out I'll be able to override TLS Stapling by replacing the default `openssl` implementation on iOS, and we'll be able to view the routes of all companies that do SSL Stapling (Snapchat, FB, Instagram, etc).
+Unfortunately I have an iPhone XS Max on 12.1.4, which doesn't have a jailbreak. Once a jailbreak comes out I'll be able to override TLS Stapling by replacing the default `openssl` implementation on iOS, and we'll be able to view the routes of all companies that do SSL Stapling (Snapchat, FB, Instagram, etc). This will hopefully be included in Part 2, which is set to come out within the next month or so.
 
 
 ## Conclusion
@@ -356,3 +356,4 @@ Some future companies I'd like to try and check out are Snapchat, Ebay, all the 
 
 There's a lot more apps and services that this methodology works with. Feel free to reach out if you're interested in finding any given companies experimentation campaigns.
 
+Watch out for Part 2 coming in the next few months. To be alerted to when that comes out, follow me on twitter [@jonlucadecaro](https://twitter.com/jonlucadecaro).
