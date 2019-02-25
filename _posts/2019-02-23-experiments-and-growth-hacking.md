@@ -343,8 +343,7 @@ A sample profile is below.
 
 I wish I could've viewed Facebook and Instagram as well. Unfortunately they do SSL Stapling - any attempts at doing Burp Suite cert replacement fails, and no routes are shown. In the past, if you had a jailbroken phone, you could override the admin preferences and force show all experiments, with toggles and state.
 
-Unfortunately I have an iPhone XS Max on 12.1.4, which doesn't have a jailbreak. Once a jailbreak comes out I'll be able to override TLS Stapling by replacing the default `openssl` implementation on iOS, and we'll be able to view the routes of all companies that do SSL Stapling (Snapchat, FB, Instagram, etc). This will hopefully be included in Part 2, which is set to come out within the next month or so.
-
+Unfortunately I have an iPhone XS Max on 12.1.4, which doesn't have a jailbreak. Once a jailbreak comes out I'll be able to override TLS Stapling using a tool like [iOS Kill Switch](https://github.com/iSECPartners/ios-ssl-kill-switch), and we'll be able to view the routes of all companies that do SSL Stapling (Snapchat, FB, Instagram, etc). This will hopefully be included in Part 2, which is set to come out within the next month or so.
 
 ## Conclusion
 
