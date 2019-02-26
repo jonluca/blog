@@ -356,3 +356,5 @@ Some future companies I'd like to try and check out are Snapchat, Ebay, all the 
 There's a lot more apps and services that this methodology works with. Feel free to reach out if you're interested in finding any given companies experimentation campaigns.
 
 Watch out for Part 2 coming in the next few months. To be alerted to when that comes out, follow me on twitter [@jonlucadecaro](https://twitter.com/jonlucadecaro).
+
+Comments can be found on reddit, [here](https://www.reddit.com/r/jonluca/comments/auekiv/experiments_growth_engineering_and_the_perils_of/).
