@@ -1,5 +1,5 @@
 ---
-title: "Experiments, growth engineering, and the perils of not disguising your API routes: Part 1"
+title: "Experiments, growth engineering, and exposing company secrets through your API: Part 1"
 date: 2019-02-23 13:16:46 -0700
 header-img: "/images/lyft-api-network.png"
 ---
