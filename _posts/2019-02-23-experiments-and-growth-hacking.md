@@ -51,7 +51,7 @@ These show your status as both a rider and a driver, and provides a *lot* of ins
 
 * `lastmile.enableIncentiveZones` - This is false for me. Could either be for drivers to go to populated areas, or as incentive zones for specific users?
 * `lastmile.userLegacyMap` - Are they using different maps? Could they be transitioning off of Google Maps?
-* `payments.allow_amex_on_fd` - Based on other keys, `fd` means first data. This is false for me - maybe they don't show Amex's first because of the higher interchange fees on their end, so they'd prefer riders/drivers to use Visa/Mastercard?
+* `payments.allow_amex_on_fd` - Based on other keys, `fd` means first data, which is a payment processor. This option indicates that they might be allowing American Express cards to be used through one of their payment processors?
 * `payment.intuitAffiliateCode` - For me, this value is `lyftplat18`. Perhaps this is a promo code from intuit? It's tax season right now, so maybe they're gearing up for a partnership on TurboTax, from Intuit?
 * `pricing.tpa` - There's a whole section on `TPA`, which seems to stand for "Tactical Price Adjustment"; They're pretty clearly aware of people checking between Uber and Lyft for every ride, and they have different tiers and values, maybe to just barely beat their competitors
 * `api.lnHasStrictEarlyCancelFee` - This is false for me, and if I had to guess this seems like a penalty for people who often cancel their rides after they've been matched with a driver.
