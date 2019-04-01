@@ -49,7 +49,7 @@ This was a somewhat naive check - we're just comparing key names, the check func
 
 ## Deeper comparisons
 
-We'd also like to define some sort of check for whether a variable has been overriden or renamed. All of the `window` variables can be renamed, so we want to make sure that we catch any changes a web page makes. There's an npm packaged called [object-hash](https://www.npmjs.com/package/object-hash) that defines per-object unique hashes. We can import this and pre-hash all the default window varialbes. We can then compare the hashes of any given pages global variables to the known ones. We'll run into some small issues (`window.pageYOffset`, for instance, is a variable that changes based on each site, and as such the hash will always be different) but for the most part it'll be a good indicator for any changes.
+We'd also like to define some sort of check for whether a variable has been overridden or renamed. All of the `window` variables can be renamed, so we want to make sure that we catch any changes a web page makes. There's an npm packaged called [object-hash](https://www.npmjs.com/package/object-hash) that defines per-object unique hashes. We can import this and pre-hash all the default window variables. We can then compare the hashes of any given pages global variables to the known ones. We'll run into some small issues (`window.pageYOffset`, for instance, is a variable that changes based on each site, and as such the hash will always be different) but for the most part it'll be a good indicator for any changes.
 
 We can do that like so:
 
@@ -79,7 +79,7 @@ function checkGlobal() {
 
 I made a small [chrome extension](https://github.com/jonluca/Window-Differ) that does this for you - it compares unique keys, and hash keys, and logs them to the console for any given page.
 
-This works well - clicking the chrome extension icon immediately shows me the differet global variables, which for my site are different analytics modules.
+This works well - clicking the chrome extension icon immediately shows me the different global variables, which for my site are different analytics modules.
 
 <picture class="centered-image">
   <source srcset="/images/lyft-api-network.webp" type="image/webp">
