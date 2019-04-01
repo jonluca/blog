@@ -1,5 +1,5 @@
 ---
-title: "Experiments, growth engineering, and exposing company secrets through your API: Part 1"
+title: "Experiments, growth engineering, and the perils of not disguising your API routes: Part 1"
 date: 2019-02-23 13:16:46 -0700
 header-img: "/images/lyft-api-network.png"
 ---
@@ -7,7 +7,7 @@ header-img: "/images/lyft-api-network.png"
     {%  include main.css  %}
 </style>
 
-<i>This is the first part of a two part series on modern testing infrastructure and methodologies. Part 2 will focus on an analysis of these companies' testing habits - how often they introduce new tests, the methodology and thought process behind their tests, and any other information we may be able to glean from their testing configurations.</i>
+<i>This is the first part of a two part series on modern testing infrastructure and methodologies. Part two can be found <a href="/posts/experiments-part-2">here.</a></i>
 
 Most medium to large companies now runs [A/B tests](https://en.wikipedia.org/wiki/A/B_testing) and new feature experiments on segments of their user base. They are a great way to check whether a feature will have long time success, and get observable metrics on the repercussion of their changes.
 
@@ -51,7 +51,7 @@ These show your status as both a rider and a driver, and provides a *lot* of ins
 
 * `lastmile.enableIncentiveZones` - This is false for me. Could either be for drivers to go to populated areas, or as incentive zones for specific users?
 * `lastmile.userLegacyMap` - Are they using different maps? Could they be transitioning off of Google Maps?
-* `payments.allow_amex_on_fd` - Based on other keys, `fd` means first data, which is a payment processor. This option indicates that they might be allowing American Express cards to be used through one of their payment processors?
+* `payments.allow_amex_on_fd` - Based on other keys, `fd` means first data. This is false for me - maybe they don't show Amex's first because of the higher interchange fees on their end, so they'd prefer riders/drivers to use Visa/Mastercard?
 * `payment.intuitAffiliateCode` - For me, this value is `lyftplat18`. Perhaps this is a promo code from intuit? It's tax season right now, so maybe they're gearing up for a partnership on TurboTax, from Intuit?
 * `pricing.tpa` - There's a whole section on `TPA`, which seems to stand for "Tactical Price Adjustment"; They're pretty clearly aware of people checking between Uber and Lyft for every ride, and they have different tiers and values, maybe to just barely beat their competitors
 * `api.lnHasStrictEarlyCancelFee` - This is false for me, and if I had to guess this seems like a penalty for people who often cancel their rides after they've been matched with a driver.
@@ -341,9 +341,10 @@ A sample profile is below.
 
 ### Facebook and Instagram
 
-I wish I could've viewed Facebook and Instagram as well. Unfortunately they do SSL Stapling - any attempts at doing Burp Suite cert replacement fails, and no routes are shown. In the past, if you had a jailbroken phone, you could override the admin preferences and force show all experiments, with toggles and state.
+I wish I could've viewed Facebook and Instagram as well. Unfortunately they do SSL Stapling - any attempts at doing Burp Suite cert replacement fails, and no routes are shown. However, they're not infallible - if you have a jailbroken phone, you can override the admin preferences and force show all experiments. 
 
-Unfortunately I have an iPhone XS Max on 12.1.4, which doesn't have a jailbreak. Once a jailbreak comes out I'll be able to override TLS Stapling using a tool like [iOS Kill Switch](https://github.com/iSECPartners/ios-ssl-kill-switch), and we'll be able to view the routes of all companies that do SSL Stapling (Snapchat, FB, Instagram, etc). This will hopefully be included in Part 2, which is set to come out within the next month or so.
+Unfortunately I have an iPhone XS Max on 12.1.4, which doesn't have a jailbreak. Once a jailbreak comes out I'll be able to override TLS Stapling by replacing the default `openssl` implementation on iOS, and we'll be able to view the routes of all companies that do SSL Stapling (Snapchat, FB, Instagram, etc).
+
 
 ## Conclusion
 
@@ -355,6 +356,3 @@ Some future companies I'd like to try and check out are Snapchat, Ebay, all the 
 
 There's a lot more apps and services that this methodology works with. Feel free to reach out if you're interested in finding any given companies experimentation campaigns.
 
-Watch out for Part 2 coming in the next few months. To be alerted to when that comes out, follow me on twitter [@jonlucadecaro](https://twitter.com/jonlucadecaro).
-
-Comments can be found on reddit, [here](https://www.reddit.com/r/jonluca/comments/auekiv/experiments_growth_engineering_and_the_perils_of/).
