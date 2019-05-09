@@ -38,7 +38,7 @@ Imagine that Alice and Bob want to communicate with each other, and there is an 
 			<tr class="row100">
 				<td class="column100 column1" data-column="column1">Rectilinear (+) </td>
 				<td class="column100 column2" data-column="column2">90°</td>
-				<td class="column100 columnred column3" data-column="column3">0°</td>
+				<td class="column100 column3" data-column="column3">0°</td>
 			</tr>
 			<tr class="row100">
 				<td class="column100 column1" data-column="column1">Diagonal (x)</td>

@@ -9232,7 +9232,7 @@ code.highlighter-rouge {
 }
 
 .centered-image {
-  margin: 0 auto;
+  margin: 0 auto !important;
   display: block;
   padding-bottom: 5px
 }
