@@ -7,4 +7,13 @@ $(document).ready(function() {
         adaptiveHeight: true,
         cssEase: 'linear'
     });
+
+    $('.ichiran-slideshow').slick({
+        dots: true,
+        infinite: true,
+        speed: 500,
+        fade: true,
+        adaptiveHeight: true,
+        cssEase: 'linear'
+    });
 });
