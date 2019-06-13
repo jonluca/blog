@@ -30,7 +30,7 @@ Take the Chase Sapphire Reserve when it originally came out - the 100k UR sign u
 
 It seemed a little crazy that I could get a free $1,500 by paying for my rent on my credit card instead of directly from my bank account. The reason this works and isn't a scam is that most people do not take full advantage of these offers - some people can't financially support the amount of required spend, some aren't fiscally responsible, and others just don't want to expend the effort.
 
-* American credit card debt hit $1,027,000,000,000 in March 2018, according to the federal reserver[^1].
+* American credit card debt hit $1,027,000,000,000 in March 2018, according to the federal reserve[^1].
 
 * 38% of US households have revolving credit card debt (debt they are carrying month-over-month, and paying interest on)
 
@@ -89,7 +89,7 @@ Manufactured spending is the art of cycling through your credit without actually
 
 Manufactured spending is also the most volatile - there's no generally accepted way of MSing, new avenues open and close every month. It relies a lot more on one-off deals.
 
-The gold standard for years was money orders - you could go to Walmart and buy $10,000 in gift cards when a promotion was going on for no fees, then go to any USPS and use to Vanilla gift cards to buy money orders. The fee for this about $1.25 per $1000. The money orders could then be directly deposited in your bank account, with which you pay off the original credit card. This meant your overhead was $12,50 per 10,000 miles/points. A round trip to Europe is (currently) 45,000 miles on AA, so this would just cost you $56. Unfortunately this was pretty much shutdown in late 2016 when USPS stopped taking gift cards.
+The gold standard for years was money orders - you could go to Walmart and buy $10,000 in gift cards when a promotion was going on for no fees, then go to any USPS and use to Vanilla gift cards to buy money orders. The fee for this about $1.25 per $1000. The money orders could then be directly deposited in your bank account, with which you pay off the original credit card. This meant your overhead was $12.50 per 10,000 miles/points. A round trip to Europe is (currently) 45,000 miles on AA, so this would just cost you $56. Unfortunately this was pretty much shutdown in late 2016 when USPS stopped taking gift cards.
 
 There are much more complicated ways to MS, and it's difficult to write a guide around. Once you have an eye for the game you can spot these opportunities pretty quickly - finding a store that'll reimburse costs to *any* card, not just the original card that was used, buying cash from the US treasury with a credit card, 100% value rebates, etc. These are usually short lived and get hit pretty hard since they can be so rewarding.
 
