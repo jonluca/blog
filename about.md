@@ -2,7 +2,7 @@
 title: About
 ---
 
-Hi! I'm JonLuca DeCaro. I'm currently a Software Engineer in Berkeley, CA at Elevate Security.
+Hi! I'm JonLuca DeCaro. I'm currently a Software Engineer in San Francisco, CA at Pinterest.
 
 Previously I worked at Google and Apple. 
 

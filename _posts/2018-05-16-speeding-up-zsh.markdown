@@ -4,7 +4,7 @@ date: 2018-05-16 11:43:26 -0700
 header-img: "/images/rawbash.png"
 ---
 
-I was quickly opening multiple shells for an unrelated project today and noticed how abysmal my shell load speed was. After the initial load it was relatively fast, but the actual shell start up was noticeably slow. I decided to time it with `time`.
+I was opening multiple shells for an unrelated project today and noticed how abysmal my shell load speed was. After the initial load it was relatively fast, but the actual shell start up was noticeably slow. I timed it with `time` and these were the results.
 
 <picture class="centered-image">
   <source srcset="/images/origzsh.webp" type="image/webp">
@@ -12,7 +12,7 @@ I was quickly opening multiple shells for an unrelated project today and noticed
   <img alt="Original zsh profile" class="centered-image" src="/images/origzsh.png">
 </picture>
 
-You can time your own with: 
+You can time your own shell with: 
 
 ```bash
 for i in $(seq 1 10); do /usr/bin/time $SHELL -i -c exit; done
@@ -72,7 +72,7 @@ The first step is to figure out exactly what's taking so long - there are a vari
 zsh -xv
 ```
 
-This enables `xtrace`ing and `verbose` output. It's not particularly great, though - it does not include timestamps, so we have to eyeball the speed. It's easy to catch a few immediate culprits - for instance, mine hung for at least a second on loading `nvm`. Anything that is a few orders of magnitude slower than the other commands will stick out like a sore thumb. 
+This enables `xtrace`ing and `verbose` output. It's not particularly great for time analysis, though - it does not include timestamps, so we have to eyeball the speed. It's easy to catch a few immediate culprits - for instance, mine hung for at least a second on loading `nvm`. Anything that is a few orders of magnitude slower than the other commands will stick out like a sore thumb. 
 
 The second is an order-blind profiler - at the top of `.zshrc`, insert `zmodload zsh/zprof`. This will enable the built in profiling.
 
