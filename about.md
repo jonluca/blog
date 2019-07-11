@@ -12,6 +12,12 @@ I also write for HackerNoon and freeCodeCamp on Medium, [here](https://medium.co
 
 You can get an RSS feed of the blog <a href="/feed.xml">here.</a>
 
+BTC: `1KRCeUDBBL4S4Y4diKfjCdZ97V8Z2TWLgK`
+
+LTC: `MHGW4GLJGoAebgffF3AtaPD9yA2QB9rT3L`
+
+ETH: `0x9902ae740E3DD0a577869D9258E467d5ba49f25d`
+
 You can return to my personal site (non-blog) [here](https://jonlu.ca).
 
 <style>
