@@ -142,6 +142,8 @@ Facebook Bay Area, Return Intern:
 
 These are all pre-negotiation figures. All offers were raised significantly post negotiation. Hopefully you can use them as a reference point for other companies, especially FLAAMG and unicorn status companies. 
 
+You can check out [levels.fyi](https://www.levels.fyi) and Blind for more offers.
+
 ## Final thoughts
 
 It's very important to do your research as a new grad, as many of the companies, even the large ones, will take advantage of you if you don't push back and understand what the market says you are worth. [Haseeb Qureshi has a phenomenal guide on negotiating offers that everyone should read](https://haseebq.com/my-ten-rules-for-negotiating-a-job-offer/).
