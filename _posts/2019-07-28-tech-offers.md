@@ -130,9 +130,9 @@ Google Los Angeles, Return Intern:
 
 Google Bay Area, New Grad:
 
-* $114,000 salary
-* $125,000 equity/4 years, monthly vesting
-$ $20,000 signing
+* $115,000 salary
+* $100,000 equity/4 years, monthly vesting
+$ $15,000 signing
 
 Facebook Bay Area, Return Intern:
 
