@@ -124,7 +124,7 @@ Facebook Bay Area:
 * $160,000 equity/4 years, 1 year cliff then monthly
 * $60,000 signing
 
-These are all pre-negotiation figures.
+These are all pre-negotiation figures. Hopefully you can use them as a reference point for other companies, especially FLAAMG and unicorn status companies. 
 
 ## Final thoughts
 
