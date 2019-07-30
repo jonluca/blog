@@ -92,6 +92,8 @@ Many companies also offer relocation. This is often identical to a signing bonus
 
 Many of the tech companies use something like ELO Relocation. You are given "points" to use - you can elect to take a cash value (normally $5,000 or $10,000) and be done, or you can use your points to mix and match various relocation benefits. These can include long-term hotel stays, city guides, moving services, and house buying help. The vast majority of new grads I know take the cash value, but it's worth researching to see if you will receive more value from your relocation benefits than the cash.
 
+There can also be a slight tax advantage to relocation - some companies offer tax adjusted relocation spend, which means if you spend the money on relocation and then get reimbursed for it you will receive a greater net amount, and the company will pay the tax differential in your stead.
+
 ## Offer timelines
 
 With every year the start of recruiting season gets pulled earlier and earlier. For the past few years I've personally considered the Greylock Tech Fair to be the inaugural day of recruiting - usually the last week of July, a lot of unicorns and big companies will officially open up applications and start sending out offers. It's not unheard of to have multiple offers by August 1st, for the most enterprising and well prepared candidates. 
@@ -113,14 +115,14 @@ Below are a couple standard offers received by either me or my friends for west 
 Google Los Angeles, Return Intern:
 
 * $114,000 salary
-* $200,000 equity/4 years, monthly vesting
-* $45,000 signing
+* $160,000 equity/4 years, monthly vesting
+* $25,000 signing
 
 Google Bay Area, New Grad:
 
 * $114,000 salary
-* $160,000 equity/4 years, monthly vesting
-$ $50,000 signing
+* $125,000 equity/4 years, monthly vesting
+$ $20,000 signing
 
 Facebook Bay Area, Return Intern:
 
@@ -128,7 +130,7 @@ Facebook Bay Area, Return Intern:
 * $160,000 equity/4 years, 1 year cliff then monthly
 * $60,000 signing
 
-These are all pre-negotiation figures. Hopefully you can use them as a reference point for other companies, especially FLAAMG and unicorn status companies. 
+These are all pre-negotiation figures. All offers were raised significantly post negotiation. Hopefully you can use them as a reference point for other companies, especially FLAAMG and unicorn status companies. 
 
 ## Final thoughts
 
