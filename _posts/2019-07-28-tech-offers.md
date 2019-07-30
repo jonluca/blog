@@ -94,6 +94,16 @@ Many of the tech companies use something like ELO Relocation. You are given "poi
 
 There can also be a slight tax advantage to relocation - some companies offer tax adjusted relocation spend, which means if you spend the money on relocation and then get reimbursed for it you will receive a greater net amount, and the company will pay the tax differential in your stead.
 
+### Unique/Rare Additional Bonuses
+
+Certain companies will also offer unique or otherwise uncommon offer incentives to try and convince candidates to join them. For instance, at Pinterest there is the "Pinspiration" bonus, which is a bonus on top of all of the above of $5,000 to be used on travel. You have to book the travel through them, and it must be used on travel, and you can't take the cash equivalent. 
+
+These are not nearly as common as the above, though. These sorts of bonuses can include corporate housing, living stipend, or even cars and transportation assistance. 
+
+### Other parts of an offer
+
+There can be other facets of a company that should influence your decision, such as what type of healthcare they offer, what the 401k matching looks like, whether they offer a mega backdoor Roth, whether they allow auto-sell of your vested stocks, whether there's an employee stock purchase plan, and whether they offer free food or gym. You should make a best guess at how much you value each of these in a company, and adjust your offer accordingly.
+
 ## Offer timelines
 
 With every year the start of recruiting season gets pulled earlier and earlier. For the past few years I've personally considered the Greylock Tech Fair to be the inaugural day of recruiting - usually the last week of July, a lot of unicorns and big companies will officially open up applications and start sending out offers. It's not unheard of to have multiple offers by August 1st, for the most enterprising and well prepared candidates. 
