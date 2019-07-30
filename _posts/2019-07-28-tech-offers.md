@@ -1,7 +1,7 @@
 ---
 title: "Understanding compensation in 2019 new grad tech offers"
 date: 2019-07-28 19:48:00
-header-img: "/images/shell-shortcuts.png"
+header-img: "/images/offers.png"
 ---
 
 I recently went through the recruiting process for Software/Security/PM tracks.
@@ -110,15 +110,19 @@ It can also be very instructive to communicate with other students or candidates
 
 Below are a couple standard offers received by either me or my friends for west coast offices of the big companies:
 
-Google Los Angeles:
+Google Los Angeles, Return Intern:
 
 * $114,000 salary
 * $200,000 equity/4 years, monthly vesting
 * $45,000 signing
 
-Google Bay Area:
+Google Bay Area, New Grad:
 
-Facebook Bay Area:
+* $114,000 salary
+* $160,000 equity/4 years, monthly vesting
+$ $50,000 signing
+
+Facebook Bay Area, Return Intern:
 
 * $115,000 salary
 * $160,000 equity/4 years, 1 year cliff then monthly
