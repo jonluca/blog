@@ -127,7 +127,7 @@ $ $20,000 signing
 Facebook Bay Area, Return Intern:
 
 * $115,000 salary
-* $160,000 equity/4 years, 1 year cliff then monthly
+* $160,000 equity/4 years, 1 year cliff then quarterly
 * $60,000 signing
 
 These are all pre-negotiation figures. All offers were raised significantly post negotiation. Hopefully you can use them as a reference point for other companies, especially FLAAMG and unicorn status companies. 
