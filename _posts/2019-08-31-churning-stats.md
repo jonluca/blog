@@ -6,7 +6,8 @@ header-img: "/images/churning-graph.png"
 <style>
     {%  include main.css  %}
 </style>
-Over in /r/churning we recently introduce the "Weekly Off-Topic Thread", as a catch all content that is tangential to travel hacking but doesn't 
+
+/r/churning is a subreddit dedicated to maximizing credit rewards and travel hacking. We have a pretty unique activity pattern that is fairly distinct from the rest of reddit. I thought it would be interesting to run an analysis of our user behavior, activity, as well as find patterns in the distribution of content. 
 
 ## Getting the data
 
@@ -306,7 +307,7 @@ Just for fun I also looked at OJs daily activity - looks like they took a pretty
 
 ## Data
 
-If you would like to run your own analysis, or get a copy of the data I used here, I uploaded a compressed version of the SQL dump [here](https://mega.nz/#!MZMkFapC!iwTIq7dNA4K4qO6y9QJW2mGD0Vv2MXXyUWHPosuuEjs).
+If you would like to run your own analysis, or get a copy of the data I used here, I uploaded a compressed version of the SQL dump [here](https://mega.nz/#!MZMkFapC!iwTIq7dNA4K4qO6y9QJW2mGD0Vv2MXXyUWHPosuuEjs). You can restore this using `bunzip2 < dump.sql.bz2 | mysql -u $USER -p`.
 
 I'm open to suggestions on what other metrics to look at! I think it would be cool to visualize who the top 5 commenters have been over time, or perhaps what the average amount of time a user has been active on the subreddit. These might be incorporated in the next State of the Subreddit. 
 
