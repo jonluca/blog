@@ -296,7 +296,7 @@ The top 500 users are also responsible for 366,038 of the posts from last year, 
 <p class="footnote">Top 1000 user comment distribution, without outlier</p>
 
 
-Just for fun I also looked at OJs daily activity - looks like they took a pretty signifcant break June of 2019, perhaps using up all those hard earned miles on vacation? 
+Just for fun I also looked at OJs daily activity - looks like they took a pretty signifcant break June of 2018, perhaps using up all those hard earned miles on vacation?
 
 <picture class="centered-image">
   <source srcset="/images/churning-oj.webp" type="image/webp">
