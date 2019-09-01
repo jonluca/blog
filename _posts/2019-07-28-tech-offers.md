@@ -146,6 +146,8 @@ You can check out [levels.fyi](https://www.levels.fyi) and Blind for more offers
 
 It's very important to do your research as a new grad, as many of the companies, even the large ones, will take advantage of you if you don't push back and understand what the market says you are worth. [Haseeb Qureshi has a phenomenal guide on negotiating offers that everyone should read](https://haseebq.com/my-ten-rules-for-negotiating-a-job-offer/).
 
+There is also a *much* more comprehensive [open guide to equity compensation](https://www.holloway.com/g/equity-compensation) by Holloway. I highly recommend reading it to get a deep dive on the different forms of equity and compensation you can expect to receive.
+
 Overall make sure you understand the lay of the land, understand how offers are changing, and make sure you apply broad and often. 
 
 Good luck!
