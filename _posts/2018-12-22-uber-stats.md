@@ -7,6 +7,8 @@ header-img: "/images/uber-graphs.png"
     {%  include main.css  %}
 </style>
 
+*TL;DR* You can get the chrome extension [on the Chrome WebStore](https://chrome.google.com/webstore/detail/uber-trip-stats/kddlnbejbpknoedebeojobofnbdfhpnm).
+
 Earlier this week I wanted to see how much I've spent on uber across my roughly 4 years on the platform. I realized there was no easy way to do this. One option would be to go through my bank statements, but I have used a ton of different cards over the years. I could connect all my accounts to a service like Mint and search for it there, but that was time consuming and cumbersome. The goal would be to have a first party solution provided by uber, but no such service exists. 
 
 I started poking around Uber's [rides website](https://riders.uber.com/trips). It was surprisingly rich in data - it provided cost, start and end times, distance, and more. I wanted to see how they were getting the data. If they were server side rendering it then it would be significantly harder to scrape it and it would remove the possibility of interesting data that was returned but not used in the front end. Fortunately for us they just had a `getTrips` endpoint. The endpoint was a `POST` request to:
