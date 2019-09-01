@@ -1,6 +1,6 @@
 ---
 title: "Understanding compensation in 2019 new grad tech offers"
-date: 2019-07-28 19:48:00
+date: 2019-07-28 19:48:00 -0700
 header-img: "/images/offers.png"
 ---
 
