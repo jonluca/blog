@@ -140,6 +140,14 @@ Facebook Bay Area, Return Intern:
 
 These are all pre-negotiation figures. All offers were raised significantly post negotiation. Hopefully you can use them as a reference point for other companies, especially FLAAMG and unicorn status companies. 
 
+For instance, one of the offers above was negotiated to:
+
+* $115,000 salary
+* $240,000 equity/4 years, 1 year cliff then quarterly
+* $100,000 signing
+
+Which is roughly $275,000 in TC (Total compensation) first year, a gain of over 20% just by negotiating. 
+
 You can check out [levels.fyi](https://www.levels.fyi) and Blind for more offers.
 
 ## Final thoughts
