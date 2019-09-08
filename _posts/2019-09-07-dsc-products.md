@@ -62,7 +62,7 @@ I'd heard of Ember before but never used it myself. I knew it was a web framewor
 
 I poked around a bit and was surprised to see that 
 
-I didn't get as lucky as having the source maps for their minified files avaible in prod, but at least Ember preserves object keys and types, which meant it was easy to figure out what everything in the state store was. I couldn't see what the filter functionw as doing, but I could find the full product list, and see the flags for the product information.
+I didn't get as lucky as having the source maps for their minified javascript available in prod, but at least Ember preserves object keys and types, which meant it was easy to figure out what everything in the state store was. I couldn't see what the filter function was doing, but I could find the full product list, and see the flags for the product information.
 
 {% include image.html footnote="Full product information, as well as the equivalent of props in React " file="dsc-props" alt="DSC props" %}
 
