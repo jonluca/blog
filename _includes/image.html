@@ -1,0 +1,6 @@
+<picture class="centered-image">
+  <source srcset="/images/{{ include.file }}.webp" type="image/webp">
+  <source srcset="/images/{{ include.file }}.png" type="image/png"> 
+  <img alt="{{ include.alt }}" class="centered-image" src="/images/{{ include.file }}.png">
+</picture>
+<p class="footnote">{{include.footnote}}</p>
