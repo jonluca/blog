@@ -70,6 +70,8 @@ I didn't get as lucky as having the source maps for their minified files avaible
 
 There were a lot of props in each product. These include `isReloading`, `isRetired`, `isSample`, `isSaving`, `isSoldOut` and even the pair of `isComingSoon` and `isNotComingSoon` (🙄).
 
+I uploaded the full list to pastebin [here](https://pastebin.com/qw5La5JY).
+
 At this point I thought it would be easy to just toggle the boolean flags for all the products and it would show up in the full product list. I set their `isActive` status, I set `isSoldOut` to `false`, and tried a few of the other props. Unfortunately nothing got the product to actually show up in the front end so I could add it to my cart (and there was no clear way to add the product to my cart directly). 
 
 At first I thought that perhaps changing these wouldn't trigger Ember's equivalent of `render`, but updating their `name` attribute got it to change so that theory was dispelled.
