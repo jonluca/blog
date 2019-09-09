@@ -1,5 +1,5 @@
 ---
-title: "Dr. Carvers Shave Butter, Ember, and disappearing products"
+title: "Ember.js, Dr. Carvers Shave Butter, and disappearing products"
 date: 2019-09-07 17:10:04 -0700
 header-img: "/images/churning-graph.png"
 ---
