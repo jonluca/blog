@@ -13,7 +13,7 @@ Today I received yet another email from Dollar Shave Club (DSC) advertising one 
 
 {% include image.html footnote="Shaving butter bundle" file="dsc-bundle" alt="shaving butter bundle" %}
 
-I quickly added the shaving butter to my cart (or actually not so quickly - their site is pretty slow, probably due to the web framework they chose), and then reconsidered and wanted to go back and get the bundle. 
+I quickly added the shaving butter to my cart (or actually not so quickly - their site is pretty slow, ~probably due to the web framework they chose~ edit: apparently it's just how they organized their site, not due to Ember itself), and then reconsidered and wanted to go back and get the bundle. 
 
 However, when I went back to the product page, the bundles were gone. I searched around for a bit but couldn't find them anywhere. 
 
@@ -108,6 +108,8 @@ The funniest one was "Nik's test product, what the f\*\*k is it? Base", with a d
 
 
 ## Conclusion
+
+I'm still not sure why I wasn't seeing the bundles. If I had to guess, they're changing the products they show based on user behaviors and what they have in their carts, but it might also be a bug. 
 
 By going directly to `https://www.dollarshaveclub.com/manage/add/now/BN-DR-SB6SRM-20` I was able to add the bundle to my cart. It was a bittersweet moment, because I had just paid $16 for shaving butter and razor burn spray, but I was pretty satisfied with my research.
 
