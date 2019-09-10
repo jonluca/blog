@@ -13,7 +13,7 @@ Today I received yet another email from Dollar Shave Club (DSC) advertising one 
 
 {% include image.html footnote="Shaving butter bundle" file="dsc-bundle" alt="shaving butter bundle" %}
 
-I quickly added the shaving butter to my cart (or actually not so quickly - their site is pretty slow, ~probably due to the web framework they chose~ edit: apparently it's just how they organized their site, not due to Ember itself), and then reconsidered and wanted to go back and get the bundle. 
+I quickly added the shaving butter to my cart (or actually not so quickly - their site is pretty slow, <s>probably due to the web framework they chose</s> edit: apparently it's just how they organized their site, not due to Ember itself), and then reconsidered and wanted to go back and get the bundle. 
 
 However, when I went back to the product page, the bundles were gone. I searched around for a bit but couldn't find them anywhere. 
 
