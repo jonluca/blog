@@ -3,10 +3,6 @@ title: "An analysis of activity on /r/churning"
 date: 2019-08-31 15:49:35 -0700
 header-img: "/images/churning-graph.png"
 ---
-<style>
-    {%  include main.css  %}
-</style>
-
 /r/churning is a subreddit dedicated to maximizing credit rewards and travel hacking. We have a pretty unique activity pattern that is fairly distinct from the rest of reddit. I thought it would be interesting to run an analysis of our user behavior, activity, as well as find patterns in the distribution of content. 
 
 ## Getting the data

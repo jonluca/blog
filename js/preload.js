@@ -1,4 +1,4 @@
-/*! instant.page v1.0.0 - (C) 2019 Alexandre Dieulot - https://instant.page/license */
+/*! instant.page v2.0.0 - (C) 2019 Alexandre Dieulot - https://instant.page/license */
 
 let urlToPreload
 let mouseoverTimer
@@ -6,9 +6,30 @@ let lastTouchTimestamp
 
 const prefetcher = document.createElement('link')
 const isSupported = prefetcher.relList && prefetcher.relList.supports && prefetcher.relList.supports('prefetch')
+const isDataSaverEnabled = navigator.connection && navigator.connection.saveData
 const allowQueryString = 'instantAllowQueryString' in document.body.dataset
+const allowExternalLinks = 'instantAllowExternalLinks' in document.body.dataset
+const useWhitelist = 'instantWhitelist' in document.body.dataset
 
-if (isSupported) {
+let delayOnHover = 65
+let useMousedown = false
+let useMousedownOnly = false
+if ('instantIntensity' in document.body.dataset) {
+  if (document.body.dataset.instantIntensity.substr(0, 'mousedown'.length) == 'mousedown') {
+    useMousedown = true
+    if (document.body.dataset.instantIntensity == 'mousedown-only') {
+      useMousedownOnly = true
+    }
+  }
+  else {
+    const milliseconds = parseInt(document.body.dataset.instantIntensity)
+    if (milliseconds != NaN) {
+      delayOnHover = milliseconds
+    }
+  }
+}
+
+if (isSupported && !isDataSaverEnabled) {
   prefetcher.rel = 'prefetch'
   document.head.appendChild(prefetcher)
 
@@ -16,8 +37,17 @@ if (isSupported) {
     capture: true,
     passive: true,
   }
-  document.addEventListener('touchstart', touchstartListener, eventListenersOptions)
-  document.addEventListener('mouseover', mouseoverListener, eventListenersOptions)
+
+  if (!useMousedownOnly) {
+    document.addEventListener('touchstart', touchstartListener, eventListenersOptions)
+  }
+
+  if (!useMousedown) {
+    document.addEventListener('mouseover', mouseoverListener, eventListenersOptions)
+  }
+  else {
+    document.addEventListener('mousedown', mousedownListener, eventListenersOptions)
+  }
 }
 
 function touchstartListener(event) {
@@ -26,10 +56,6 @@ function touchstartListener(event) {
   lastTouchTimestamp = performance.now()
 
   const linkElement = event.target.closest('a')
-
-  if (!linkElement) {
-    return
-  }
 
   if (!isPreloadable(linkElement)) {
     return
@@ -54,10 +80,6 @@ function mouseoverListener(event) {
 
   const linkElement = event.target.closest('a')
 
-  if (!linkElement) {
-    return
-  }
-
   if (!isPreloadable(linkElement)) {
     return
   }
@@ -69,7 +91,21 @@ function mouseoverListener(event) {
   mouseoverTimer = setTimeout(() => {
     preload(linkElement.href)
     mouseoverTimer = undefined
-  }, 65)
+  }, delayOnHover)
+}
+
+function mousedownListener(event) {
+  const linkElement = event.target.closest('a')
+
+  if (!isPreloadable(linkElement)) {
+    return
+  }
+
+  linkElement.addEventListener('mouseout', mouseoutListener, {passive: true})
+
+  urlToPreload = linkElement.href
+
+  preload(linkElement.href)
 }
 
 function mouseoutListener(event) {
@@ -81,28 +117,42 @@ function mouseoutListener(event) {
     clearTimeout(mouseoverTimer)
     mouseoverTimer = undefined
   }
-  else {
-    urlToPreload = undefined
-    stopPreloading()
-  }
+
+  urlToPreload = undefined
+
+  stopPreloading()
 }
 
 function isPreloadable(linkElement) {
+  if (!linkElement || !linkElement.href) {
+    return
+  }
+
   if (urlToPreload == linkElement.href) {
     return
   }
 
-  const urlObject = new URL(linkElement.href)
-
-  if (urlObject.origin != location.origin) {
+  if (useWhitelist && !('instant' in linkElement.dataset)) {
     return
   }
 
-  if (!allowQueryString && urlObject.search) {
+  if (!allowExternalLinks && linkElement.origin != location.origin && !('instant' in linkElement.dataset)) {
     return
   }
 
-  if (urlObject.pathname + urlObject.search == location.pathname + location.search && urlObject.hash) {
+  if (!['http:', 'https:'].includes(linkElement.protocol)) {
+    return
+  }
+
+  if (linkElement.protocol == 'http:' && location.protocol == 'https:') {
+    return
+  }
+
+  if (!allowQueryString && linkElement.search && !('instant' in linkElement.dataset)) {
+    return
+  }
+
+  if (linkElement.hash && linkElement.pathname + linkElement.search == location.pathname + location.search) {
     return
   }
 
@@ -118,7 +168,5 @@ function preload(url) {
 }
 
 function stopPreloading() {
-  /* The spec says an empty string should abort the prefetching
-  * but Firefox 64 interprets it as a relative URL to prefetch. */
   prefetcher.removeAttribute('href')
 }

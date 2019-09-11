@@ -3,10 +3,6 @@ title: "Identifying non-default global variables in JavaScript"
 date: 2019-03-31 18:22:31 -0700
 header-img: "/images/lyft-api-network.png"
 ---
-<style>
-    {%  include main.css  %}
-</style>
-
 With the transition to [single page apps](https://en.wikipedia.org/wiki/Single-page_application), a lot of websites now store core information in actual stateful JavaScript rather than in text in HTML.
 
 ## Comparing Windows

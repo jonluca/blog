@@ -3,10 +3,6 @@ title: "Obfuscated javascript, scam emails, and American Express"
 date: 2019-02-02 14:49:14 -0700
 header-img: "/images/amex-nmap.png"
 ---
-<style>
-    {%  include main.css  %}
-</style>
-
 Earlier today I received a scam email that managed to evade both my and gmail's email filters. I wanted to get a closer look at how it did it and what it's trying to accomplish.
 
 The email was from "American Express" and was titled "RREMINDER: We've issue a concern".
