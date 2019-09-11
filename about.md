@@ -14,11 +14,11 @@ I enjoy blogging about tech, programming, and security.
 
 New to my blog? I recommend starting with the following three posts.
 
-1. [Illegal streams, decrypting m3u8's, and building a better stream experience](https://blog.jonlu.ca/posts/illegal-streams) - An article on exploring illegal sports streams online, building a client to watch them, and seeing how the streamers are piggybacking real services.
+1. [Illegal streams, decrypting m3u8's, and building a better stream experience](https://blog.jonlu.ca/posts/illegal-streams?ref=about) - An article on exploring illegal sports streams online, building a client to watch them, and seeing how the streamers are piggybacking real services.
 
-2. [Obfuscated javascript, scam emails, and American Express](https://blog.jonlu.ca/posts/deobfuscating-amex-scammer) - An article on reversing and decompiling obfuscated javascript, tracking spam emails, and finding the root command and control server for a scam campaign.
+2. [Obfuscated javascript, scam emails, and American Express](https://blog.jonlu.ca/posts/deobfuscating-amex-scammer?ref=about) - An article on reversing and decompiling obfuscated javascript, tracking spam emails, and finding the root command and control server for a scam campaign.
 
-3. [Ryanair, Hamiltonian Cycles, and using graph theory to find cheap flights](https://blog.jonlu.ca/posts/ryan-air) - An article on how I routed my European vacation, writing an NP hard problem solver, and releasing a tool to help you do the same.
+3. [Ryanair, Hamiltonian Cycles, and using graph theory to find cheap flights](https://blog.jonlu.ca/posts/ryan-air?ref=about) - An article on how I routed my European vacation, writing an NP hard problem solver, and releasing a tool to help you do the same.
 
 I also write for HackerNoon and freeCodeCamp on Medium, [here](https://medium.com/@jonluca).
 
