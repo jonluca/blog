@@ -100,7 +100,7 @@ These are not nearly as common as the above, though. These sorts of bonuses can 
 
 ### Other parts of an offer
 
-There can be other facets of a company that should influence your decision, such as what type of healthcare they offer, what the 401k matching looks like, whether they offer a mega backdoor Roth, whether they allow auto-sell of your vested stocks, whether there's an employee stock purchase plan, and whether they offer free food or gym. You should make a best guess at how much you value each of these in a company, and adjust your offer accordingly.
+There can be other facets of a company that should influence your decision, such as what type of healthcare they offer, what the 401k matching looks like, whether they offer a mega backdoor Roth, whether they allow auto-sell of your vested stocks, whether there's an employee stock purchase plan, and whether they offer free food or gym. There can be gotchas with 401ks where your employer contributions are *also* on a vesting schedule, and you need to stay at the company for a certain amount of time before the match is actually "yours". You should make a best guess at how much you value each of these in a company, and adjust your offer accordingly.
 
 ## Offer timelines
 
@@ -138,7 +138,7 @@ Facebook Bay Area, Return Intern:
 * $160,000 equity/4 years, 1 year cliff then quarterly
 * $60,000 signing
 
-These are all pre-negotiation figures. All offers were raised significantly post negotiation. Hopefully you can use them as a reference point for other companies, especially FLAAMG and unicorn status companies. 
+These are all pre-negotiation figures. All offers were raised significantly post negotiation. Hopefully you can use them as a reference point for other companies, especially FLAAG and unicorn status companies. 
 
 For instance, one of the offers above was negotiated to:
 
