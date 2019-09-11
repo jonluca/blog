@@ -13,7 +13,8 @@ plugins:
   - jekyll-zopfli
   - jekyll-minifier
   - jekyll-target-blank
-
+exclude:
+  - core
 links:
   - name:         Posts
     url:          /
