@@ -3,9 +3,6 @@ title: "Experiments, growth engineering, and the perils of not disguising your A
 date: 2019-02-23 13:16:46 -0700
 header-img: "/images/lyft-api-network.png"
 ---
-<style>
-    {%  include main.css  %}
-</style>
 
 <i>This is the first part of a two part series on modern testing infrastructure and methodologies. Part two can be found <a href="/posts/experiments-part-2">here.</a></i>
 
