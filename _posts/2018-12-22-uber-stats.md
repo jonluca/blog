@@ -3,9 +3,6 @@ title: "Uber, statistics, and a chrome extension"
 date: 2018-12-22 16:39:48 +0100
 header-img: "/images/uber-graphs.png"
 ---
-<style>
-    {%  include main.css  %}
-</style>
 
 *TL;DR* You can get the chrome extension [on the Chrome WebStore](https://chrome.google.com/webstore/detail/uber-trip-stats/kddlnbejbpknoedebeojobofnbdfhpnm).
 

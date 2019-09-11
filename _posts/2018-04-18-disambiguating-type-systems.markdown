@@ -2,11 +2,6 @@
 title: Disambiguating language type systems
 date: 2018-04-19 11:18:17 -0700
 ---
-
-<style>
-    {%  include main.css  %}
-</style>
-
 A common mistake people make is conflating *strong* typing with *static* typing. 
 
 There are four key terms when discussing a languages type system:

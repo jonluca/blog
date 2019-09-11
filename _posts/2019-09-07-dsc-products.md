@@ -3,9 +3,6 @@ title: "Ember.js, Dr. Carvers Shave Butter, and disappearing products"
 date: 2019-09-07 17:10:04 -0700
 header-img: "/images/churning-graph.png"
 ---
-<style>
-    {%  include main.css  %}
-</style>
 *TL; DR - using the Ember developer tools, you can find cheaper versions of the same products on Dollar Shave Club's site, as well as find products that have been discontinued or that would not be normally shown.* 
 
 
@@ -70,7 +67,7 @@ I didn't get as lucky as having the source maps for their minified javascript av
 
 There were a lot of props in each product. These include `isReloading`, `isRetired`, `isSample`, `isSaving`, `isSoldOut` and even the pair of `isComingSoon` and `isNotComingSoon` (🙄).
 
-I uploaded the full list to pastebin [here](https://pastebin.com/qw5La5JY).
+I uploaded the full list to [pastebin here](https://pastebin.com/qw5La5JY).
 
 At this point I thought it would be easy to just toggle the boolean flags for all the products and it would show up in the full product list. I set their `isActive` status, I set `isSoldOut` to `false`, and tried a few of the other props. Unfortunately nothing got the product to actually show up in the front end so I could add it to my cart (and there was no clear way to add the product to my cart directly). 
 

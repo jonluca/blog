@@ -3,11 +3,6 @@ title: "Class schedules, a cease and desist from Viacom, and accidental monetiza
 date: 2019-01-28 20:57:33 -0700
 header-img: "/images/usc-venmo4.png"
 ---
-
-<style>
-    {%  include main.css  %}
-</style>
-
 ### Background 
 
 In early 2017 I was a Junior at USC, and a recent transfer to Computer Science. I wanted to get some real experience  with software development and engineering, so I decided to challenge myself over spring break - my goal was to build 5 projects in 5 days. Each day I would try out a new framework, language, or format, and try to build something with it.
