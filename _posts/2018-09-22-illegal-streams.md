@@ -3,9 +3,6 @@ title: "Illegal streams, decrypting m3u8's, and building a better stream experie
 date: 2018-09-22 11:14:32  -0400
 header-img: "/images/vlc-hls.png"
 ---
-<style>
-    {%  include main.css  %}
-</style>
 Having not lived in the US for the majority of my life, I often needed to rely on illegal streams to watch America sports games. The experience on these streams is, to say the least, extremely poor. Most have some sort of crypto miner running in the background, as well as dozens of ads covering the stream. I wholeheartedly support ads for free content but unfortunately the sorts of ads that show up on these streams are terrible at best and malicious at worst. 
 
 I wanted to do some research and figure out if there was a way to quickly export the stream and watch it elsewhere.
