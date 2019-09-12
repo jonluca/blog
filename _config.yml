@@ -4,7 +4,7 @@ description:      JonLuca's Blog - A blog about tech, programming, and informati
 url:              https://blog.jonlu.ca # Site url, without a slash at the end.
 signoff:          "JonLuca" # Your name
 markdown: kramdown
-twitter_username: jonlucadecaro
+twitter_username: jonluca
 encoding: utf-8
 plugins:
   - jekyll-seo-tag
