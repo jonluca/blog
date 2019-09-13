@@ -10,9 +10,8 @@ plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
   - jekyll-feed
-  - jekyll-zopfli
-  - jekyll-minifier
   - jekyll-target-blank
+  - jekyll-brotli
 exclude:
   - core
 links:
