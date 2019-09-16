@@ -13,4 +13,4 @@ echo_time "Minifying HTML"
 find './_site/' -iname "*.html" -exec html-minifier --collapse-whitespace --remove-comments --remove-optional-tags --remove-redundant-attributes --remove-script-type-attributes --remove-tag-whitespace --use-short-doctype --minify-css true --minify-js true '{}' -o '{}' \; -exec echo {} done \;
 # compress
 echo_time "Compressing"
-find './_site/' -type f -iname "*" ! -iname "*.gz" ! -iname "*.br" -print0 | xargs -0 -P 4 ./compress.sh 
+./compress.py
