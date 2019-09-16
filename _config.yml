@@ -24,8 +24,6 @@ links:
   - name:         Contact
     url:          /contact
     external:     false
-# ------------ CONFIGURABLE END ------------
-
 permalink:        /posts/:title
 defaults:
   - values:
