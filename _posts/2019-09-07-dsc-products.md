@@ -1,7 +1,7 @@
 ---
 title: "Ember.js, Dr. Carvers Shave Butter, and disappearing products"
 date: 2019-09-07 17:10:04 -0700
-header-img: "/images/churning-graph.png"
+header-img: "/images/dsc-full.png"
 ---
 *TL; DR - using the Ember developer tools, you can find cheaper versions of the same products on Dollar Shave Club's site, as well as find products that have been discontinued or that would not be normally shown.* 
 
