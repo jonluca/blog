@@ -3,9 +3,6 @@ title: "Deploying a static site the hard way - Part 1"
 date: 2019-02-07 20:41:08 -0700
 header-img: "/images/amex-nmap.png"
 ---
-<style>
-    {%  include main.css  %}
-</style>
 
 Deploying a static site has never been easier - you can find a template [online](https://html5up.net/), drop it into [GitHub Pages](https://pages.github.com/) and have a full site deployed in minutes. 
 
