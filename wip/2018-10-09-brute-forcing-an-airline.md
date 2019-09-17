@@ -3,7 +3,6 @@ title: "Bruteforcing an airline lounge's WiFi password"
 date: 2018-10-09 16:21:49
 header-img: "/images/airline-pass.png"
 ---
-<link rel="stylesheet" href="/stylesheets/main.css"/>
 
 I'm a frequent traveler and stay in lounges fairly often (shoutout [/r/churning](https://reddit.com/r/churning)!). Most lounges don't use traditional [WiFi Authentication](https://tools.ietf.org/html/rfc4764) - instead they rely on some form of captive gate. This allows them to provide user content, collect a more information on the users of the service, and rotate the password easily.
 
