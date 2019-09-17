@@ -54,7 +54,7 @@ class ThreadPool:
     self.tasks.join()
 
 def compress_file(filename):
-	command = 'zopfli --i50 ' + filename
+	command = 'zopfli ' + filename
 	process = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE)
 	process.wait()
 	print(filename + ' ' + str(process.returncode) + ' done')
