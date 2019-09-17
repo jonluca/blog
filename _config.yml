@@ -10,11 +10,11 @@ plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
   - jekyll-feed
-  - jekyll-zopfli
-  - jekyll-minifier
   - jekyll-target-blank
+  - jekyll-brotli
 exclude:
   - core
+  - node_modules
 links:
   - name:         Posts
     url:          /
@@ -25,8 +25,6 @@ links:
   - name:         Contact
     url:          /contact
     external:     false
-# ------------ CONFIGURABLE END ------------
-
 permalink:        /posts/:title
 defaults:
   - values:
@@ -36,7 +34,8 @@ sass:
   style: compressed
 
 timezone: America/Los_Angeles
-
+keep_files:
+  - 'images'
 zopfli:
   extensions:
     - '.html'
