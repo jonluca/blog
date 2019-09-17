@@ -97,8 +97,6 @@ I also have an Instagram account that catalogues my travels (shout out /r/churni
 
 I've been asked about payment for my software, or donations. I'm in no need for money, and I release my code and projects for free because I want to contribute back to the ecosystem that helped me succeed. If you really are inclined to support my projects, [please consider donating to the EFF](https://supporters.eff.org/donate/).
 
-You can also return to my [personal site (non-blog)](https://jonlu.ca).
-
-You can also keep in touch with me on twitter:
+You can also return to my [personal site (non-blog)](https://jonlu.ca), or keep in touch with me on twitter:
 
 {% include twitter.html %}
