@@ -75,7 +75,7 @@ At first I thought that perhaps changing these wouldn't trigger Ember's equivale
 
 The other problem here was that the bundle I was looking for wasn't in the product list. Any time I was on a page, it would only show me the products for that page, not all of them.  
 
-{% include image.html footnote="Only the products for a given page were in the products list " file="dsc-only" alt="missing products" %}
+{% include image.html footnote="Only the products for a given page were in the products list" file="dsc-only" alt="missing products" %}
 
 Since DSC is a single page application, though, I was just able to click through all their product pages to load the full product list.
 
@@ -103,7 +103,6 @@ The funniest one was "Nik's test product, what the f\*\*k is it? Base", with a d
 
 {% include image.html footnote="Nik's test product, what the f**k is it? Base Olala bobob" file="dsc-nik" alt="test product" %}
 
-
 ## Conclusion
 
 I'm still not sure why I wasn't seeing the bundles. If I had to guess, they're changing the products they show based on user behaviors and what they have in their carts, but it might also be a bug. 
@@ -111,3 +110,28 @@ I'm still not sure why I wasn't seeing the bundles. If I had to guess, they're c
 By going directly to `https://www.dollarshaveclub.com/manage/add/now/BN-DR-SB6SRM-20` I was able to add the bundle to my cart. It was a bittersweet moment, because I had just paid $16 for shaving butter and razor burn spray, but I was pretty satisfied with my research.
 
 Definitely the most effort for $4 I've ever made.
+
+## Update - 9/29/19
+
+Today I received a large box in the mail from Dollar Shave Club. I was a bit perplexed as the things I had ordered had arrived last week. It was also much larger than anything I had ordered.
+
+{% include image.html footnote="Package I received in the mail from DSC" file="dsc-boxclosed" alt="DSC box" %}
+
+I opened it up and saw that it was filled with DSC swag!
+{% include image.html footnote="Package I received in the mail from DSC" file="dsc-box" alt="DSC box" %}
+
+At the top there was a wonderful, hand written letter signed by the team that said "Hackerman". 
+
+{% include image.html footnote="Hackerman letter" file="dsc-letter" alt="DSC letter" %}
+
+What a wonderful surprise! It turns out that they read this blog post (Hi DSC!) and enjoyed it!
+
+{% include image.html footnote="Letter by the DSC devs" file="dsc-letteropen" alt="dsc open letter" %}
+
+There were some great quotes like "DIE EMBER DIE *react ftw*", "Thanks for making me [a] celebrity", by Nik, and "LOL by Russian DSC devs". 
+
+{% include image.html footnote="DSC swag" file="dsc-swag" alt="DSC swag" %}
+
+
+What a great company and culture - thanks for the swag, you've earned yourself a loyal customer!
+
