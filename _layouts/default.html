@@ -56,36 +56,6 @@
         {% endif %}
     </main>
 </div>
-<script>
-  window.dataLayer = window.dataLayer || [];
-
-  function gtag() {
-    dataLayer.push(arguments);
-  }
-
-  gtag('js', new Date());
-  gtag('config', 'UA-90475221-1');
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker
-      .register('/sw.js');
-  }
-  // matomo
-  var _paq = window._paq || [];
-  _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
-  _paq.push(["setCookieDomain", "*.jonlu.ca"]);
-  _paq.push(["setDomains", ["*.jonlu.ca","*.blog.jonlu.ca"]]);
-  _paq.push(['trackPageView']);
-  _paq.push(['enableLinkTracking']);
-  (function() {
-    var u="//matomo.jonlu.ca/";
-    _paq.push(['setTrackerUrl', u+'js/']);
-    _paq.push(['setSiteId', '1']);
-    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'js/'; s.parentNode.insertBefore(g,s);
-  })();
-</script>
-<script async defer src="/js/preload.js"></script>
 </body>
-<script async defer src="https://www.googletagmanager.com/gtag/js?id=UA-90475221-1"></script>
-<noscript><p><img src="//matomo.jonlu.ca/matomo.php?idsite=1&rec=1" style="border:0;" alt="" /></p></noscript>
+{% include footer.html %}
 </html>
