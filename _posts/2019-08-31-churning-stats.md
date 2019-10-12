@@ -38,6 +38,11 @@ I then wrote a script that would parse the data and save it into a MySQL databas
 I first defined two helper classes, that implemented a thread pool to improve performance. Due to the global interpreter lock multithreading isn't as helpful in Python as it is in other languages, but it can still provide some significant gains on heavy I/O operations, such as network requests or disk reads/writes.
 
 ```py
+from queue import Queue
+
+from threading import Thread
+
+
 class Worker(Thread):
   """ Thread executing tasks from a given tasks queue """
 
