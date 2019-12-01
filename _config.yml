@@ -12,7 +12,6 @@ plugins:
   - jekyll-feed
   - jekyll-target-blank
   - jekyll-brotli
-  - amp-jekyll
 exclude:
   - core
   - node_modules
