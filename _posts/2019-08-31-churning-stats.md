@@ -304,7 +304,7 @@ Just for fun I also looked at OJs daily activity - looks like they took a pretty
   <source srcset="/images/churning-oj.png" type="image/png"> 
   <img alt="one year of churning comments" class="centered-image" src="/images/churning-oj.png">
 </picture>
-<p class="footnote">Top 1000 user comment distribution, without outlier</p>
+<p class="footnote">OJs activity</p>
 
 ## Data
 
