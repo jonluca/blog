@@ -4,6 +4,10 @@
     margin: 0 auto
 }
 
+.markdown-body > p {
+    font-size: 16px;
+}
+
 table {
     width: 100%;
     background-color: #fff
