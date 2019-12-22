@@ -1,5 +1,5 @@
 ---
-title: "Tracking my flight in the air while trying to crack Widevine"
+title: "Flight stats, cabin pressure, and trying to crack widevine"
 date: 2019-12-22 18:18:51 +0100
 header-img: "/images/altitude.png"
 ---
@@ -15,7 +15,7 @@ I thought it would be interesting to reverse their DRM - the url had `drm` in it
 
 Alas, they were using a fairly typical implementation of Widevine and Shaka player, which wasn't that interesting.
 
-I did notice something pretty interesting while on the video page, though - every 2 seconds it would make a request to `https://services.inflightpanasonic.aero/inflight/services/flightdata/v1/flightdata`. The page I was on was just a light wrapper around shaka player - no metadata or other information shown. 
+I did notice something pretty interesting while on the video page, though - every 2 seconds it would make a request to `https://services.inflightpanasonic.aero/inflight/services/flightdata/v1/flightdata`. The page I was on was just a light wrapper around [shaka player](https://github.com/google/shaka-player/) - no metadata or other information shown. 
 
 Looking into the route I saw that it actually returned a whole bunch of information about the flight I was on.
 
@@ -75,7 +75,9 @@ This is probably used to fill those tickes at the top of the inflight home page.
 
 # Getting the data 
 
-I wrote a quick python script to query the data once every second and flush it to disk.
+I figured it would be interesting to track this data and see how it changed overtime. How realtime was it? How accurate is it? Is there enough non-public data that it would be considered a security vulnerability to the airline? 
+
+I wrote a quick python script to query the data once every second and flush it to disk. I ended up collecting data for around 30 minutes - from 5:12 to 5:41. 
 
 ```py
 import json
@@ -115,13 +117,16 @@ while True:
     data = requests.get('https://services.inflightpanasonic.aero/inflight/services/flightdata/v1/flightdata',
                         headers=headers)
     entries[datetime.now().timestamp()] = json.loads(data.text)
+    # flush to disk on every request - cheap to do so, and best to not lose data in case the network request fails/json is invalid
     save(entries)
     time.sleep(1)
 ```
 
 # Parsing and cleaning the data
 
-I think fixed up the data. I wrote the script above fairly hastily as I wanted to get as much data as possible. I cleaned it up and put it in a presentable format (`csv`).
+I then proceeded to fix up the data. I wrote the script above fairly hastily as I wanted to get as much data as possible. I cleaned it up and put it in a presentable format (`csv`).
+
+Unfortunately I didn't get take off and landing - I only ended up getting data while I was
 
 ```py
 import csv
@@ -247,3 +252,18 @@ It was pretty funny to see all this information. The disclaaimer that was return
 > Attn: Data elements such as temperature, flight latitude, flight longitude, etc. are classified as Product Public under the Panasonic Product Data Classification Framework. Information under this classification does not carry any access, labeling, or transmission restrictions. Deliberate or accidental exposure to these types of data elements, does not lead to any adverse impact to aircraft operations or safety.
 
 So I don't think there's anything nefarious you can really do with it. You *can* tell whether the main cabin is decompressed, what the weight on the wheels is, and whether all doors are closed, but I'm struggling to see a case where these are either dangeorous or that you shouldn't have that info.
+
+One thing I didn't manage to figure out is how the latitude/longitude is formatted.
+
+Right now it looks like this:
+
+```
+    "td_id_fltdata_departure_latitude": "00039525",
+    "td_id_fltdata_departure_longitude": "80075135",
+```
+
+I'd assume that to be a latitude of `00.039525` and longitude of `80.075135` but that puts me in the middle of the Indian Ocean (shout out MH370). Changing the assumption that we strip leading 0s from latitude gives us `39.525`, which is somewhere over the Xinjian province in China.
+
+I've never dealt with lat/long being formatted this way, so if you know how to parse it let me know! For context I was flying PHL to AMS, so I was probably somewhere over the Atlantic Ocean.
+
+Overall a pretty fun coding excursion when cracking Widevine didn't pan out. 
