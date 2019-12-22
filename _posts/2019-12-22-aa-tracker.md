@@ -262,7 +262,7 @@ Right now it looks like this:
     "td_id_fltdata_departure_longitude": "80075135",
 ```
 
-I'd assume that to be a latitude of `00.039525` and longitude of `80.075135` but that puts me in the middle of the Indian Ocean (shout out MH370). Changing the assumption that we strip leading 0s from latitude gives us `39.525`, which is somewhere over the Xinjian province in China.
+I'd assume that to be a latitude of `00.039525` and longitude of `80.075135` but that puts me in the middle of the Indian Ocean (shout out MH370). Changing the assumption that we strip leading 0s from latitude gives us `39.525`, which is somewhere over the Xinjiang province in China.
 
 I've never dealt with lat/long being formatted this way, so if you know how to parse it let me know! For context I was flying PHL to AMS, so I was probably somewhere over the Atlantic Ocean.
 
