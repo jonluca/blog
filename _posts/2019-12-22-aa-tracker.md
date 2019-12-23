@@ -1,5 +1,5 @@
 ---
-title: "Flight stats, learning that the cabin is pressurized, and trying to crack widevine"
+title: "Flight stats, entertainment, and trying to crack widevine"
 date: 2019-12-22 18:18:51 +0100
 header-img: "/images/altitude.png"
 ---
