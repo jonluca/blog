@@ -1,6 +1,6 @@
 #! /bin/bash
 echo "Converting png to webp"
-for file in {**/*.{png,jpg},*.{png,jpg}}
+for file in {**/*.{png,jpg,jpeg},*.{png,jpg,jpeg}}
 do
 	name=$(echo "$file" | cut -f 1 -d '.')'.webp'
 	if [ ! -f "$name" ] || [[ $* == *--force* ]]; then
