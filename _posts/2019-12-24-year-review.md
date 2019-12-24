@@ -351,7 +351,7 @@ Near the end of the year I also went to San Antonio, Texas and met up with a few
     <picture class="centered-image">
         <source srcset="/images/2019-review/sat.webp" type="image/webp">
         <source srcset="/images/2019-review/sat.jpeg" type="image/jpeg">
-        <img alt="sf skyline" class="centered-image" src="/images/2019-review/sat.jpeg">
+        <img alt="San Antonio" class="centered-image" src="/images/2019-review/sat.jpeg">
     </picture>
 </div>
 <p class="footnote">The Alamo in San Antonio</p>
@@ -400,7 +400,7 @@ I also used my resort credit from my Amex Aspire at the Waldorf Los Cabos and it
     <picture class="centered-image">
         <source srcset="/images/2019-review/waldorf.webp" type="image/webp">
         <source srcset="/images/2019-review/waldorf.jpeg" type="image/jpeg">
-        <img alt="sf skyline" class="centered-image" src="/images/2019-review/waldorf.jpeg">
+        <img alt="waldorf astoria" class="centered-image" src="/images/2019-review/waldorf.jpeg">
     </picture>
 </div>
 <p class="footnote">The Waldorf Cabo San Lucas</p>
@@ -409,6 +409,107 @@ I also used my resort credit from my Amex Aspire at the Waldorf Los Cabos and it
 
 Flights: SFO - LAX, LAX - SFO
 
+In November I went to a few friends birthdays down in South Bay, went to the Chrome Developer Summit, and flew down to LA for a quick weekend trip. 
+<div class="image">
+    <picture class="centered-image">
+        <source srcset="/images/2019-review/cds.webp" type="image/webp">
+        <source srcset="/images/2019-review/cds.jpeg" type="image/jpeg">
+        <img alt="cds" class="centered-image" src="/images/2019-review/cds.jpeg">
+    </picture>
+</div>
+<p class="footnote">Chrome Developer Summit</p>
+
+I also checked out Mourad, in downtown San Francisco, which is absolutely a dining experience. Be ready to blow a bag (I think a dinner for two hit $400) but the attention to detail and service is just unmatched.
+
+<div class="image">
+    <picture class="centered-image">
+        <source srcset="/images/2019-review/mourad.webp" type="image/webp">
+        <source srcset="/images/2019-review/mourad.jpeg" type="image/jpeg">
+        <img alt="mourad" class="centered-image" src="/images/2019-review/mourad.jpeg">
+    </picture>
+</div>
+<p class="footnote">Mourad in San Francisco</p>
+
 ## December
 
 Flights: OAK - PHX, PHX - PHL, PHL - AMS, AMS - VCE, VCE - AMS, AMS - PHL, PHL - ORD, ORD - SFO, SFO - SBA
+
+Finally I wrap up the year as I write this, on Christmas Eve, with a whole lot more traveling.
+
+I started December with the Holiday Party, a huge party thrown by Pinterest with an open bar, dancing, and photo booths. I obviously dressed the part.
+
+<div class="image">
+    <picture class="centered-image">
+        <source srcset="/images/2019-review/christmassuit.webp" type="image/webp">
+        <source srcset="/images/2019-review/christmassuit.jpeg" type="image/jpeg">
+        <img alt="holiday party outfit" class="centered-image" src="/images/2019-review/christmassuit.jpeg">
+    </picture>
+</div>
+<p class="footnote">Pinterest Holiday Party Outfit</p>
+
+The day after that I immediately flew into Bruges. I met up with an old friend there and enjoyed the city - I saw the Christmas markets, drank gluhwein and belgian beer, and went to the chocolate history museum.
+
+<div class="slideshow">
+    <div class="image">
+        <picture class="centered-image">
+            <source srcset="/images/2019-review/bruges-1.webp" type="image/webp">
+            <source srcset="/images/2019-review/bruges-1.jpeg" type="image/jpeg">
+            <img alt="bruges pic 1" class="centered-image" src="/images/2019-review/bruges-1.jpeg">
+        </picture>
+    </div>
+    <div class="image">
+        <picture class="centered-image">
+            <source srcset="/images/2019-review/bruges-2.webp" type="image/webp">
+            <source srcset="/images/2019-review/bruges-2.jpeg" type="image/jpeg">
+            <img alt="bruges pic 2" class="centered-image" src="/images/2019-review/bruges-2.jpeg">
+        </picture>
+    </div>
+    <div class="image">
+        <picture class="centered-image">
+            <source srcset="/images/2019-review/bruges-3.webp" type="image/webp">
+            <source srcset="/images/2019-review/bruges-3.jpeg" type="image/jpeg">
+            <img alt="bruges pic 3" class="centered-image" src="/images/2019-review/bruges-3.jpeg">
+        </picture>
+    </div>
+    <div class="image">
+        <picture class="centered-image">
+            <source srcset="/images/2019-review/bruges-4.webp" type="image/webp">
+            <source srcset="/images/2019-review/bruges-4.jpeg" type="image/jpeg">
+            <img alt="bruges pic 4" class="centered-image" src="/images/2019-review/bruges-4.jpeg">
+        </picture>
+    </div>
+</div>
+<p class="footnote">Bruges - Dec 18 to 22</p>
+
+Drank a *lot* of Belgian beer - I always forget how cheap and how freely the beer flows in Europe.
+
+<div class="image">
+    <picture class="centered-image">
+        <source srcset="/images/2019-review/bruges-marsh.webp" type="image/webp">
+        <source srcset="/images/2019-review/bruges-marsh.jpeg" type="image/jpeg">
+        <img alt="bruges marshall" class="centered-image" src="/images/2019-review/bruges-marsh.jpeg">
+    </picture>
+</div>
+<p class="footnote">Dinner with a friend in Bruges</p>
+
+After Bruges I flew into Venice and met up with my father. I'll chill in Vicenza for a little under a week, then head back to Amsterdam for a day, and then finally get a break for a day in San Francisco before heading to Santa Barbara until I start work again.
+
+<div class="image">
+    <picture class="centered-image">
+        <source srcset="/images/2019-review/vicenza.webp" type="image/webp">
+        <source srcset="/images/2019-review/vicenza.jpeg" type="image/jpeg">
+        <img alt="vicenza" class="centered-image" src="/images/2019-review/vicenza.jpeg">
+    </picture>
+</div>
+<p class="footnote">Vicenza</p>
+
+# 2019 -> 2020
+
+This year I hit:
+
+* 52,848 miles
+* 137 hours
+* 40 flights
+* 12 countries
+
+It's definitely been a busy year, but I hope to out do myself in 2020. I've already got a couple trips on the books (Chicago is in the works, as is another Hawaii trip. I also want to hit up South America for the first time). 
