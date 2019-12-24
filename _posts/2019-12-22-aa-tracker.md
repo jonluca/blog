@@ -247,7 +247,9 @@ Below are some of the graphs from the [google sheet with the data.](https://docs
 
 # Conclusion
 
-It was pretty funny to see all this information. The disclaaimer that was returned with every response was:
+It was pretty funny to see all this information. Looking online it looks like you can also get all this information from flightradar24.com or other public sources, but it was interesting to be able to do it midflight nonetheless.
+
+The disclaimer that was returned with every response was:
 
 > Attn: Data elements such as temperature, flight latitude, flight longitude, etc. are classified as Product Public under the Panasonic Product Data Classification Framework. Information under this classification does not carry any access, labeling, or transmission restrictions. Deliberate or accidental exposure to these types of data elements, does not lead to any adverse impact to aircraft operations or safety.
 
