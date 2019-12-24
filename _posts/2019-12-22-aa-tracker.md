@@ -274,7 +274,7 @@ I've never dealt with lat/long being formatted this way, so if you know how to p
 
 > Here is the decoded "present position" in your sample data [https://goo.gl/maps/K1hNuvq72CsQCCfo8](https://goo.gl/maps/K1hNuvq72CsQCCfo8)
 
-<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d48851997.20367327!2d-43.398633!3d41.6408472!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDfCsDU1JzU0LjAiTiA0McKwMTUnMjQuMCJX!5e0!3m2!1sen!2snl!4v1577197827620!5m2!1sen!2snl" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d48851997.20367327!2d-43.398633!3d41.6408472!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDfCsDU1JzU0LjAiTiA0McKwMTUnMjQuMCJX!5e0!3m2!1sen!2snl!4v1577197827620!5m2!1sen!2snl" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
 
 This matches my expected location, based on my flight path and what time it was when I ran the data collection script. Thanks Andrew!
 
