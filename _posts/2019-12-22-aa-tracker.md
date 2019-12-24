@@ -126,7 +126,7 @@ while True:
 
 I then proceeded to fix up the data. I wrote the script above fairly hastily as I wanted to get as much data as possible. I cleaned it up and put it in a presentable format (`csv`).
 
-Unfortunately I didn't get take off and landing - I only ended up getting data while I was
+Unfortunately I didn't get take off and landing - I only ended up getting data while I was in the air for around an hour before my computer went to sleep. 
 
 ```py
 import csv
