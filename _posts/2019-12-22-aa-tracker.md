@@ -222,28 +222,28 @@ Below are some of the graphs from the [google sheet with the data.](https://docs
 
 ## Altitude
 
-<iframe width="600" height="371" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTTs5d5kvrE8NtQe71g6Ae8IhWiDk_bdY-WSuxHsXZj3DdQ7jm8uxQU662VirWmcijM_oE1JlLIE39o/pubchart?oid=1519270361&amp;format=interactive"></iframe>
+<iframe class="aa-image" id="aa-altitude" width="600" height="371" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTTs5d5kvrE8NtQe71g6Ae8IhWiDk_bdY-WSuxHsXZj3DdQ7jm8uxQU662VirWmcijM_oE1JlLIE39o/pubchart?oid=1519270361&amp;format=interactive"></iframe>
 
 ## Distance from origin
 
-<iframe width="600" height="371" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTTs5d5kvrE8NtQe71g6Ae8IhWiDk_bdY-WSuxHsXZj3DdQ7jm8uxQU662VirWmcijM_oE1JlLIE39o/pubchart?oid=1052998622&amp;format=interactive"></iframe>
+<iframe class="aa-image" id="aa-distance" width="600" height="371" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTTs5d5kvrE8NtQe71g6Ae8IhWiDk_bdY-WSuxHsXZj3DdQ7jm8uxQU662VirWmcijM_oE1JlLIE39o/pubchart?oid=1052998622&amp;format=interactive"></iframe>
 
 
 ## ETA
 
-<iframe width="600" height="371" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTTs5d5kvrE8NtQe71g6Ae8IhWiDk_bdY-WSuxHsXZj3DdQ7jm8uxQU662VirWmcijM_oE1JlLIE39o/pubchart?oid=901012515&amp;format=interactive"></iframe>
+<iframe class="aa-image" id="aa-eta" width="600" height="371" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTTs5d5kvrE8NtQe71g6Ae8IhWiDk_bdY-WSuxHsXZj3DdQ7jm8uxQU662VirWmcijM_oE1JlLIE39o/pubchart?oid=901012515&amp;format=interactive"></iframe>
 
 ## Wind Speed
 
-<iframe width="600" height="371" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTTs5d5kvrE8NtQe71g6Ae8IhWiDk_bdY-WSuxHsXZj3DdQ7jm8uxQU662VirWmcijM_oE1JlLIE39o/pubchart?oid=1835431598&amp;format=interactive"></iframe>
+<iframe class="aa-image" id="aa-wind" width="600" height="371" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTTs5d5kvrE8NtQe71g6Ae8IhWiDk_bdY-WSuxHsXZj3DdQ7jm8uxQU662VirWmcijM_oE1JlLIE39o/pubchart?oid=1835431598&amp;format=interactive"></iframe>
 
 ## True Heading
 
-<iframe width="600" height="371" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTTs5d5kvrE8NtQe71g6Ae8IhWiDk_bdY-WSuxHsXZj3DdQ7jm8uxQU662VirWmcijM_oE1JlLIE39o/pubchart?oid=1837513807&amp;format=interactive"></iframe>
+<iframe class="aa-image" id="aa-heading" width="600" height="371" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTTs5d5kvrE8NtQe71g6Ae8IhWiDk_bdY-WSuxHsXZj3DdQ7jm8uxQU662VirWmcijM_oE1JlLIE39o/pubchart?oid=1837513807&amp;format=interactive"></iframe>
 
 ## Speed
 
-<iframe width="600" height="371" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTTs5d5kvrE8NtQe71g6Ae8IhWiDk_bdY-WSuxHsXZj3DdQ7jm8uxQU662VirWmcijM_oE1JlLIE39o/pubchart?oid=732063281&amp;format=interactive"></iframe>
+<iframe class="aa-image" id="aa-speed" width="600" height="371" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTTs5d5kvrE8NtQe71g6Ae8IhWiDk_bdY-WSuxHsXZj3DdQ7jm8uxQU662VirWmcijM_oE1JlLIE39o/pubchart?oid=732063281&amp;format=interactive"></iframe>
 
 # Conclusion
 
@@ -268,7 +268,7 @@ I'd assume that to be a latitude of `00.039525` and longitude of `80.075135` but
 
 I've never dealt with lat/long being formatted this way, so if you know how to parse it let me know! For context I was flying PHL to AMS, so I was probably somewhere over the Atlantic Ocean.
 
-**Update**: Thanks to [@AndreBarna on twitter for his detective skills](https://twitter.com/AndrewBarna/status/1209475385361960961?s=20).
+**Update**: Thanks to [@AndrewBarna on twitter for his detective skills](https://twitter.com/AndrewBarna/status/1209475385361960961?s=20).
 
 > It looks like the location lat/lon is dd mm.m with the 8 being a negative or some sort of hemisphere indicator. "00039525" -> 39 + 52.5/60 = 39.875; "80075135" -> -75 + 13.5/60 = -75.225
 
@@ -278,4 +278,18 @@ I've never dealt with lat/long being formatted this way, so if you know how to p
 
 This matches my expected location, based on my flight path and what time it was when I ran the data collection script. Thanks Andrew!
 
-Overall a pretty fun coding excursion when cracking Widevine didn't pan out. 
+Overall a pretty fun coding excursion when cracking Widevine didn't pan out.
+
+<script>
+const iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+
+// iOS doesn't load google sheets embeds for some reason :/ 
+if(iOS){
+	const toReplace = document.querySelectorAll('.aa-image');
+	for(const image of toReplace){
+		const imageUrl = image.id;
+		image.outerHTML = `{% include image.html file="${imageUrl}" alt="${imageUrl}" %}`
+	}
+}
+
+</script>
