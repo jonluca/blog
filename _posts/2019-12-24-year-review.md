@@ -1,7 +1,7 @@
 ---
 title: "52,848 miles, 137 hours, and 40 flights - 2019 Travel in Review"
 date: 2019-12-24 14:17:28 +0100
-header-img: "/images/altitude.png"
+header-img: "/images/vicenza.png"
 ---
 <link rel="stylesheet" type="text/css" href="/slick/slick.css"/>
 <link rel="stylesheet" type="text/css" href="/slick/slick-theme.css"/>
