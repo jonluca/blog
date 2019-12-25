@@ -2,13 +2,9 @@
 title: "2019 Travel in Review - 52,848 miles, 137 hours, and 40 flights"
 date: 2019-12-24 14:17:28 +0100
 header-img: "/images/vicenza.png"
+header-includes: "<link rel=\"stylesheet\" type=\"text/css\" href=\"/slick/slick.css\"/><link rel=\"stylesheet\" type=\"text/css\" href=\"/slick/slick-theme.css\"/><script type=\"text/javascript\" src=\"//code.jquery.com/jquery-1.11.0.min.js\"></script><script type=\"text/javascript\" src=\"//code.jquery.com/jquery-migrate-1.2.1.min.js\"></script><script type=\"text/javascript\" src=\"/slick/slick.min.js\"></script><script type=\"text/javascript\" src=\"/js/slideshow.js\"></script>"
 ---
-<link rel="stylesheet" type="text/css" href="/slick/slick.css"/>
-<link rel="stylesheet" type="text/css" href="/slick/slick-theme.css"/>
-<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-<script type="text/javascript" src="/slick/slick.min.js"></script>
-<script type="text/javascript" src="/js/slideshow.js"></script>
+
 
 As 2019 wraps up I wanted to do a personal year in review - I traveled a lot this year, and had the good fortune of being able to live and work in a lot of different places. 
 
