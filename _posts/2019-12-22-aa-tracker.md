@@ -253,7 +253,7 @@ The disclaimer that was returned with every response was:
 
 > Attn: Data elements such as temperature, flight latitude, flight longitude, etc. are classified as Product Public under the Panasonic Product Data Classification Framework. Information under this classification does not carry any access, labeling, or transmission restrictions. Deliberate or accidental exposure to these types of data elements, does not lead to any adverse impact to aircraft operations or safety.
 
-So I don't think there's anything nefarious you can really do with it. You *can* tell whether the main cabin is decompressed, what the weight on the wheels is, and whether all doors are closed, but I'm struggling to see a case where these are either dangeorous or that you shouldn't have that info.
+So I don't think there's anything nefarious you can really do with it. You *can* tell whether the main cabin is decompressed, whether there is weight on the wheels, and whether all doors are closed, but I'm struggling to see a case where these are either dangeorous or that you shouldn't have that info.
 
 One thing I didn't manage to figure out is how the latitude/longitude is formatted.
 
