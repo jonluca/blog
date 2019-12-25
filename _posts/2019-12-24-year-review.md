@@ -13,7 +13,7 @@ As 2019 wraps up I wanted to do a personal year in review - I traveled a lot thi
 
 I use a fun app called [App in the Air](https://www.appintheair.mobi/) that tracks all my flights and it prompted me to make this post. They sent me a notification that they created a 2019 review video, which is below.
 
-<video class="centered-image" controls loop>
+<video class="centered-image" style="width: 500px;" controls loop>
     <source src="/images/2019-review-flights.mp4" type="video/mp4">
     <source src="/images/2019-review-flights.ogg" type="video/ogg">
     Your browser does not support the video tag.
