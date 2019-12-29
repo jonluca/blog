@@ -499,6 +499,49 @@ After Bruges I flew into Venice and met up with my father. I'll chill in Vicenza
 </div>
 <p class="footnote">Vicenza</p>
 
+Finally I capped off my time in Europe at the Waldorf astoria in Amsterdam. It was probably my favorite hotel of the year - the service was incredible.
+
+<div class="slideshow">
+    <div class="image">
+        <picture class="centered-image">
+            <source srcset="/images/2019-review/wal-1.webp" type="image/webp">
+            <source srcset="/images/2019-review/wal-1.jpeg" type="image/jpeg">
+            <img alt="wal pic 1" class="centered-image" src="/images/2019-review/wal-1.jpeg">
+        </picture>
+    </div>
+    <div class="image">
+        <picture class="centered-image">
+            <source srcset="/images/2019-review/wal-3.webp" type="image/webp">
+            <source srcset="/images/2019-review/wal-3.jpeg" type="image/jpeg">
+            <img alt="wal pic 3" class="centered-image" src="/images/2019-review/wal-3.jpeg">
+        </picture>
+    </div>
+    <div class="image">
+        <picture class="centered-image">
+            <source srcset="/images/2019-review/wal-2.webp" type="image/webp">
+            <source srcset="/images/2019-review/wal-2.jpeg" type="image/jpeg">
+            <img alt="wal pic 2" class="centered-image" src="/images/2019-review/wal-2.jpeg">
+        </picture>
+    </div>
+    <div class="image">
+        <picture class="centered-image">
+            <source srcset="/images/2019-review/wal-4.webp" type="image/webp">
+            <source srcset="/images/2019-review/wal-4.jpeg" type="image/jpeg">
+            <img alt="wal pic 4" class="centered-image" src="/images/2019-review/wal-4.jpeg">
+        </picture>
+    </div>
+    <div class="image">
+        <picture class="centered-image">
+            <source srcset="/images/2019-review/wal-5.webp" type="image/webp">
+            <source srcset="/images/2019-review/wal-5.jpeg" type="image/jpeg">
+            <img alt="wal pic 4" class="centered-image" src="/images/2019-review/wal-5.jpeg">
+        </picture>
+    </div>
+</div>
+<p class="footnote">Waldorf Astoria Amsterdam - Dec 29</p>
+
+I got upgraded to their Premier King room with a canal view, and had personalized surprises the entire stay. I highly recommend the WA Amsterdam!
+
 # 2019 -> 2020
 
 This year I hit:
@@ -508,4 +551,6 @@ This year I hit:
 * 40 flights
 * 12 countries
 
-It's definitely been a busy year, but I hope to out do myself in 2020. I've already got a couple trips on the books (Chicago is in the works, as is another Hawaii trip. I also want to hit up South America for the first time). 
+I averaged a flight every 9 days and a country per month.
+
+It's definitely been a busy year, but I hope to out do myself in 2020. I've already got a couple trips on the books (Chicago is in the works, as is another Hawaii trip. I also want to hit up South America for the first time). I'm not sure if I can fit another RTW in this year, but I'll definitely try!
