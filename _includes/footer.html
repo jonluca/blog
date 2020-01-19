@@ -18,11 +18,16 @@
   _paq.push(["setDomains", ["*.jonlu.ca","*.blog.jonlu.ca"]]);
   _paq.push(['trackPageView']);
   _paq.push(['enableLinkTracking']);
+  _paq.push(['enableHeartBeatTimer']);
+
   (function() {
     var u="//stats.jonlu.ca/";
     _paq.push(['setTrackerUrl', u+'js/']);
     _paq.push(['setSiteId', '1']);
     _paq.push(['setRequestMethod', 'POST']);
+    if(document.referrer){
+      _paq.push(['setReferrerUrl', document.referrer]);
+    }
     var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
     g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'js/'; s.parentNode.insertBefore(g,s);
   })();
