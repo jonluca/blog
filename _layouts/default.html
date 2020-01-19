@@ -24,6 +24,9 @@
     {% endif %}
     <meta name="og:email" content="hi@jonlu.ca"/>
     {% include head.html %}
+    {% if page.header-includes %}
+    {{ page.header-includes }}
+    {% endif %}
 </head>
 <body class="lh-copy dark-gray pa0 f6 sans-serif bg-super-white">
 <header class="tc mt4">
