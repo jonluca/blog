@@ -26,6 +26,9 @@ links:
   - name:         Contact
     url:          /contact
     external:     false
+  - name:         Interesting Snippets
+    url:          /interesting-snippets
+    external:     false
 permalink:        /posts/:title
 defaults:
   - values:
