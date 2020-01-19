@@ -3,37 +3,47 @@ title: "An analysis of activity on /r/churning"
 date: 2019-08-31 15:49:35 -0700
 header-img: "/images/churning-graph.png"
 ---
-/r/churning is a subreddit dedicated to maximizing credit rewards and travel hacking. We have a pretty unique activity pattern that is fairly distinct from the rest of reddit. I thought it would be interesting to run an analysis of our user behavior, activity, as well as find patterns in the distribution of content. 
+[/r/churning](https://www.reddit.com/r/churning) is a subreddit dedicated to maximizing credit rewards and travel hacking. The subreddit has a fairly unique template for activity that is fairly distinct from the rest of reddit - discussions are mostly siloed in weekly threads, with only the rare top level post. I thought it would be interesting to run an analysis of user behavior and activity in the sub, as well as find patterns in the distribution of content. 
 
 ## Getting the data
 
-There's a phenomeanl data archival service called [pushshift.io](https://pushshift.io) that is collecting data from reddit and making it available to all, for free. I wrote a simple python script that paginated the results and saved them locally.
+There's a data archival service called [pushshift.io](https://pushshift.io) that is collecting data from reddit and making it available to all, for free. I wrote a simple python script that paginated the results and saved them locally.
 
 ```py
 import requests
 import json
+
 url = 'https://api.pushshift.io/reddit/search/comment/?subreddit=churning&sort=desc&size=500'
 start_from = ''
 num = 1
-while True:
-	data = requests.get(url+start_from)
 
-	with open(str(num) + '.json','w') as out:
-		out.write(data.text)
-		out.close()
-	print(num)
-	num += 1
-	res = json.loads(data.text)
-	# add 1 in case there are any comments that were submitted at the same time
-	last_utc = res['data'][-1]['created_utc'] + 1
-	start_from = '&before=' + str(last_utc)
+def save(filename, data):
+  with open(filename + '.json','w') as out:
+    out.write(data)
+    out.close()
+
+while True:
+  data = requests.get(url+start_from)
+
+  try:
+  	res = json.loads(data.text)
+  	# add 1 in case there are any comments that were submitted at the same time
+  	last_utc = str(res['data'][-1]['created_utc'] + 1)
+  	start_from = '&before=' + last_utc
+    # Flush to disk every time - creates lots of files, but better on their servers in case this fails
+    # halfway through and we lose everything in memory (happened multiple times :()
+    save(last_utc, data.text)
+    num += 1
+    print(num)
+  except Exception as e:
+    pass
 ```
 
-It was quick and dirty but it got the job done (I normally write these scripts so they keep everything in memory and then flush it to disk at the end, but I've been burned where the requests fail halfway through and I have to restart from the beginning). I also made it serialized as to respect the wishes of the maintainer, and stuck to around 1 request per second.
+It was quick and dirty but it got the job done (I normally write these scripts so they keep everything in memory and then flush it to disk at the end, but I've been burned where the requests fail halfway through and I have to restart from the beginning - way easier to piece together each individual 500-comment sized request in another script later on.). I also made it serialized as to respect the wishes of the maintainer, and stuck to around 1 request per second.
 
 ## Parsing and loading the data
 
-I then wrote a script that would parse the data and save it into a MySQL database, so that I could query it easily (and, more importantly, do full text searches).
+I then loaded all the data into a MySQL database, so that I could query it easily (and, more importantly, do full text searches).
 
 I first defined two helper classes, that implemented a thread pool to improve performance. Due to the global interpreter lock multithreading isn't as helpful in Python as it is in other languages, but it can still provide some significant gains on heavy I/O operations, such as network requests or disk reads/writes.
 
@@ -149,7 +159,6 @@ def read_and_insert(filename):
 
 
 pool = ThreadPool(5)
-
 values = [i for i in range(1, 3670)]
 pool.map(read_and_insert, values)
 pool.wait_completion()
@@ -254,7 +263,7 @@ This is actually *down* year over year - last year, we averaged around 2,400 com
 
 ## Users
 
-We can also analyse our most active users. The 20 users with the most comments in the last 2 years are below.
+The 20 users with the most comments in the last 2 years are below.
 
 | **User**             | **Number of Comments** |
 |----------------------|----------|
@@ -278,9 +287,9 @@ We can also analyse our most active users. The 20 users with the most comments i
 | blueeyes_austin      | 5554     |
 | Andysol1983          | 5440     |
 
-We can also look at the distribution of users that comment. We actually really only have one outlier, u/OJtheJEWSMAN. If we remove that account, our distribution looks like a pretty typical Pareto distribution. This year, OJ has made 14,710 posts, which accounts for roughly 2% of all comments on the subreddit. 
+We can also look at the distribution of users that comment. We actually really only have one outlier, u/OJtheJEWSMAN. If we remove that account, our distribution looks like a pretty typical Pareto distribution. This year, OJ has made 14,710 comments, which accounts for roughly 2% of all comments on the subreddit. 
 
-The top 500 users are also responsible for 366,038 of the posts from last year, or 51.8% of all comments. This follows a pretty typical distribution of online activity (see the [90 - 9 - 1 rule](https://en.wikipedia.org/wiki/1%25_rule_(Internet_culture))).
+The top 500 users are also responsible for 366,038 of the comments from last year, or 51.8% of all comments. This follows a pretty typical distribution of online activity (see the [90 - 9 - 1 rule](https://en.wikipedia.org/wiki/1%25_rule_(Internet_culture))).
 
 <picture class="centered-image">
   <source srcset="/images/churning-users.webp" type="image/webp">
@@ -304,7 +313,7 @@ Just for fun I also looked at OJs daily activity - looks like they took a pretty
   <source srcset="/images/churning-oj.png" type="image/png"> 
   <img alt="one year of churning comments" class="centered-image" src="/images/churning-oj.png">
 </picture>
-<p class="footnote">Top 1000 user comment distribution, without outlier</p>
+<p class="footnote">OJs activity</p>
 
 ## Data
 
