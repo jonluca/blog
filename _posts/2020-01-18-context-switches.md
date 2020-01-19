@@ -1,5 +1,5 @@
 ---
-title: "Automation saves mental context switches"
+title: "Automation in programming saves mental context switches"
 date: 2020-01-18 16:21:31 -0700
 header-img: "/images/safeway_added.png"
 ---
@@ -32,4 +32,8 @@ This would only be worth it if you do this action once a day for a little under 
 
 The real benefit of automating repetitive tasks like this, though, comes from removin the context switch that comes with the manual action. It's often true that a large investment that doesn't make sense based on total amount of time still has outsized impact due to the lack of context switches. 
 
-Everyone has their 
+If the required action or task that could be automated is intensive enough, it can be enough to completely throw off your mental model of what you're working on. This varies person by person, but it's not unreasonable to believe something that is relatively short (15 seconds) can be enough to distract you from whatever problem you're working on.
+
+It's a bigger issue to have a flow-ruining context switch than to lose a few hours building something that ensures the former won't happen again. 
+
+{% include image.html footnote="<a href='https://twitter.com/detly/status/394755439314755584'>Jason Heeris comic on interrupting a programmer</a>" file="contextswitch" alt="Context switches for programmers" %}
