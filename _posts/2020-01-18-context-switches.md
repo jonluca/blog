@@ -1,5 +1,5 @@
 ---
-title: "Automation in programming saves mental context switches"
+title: "The hidden value of automation in programming comes from saving mental context switches"
 date: 2020-01-18 16:21:31 -0700
 header-img: "/images/safeway_added.png"
 ---
