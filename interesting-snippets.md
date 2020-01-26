@@ -561,3 +561,14 @@ Surprise is an essential feature of coincidence. Surprising phenomena are the mo
 Surprise also often triggers the suspicion that someone is playing a joke on us (Hurley et al., p. 243). Positing a mind, with intention, behind suspicious happenings is sometimes an unavoidable inference, even if it is seen to be ridiculous immediately after being perceived. Hurley et al. note that for children, the world really is run by an inscrutable conspiracy of powerful beings: adults. The error of attributing intention where none exists is often incorrect, but it’s so often and importantly correct that our cognitive architecture has deemed it worth the risk to get false positives. And some of the potential false positives, in the form of gods and spirits, may have value orthogonal to their actual existence, providing a locus of coordination, among other benefits.
 
 A good coincidence is eerie, arousing wonder and a sense of the uncanny, because it points to a missing causation where none was suspected to be. Often the missing causation can be filled in by an entity with agency, as described in the previous paragraph – a ghost, fairy, or god meddling in worldly affairs. But just as often the missing causation is left empty, not explicitly accounted for. “Dark Side of the Rainbow” is made of many surprising coincidences, but you can appreciate them with wonder without proposing any particular reason for their existence. Similarly, older versions of the Book of Mark in the New Testament end abruptly at the discovery of Jesus’ empty tomb; the ambiguity is not explicitly resolved, and the uncanny, unlikely coincidence is left unexplained. The book ends merely by noting that the witnesses were afraid. The later-added ending of Mark can be regarded as a fan theory resolving the ambiguity of the original, resulting in a text that is less ambiguous and, I think, less wondrous.
+
+## On semantics
+
+From [How An Algorithm Feels From Inside](https://www.lesswrong.com/posts/yA4gF5KrboK2m2Xu7/how-an-algorithm-feels-from-inside)
+
+"If a tree falls in the forest, and no one hears it, does it make a sound?"  I remember seeing an actual argument get started on this subject—a fully naive argument that went nowhere near Berkeleyan subjectivism.  Just:
+
+> "It makes a sound, just like any other falling tree!"
+> "But how can there be a sound that no one hears?"
+
+The standard rationalist view would be that the first person is speaking as if "sound" means acoustic vibrations in the air; the second person is speaking as if "sound" means an auditory experience in a brain.  If you ask "Are there acoustic vibrations?" or "Are there auditory experiences?", the answer is at once obvious.  And so the argument is really about the definition of the word "sound".
