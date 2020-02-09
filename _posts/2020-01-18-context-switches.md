@@ -4,7 +4,7 @@ date: 2020-01-18 16:21:31 -0700
 header-img: "/images/safeway_added.png"
 ---
 
-It's a pretty common joke in the programming community that you'll spend a lot more time writing a tool to improve productivity than the amount of time that that tool actually saves you. So much so, in fact that there's actually *two* xckd's on the subject.
+It's a pretty common joke in the programming community that you'll spend a lot more time writing a tool to improve productivity than the amount of time that that tool actually saves you. So much so, in fact that there's actually *two* xkcd's on the subject.
 
 <img alt="xkcd" class="centered-image" src="https://imgs.xkcd.com/comics/is_it_worth_the_time.png">
 <p class="footnote">https://xkcd.com/1205/</p>
@@ -20,7 +20,7 @@ This is an action that takes seconds at most. You move the cursor up, click in, 
 
 If you're fast, you don't even use a cursor and instead use `⌘ + L` to select the URL, then use the arrow keys and a shift modifier to select and overwrite the full domain. This takes probably takes between 3 to 5 seconds from start to finish. 
 
-To make this faster, you could spend around an hour writing a chrome extension that automatically switches between the development URL and the production URL at a keystroke. Hit `⌘ + Shift + P` and the URL gets rewritten and toggled betwen prod and dev, and you are navigated to the page (you obviously are a ood enineer and document your code, add tests, and learn best practices for the chrome extension.)
+To make this faster, you could spend around an hour writing a chrome extension that automatically switches between the development URL and the production URL at a keystroke. Hit `⌘ + Shift + P` and the URL gets rewritten and toggled between prod and dev, and you are navigated to the page (you obviously are a good engineer and document your code, add tests, and learn best practices for the chrome extension.)
 
 
 To have this be worth it, in a purely objective amount of time sense, you'd have to do this action:
@@ -30,7 +30,7 @@ To have this be worth it, in a purely objective amount of time sense, you'd have
 
 This would only be worth it if you do this action once a day for a little under 3 years. Anything less and the amount of time spent building the tool is greater than the benefits.
 
-The real benefit of automating repetitive tasks like this, though, comes from removin the context switch that comes with the manual action. It's often true that a large investment that doesn't make sense based on total amount of time still has outsized impact due to the lack of context switches. 
+The real benefit of automating repetitive tasks like this, though, comes from removing the context switch that comes with the manual action. It's often true that a large investment that doesn't make sense based on total amount of time still has outsized impact due to the lack of context switches. 
 
 If the required action or task that could be automated is intensive enough, it can be enough to completely throw off your mental model of what you're working on. This varies person by person, but it's not unreasonable to believe something that is relatively short (15 seconds) can be enough to distract you from whatever problem you're working on.
 
