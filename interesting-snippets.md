@@ -1,6 +1,6 @@
---
+---
 title: Interesting Snippets
---
+---
 
 A collection of short snippets that I found interesting. I did no write any of the following, and attempt to give attribution where possible. 
 
