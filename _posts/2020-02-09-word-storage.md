@@ -30,7 +30,7 @@ Next let's look at rough estimates. These may be off by multiple orders of magni
 
 * The average number of words said by a person in a lifetime is pretty tough, and probably the estimate with the highest variance. A 2007 study[^2] found that people say, on average, 16,000 words per day. There is undoubtedly a lot of unknowns here (language, age, culture, setting the study took place in, etc), but we'll use this as another baseline.
 
-## Ranging 
+## Converting words to storage 
 
 Using the estimates above, we arrive at roughly 10 billion words said, per person, as an upper bound (16,000 per day \* 630,000 days = \~10,000,000,000). This is also going to be an upperbound - this assumes a person speaks 16000 words a day every day their entire lives, including as a baby. 
 
