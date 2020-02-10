@@ -21,6 +21,46 @@ There are totally a few classic planned obsolescence examples out there; but the
 > But the thing was that good boots lasted for years and years. A man who could afford fifty dollars had a pair of boots that'd still be keeping his feet dry in ten years' time, while the poor man who could only afford cheap boots would have spent a hundred dollars on boots in the same time and would still have wet feet.
 > This was the Captain Samuel Vimes 'Boots' theory of socioeconomic unfairness.
 
+## On Sorting
+
+From [Algorithms to Live By](https://www.amazon.com/Algorithms-Live-Computer-Science-Decisions/dp/1250118360/)
+
+Our email inbox typically displays the top fifty messages of potentially thousands, sorted by time of receipt. When we look for restaurants on Yelp we're shown the top dozen or so of hundreds, sorted by proximity or by rating. A blog shows a cropped list of articles, sorted by date. The Facebook news feed, Twitter stream, and Reddit homepage all present themselves as lists, sorted by some proprietary measure. We refer to things like Google and Bing as "search engines," but that is something of a misnomer: they're really sort engines. What makes Google so dominant as a means of accessing the world's information is less that it finds our text within hundreds of millions of webpages - its 1990s competitors could generally do that part well enough - but that it sorts those webpages so well, and only shows us the most relevant ten. 
+
+The truncated top of an immense, sorted list is in many ways the universal user interface.
+
+## On RTT Times
+
+From [u/Pro_Redditor on a thread on interesting truths](https://www.reddit.com/r/AskReddit/comments/265gil/reddit_can_you_blow_my_mind_in_one_sentence/cho2rjq/)
+
+*Yeah how the hell does my internet have lower ping than my brain?*
+
+## On Action
+
+From Ward Just, 2004
+
+Odysseus wept when he heard the poet sing of his great deeds abroad because, once sung, they were no longer his alone. They belonged to anyone who heard the song.
+
+## On Personal Success
+
+By Scott Adams, creator of Dilbert
+
+If you want an average successful life, it doesn't take much planning. Just stay out of trouble, go to school, and apply for jobs you might like. But if you want something extraordinary, you have two paths:
+
+Become the best at one specific thing.
+Become very good (top 25%) at two or more things.
+The first strategy is difficult to the point of near impossibility. Few people will ever play in the NBA or make a platinum album. I don't recommend anyone even try.
+
+The second strategy is fairly easy. Everyone has at least a few areas in which they could be in the top 25% with some effort. In my case, I can draw better than most people, but I'm hardly an artist. And I'm not any funnier than the average standup comedian who never makes it big, but I'm funnier than most people. The magic is that few people can draw well and write jokes. It's the combination of the two that makes what I do so rare. And when you add in my business background, suddenly I had a topic that few cartoonists could hope to understand without living it.
+
+*. . .*
+
+Get a degree in business on top of your engineering degree, law degree, medical degree, science degree, or whatever. Suddenly you're in charge, or maybe you're starting your own company using your combined knowledge.
+
+Capitalism rewards things that are both rare and valuable. You make yourself rare by combining two or more "pretty goods" until no one else has your mix...
+
+It sounds like generic advice, but you'd be hard pressed to find any successful person who didn't have about three skills in the top 25%.
+
 ## On Modern Political Thought
 
 From [u/TheVetSarge on a thread after the 2016 Presidential Election](https://www.reddit.com/r/television/comments/5dfsau/cbs_this_morning_jon_stewart_on_presidentelect/da4jxwv/)
@@ -32,20 +72,6 @@ The majority of racists probably voted for Donald Trump. This doesn't mean the m
 If you are Pro-2A, you don't care about grabbed pussies. You care about keeping another Sotomayer off the Supreme Court. If you're working class and you just missed the line for healthcare subsidies, Obamacare is hitting your wallet hard. You don't care about him saying mean things about some Mexican immigrants being criminals. Those aren't political issues that will affect your life. They're just mean things being said. 
 
 Too many young Democrat voters (too many people in general) think voting is a question of feelings and feeling good about yourself at the end. It's *not*. And this is why Trump won. His voters don't *care* that he's a meaniehead. Winning the Presidential Election is about convincing the common schlub that he or she is voting in his or her own best interests. And I mean *thinking*. It doesn't matter if that isn't actually true. perception is reality.
-
-## On RTT Times
-
-From [u/Pro_Redditor on a thread on interesting truths](https://www.reddit.com/r/AskReddit/comments/265gil/reddit_can_you_blow_my_mind_in_one_sentence/cho2rjq/)
-
-*Yeah how the hell does my internet have lower ping than my brain?*
-
-## On Sorting
-
-From [Algorithms to Live By](https://www.amazon.com/Algorithms-Live-Computer-Science-Decisions/dp/1250118360/)
-
-Our email inbox typically displays the top fifty messages of potentially thousands, sorted by time of receipt. When we look for restaurants on Yelp we're shown the top dozen or so of hundreds, sorted by proximity or by rating. A blog shows a cropped list of articles, sorted by date. The Facebook news feed, Twitter stream, and Reddit homepage all present themselves as lists, sorted by some proprietary measure. We refer to things like Google and Bing as "search engines," but that is something of a misnomer: they're really sort engines. What makes Google so dominant as a means of accessing the world's information is less that it finds our text within hundreds of millions of webpages - its 1990s competitors could generally do that part well enough - but that it sorts those webpages so well, and only shows us the most relevant ten. 
-
-The truncated top of an immense, sorted list is in many ways the universal user interface.
 
 ## On Vagueness
 
@@ -119,7 +145,6 @@ For the purposes of science, information had to mean something special. Three ce
 It was the same with information. A rite of purification became necessary.
 And then, when it was made simple, distilled, counted in bits, information was found to be everywhere. Shannon's theory made a bridge between information and uncertainty; between information and entropy; and between information and chaos. It led to compact discs and fax machines, computers and cyberspace, Moore's law and all the world's Silicon Alleys. Information processing was born, along with information storage and information retrieval. People began to name a successor to the Iron Age and the Steam Age. "Man the food-gatherer reappears incongruously as information-gatherer," remarked Marshall McLuhan in 1967.* He wrote this an instant too soon, in the first dawn of computation and cyberspace.
 
-
 ## On Timezones
 
 From Thomas Browne, c. 1640
@@ -132,32 +157,6 @@ From Thomas Browne, c. 1640
 From James Gleick
 
 With words we begin to leave traces behind us like breadcrumbs: memories in symbols for others to follow. Ants deploy their pheromones, trails of chemical information; Theseus unwound Ariadne's thread. Now people leave paper trails. Writing comes into being to retain information across time and across space. Before writing, communication is evanescent and local; sounds carry a few yards and fade to oblivion. The evanescence of the spoken word went without saying. So fleeting was speech that the rare phenomenon of the echo, a sound heard once and then again, seemed a sort of magic. "This miraculous rebounding of the voice, the Greeks have a pretty name for, and call it Echo," wrote Pliny. "The spoken symbol," as Samuel Butler observed, "perishes instantly without material trace, and if it lives at all does so only in the minds of those who heard it." Butler was able to formulate this truth just as it was being falsified for the first time, at the end of the nineteenth century, by the arrival of the electric technologies for capturing speech. It was precisely because it was no longer completely true that it could be clearly seen. Butler completed the distinction: "The written symbol extends infinitely, as regards time and space, the range within which one mind can communicate with another; it gives the writer's mind a life limited by the duration of ink, paper, and readers, as against that of his flesh and blood body."
-
-## On Action
-
-From Ward Just, 2004
-
-Odysseus wept when he heard the poet sing of his great deeds abroad because, once sung, they were no longer his alone. They belonged to anyone who heard the song.
-
-## On Personal Success
-
-By Scott Adams, creator of Dilbert
-
-If you want an average successful life, it doesn't take much planning. Just stay out of trouble, go to school, and apply for jobs you might like. But if you want something extraordinary, you have two paths:
-
-Become the best at one specific thing.
-Become very good (top 25%) at two or more things.
-The first strategy is difficult to the point of near impossibility. Few people will ever play in the NBA or make a platinum album. I don't recommend anyone even try.
-
-The second strategy is fairly easy. Everyone has at least a few areas in which they could be in the top 25% with some effort. In my case, I can draw better than most people, but I'm hardly an artist. And I'm not any funnier than the average standup comedian who never makes it big, but I'm funnier than most people. The magic is that few people can draw well and write jokes. It's the combination of the two that makes what I do so rare. And when you add in my business background, suddenly I had a topic that few cartoonists could hope to understand without living it.
-
-*. . .*
-
-Get a degree in business on top of your engineering degree, law degree, medical degree, science degree, or whatever. Suddenly you're in charge, or maybe you're starting your own company using your combined knowledge.
-
-Capitalism rewards things that are both rare and valuable. You make yourself rare by combining two or more "pretty goods" until no one else has your mix...
-
-It sounds like generic advice, but you'd be hard pressed to find any successful person who didn't have about three skills in the top 25%.
 
 ## On Perfect Secret Sharing
 
