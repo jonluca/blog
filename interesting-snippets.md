@@ -236,7 +236,7 @@ It's also interesting to note that the real world is intrinsically warren while 
 
 ## On information and propaganda
 
-From [The Attention Merchanges](https://www.amazon.com/Attention-Merchants-Scramble-Inside-Heads/dp/0385352018)
+From [The Attention Merchants](https://www.amazon.com/Attention-Merchants-Scramble-Inside-Heads/dp/0385352018)
 
 What [Walter] Lippmann took from the war - as he explained in his 1922 classic *Public Opinion* - was the gap between the true complexity of the world and the narratives the public uses to understand it - the rough "stereotypes" (a word he coined in his book). When it came to the war, he believed that the "consent" of the governed had been, in his phrase, "manufactured". Hence, as he wrote, 'It is no longer possible... To believe in the original dogma of democracy; that the knowledge needed for the management of human affairs comes up spontaneously from the human heart. Where we act on that theory we expose ourselves to self deception, and to forms of persuasion that we cannot verify.'
 
