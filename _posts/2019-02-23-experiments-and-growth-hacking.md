@@ -4,8 +4,6 @@ date: 2019-02-23 13:16:46 -0700
 header-img: "/images/lyft-api-network.png"
 ---
 
-<i>This is the first part of a two part series on modern testing infrastructure and methodologies. Part two can be found <a href="/posts/experiments-part-2">here.</a></i>
-
 Most medium to large companies now runs [A/B tests](https://en.wikipedia.org/wiki/A/B_testing) and new feature experiments on segments of their user base. They are a great way to check whether a feature will have long time success, and get observable metrics on the repercussion of their changes.
 
 I wanted to explore the methodology with which a few large companies implement their testing, as well as see if there was any potentially confidential information leakage. The actual implementation of these tests are often siloed - due to the recent growth of single page apps and separation of concerns, they rely on the *front end* or *client* to make the differentiation of tests, rather than making these decisions server side.
