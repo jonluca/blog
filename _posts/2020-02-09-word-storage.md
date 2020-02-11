@@ -73,7 +73,7 @@ Secondly, the number of words spoken will not follow a normal distribution acros
 
 [^3]: From [Distribution of Word Lengths in Various Languages](http://www.ravi.io/language-word-lengths)
 
-[^4]: This is undoubtedly a severe overestimate, but it shows that it's a very "relatively human" size. If I was a betting man I'd guess something closer to the average child sized bedroom would be a better estimate, especially accounting for the number of people who died young, the speakers of non-lengthy languages like German, and people who never spoke a language at all.
+[^4]: This is undoubtedly a severe overestimate, but it shows that it's a very "relatively human" size. If I was a betting man I'd guess something closer to the average bathtub would be a better estimate, especially accounting for the number of people who died young, the speakers of non-lengthy languages like German, and people who never spoke a language at all.
 
 [^5]: [https://en.wikipedia.org/wiki/Data_compression_ratio](https://en.wikipedia.org/wiki/Data_compression_ratio)
 
