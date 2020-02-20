@@ -1,5 +1,5 @@
 ---
-title: "Reversing Blinds API and client side encryption"
+title: "Reverse engineering Blind's API and client side encryption"
 date: 2020-02-08 13:54:40 -0700
 header-img: "/images/blindhomepage.png"
 ---
