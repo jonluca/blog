@@ -612,3 +612,21 @@ To reasoners beset by moral strife
 The old lie: we must try to cultivate
 A culture of life.
 </i></div>
+
+## On Cost Disease
+
+From [Considerations on Cost Disease](https://slatestarcodex.com/2017/02/09/considerations-on-cost-disease/)
+
+For example: some people promote free universal college education, remembering a time when it was easy for middle class people to afford college if they wanted it. Other people oppose the policy, remembering a time when people didn't depend on government handouts. Both are true! My uncle paid for his tuition at a really good college just by working a pretty easy summer job - not so hard when college cost a tenth of what it did now. The modern conflict between opponents and proponents of free college education is over how to distribute our losses. In the old days, we could combine low taxes with widely available education. Now we can't, and we have to argue about which value to sacrifice.
+
+Or: some people get upset about teachers' unions, saying they must be sucking the "dynamism" out of education because of increasing costs. Others people fiercely defend them, saying teachers are underpaid and overworked. Once again, in the context of cost disease, both are obviously true. The taxpayers are just trying to protect their right to get education as cheaply as they used to. The teachers are trying to protect their right to make as much money as they used to. The conflict between the taxpayers and the teachers' unions is about how to distribute losses; somebody is going to have to be worse off than they were a generation ago, so who should it be?
+
+And the same is true to greater or lesser degrees in the various debates over health care, public housing, et cetera.
+
+Imagine if tomorrow, the price of water dectupled. Suddenly people have to choose between drinking and washing dishes. Activists argue that taking a shower is a basic human right, and grumpy talk show hosts point out that in their day, parents taught their children not to waste water. A coalition promotes laws ensuring government-subsidized free water for poor families; a Fox News investigative report shows that some people receiving water on the government dime are taking long luxurious showers. Everyone gets really angry and there's lots of talk about basic compassion and personal responsibility and whatever but all of this is secondary to why does water costs ten times what it used to?
+
+I think this is the basic intuition behind so many people, even those who genuinely want to help the poor, are afraid of "tax and spend" policies. In the context of cost disease, these look like industries constantly doubling, tripling, or dectupling their price, and the government saying "Okay, fine," and increasing taxes however much it costs to pay for whatever they're demanding now.
+
+If we give everyone free college education, that solves a big social problem. It also locks in a price which is ten times too high for no reason. This isn't fair to the government, which has to pay ten times more than it should. It's not fair to the poor people, who have to face the stigma of accepting handouts for something they could easily have afforded themselves if it was at its proper price. And it's not fair to future generations if colleges take this opportunity to increase the cost by twenty times, and then our children have to subsidize that.
+
+I'm not sure how many people currently opposed to paying for free health care, or free college, or whatever, would be happy to pay for health care that cost less, that was less wasteful and more efficient, and whose price we expected to go down rather than up with every passing year. I expect it would be a lot.
