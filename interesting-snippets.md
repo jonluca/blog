@@ -588,3 +588,27 @@ It's important to distinguish what humans are doing, in following norms, from wh
 If you refrain from hitting people because you're afraid they'll hit you back, that's not a norm. If you're afraid of speaking out against a dangerous regime because you're worried about retaliation from the regime itself, that's not a norm. But if you're worried that your neighbors might disapprove and even coordinate to punish you, then you're most likely dealing with a norm. It's this third-party, collective enforcement that's unique to humans.
 Paul Bingham calls this "coalition enforcement," highlighting the fact that norm violators are punished by a coalition, that is, people acting in concert.6 Christopher Boehm calls it a "reverse dominance hierarchy,"7 where instead of the strongest apes dominating the group, in humans it's the rest of the group, working together, that's able to dominate the strongest apes and keep them effectively in check. What both thinkers identify as a key to enabling this kind of behavior, in our species and ours alone, is the use of deadly weapons (see Box 3).
 
+## On Death and the American Healthcare System
+
+From [Who by very slow decay](https://slatestarcodex.com/2013/07/17/who-by-very-slow-decay/)
+
+And now every time I hear that phrase I want to scream. 21st century American hospitals do not need to "cultivate a culture of life". We have enough life. We have life up the wazoo. We have more life than we know what to do with. We have life far beyond the point where it becomes a sick caricature of itself. We prolong life until it becomes a sickness, an abomination, a miserable and pathetic flight from death that saps out and mocks everything that made life desirable in the first place. 21st century American hospitals need to cultivate a culture of life the same way that Newcastle needs to cultivate a culture of coal, the same way a man who is burning to death needs to cultivate a culture of fire.
+
+And so every time I hear that phrase I want to scream, or if I cannot scream, to find some book of hospital poetry that really is a book of hospital poetry and shove it at them, make them read it until they understand.
+
+There is no such book, so I hope it will be acceptable if I just rip off of Wilfred Owen directly:
+
+<div style="white-space: break-spaces;"><i>
+If in some smothering dreams you too could pace
+Behind the gurney that we flung him in,
+And watch the white eyes writhing in his face,
+His hanging face, like a devil's sack of sin;
+If you could hear, at every jolt, the blood
+Come gargling from the froth-corrupted lungs,
+Obscene with cancer, bitter with the cud
+Of vile, incurable sores on innocent tongues
+My friend, you would not so pontificate
+To reasoners beset by moral strife
+The old lie: we must try to cultivate
+A culture of life.
+</i></div>
