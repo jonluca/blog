@@ -1,5 +1,5 @@
 ---
-title: "Phone calls, signal processing, and audio formats"
+title: "Making high-fidelity audio sound like it came through the phone"
 date: 2018-10-28 18:17:38 -0700
 ---
 A while back I was wondering what made phone calls sound so distinct - a call over a landline, through copper cables, always sounds very similar. They are tin-y, hollow, and the person you're talking to sounds far away. The newer VoIP and VoLTE calls sound *so* much better, so I assumed that it must have to do with either A) the compression being done to the call or B) a native property of copper itself. I've never done any signal processing, and am wholly unfamiliar with the process, so my initial assumptions were somewhat misguided, but it still proved to be an interesting point of entry to the field.
