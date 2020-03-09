@@ -22,6 +22,7 @@ First I just wanted to see if I could emulate the sound of a phone call from a h
 The original sound file: 
 
 <audio controls class="audio-block">
+  <source src="/assets/game.mp3" type="audio/mp3">
   <source src="/assets/game.wav" type="audio/wav">
   <p>Your browser doesn't support HTML5 audio. Here is
      a <a rel="noopener noreferrer" href="https://github.com/jonluca/Phone-Audio-Processing/tree/master/input">link to the audio</a> instead.</p>
@@ -30,7 +31,7 @@ The original sound file:
 The first step is to see how it sounds like resampled - let's go from `44khz` to `8khz`.
 
 ```python
-EIGHT_KHZ = 8096
+EIGHT_KHZ = 8192
 
 filename = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'input/game.wav')
 
@@ -44,6 +45,7 @@ librosa.output.write_wav("output/eightkhz_resampled.wav", resampled_time_series,
 You can listen to the resample result here:
 
 <audio controls class="audio-block">
+  <source src="/assets/eightkhz_resampled.mp3" type="audio/mp3">
   <source src="/assets/eightkhz_resampled.wav" type="audio/wav">
   <p>Your browser doesn't support HTML5 audio. Here is
      a <a rel="noopener noreferrer" href="https://github.com/jonluca/Phone-Audio-Processing/tree/master/output">link to the audio</a> instead.</p>
@@ -71,6 +73,7 @@ librosa.output.write_wav("output/eightkhz_resampled_unfrequencied.wav", reconstr
 Then we use the inverse short time fourier transform to get back the modified time series, and write that out. The final audio result is below.
 
 <audio controls class="audio-block">
+  <source src="/assets/eightkhz_resampled_unfrequencied.mp3" type="audio/mp3">
   <source src="/assets/eightkhz_resampled_unfrequencied.wav" type="audio/wav">
   <p>Your browser doesn't support HTML5 audio. Here is
      a <a rel="noopener noreferrer" href="https://github.com/jonluca/Phone-Audio-Processing/tree/master/output">link to the audio</a> instead.</p>
