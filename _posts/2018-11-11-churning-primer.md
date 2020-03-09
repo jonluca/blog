@@ -1,5 +1,5 @@
 ---
-title: "Churning primer"
+title: "An introduction to credit card churning"
 date: 2018-11-11 12:11:41 -0500
 header-img: "/images/wallet_status.png"
 ---
