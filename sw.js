@@ -1,4 +1,4 @@
-const version = "1.1";
+const version = "1.2";
 const cacheName = `blog-${version}`;
 self.addEventListener('install', e => {
   e.waitUntil(
