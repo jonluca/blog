@@ -140,7 +140,7 @@ The last thing to do is to lazy load functions and services that I don't need. I
 
 Oh-My-Zsh is great and provides a lot of functionality, but it comes at a fairly heavy cost. As you can see above, it's overhead accounts for nearly 70% of my load time. 
 
-There is one other thing of note - `zsh` provides a built in function, `vcs_info`, to provide information about the the version control status of the current working directory. However, this is quite slow! For the actual Zsh git repo, it takes about *200ms* to parse. In large projects with a heavy git history this can hang for seconds just for it tell you that you have an untracked file. I'm not sure how to best resolve this, as now it's established behavior and many projects rely on this functionality. This won't necessarily impact shell start time, but it will impact the amount of time it takes to actually display the prompt when navigating within a VCS-belonging directory. This can be slightly fixed with `git config oh-my-zsh.hide-status 1` on problematic repos, but it would be nice if it did so automatically. Setting the option `DISABLE_UNTRACKED_FILES_DIRTY="true"` in your `.zshrc` can help as well, but comes with a loss of functionality. 
+There is one other thing of note - `oh-my-zshzsh` provides a built in function, `vcs_info`, to provide information about the the version control status of the current working directory. However, this is quite slow! For the actual Zsh git repo, it takes about *200ms* to parse. In large projects with a heavy git history this will hang your prompt return time for seconds. This won't necessarily impact shell start time, but it will impact the amount of time it takes to actually display the prompt when navigating within a VCS-belonging directory. This can be slightly fixed with `git config oh-my-zsh.hide-status 1` on problematic repos, but it would be nice if it did so automatically. Setting the option `DISABLE_UNTRACKED_FILES_DIRTY="true"` in your `.zshrc` can help as well, but comes with a loss of functionality.
 
 Finally, a lot of time is spent in `compinit` and `compdef`. These are functions that create/define entries in the local completions cache (the `~/.zcompdump-machinename` file you might've noticed). There are a few hacks floating around GitHub, HackerNews, and various forums that try to remedy this (only check once a day, only check on new shell logins, etc), but none are particularly robust/without side effects.
 
@@ -161,7 +161,7 @@ I ended with zsh taking about 0.42 seconds, or 420 milliseconds, to start up. Di
 
 While initial start time can (and should) be optimized, it pales in comparison to the importance of *prompt* return time. 
 
-In a typical workflow you're returning to your prompt orders of magnitude more times than you're actually starting new shell sessions. I'd like to profile prompt time much more, as I've noticed that even a 10% gain is noticeable (and much more important, as waiting any longer than half a second for a prompt will quickly become infuriating).
+In a typical workflow you're returning to your prompt hundreds of times more than you're actually starting new shell sessions. I'd like to profile prompt time much more, as I've noticed that even a 10% gain is noticeable (and much more important, as waiting any longer than half a second for a prompt will quickly become infuriating). As mentioned above, my largest culprit for prompt return time was `vcs_info` - I mostly work out of directories that have a git repo attached, and it's very noticeable there.
 
 
 #### Resources
