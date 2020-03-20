@@ -1,7 +1,7 @@
 # ----------- CONFIGURABLE START -----------
 title:            JonLuca's Blog
 description:      JonLuca's Blog - A blog about tech, programming, and information
-url:              https://blog.jonlu.ca # Site url, without a slash at the end.
+url:              https://blog.jldc.me # Site url, without a slash at the end.
 signoff:          "JonLuca" # Your name
 markdown: kramdown
 twitter_username: jonluca
