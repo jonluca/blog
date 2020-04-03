@@ -32,7 +32,7 @@ Next let's look at rough estimates. These may be off by multiple orders of magni
 
 ## Converting words to storage 
 
-Using the estimates above, we arrive at roughly 10 billion words said, per person (16,000 per day \* 26,280 days = \~420,480,000). This is going to be an upper bound - this assumes a person speaks 16000 words a day every day their entire lives, including as a baby. 
+Using the estimates above, we arrive at roughly 420 million words said, per person (16,000 per day \* 26,280 days = \~420,480,000). This is going to be an upper bound - this assumes a person speaks 16000 words a day every day their entire lives, including as a baby. 
 
 We can now convert this number into storage costs.
 
@@ -40,7 +40,7 @@ It's easier to calculate character storage than word storage, as characters are 
 
 The average word length in English is 4.7 characters, while German, one of the longest average word length languages, sits at **11.66**[^3]. We'll use German as our language, to again try and get a reasonable upper bound.
 
-10 billion words, times an average word length of 11.66, gets us \~**4.8** billion individual characters spoken per person per lifetime.
+420 million words, times an average word length of 11.66, gets us \~**4.8** billion individual characters spoken per person per lifetime.
 
 4.8 billion characters multiplied by our previous estimate of roughly 108 billion people ever having lived gives us a grand total of 5.2 * 10<sup>20</sup> characters, or 518 quintillion characters ever said in history.
 
