@@ -2,7 +2,7 @@
 title: Interesting Snippets
 ---
 
-A collection of short snippets that I found interesting. I did no write any of the following, and attempt to give attribution where possible. 
+A collection of short ideas, anecdotes, and excerpts that I found interesting. I did not write any of the following, and attempt to give attribution where possible. 
 
 I do not necessarily agree with the views - they simply succintly and clearly say what I believe to be an interesting topic or insight. 
 
