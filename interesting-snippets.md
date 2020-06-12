@@ -2,7 +2,7 @@
 title: Interesting Snippets
 ---
 
-A collection of short snippets that I found interesting. I did no write any of the following, and attempt to give attribution where possible. 
+A collection of short ideas, anecdotes, and excerpts that I found interesting. I did not write any of the following, and attempt to give attribution where possible. 
 
 I do not necessarily agree with the views - they simply succintly and clearly say what I believe to be an interesting topic or insight. 
 
@@ -640,3 +640,19 @@ First, there is rarely a single experiment that one paradigm fails and another p
 For example, one might try to test the Copernican vs. Ptolemaic worldviews by observing the parallax of the fixed stars over the course of a year. Copernicus predicts it should be visible; Ptolemy predicts it shouldn't be. It isn't, which means either the Earth is fixed and unmoving, or the stars are unutterably unimaginably immensely impossibly far away. Nobody expected the stars to be that far away, so advantage Ptolemy. Meanwhile, the Copernicans posit far-off stars in order to save their paradigm. What looked like a test to select one paradigm or the other has turned into a wedge pushing the two paradigms even further apart.
 
 What looks like a decisive victory to one side may look like random noise to another. Did you know weird technologically advanced artifacts are sometimes found encased in rocks that our current understanding of geology says are millions of years old? Creationists have no trouble explaining those - the rocks are much younger, and the artifacts were probably planted by nephilim. Evolutionists have no idea how to explain those, and default to things like "the artifacts are hoaxes" or "the miners were really careless and a screw slipped from their pocket into the rock vein while they were mining". I'm an evolutionist and I agree the artifacts are probably hoaxes or mistakes, even when there is no particular evidence that they are. Meanwhile, probably creationists say that some fossil or other incompatible with creationism is a hoax or a mistake. But that means the "find something predicted by one paradigm but not the other, and then the failed theory comes crashing down" oversimplification doesn't work. Find something predicted by one paradigm but not the other, and often the proponents of the disadvantaged paradigm can - and should - just shrug and say "whatever".
+
+## On Essays
+
+From Paul Graham's [The Age of the Essay](http://www.paulgraham.com/essay.html)
+
+To understand what a real essay is, we have to reach back into history again, though this time not so far. To Michel de Montaigne, who in 1580 published a book of what he called "essais." He was doing something quite different from what lawyers do, and the difference is embodied in the name. Essayer is the French verb meaning "to try" and an essai is an attempt. An essay is something you write to try to figure something out.
+
+Figure out what? You don't know yet. And so you can't begin with a thesis, because you don't have one, and may never have one. An essay doesn't begin with a statement, but with a question. In a real essay, you don't take a position and defend it. You notice a door that's ajar, and you open it and walk in to see what's inside.
+
+If all you want to do is figure things out, why do you need to write anything, though? Why not just sit and think? Well, there precisely is Montaigne's great discovery. Expressing ideas helps to form them. Indeed, helps is far too weak a word. Most of what ends up in my essays I only thought of when I sat down to write them. That's why I write them.
+
+## On GPT3
+
+From [The Obligatory GPT3 Post](https://slatestarcodex.com/2020/06/10/the-obligatory-gpt-3-post/)
+
+Could it do more radical things like write proofs or generate scientific advances? After all, if you feed it thousands of proofs, and then prompt it with a theorem to be proven, that’s a text prediction task. If you feed it physics textbooks, and prompt it with “and the Theory of Everything is…”, that’s also a text prediction task. I realize these are wild conjectures, but the last time I made a wild conjecture, it was “maybe you can learn addition, because that’s a text prediction task” and that one came true within two years. But my guess is still that this won’t happen in a meaningful way anytime soon. GPT-3 is much better at writing coherent-sounding text than it is at any kind of logical reasoning; remember it still can’t add 5-digit numbers very well, get its Methodist history right, or consistently figure out that a plus sign means “add things”. Yes, it can do simple addition, but it has to use supercomputer-level resources to do so – it’s so inefficient that it’s hard to imagine even very large scaling getting it anywhere useful. At most, maybe a high-level GPT could write a plausible-sounding Theory Of Everything that uses physics terms in a vaguely coherent way, but that falls apart when a real physicist examines it.
