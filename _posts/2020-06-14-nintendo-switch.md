@@ -4,8 +4,6 @@ date: 2020-06-14 13:36:09 -0700
 header-img: "/images/switch.png"
 ---
 
-Note: this is a republish of the article I originally wrote on Medium for [Hackernoon](https://medium.com/hackernoon/how-the-nintendo-switch-prevents-downgrades-by-irreparably-blowing-its-own-fuses-884bd3b7a8ba)
-
 Downgrade prevention has been a cat-and-mouse game between consumers and companies since the inception of remote updates. The Nintendo Switch adopts a worrisome-strategy of preventing firmware downgrades by permanently modifying your device every time it updates. While this isn’t a new concept (the Xbox 360 was doing it back in 2007), it is part of a greater effort to prevent end users from modifying their devices to their liking.
 
 The Nintendo Switch use an [Nvidia Tegra X1 SoC](https://en.wikipedia.org/wiki/Tegra#Tegra_X1), which comes with a fuse driver. This allows it to programmatically blow fuses — permanently modifying the device, making it impossible to revert to a previous state.
@@ -39,5 +37,8 @@ From the [FAQ on NH-Server](https://nh-server.github.io/switch-guide/faq/):
 > Any console purchased after approximately August 2018 is likely to be patched. This includes the latest units on shelves, referred to as 'red box' or 'Mariko'. Mariko is hardware patched, but may come on a vulnerable firmware. Currently the only way to know if your Switch is hackable is by trying to send the payload in RCM. Even with this exploit fixed, many Switches on 8.0.1 and below will be hackable to some degree in the future (see Should I update my Firmware? for much more detailed information). The serial number on the back of the box can possibly tell you which consoles are patched and which aren't. See here for an up to date list.
 
 ###### Footnotes
+
+
+*Note: this is a republish of the article I originally wrote on Medium for [Hackernoon](https://medium.com/hackernoon/how-the-nintendo-switch-prevents-downgrades-by-irreparably-blowing-its-own-fuses-884bd3b7a8ba)*
 
 [^1]: [http://switchbrew.org/index.php?title=Fuses#Anti-downgrade](http://switchbrew.org/index.php?title=Fuses#Anti-downgrade)
