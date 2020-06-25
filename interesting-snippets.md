@@ -678,7 +678,11 @@ Nice try. Everybody wants the Founders on their side; but it was a different cou
 All American political movements have their roots in the 1700s- indeed, in the winning side, since Loyalist opinion essentially disappeared. We are all- liberals, conservatives, libertarians- against the Georgian monarchy and for the right to life, liberty, and the pursuit of happiness. You can certainly find places where one Founder or another rants against government; you can find other places where one Founder or another rants against rebellion, anarchy, and the opponents of federalism. Sometimes the same Founder can be quoted on both sides. They were a mixed bunch, and lived long enough lives to encounter different situations.
 
 > It cannot have escaped those who have attended with candor to the arguments employed against the extensive powers of the government, that the authors of them have very little considered how far these powers were necessary means of attaining a necessary end. -James Madison
+
+
 > Stable ownership is the gift of social law, and is given late in the progress of society. -Thomas Jefferson
+
+
 > All the Property that is necessary to a man is his natural Right, which none may justly deprive him of, but all Property superfluous to such Purposes is the property of the Public who, by their Laws have created it and who may, by other Laws dispose of it. -Benjamin Franklin
 
 
