@@ -656,3 +656,21 @@ If all you want to do is figure things out, why do you need to write anything, t
 From [The Obligatory GPT3 Post](https://slatestarcodex.com/2020/06/10/the-obligatory-gpt-3-post/)
 
 Could it do more radical things like write proofs or generate scientific advances? After all, if you feed it thousands of proofs, and then prompt it with a theorem to be proven, that’s a text prediction task. If you feed it physics textbooks, and prompt it with “and the Theory of Everything is…”, that’s also a text prediction task. I realize these are wild conjectures, but the last time I made a wild conjecture, it was “maybe you can learn addition, because that’s a text prediction task” and that one came true within two years. But my guess is still that this won’t happen in a meaningful way anytime soon. GPT-3 is much better at writing coherent-sounding text than it is at any kind of logical reasoning; remember it still can’t add 5-digit numbers very well, get its Methodist history right, or consistently figure out that a plus sign means “add things”. Yes, it can do simple addition, but it has to use supercomputer-level resources to do so – it’s so inefficient that it’s hard to imagine even very large scaling getting it anywhere useful. At most, maybe a high-level GPT could write a plausible-sounding Theory Of Everything that uses physics terms in a vaguely coherent way, but that falls apart when a real physicist examines it.
+
+## On libertarianss and the founding fathers
+
+From [a zompist entry on libertarianism](http://www.zompist.com/libertos.html)
+
+At this point some libertarian readers are pumping their hands in the air like a piston, anxious to explain that their ideal isn't Rothbard or von Mises or Hayek, but the Founding Fathers.
+
+Nice try. Everybody wants the Founders on their side; but it was a different country back then-- 95% agricultural, low density, highly homogenous, primitive in technology-- and modern libertarianism simply doesn't apply. (The OED's citations of the word for the time are all theological.)
+
+All American political movements have their roots in the 1700s-- indeed, in the winning side, since Loyalist opinion essentially disappeared. We are all-- liberals, conservatives, libertarians-- against the Georgian monarchy and for the right to life, liberty, and the pursuit of happiness. You can certainly find places where one Founder or another rants against government; you can find other places where one Founder or another rants against rebellion, anarchy, and the opponents of federalism. Sometimes the same Founder can be quoted on both sides. They were a mixed bunch, and lived long enough lives to encounter different situations.
+
+> It cannot have escaped those who have attended with candor to the arguments employed against the extensive powers of the government, that the authors of them have very little considered how far these powers were necessary means of attaining a necessary end. --James Madison
+> Stable ownership is the gift of social law, and is given late in the progress of society. --Thomas Jefferson
+> All the Property that is necessary to a man is his natural Right, which none may justly deprive him of, but all Property superfluous to such Purposes is the property of the Public who, by their Laws have created it and who may, by other Laws dispose of it. --Benjamin Franklin
+
+
+The Constitution is above all a definition of a strengthened government, and the Federalist Papers are an extended argument for it. The Founders negotiated a balance between a government that was arbitrary and coercive (their experience as British colonial subjects) and one that was powerless and divided (the failed Articles of Confederation).
+
