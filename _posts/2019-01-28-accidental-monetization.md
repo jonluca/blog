@@ -120,7 +120,7 @@ By the end of my time at USC there were over 6,000 people using the extension, w
 
 ## Moving forward
 
-As I'm graduating now the extension will become abandonware. It'll keep working until USC changes their site layout or their API. Until then, I hope everyone keeps enjoying it, and if you're interested in taking up development, [hit me up!](https://blog.jldc.me/contact)
+As I'm graduating now the extension will become abandonware. It'll keep working until USC changes their site layout or their API. Until then, I hope everyone keeps enjoying it, and if you're interested in taking up development, [hit me up!](https://blog.jonlu.ca/contact)
 
 
 The USC Schedule Helper is still [available here.](https://chrome.google.com/webstore/detail/usc-schedule-helper/gchplemiinhmilinflepfpmjhmbfnlhk)
