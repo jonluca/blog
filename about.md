@@ -41,17 +41,18 @@ Here are a few blogs or places on the internet that I enjoy reading. I don't agr
 
 * [https://slatestarcodex.com/](https://slatestarcodex.com/)
 
+* [https://www.lesswrong.com/](https://www.lesswrong.com/)
+
+* [https://www.ribbonfarm.com/](https://www.ribbonfarm.com/)
+
 * [https://meltingasphalt.com/](https://meltingasphalt.com/)
 
 * [https://everythingstudies.com/](https://everythingstudies.com/)
 
 * [https://www.readthesequences.com/](https://www.readthesequences.com/)
 
-* [https://www.lesswrong.com/](https://www.lesswrong.com/)
-
 * [https://putanumonit.com/](https://putanumonit.com/)
 
-* [https://www.ribbonfarm.com/](https://www.ribbonfarm.com/)
 
 ### Not as active, but still worth reading
 
