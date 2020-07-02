@@ -2,4 +2,4 @@
 
 Source code and complete edit history of JonLuca's Blog.
 
-The live blog can be found [here](https://blog.jldc.me).
+The live blog can be found [here](https://blog.jonlu.ca).

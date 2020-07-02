@@ -15,11 +15,11 @@ Previously I worked at Google, Apple, and Elevate Security. I currently do free 
 
 I recommend starting with the following three posts. They all focus on tech and explorations of topics I find interesting.
 
-1. [Illegal streams, decrypting m3u8's, and building a better stream experience](https://blog.jldc.me/posts/illegal-streams?ref=about) - An article on exploring illegal sports streams online, building a client to watch them, and seeing how the streamers are piggybacking real services.
+1. [Illegal streams, decrypting m3u8's, and building a better stream experience](https://blog.jonlu.ca/posts/illegal-streams?ref=about) - An article on exploring illegal sports streams online, building a client to watch them, and seeing how the streamers are piggybacking real services.
 
-2. [Obfuscated javascript, scam emails, and American Express](https://blog.jldc.me/posts/deobfuscating-amex-scammer?ref=about) - An article on reversing and decompiling obfuscated javascript, tracking spam emails, and finding the root command and control server for a scam campaign.
+2. [Obfuscated javascript, scam emails, and American Express](https://blog.jonlu.ca/posts/deobfuscating-amex-scammer?ref=about) - An article on reversing and decompiling obfuscated javascript, tracking spam emails, and finding the root command and control server for a scam campaign.
 
-3. [Ryanair, Hamiltonian Cycles, and using graph theory to find cheap flights](https://blog.jldc.me/posts/ryan-air?ref=about) - An article on how I routed my European vacation, writing an NP hard problem solver, and releasing a tool to help you do the same.
+3. [Ryanair, Hamiltonian Cycles, and using graph theory to find cheap flights](https://blog.jonlu.ca/posts/ryan-air?ref=about) - An article on how I routed my European vacation, writing an NP hard problem solver, and releasing a tool to help you do the same.
 
 I also write for HackerNoon and freeCodeCamp on [Medium](https://medium.com/@jonluca).
 
@@ -31,21 +31,15 @@ Here are a few blogs or places on the internet that I enjoy reading. I don't agr
 
 * [http://danluu.com/](http://danluu.com/)
 
-* [https://www.gkbrk.com/](https://www.gkbrk.com/) - specifically, [this](https://www.gkbrk.com/2016/05/hotel-music/)
-
 * [https://googleprojectzero.blogspot.com/](https://googleprojectzero.blogspot.com/)
 
 * [http://www.paulgraham.com/articles.html](http://www.paulgraham.com/articles.html)
 
 * [https://devonzuegel.com/](https://devonzuegel.com/)
 
+### Rationalist Blogs
+
 * [https://slatestarcodex.com/](https://slatestarcodex.com/)
-
-* [https://plato.stanford.edu/index.html](https://plato.stanford.edu/index.html)
-
-* [http://blog.bumblebeelabs.com/](http://blog.bumblebeelabs.com/)
-
-* [https://www.perell.com/](https://www.perell.com/)
 
 * [https://meltingasphalt.com/](https://meltingasphalt.com/)
 
@@ -54,6 +48,18 @@ Here are a few blogs or places on the internet that I enjoy reading. I don't agr
 * [https://www.readthesequences.com/](https://www.readthesequences.com/)
 
 * [https://www.lesswrong.com/](https://www.lesswrong.com/)
+
+* [https://putanumonit.com/](https://putanumonit.com/)
+
+* [https://www.ribbonfarm.com/](https://www.ribbonfarm.com/)
+
+### Not as active, but still worth reading
+
+* [https://www.gkbrk.com/](https://www.gkbrk.com/) - specifically, [this](https://www.gkbrk.com/2016/05/hotel-music/)
+
+* [https://plato.stanford.edu/index.html](https://plato.stanford.edu/index.html)
+
+* [http://blog.bumblebeelabs.com/](http://blog.bumblebeelabs.com/)
 
 I also maintain a running list of interesting snippets of text in my [Interesting Snippets repo.](https://github.com/jonluca/interesting-snippets)
 
@@ -71,7 +77,7 @@ These are a few beliefs that are snapshots of a shifting, growing ideology and a
 
 * Intuition and anecdotes are so harmful to a good debate that it's worth the extra cognitive load to actively discuss the inherent bias our experience brings to objective discussions
 
-* [Words per minute is not a good measure of typing speed](https://blog.jldc.me/posts/wpm)
+* [Words per minute is not a good measure of typing speed](https://blog.jonlu.ca/posts/wpm)
 
 * [Tracking changes, differentation, and growth are inherently interesting, and why I use git to save all the changes to this blog](https://github.com/jonluca/blog)
 
@@ -93,6 +99,6 @@ I'm a strong believer in attaching your real identity to your ideologies and tho
 
 I've been asked about payment for my software, or donations. I'm in no need for money, and I release my code and projects for free because I want to contribute back to the ecosystem that helped me succeed. If you really are inclined to support my projects, [please consider donating to the EFF](https://supporters.eff.org/donate/).
 
-You can also return to my [personal site (non-blog)](https://jldc.me), or keep in touch with me on twitter:
+You can also return to my [personal site (non-blog)](https://jonlu.ca), or keep in touch with me on twitter:
 
 {% include twitter.html %}
