@@ -687,3 +687,15 @@ All American political movements have their roots in the 1700s- indeed, in the w
 
 
 The Constitution is above all a definition of a strengthened government, and the Federalist Papers are an extended argument for it. The Founders negotiated a balance between a government that was arbitrary and coercive (their experience as British colonial subjects) and one that was powerless and divided (the failed Articles of Confederation).
+
+## On an Alternative to the Prisoners Dilemma
+
+From [Winning is for Losers](https://putanumonit.com/2017/10/11/winning-is-for-losers/#weirdo)
+
+You receive a widget with two buttons on it, labeled “cooperate” and “defect.”You are informed that another person somewhere in the world received the same widget. If you press “defect,” $1,000 will be immediately deposited into your bank account while the other player, whom you’ll never meet, gets nothing. If you press “cooperate,” the other person gets $3,000, but you get nothing except for a warm feeling. You both make your choices without knowing what the other person chose.
+
+That’s it, that’s the game.
+
+The salient feature of the prisoner’s dilemma is that choosing “defect” makes a player $1,000 richer regardless of what the other player is doing. In the absence of mechanisms to influence each other, this usually leads to both players defecting. Of course, if both players chose to cooperate they’d each be better off by $2,000.
+
+The “strong or strange” principle applies here as well. A billionaire may be happy to let a random person take $3,000, so may the guy who lives out of a van and climbs giant cliffs without a rope. The former has enough money and the latter doesn’t even need it to buy a rope. But for people who are neither very strong or very strange cooperation is difficult and defection is tempting.
