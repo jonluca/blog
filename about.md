@@ -70,7 +70,7 @@ These are a few beliefs that are snapshots of a shifting, growing ideology and a
 
 * I consider myself a rationalist with a strong emphasis on personal responsibility
 
-* I believe [collective action](https://plato.stanford.edu/entries/collective-responsibility/) problems to be some of the most nuanced and interesting issues facing humanity in the early 21st century. 
+* I believe [collective action](https://plato.stanford.edu/entries/collective-responsibility/) problems to be some of the most interesting issues of the early 21st century. 
 
 * There has probably never been an accurate valuation of institutional knowledge within any organization or group
 
@@ -80,7 +80,7 @@ These are a few beliefs that are snapshots of a shifting, growing ideology and a
 
 * [Words per minute is not a good measure of typing speed](https://blog.jonlu.ca/posts/wpm)
 
-* [Tracking changes, differentation, and growth are inherently interesting, and why I use git to save all the changes to this blog](https://github.com/jonluca/blog)
+* [Tracking changes, differentation, and growth are inherently interesting, which is why I use git to save all the changes to this blog](https://github.com/jonluca/blog)
 
 * Pineapple shouldn't be on pizza, but it's also not *that* bad
 
@@ -94,12 +94,14 @@ I'm a strong believer in attaching your real identity to your ideologies and tho
 
 {% include image.html footnote="Scope, one of the best organizations I've had the chance to be a part of" alt="scope" file="scope"%}
 
-{% include image.html footnote="Back home in Vicenza, Italy" alt="Back home in Italy" file="italy"%}
+## Hire me
+
+I do free lance growth consulting and development work. My rates start at $300/hr. [Contact me if you're interested.](https://blog.jonlu.ca/contact)
 
 ### Donations
 
 I've been asked about payment for my software, or donations. I'm in no need for money, and I release my code and projects for free because I want to contribute back to the ecosystem that helped me succeed. If you really are inclined to support my projects, [please consider donating to the EFF](https://supporters.eff.org/donate/).
 
-You can also return to my [personal site (non-blog)](https://jonlu.ca), or keep in touch with me on twitter:
+You can keep in touch with me on twitter:
 
 {% include twitter.html %}
