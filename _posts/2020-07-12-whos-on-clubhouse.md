@@ -39,7 +39,7 @@ As of 7/12/2020, there are **4943** accounts. The first account was created on 3
 
 {% include image.html file="clubhouse_growth_rate" alt="Clubhouse Growth Rate" footnote="Clubhouse growth rate, total number of accounts by day" %}
 
-Clubhouse has seen fairly linear growth since April, which implies the founders are trying to keep a 
+Clubhouse has seen fairly linear growth since April, which implies the founders are trying to keep a pretty standard growth rate, despite an exponential amount of interest.
 
 ## How many people are joining per day?
 
