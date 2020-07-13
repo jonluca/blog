@@ -57,7 +57,7 @@ Clubhouse has seen fairly linear growth since April, which implies the founders 
 
 For the past week, between 25 and 90 new accounts were joining per day. On average, since March 17th, 40 new accounts have joined per day, although the average for June was \~54. The highest one day join number was 261, on April 18th.
 
-| Month               |   Average new accounts per day |
+| Month               |   Average new accounts |
 |:--------------------|---------:|
 | 2020-03-31 |   5.2    |
 | 2020-04-30 |  42.6    |
@@ -85,7 +85,7 @@ Removing the 0 follower count users for visibility, the graph looks like this:
 
 Unsurprisingly the top two users are the founders. After that, a list of partners at various VC firms, founders, and twitter personas make the list. Here are the Top 25, and their respective handles.
 
-| name               | twitter       |   num_followers |
+| Name               | Twitter Handle       |   Number of followers |
 |:-------------------|:--------------|----------------:|
 | Paul Davison       | pdavison      |            3402 |
 | Rohan Seth         | rohanseth     |            3367 |
