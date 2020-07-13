@@ -33,7 +33,7 @@ I recently had a chance to play around with their app, and wanted to try and rev
 
 ## Who's on Clubhouse?
 
-As of 7/12/2020, there are *4943* accounts. The first account was created on 3/17/2020.
+As of 7/12/2020, there are **4943** accounts. The first account was created on 3/17/2020.
 
 ## How fast is it growing? 
 
@@ -44,8 +44,6 @@ Clubhouse has seen fairly linear growth since April, which implies the founders 
 ## How many people are joining per day?
 
 {% include image.html file="clubhouse_accounts_per_day" alt="Clubhouse Growth Rate" footnote="Clubhouse growth rate, new accounts joining per day" %}
-
-
 
 | Date       | New Accounts |
 |------------|--------------|
@@ -68,6 +66,19 @@ For the past week, between 25 and 90 new accounts were joining per day. On avera
 | 2020-07-31 |  42.3333 |
 
 ## What are the follower distribution counts? 
+
+Most people on Clubhouse have less than 25 followers - 2586 of the 4943 accounts, or \~52% of all users. \~23% of all users have 0 followers.
+
+The distribution of user follower counts follows a fairly typical power law distribution. 
+
+
+{% include image.html file="clubhouse_counts_zero" alt="Clubhouse follower count distribution" footnote="Clubhouse follower count distribution" %}
+
+Removing the 0 follower count users for visibility, the graph looks like this:
+
+
+{% include image.html file="clubhouse_counts" alt="Clubhouse follower count distribution" footnote="Clubhouse follower count distribution without the 0 follower count column" %}
+
 
 
 ## Who are the most followed people on Clubhouse?
