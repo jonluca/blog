@@ -4,3 +4,4 @@ _site
 node_modules/
 .idea/*
 core
+.jekyll-cache
