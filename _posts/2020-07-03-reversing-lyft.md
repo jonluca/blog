@@ -11,3 +11,13 @@ Lyft, on the other hand, only lets you see the ride history in their app. Their 
 {% include image.html file="no-lyft-history" alt="Lyfts current mobile web landing page" %}
 
 ## BurpSuite
+
+I fired up BurpSuite and got the root CA installed - fortunately, Lyft doesn't do TLS stapling, so I was able to pretty quickly find the route. 
+
+{% include image.html file="lyft-route" alt="Lyfts ride history route" %}
+
+Unfortunately, while nearly every other route uses JSON, this one only returned serialized protobuf responses. 
+
+{% include image.html file="lyft-protobuf" alt="Lyfts protobuf" %}
+
+I tried changing the HTTP `Accept` header from `application/x-protobuf,application/json` to just `application/json` with the hopes that their API supported alternate formats - unfortunately, no luck. 
