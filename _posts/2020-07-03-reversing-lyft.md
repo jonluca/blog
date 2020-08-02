@@ -1,5 +1,5 @@
 ---
-title: "Reversing Lyft's ride history API to analyze my ride history"
+title: "Reversing Lyft's ride history API to analyze 6 years worth of rides"
 date: 2020-07-03 16:20:34 -0700
 header-img: "/images/switch.png"
 ---
@@ -141,7 +141,7 @@ This allowed me to query all my rides and save them out to a json file, where I 
 
 I then started up Jupyter notebook and got to analyzing the data.
 
-{% include image.html file="lyft-json" alt="Lyft's analysis" %}
+{% include image.html file="lyft-jupyter" alt="Lyft's analysis" %}
 
 I've spent $4,584 on Lyft in the last 6 years (my first ride was on September 20th, 2014, according to this data). This was spent across 571 rides, averaging $8 per ride. However, I only paid for 377 rides (as my University would cover a lot of the local Lyfts). 
 
