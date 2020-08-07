@@ -1,7 +1,7 @@
 ---
-title: "Reversing Lyft's ride history API"
+title: "Reversing Lyft's ride history API to analyze 6 years worth of rides"
 date: 2020-07-03 16:20:34 -0700
-header-img: "/images/switch.png"
+header-img: "/images/no-lyft-history.png"
 ---
 
 A couple years back I built [Uber Trip Stat's (now renamed to RideShare Trip Stats after a C&D from Uber)](https://chrome.google.com/webstore/detail/rideshare-trip-stats/kddlnbejbpknoedebeojobofnbdfhpnm?hl=en), because I was interested in how much money I had spent on Uber over the last few years. Luckily Uber's [web portal](http://riders.uber.com/trips) lets you see all your past rides, and it was fairly trivial to reverse the API through Chrome. The Chrome Extension just injects some javascript into the page, makes a few requests to get the entirety of your ride history
@@ -11,3 +11,143 @@ Lyft, on the other hand, only lets you see the ride history in their app. Their 
 {% include image.html file="no-lyft-history" alt="Lyfts current mobile web landing page" %}
 
 ## BurpSuite
+
+I fired up BurpSuite and got the root CA installed - fortunately, Lyft doesn't do TLS stapling, so I was able to pretty quickly find the route. 
+
+{% include image.html file="lyft-route" alt="Lyfts ride history route" %}
+
+Unfortunately, while nearly every other route uses JSON, this one only returned serialized protobuf responses. 
+
+{% include image.html file="lyft-protobuf" alt="Lyfts protobuf" %}
+
+The response comes back as raw protobuf responses, in which we don't actually have the original schemas. 
+
+{% include image.html file="lyft-encoded" alt="Lyfts protobuf encoded" %}
+
+## Generating protobuf schemas
+
+Blackbox protobuf is a Burp Suite extension for decoding and modifying arbitrary protobuf messages without the protobuf type definition. It generates simple json with the types and structure of the responses, and allows you to manually name each entry with a template.
+
+{% include image.html file="lyft-protobuf-json" alt="Lyfts protobuf as a json schema" %}
+
+You could create a mapping from JSON to this protobuf schema, and label each type. Some of these fields seem fairly straight forward - a start index field and a count of entries, a price and currency field, timestamp fields, etc.
+
+There was one that was a bit confusing though:
+
+```
+  "19": {
+    "1": 16980
+  }, 
+```
+
+This didn't seem to match up with anything in the responses. After a while I figured out that it had something to do with distance - my one cancelled ride didn't have the `19` entry. 
+
+Dividing 16980 by the reported distance of 10.55 gave 1609, which seemed awfully close to a constant that I didn't quite remember.. Turns out it's the number of meters in a mile.
+
+By this point I probably had 3/4 of the protobuf definitions in place in a best-guess way.
+
+
+## When we could've just got JSON...
+
+I looked back at the request after about half an hour of trying to reverse the protobuf and realized there might be a way easier way of getting what we want - the Accept HTTP header. I tried changing the HTTP `Accept` header from `application/x-protobuf,application/json` to just `application/json` with the hopes that their API supported named keys with raw JSON. This worked, and we got valid JSON responses with labeled keys. 
+
+{% include image.html file="lyft-json" alt="Lyft's labeled JSON responses" %}
+
+
+A sample ride entry looks like:
+
+```
+{
+    "distance": 16980,
+    "driver_first_name": "Sirak",
+    "driver_photo_url": "https://lyftapi.s3.amazonaws.com/production/photos/320x200/<url omitted>.jpg",
+    "dropoff_timestamp": 1594796962,
+    "is_business_ride": false,
+    "pickup_timestamp": 1594795587,
+    "request_timestamp": 1594794781,
+    "ride_distance": {
+        "unit": "miles",
+        "value": 10.55
+    },
+    "ride_id": "<id omitted>",
+    "ride_state": "processed",
+    "ride_type": "standard",
+    "ride_type_label": "",
+    "timezone": "UTC-07:00",
+    "total_money": {
+        "amount": 1478,
+        "currency": "USD",
+        "exponent": 2
+    },
+    "vehicle_image_url": "https://s3.amazonaws.com/lyftapi/production/photos/2019/kia/optima/white/transparent/640x400/01534b5b03aabc69756790e3c8dd7e69.png"
+}
+```
+
+It also looks like they paginate by adding a new URL param, `start_time_ms`. 
+
+Converting the request over to python gave me this:
+
+
+```py
+import requests
+import json
+
+headers = {
+    'authority': 'ride.lyft.com',
+    'dnt': '1',
+    'upgrade-insecure-requests': '1',
+    'user-agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1',
+    'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+    'sec-fetch-site': 'none',
+    'sec-fetch-mode': 'navigate',
+    'sec-fetch-user': '?1',
+    'sec-fetch-dest': 'document',
+    'accept-language': 'en-US,en;q=0.9,it;q=0.8,la;q=0.7',
+    'cookie': '<my_cookie>',
+}
+
+data = []
+def write_out(data):
+    print(len(data))
+    with open('data2.json', 'w')as out:
+        out.write(json.dumps(data))
+        out.close()
+
+start_time = '1596409699026'
+while True:
+	print(f'Starting request with start time ${start_time}')
+    params = (
+        ('source', 'ride_history_list'),
+        ('limit', '50'),
+        ('start_time_ms', start_time),
+    )
+
+    resp = requests.get('https://ride.lyft.com/v1/ridehistory', headers=headers, params=params)
+    try:
+	    response = json.loads(resp.text)
+	    data += response['data']
+	    write_out(data)
+	    if not response['has_more']:
+	        break
+	    start_time = str(data[-1]['request_timestamp']) + '000'
+	except:
+		print(resp.text)
+
+```
+
+This allowed me to query all my rides and save them out to a json file, where I could run my analysis. 
+
+## Lyft History
+
+I then started up Jupyter notebook and got to analyzing the data.
+
+{% include image.html file="lyft-jupyter" alt="Lyft's analysis" %}
+
+I've spent $4,584 on Lyft in the last 6 years (my first ride was on September 20th, 2014, according to this data). This was spent across 571 rides, averaging $8 per ride. However, I only paid for 377 rides (as my University would cover a lot of the local Lyfts). 
+
+My most expensive Lyft cost $71.89, and my cheapest was $0.36 (probably some credit or promotion?).
+
+I've traveled 4,155 kilometers in that time, or 2,580 miles. I paid, on average, $1.88 per mile. 
+
+This is \~3x the cost of actually owning the average Sedan, but I'd argue this has been worth it for my lifestyle and amount of travel - spending less than $5000 for 6 years worth of travel is pretty good, in my opinion!
+
