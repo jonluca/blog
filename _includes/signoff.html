@@ -1,5 +1,17 @@
-<p class="mt4">{{site.signoff}} <span class="silver">{{page.date | date:"at %H:%M"}}</span>
-<div>
-{% include twitter.html %}
+<div class="mt4" style="display: flex;flex-direction: column;align-items: start;">
+	<div>
+		<div style="max-width: 100px; border-radius: 0.25rem; overflow: hidden;">
+			<picture class="mini-profile">
+				<source srcset="/images/mini-profile.webp" type="image/webp">
+				<source srcset="/images/mini-profile.png" type="image/png">
+				<img alt="JonLuca" src="/images/{{ include.file }}.png" style="border-radius: 0.25rem; overflow: hidden;">
+			</picture>
+		</div>
+		<p class="mt0">
+			{{site.signoff}} <span class="silver">{{page.date | date:"at %H:%M"}}</span>
+		</p>
+	</div>
+	<div>
+		{% include twitter.html %}
+	</div>
 </div>
-</p>

@@ -1399,3 +1399,9 @@ code.highlighter-rouge {
 #blog-posts{
     margin: 0;
 }
+
+.mini-profile {
+    margin: 0 auto !important;
+    display: block;
+    max-width: 100%;
+}
