@@ -10,7 +10,7 @@ American Airlines ([AAL](https://finance.yahoo.com/quote/AAL)) is the largest ai
 
 # Earnings
 
-AA is close to break when accounting purely for their flight operations and income. They made $42 billion in passenger revenue and $900 million in cargo revenue, but spent $42.7 billion to get there.
+AA is close to break even when accounting purely for their flight operations and income. They made $42 billion in passenger revenue and $900 million in cargo revenue, but spent $42.7 billion to get there.
 
 Where actually made them _profitable_, in 2019, was the sale of **airline miles to banks**. They made $2.9 billion selling miles, which was almost pure profit for them. 
 
