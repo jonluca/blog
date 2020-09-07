@@ -38,9 +38,11 @@ Straight from that report:
 
 > The remainder of the proceeds from the miles sold - the 1.75c minus the 0.8c, in this example - is referred to as the marketing component and is essentially the profit, or "mark-up" as some airlines call it, associated with selling miles for more than they cost the airline when redeemed. The marketing component revenue is not deferred and is recognized immediately and flows through Other revenue. We conservatively estimate this revenue stream at a 90% margin to account for some over head associated with administering the program and minor costs associated with lounge access or bag fee waivers that certain cards provide. 
 
+# AADV? 
+
 The only reason AAL has been profitable, recently, is due to it selling its virtual currency. 
 
-The market cap of AAL in 2017 was $21 billion - this report valued AAdvantage alone at $37.6 billion. 
+The market cap of AAL in 2017 was $21 billion - this report valued AAdvantage alone at $37.6 billion. A few analysts and investors have speculated that spinning AAdvantage out into its own company would value both companies more correctly, and potentially help AAL raise some much needed cash (AADV anyone?).
 
 ###### Footnotes
 
