@@ -726,7 +726,7 @@ With this in mind, we can imagine what might go on when a Westerner makes a typi
 
 From [How to interview engineers](https://defmacro.substack.com/p/how-to-interview-engineers)
 
-Here's how you do that. Tell the candidate in advance to have a laptop with their favorite development environment ready. They can use any operating system, any editor, any programming language— whatever makes them the most comfortable.
+Here's how you do that. Tell the candidate in advance to have a laptop with their favorite development environment ready. They can use any operating system, any editor, any programming language- whatever makes them the most comfortable.
 
 When the interview starts, have them share the screen. You'll be watching as they type. Then, give them a problem. The one I gave for years is to write a program that plays every possible tic-tac-toe game, and then prints the number of valid games. You should make up your own problem, but this is roughly the difficulty you're shooting for, give or take. The candidate's goal is to write the program, compile it, run it, and get it to produce the correct answer.
 
@@ -734,7 +734,7 @@ Take note of the time and let them do their thing. Answer any questions they mig
 
 Here is what will happen. The most talented candidates will think about it for a few seconds, then write the program as fast as they can type (and they'll type fast). You can almost sense their frustration because they think way faster than the keyboard allows them to interface with the computer. Typing speed is their bottleneck. When they're done typing, they'll probably have a few compiler errors and runtime bugs that they'll fix instantly. Have them compare their result with the answer on Google. If the answers don't match, they'll look at the program for a few seconds, exclaim "oh, right!", fix the bug, rerun the program and get the correct answer. The whole process will take about 10 minutes from start to finish.
 
-Slightly less talented candidates will do the same thing, but a little slower. You'll get a sense that their thinking speed and typing speed are balanced— neither is the bottleneck. They might take a bit longer to iron out the bugs and spot the mistake if the program doesn't give the correct answer the first time they run it. They'll get the whole thing done in 15 minutes. Maaaybe 20, if they're having a bad day.
+Slightly less talented candidates will do the same thing, but a little slower. You'll get a sense that their thinking speed and typing speed are balanced- neither is the bottleneck. They might take a bit longer to iron out the bugs and spot the mistake if the program doesn't give the correct answer the first time they run it. They'll get the whole thing done in 15 minutes. Maaaybe 20, if they're having a bad day.
 
 The rest of the candidates will type much more slowly than they normally could. They're capable of much faster typing speed, but the speed of their thinking is the bottleneck. For our purposes, that's a no hire. When you sense that, let them keep working for 15 minutes to save face, then politely interrupt them, thank them for their time, and hang up. The silver lining of the pandemic is that you no longer have to be in a situation where you find out five minutes into the interview the candidate isn't good, and then waste everyone's time for a few more hours because it's too awkward to send them home.
 
