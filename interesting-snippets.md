@@ -738,3 +738,24 @@ Slightly less talented candidates will do the same thing, but a little slower. Y
 
 The rest of the candidates will type much more slowly than they normally could. They're capable of much faster typing speed, but the speed of their thinking is the bottleneck. For our purposes, that's a no hire. When you sense that, let them keep working for 15 minutes to save face, then politely interrupt them, thank them for their time, and hang up. The silver lining of the pandemic is that you no longer have to be in a situation where you find out five minutes into the interview the candidate isn't good, and then waste everyone's time for a few more hours because it's too awkward to send them home.
 
+## On antitrust
+
+From [United States v. Google](https://stratechery.com/2020/united-states-v-google/)
+
+Unfortunately, too many antitrust-focused critiques of tech have missed this essential difference. I wrote about this mistake in Where Warren’s Wrong:
+
+Perhaps it is best for Senator Warren’s argument that her article never does explain how these companies became so big, because the reason cuts at the core of her argument: Google, Facebook, Amazon, and Apple dominate because consumers like them. Each of them leveraged technology to solve unique user needs, acquired users, then leveraged those users to attract suppliers onto their platforms by choice, which attracted more users, creating a virtuous cycle that I have christened Aggregation Theory.
+
+Aggregation Theory is the reason why all of these companies have escaped antitrust scrutiny to date in the U.S.: here antitrust law rests on the consumer welfare standard, and the entire reason why these companies succeed is because they deliver consumer benefit.
+
+The European Union does have a different standard, rooted in a drive to preserve competition; given that the virtuous cycle described by Aggregation Theory does tend towards winner-take-all effects, it is not a surprise that Google in particular has faced multiple antitrust actions from the European Commission. Even the EU standard, though, struggles with the real consumer benefits delivered by Aggregators.
+
+Consider the Google Shopping case: Google was found guilty of antitrust violations in a case brought by a shopping comparison site called Foundem, which complained about their site being buried when consumers were searching for items to buy. This complaint made no sense, as I explained in Ends, Means, and Antitrust:
+
+If I search for a specific product, why would I not want to be shown that specific product? It frankly seems bizarre to argue that I would prefer to see links to shopping comparison sites; if that is what I wanted I would search for “Shopping Comparison Sites”, a request that Google is more than happy to fulfill:
+
+The European Commission is effectively arguing that Google is wrong by virtue of fulfilling my search request explicitly; apparently they should read my mind and serve up an answer (a shopping comparison site) that is in fact different from what I am requesting (a product)?
+
+There is certainly an argument to be made that Google, not only in Shopping but also in verticals like local search, is choking off the websites on which Search relies by increasingly offering its own results. At the same time, there is absolutely nothing stopping customers from visiting those websites directly, or downloading their apps, bypassing Google completely. That consumers choose not to is not because Google is somehow restricting them — that is impossible! — but because they don’t want to. Is it really the purview of regulators to correct consumer choices willingly made?
+
+Not only is that answer “no” for philosophical reasons, it should be “no” for pragmatic reasons, as the ongoing Google Shopping saga in Europe demonstrates. As I noted last December, the European Commission keeps changing its mind about remedies in that case, not because Google is being impertinent, but because seeking to undo an Aggregator by changing consumer preferences is like pushing on a string.
