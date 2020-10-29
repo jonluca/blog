@@ -5,9 +5,9 @@ header-img: "/images/ctc.png"
 
 Hi! 
 
-I'm <a href="https://twitter.com/jonluca"><b>JonLuca DeCaro</b></a>. I grew up in north east Italy, and moved to the United States in 2014 to study in Los Angeles. I'm currently a Growth Engineer in San Francisco, CA at Pinterest.
+I'm <a href="https://twitter.com/jonluca"><b>JonLuca DeCaro</b></a>. I grew up in north east Italy, and moved to the United States in 2014 to study in Los Angeles. I'm currently a Software Engineer in New York, NY at Citadel.
 
-Previously I worked at Google, Apple, and Elevate Security. I currently do free lance growth consulting and development work under JonLuca DeCaro Consulting.  
+Previously I worked at Pinterest, Google, Apple, and Elevate Security. I currently do free lance growth consulting and development work under JonLuca DeCaro Consulting.  
 
 {% include image.html footnote="San Diego, 2020" alt="San Diego, 2020" file="sandiego"%}
 
