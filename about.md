@@ -94,9 +94,7 @@ I'm a strong believer in attaching your real identity to your ideologies and tho
 
 {% include image.html footnote="Scope, one of the best organizations I've had the chance to be a part of" alt="scope" file="scope"%}
 
-## Hire me
-
-I do free lance growth consulting and development work. My rates start at $300/hr. [Contact me if you're interested.](https://blog.jonlu.ca/contact)
+{% include image.html footnote="San Diego, 2020" alt="San Diego, 2020" file="sandiego"%}
 
 ### Donations
 
