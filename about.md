@@ -64,26 +64,6 @@ Here are a few blogs or places on the internet that I enjoy reading. I don't agr
 
 I also maintain a running list of interesting snippets of text in my [Interesting Snippets repo.](https://github.com/jonluca/interesting-snippets)
 
-## Beliefs
-
-These are a few beliefs that are snapshots of a shifting, growing ideology and are by no means static.
-
-* I consider myself a rationalist with a strong emphasis on personal responsibility
-
-* I believe [collective action](https://plato.stanford.edu/entries/collective-responsibility/) problems to be some of the most interesting issues of the early 21st century. 
-
-* There has probably never been an accurate valuation of institutional knowledge within any organization or group
-
-* [Performance matters, especially when you have the resources to improve it](https://medium.com/hackernoon/optimizing-a-static-site-d5ab6899f249)
-
-* Intuition and anecdotes are so harmful to a good debate that it's worth the extra cognitive load to actively discuss the inherent bias our experience brings to objective discussions
-
-* [Words per minute is not a good measure of typing speed](https://blog.jonlu.ca/posts/wpm)
-
-* [Tracking changes, differentation, and growth are inherently interesting, which is why I use git to save all the changes to this blog](https://github.com/jonluca/blog)
-
-* Pineapple shouldn't be on pizza, but it's also not *that* bad
-
 ## Photos
 
 I'm a strong believer in attaching your real identity to your ideologies and thoughts. Few things are as personally identifiable as photos, and as the old adage goes, a picture is worth a thousand words, so here's a bit about me. 
