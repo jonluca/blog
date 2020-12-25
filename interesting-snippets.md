@@ -742,9 +742,9 @@ The rest of the candidates will type much more slowly than they normally could. 
 
 From [United States v. Google](https://stratechery.com/2020/united-states-v-google/)
 
-Unfortunately, too many antitrust-focused critiques of tech have missed this essential difference. I wrote about this mistake in Where Warren’s Wrong:
+Unfortunately, too many antitrust-focused critiques of tech have missed this essential difference. I wrote about this mistake in Where Warren's Wrong:
 
-Perhaps it is best for Senator Warren’s argument that her article never does explain how these companies became so big, because the reason cuts at the core of her argument: Google, Facebook, Amazon, and Apple dominate because consumers like them. Each of them leveraged technology to solve unique user needs, acquired users, then leveraged those users to attract suppliers onto their platforms by choice, which attracted more users, creating a virtuous cycle that I have christened Aggregation Theory.
+Perhaps it is best for Senator Warren's argument that her article never does explain how these companies became so big, because the reason cuts at the core of her argument: Google, Facebook, Amazon, and Apple dominate because consumers like them. Each of them leveraged technology to solve unique user needs, acquired users, then leveraged those users to attract suppliers onto their platforms by choice, which attracted more users, creating a virtuous cycle that I have christened Aggregation Theory.
 
 Aggregation Theory is the reason why all of these companies have escaped antitrust scrutiny to date in the U.S.: here antitrust law rests on the consumer welfare standard, and the entire reason why these companies succeed is because they deliver consumer benefit.
 
@@ -752,28 +752,28 @@ The European Union does have a different standard, rooted in a drive to preserve
 
 Consider the Google Shopping case: Google was found guilty of antitrust violations in a case brought by a shopping comparison site called Foundem, which complained about their site being buried when consumers were searching for items to buy. This complaint made no sense, as I explained in Ends, Means, and Antitrust:
 
-If I search for a specific product, why would I not want to be shown that specific product? It frankly seems bizarre to argue that I would prefer to see links to shopping comparison sites; if that is what I wanted I would search for “Shopping Comparison Sites”, a request that Google is more than happy to fulfill:
+If I search for a specific product, why would I not want to be shown that specific product? It frankly seems bizarre to argue that I would prefer to see links to shopping comparison sites; if that is what I wanted I would search for "Shopping Comparison Sites", a request that Google is more than happy to fulfill:
 
 The European Commission is effectively arguing that Google is wrong by virtue of fulfilling my search request explicitly; apparently they should read my mind and serve up an answer (a shopping comparison site) that is in fact different from what I am requesting (a product)?
 
-There is certainly an argument to be made that Google, not only in Shopping but also in verticals like local search, is choking off the websites on which Search relies by increasingly offering its own results. At the same time, there is absolutely nothing stopping customers from visiting those websites directly, or downloading their apps, bypassing Google completely. That consumers choose not to is not because Google is somehow restricting them — that is impossible! — but because they don’t want to. Is it really the purview of regulators to correct consumer choices willingly made?
+There is certainly an argument to be made that Google, not only in Shopping but also in verticals like local search, is choking off the websites on which Search relies by increasingly offering its own results. At the same time, there is absolutely nothing stopping customers from visiting those websites directly, or downloading their apps, bypassing Google completely. That consumers choose not to is not because Google is somehow restricting them - that is impossible! - but because they don't want to. Is it really the purview of regulators to correct consumer choices willingly made?
 
-Not only is that answer “no” for philosophical reasons, it should be “no” for pragmatic reasons, as the ongoing Google Shopping saga in Europe demonstrates. As I noted last December, the European Commission keeps changing its mind about remedies in that case, not because Google is being impertinent, but because seeking to undo an Aggregator by changing consumer preferences is like pushing on a string.
+Not only is that answer "no" for philosophical reasons, it should be "no" for pragmatic reasons, as the ongoing Google Shopping saga in Europe demonstrates. As I noted last December, the European Commission keeps changing its mind about remedies in that case, not because Google is being impertinent, but because seeking to undo an Aggregator by changing consumer preferences is like pushing on a string.
 
 ## On expecting short inferential distances
 
 From [Expecting Short Inferential Distances](https://www.lesswrong.com/posts/HLqWn5LASfhhArZ7w/expecting-short-inferential-distances)
 
-In the ancestral environment, anyone who says something with no obvious support is a liar or an idiot. You’re not likely to think, “Hey, maybe this person has well-supported background knowledge that no one in my band has even heard of,” because it was a reliable invariant of the ancestral environment that this didn’t happen.
+In the ancestral environment, anyone who says something with no obvious support is a liar or an idiot. You're not likely to think, "Hey, maybe this person has well-supported background knowledge that no one in my band has even heard of," because it was a reliable invariant of the ancestral environment that this didn't happen.
 
-Conversely, if you say something blatantly obvious and the other person doesn’t see it, they’re the idiot, or they’re being deliberately obstinate to annoy you.
+Conversely, if you say something blatantly obvious and the other person doesn't see it, they're the idiot, or they're being deliberately obstinate to annoy you.
 
-And to top it off, if someone says something with no obvious support and expects you to believe it—acting all indignant when you don’t—then they must be crazy.
+And to top it off, if someone says something with no obvious support and expects you to believe it-acting all indignant when you don't-then they must be crazy.
 
-Combined with the illusion of transparency and self-anchoring (the tendency to model other minds as though the were slightly modified versions of oneself), I think this explains a lot about the legendary difficulty most scientists have in communicating with a lay audience—or even communicating with scientists from other disciplines. When I observe failures of explanation, I usually see the explainer taking one step back, when they need to take two or more steps back. Or listeners assume that things should be visible in one step, when they take two or more steps to explain. Both sides act as if they expect very short inferential distances from universal knowledge to any new knowledge.
+Combined with the illusion of transparency and self-anchoring (the tendency to model other minds as though the were slightly modified versions of oneself), I think this explains a lot about the legendary difficulty most scientists have in communicating with a lay audience-or even communicating with scientists from other disciplines. When I observe failures of explanation, I usually see the explainer taking one step back, when they need to take two or more steps back. Or listeners assume that things should be visible in one step, when they take two or more steps to explain. Both sides act as if they expect very short inferential distances from universal knowledge to any new knowledge.
 
 ...
 
-Oh, and you’d better not drop any hints that you think you’re working a dozen inferential steps away from what the audience knows, or that you think you have special background knowledge not available to them. The audience doesn’t know anything about an evolutionary-psychological argument for a cognitive bias to underestimate inferential distances leading to traffic jams in communication. They’ll just think you’re condescending.
+Oh, and you'd better not drop any hints that you think you're working a dozen inferential steps away from what the audience knows, or that you think you have special background knowledge not available to them. The audience doesn't know anything about an evolutionary-psychological argument for a cognitive bias to underestimate inferential distances leading to traffic jams in communication. They'll just think you're condescending.
 
-And if you think you can explain the concept of “systematically underestimated inferential distances” briefly, in just a few words, I’ve got some sad news for you . . .
+And if you think you can explain the concept of "systematically underestimated inferential distances" briefly, in just a few words, I've got some sad news for you . . .
