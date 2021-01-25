@@ -8,3 +8,4 @@ gem 'image_optim'
 gem 'image_optim_pack'
 gem 'jekyll-brotli'
 gem 'jekyll-target-blank'
+gem "webrick", "~> 1.7"
