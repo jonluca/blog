@@ -70,11 +70,9 @@ I'm a strong believer in attaching your real identity to your ideologies and tho
 
 {% include image.html alt="Young me rock climbing" footnote="Probably my only time ever going rock climbing" file="rock-climbing"%}
 
-{% include image.html footnote="Code the Change, a philanthropic code organization" alt="ctc" file="ctc"%}
-
-{% include image.html footnote="Scope, one of the best organizations I've had the chance to be a part of" alt="scope" file="scope"%}
-
-{% include image.html footnote="San Diego, 2020" alt="San Diego, 2020" file="sandiego"%}
+{% include image.html alt="Castle" footnote="Christmas dinner in a castle" file="castle"%}
+{% include image.html alt="Helicopter" footnote="On a peak in Denali" file="helicopter"%}
+{% include image.html alt="Igloo" footnote="Our igloo in fairbanks" file="igloo"%}
 
 ### Donations
 
