@@ -5,9 +5,9 @@ header-img: "/images/ctc.png"
 
 Hi! 
 
-I'm <a href="https://twitter.com/jonluca"><b>JonLuca DeCaro</b></a>. I grew up in north east Italy, and moved to the United States in 2014 to study in Los Angeles. I'm currently a Software Engineer in New York, NY at Citadel.
+I'm <a href="https://twitter.com/jonluca"><b>JonLuca DeCaro</b></a>. I'm currently a Software Engineer in New York, NY at Citadel. I grew up in north east Italy, and moved to the United States in 2014 to study in Los Angeles. 
 
-Previously I worked at Pinterest, Google, Apple, and Elevate Security. I currently do free lance growth consulting and development work under JonLuca DeCaro Consulting.  
+Previously I worked at Pinterest, Google, Apple, and Elevate Security. I am a full stack engineer, and have worked in growth, security, and product.
 
 {% include image.html footnote="San Diego, 2020" alt="San Diego, 2020" file="sandiego"%}
 
@@ -35,7 +35,7 @@ Here are a few blogs or places on the internet that I enjoy reading. I don't agr
 
 * [http://www.paulgraham.com/articles.html](http://www.paulgraham.com/articles.html)
 
-* [https://devonzuegel.com/](https://devonzuegel.com/)
+* [Money Stuff by Matt Levine](https://www.bloomberg.com/opinion/authors/ARbTQlRLRjE/matthew-s-levine)
 
 ### Rationalist Blogs
 
@@ -43,16 +43,9 @@ Here are a few blogs or places on the internet that I enjoy reading. I don't agr
 
 * [https://www.lesswrong.com/](https://www.lesswrong.com/)
 
-* [https://www.ribbonfarm.com/](https://www.ribbonfarm.com/)
-
-* [https://meltingasphalt.com/](https://meltingasphalt.com/)
-
 * [https://everythingstudies.com/](https://everythingstudies.com/)
 
 * [https://www.readthesequences.com/](https://www.readthesequences.com/)
-
-* [https://putanumonit.com/](https://putanumonit.com/)
-
 
 ### Not as active, but still worth reading
 
@@ -62,21 +55,21 @@ Here are a few blogs or places on the internet that I enjoy reading. I don't agr
 
 * [http://blog.bumblebeelabs.com/](http://blog.bumblebeelabs.com/)
 
-I also maintain a running list of interesting snippets of text in my [Interesting Snippets repo.](https://github.com/jonluca/interesting-snippets)
-
 ## Photos
 
-I'm a strong believer in attaching your real identity to your ideologies and thoughts. Few things are as personally identifiable as photos, and as the old adage goes, a picture is worth a thousand words, so here's a bit about me. 
+Few things are as personally identifiable as photos, and as the old adage goes, a picture is worth a thousand words, so here's a bit about me. 
 
 {% include image.html alt="Young me rock climbing" footnote="Probably my only time ever going rock climbing" file="rock-climbing"%}
 
 {% include image.html alt="Castle" footnote="Christmas dinner in a castle" file="castle"%}
+
 {% include image.html alt="Helicopter" footnote="On a peak in Denali" file="helicopter"%}
+
 {% include image.html alt="Igloo" footnote="Our igloo in fairbanks" file="igloo"%}
 
 ### Donations
 
-I've been asked about payment for my software, or donations. I'm in no need for money, and I release my code and projects for free because I want to contribute back to the ecosystem that helped me succeed. If you really are inclined to support my projects, [please consider donating to the EFF](https://supporters.eff.org/donate/).
+I've been asked about payment for my software, or donations. I'm in no need for money, and I release my code and projects for free because I want to contribute back to the environment that helped me succeed. If you really are inclined to support my projects, [please consider donating to the EFF](https://supporters.eff.org/donate/).
 
 You can keep in touch with me on twitter:
 
