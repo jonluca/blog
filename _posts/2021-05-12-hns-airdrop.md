@@ -97,4 +97,9 @@ Just paste in whatever BTC balance you want to send it to, and it'll show up in 
 
 ### Multiple keys
 
-Note that if you have multiple SSH keys, it will only allow you to redeem for one. It will create valid nonces for each key, but once you redeem one in the chain, it invalidates the rest.
+Note that if you have multiple SSH keys, it will only allow you to redeem for one. It will create valid nonces for each key, but once you redeem one in the chain, it invalidates the rest. If you submit the base64 for it it will look like it was accepted, but it will be rejected by the miners
+
+## Other Airdrops
+
+* Keybase did an XLM drop worth about $1000 USD as of May 2021 - check your https://keybase.io account
+* Uniswap did a 400 ETH drop worth about $16,000 USD as of May 2021 - https://airdrops.io/uniswap/
