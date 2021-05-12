@@ -1,6 +1,6 @@
 ---
 title: "How to redeem $2000 of HNS for being a FOSS developer"
-date: 2021-05-12 17:22:33 -0400
+date: 2021-05-09 17:22:33 -0400
 header-img: "/images/namebase-balance.png"
 ---
 
