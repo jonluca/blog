@@ -26,6 +26,9 @@ GEM
     image_optim_pack (0.7.0.20210511-x86_64-darwin)
       fspath (>= 2.1, < 4)
       image_optim (~> 0.19)
+    image_optim_pack (0.7.0.20210511-x86_64-linux)
+      fspath (>= 2.1, < 4)
+      image_optim (~> 0.19)
     image_size (2.1.0)
     in_threads (1.5.4)
     jekyll (4.2.0)
@@ -70,6 +73,8 @@ GEM
     mercenary (0.4.0)
     nokogiri (1.11.3-x86_64-darwin)
       racc (~> 1.4)
+    nokogiri (1.11.3-x86_64-linux)
+      racc (~> 1.4)
     pathutil (0.16.2)
       forwardable-extended (~> 2.6)
     progress (3.6.0)
@@ -90,6 +95,7 @@ GEM
 
 PLATFORMS
   x86_64-darwin-20
+  x86_64-linux
 
 DEPENDENCIES
   image_optim
