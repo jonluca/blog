@@ -17,7 +17,7 @@ I was immediately hooked.
 
 I started doing my research - would opening a lot of cards "hurt" me financially? Were there any risks involved? Could I close this card and reopen it? I stumbled across a subreddit, [/r/churning](https://reddit.com/r/churning), after reading a few blogs. It was still fairly small at the time, no more than 20,000 subscribers. These were people talking about manufactured spending, having millions of miles, and never paying for a flight. They would expend a minimal amount of effort and fly first class to Hawaii, with all the luxuries that came with that. I dove in head first - I consumed every wiki article, trying to acquaint myself with what was really going on. 
 
-> At its core, churning is taking advanted of credit cards, bank accounts, travel rewards programs, and various other promotions. That's it - it comes down to doing your research about the best available offers and maximizing your potential value. 
+> At its core, churning is taking advantage of credit cards, bank accounts, travel rewards programs, and various other promotions. That's it - it comes down to doing your research about the best available offers and maximizing your potential value. 
 
 The logic behind the lucrative rewards, as far as I can tell, is the fact that most people *won't* open up 50 credit cards. The average consumer will look for a credit card, maybe research the current best offer, then sign up for it and keep it for 20 years. The banks and airlines can afford a really high initial investment in the form of miles/cash because they assume the consumer will either A) carry a balance and pay interest or B) use the card for such a long time that the interchange fees will dwarf the initial bonus. 
 
