@@ -68,12 +68,11 @@ This credit score is broken down in the following categories and weights:
 
 If you see here the lion's share of your credit score is going to be the amount you owe at the end of each month, and your history in paying that off. If you're doing churning right those will be $0 and 100% ontime payments, respectively.
 
-Where churning will hurt you is in the average age of accounts and new credit opened. Every new card will lower your average age of accounts - typically this isn't that big of an issue though. I had ~20 hard pulls on my credit report with 42 cards opened in the last 24 months and I was sitting at a 786. The most important part of the hobby is to make sure to never pay a cent of interest and to never forget a payment.
+Where churning will hurt you is in the average age of accounts and new credit opened. Every new card will lower your average age of accounts - typically this isn't that big of an issue though. I had \~20 hard pulls on my credit report with 42 cards opened in the last 24 months and I was sitting at a 786. The most important part of the hobby is to make sure to never pay a cent of interest and to never forget a payment.
 
 In the long run churning will actually help - the average age of accounts will be backloaded if you open a large amount of cards at once, which means that if you open another card in 5 years its effect will be amortized by the sheer number of cards opened 5 years ago. 
 
-&tilde;
-Churning will also help the last category, types of accounts. Most credit score estimators say you need ~20 accounts opened to max out the potential value from the last category.
+Churning will also help the last category, types of accounts. Most credit score estimators say you need \~20 accounts opened to max out the potential value from the last category.
 
 
 ## Advanced Churning and Risks
