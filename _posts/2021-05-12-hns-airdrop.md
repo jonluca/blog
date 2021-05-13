@@ -4,11 +4,11 @@ date: 2021-05-09 17:22:33 -0400
 header-img: "/images/namebase-balance.png"
 ---
 
-If you were an active FOSS developer in 2019, you were gifted \~4,246 HNS, which as of May 2021 is worth 0.0359087 BTC, or $2k USD. You can redeem these pretty easily.
+If you were an active FOSS developer in 2019, you were gifted \~4,246 HNS, which as of May 2021 is worth 0.0359087 BTC, or $2k USD. Handshake wanted to reward FOSS developers by gifting handshake tokens (which are quite liquid and able to be exchanged for BTC very easily). You can redeem these pretty easily.
 
 ## Prerequisites
 
-Roughly 250,000 GitHub users qualified. You must have had at least **15 followers** on during the week of **2019-02-04**. If you didn't have a GitHub account at the time, or didn't have 15 followers, or didn't have a valid public SSH key uploaded, you were not eligible for the airdrop.
+Roughly 250,000 GitHub users qualified. You must have had at least **15 followers** during the week of **2019-02-04**. If you didn't have a GitHub account at the time, or didn't have 15 followers, or didn't have a valid public SSH key uploaded, you were not eligible for the airdrop.
 
 ## First steps
 
@@ -93,7 +93,7 @@ You can then proceed to sell it on namebase.
 
 {% include image.html file="namebase" alt="Namebase Sell" %}
 
-Just paste in whatever BTC balance you want to send it to, and it'll show up in a few minutes to hours.
+Just paste in whatever BTC balance you want to send it to, and it'll show up in a few minutes to hours. You can also use the coins to bid on names in namespace, or to support additional FOSS projects!
 
 ### Multiple keys
 
