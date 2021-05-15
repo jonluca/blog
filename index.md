@@ -1,4 +1,7 @@
 ---
+title: JonLuca's Blog
+is_home: true
+header-img: "/images/mini-profile.png"
 ---
 <ul class="list pa0" id="blog-posts">
     {% for post in site.posts %}
