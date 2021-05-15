@@ -1,4 +1,5 @@
 {% assign is_post = page.date %}
+{% assign is_home = page.is_home %}
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -9,7 +10,7 @@
             <link rel="amphtml" href="{{ page.id | prepend: '/amp' | prepend: site.baseurl | prepend: site.url }}">
         {% endif %}
         <meta name="author" content="JonLuca DeCaro">
-        {% if page.title %}
+        {% if page.title and is_home != true %}
             <meta content="{{ page.title }}" name='title'/>
             <meta content="{{ page.title }}" name='og:title'/>
             <title>{{ page.title }} - {{ site.title }}</title>
@@ -45,7 +46,7 @@
             {% endfor %}
         </nav>
         <main class="tl f6 relative pa4 pa5-ns overflow-hidden">
-            {% if page.title %}
+            {% if page.title and is_home != true %}
                 <div class="mb4">
                     {% if page.date %}
                         <div class="fw600 light-silver mt1">{{ page.date | date_to_string }}</div>
