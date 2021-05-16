@@ -13,11 +13,9 @@
         {% if page.title and is_home != true %}
             <meta content="{{ page.title }}" name='title'/>
             <meta content="{{ page.title }}" name='og:title'/>
-            <title>{{ page.title }} - {{ site.title }}</title>
         {% else %}
             <meta content="{{ site.title  | markdownify}}" name='title'/>
             <meta content="{{ site.title  | markdownify}}" name='og:title'/>
-            <title>{{ site.title }}</title>
         {% endif %}
         {% if page.header-img %}
             <meta property="og:image" content="{{ site.url }}{{ page.header-img }}"/>
