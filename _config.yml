@@ -13,6 +13,7 @@ plugins:
   - jekyll-feed
   - jekyll-target-blank
   - jekyll-brotli
+  - amp-jekyll
 exclude:
   - core
   - node_modules
@@ -33,7 +34,7 @@ permalink:        /posts/:title
 defaults:
   - values:
       layout: "default"
-
+ampdir: /amp/
 sass:
   style: compressed
 
