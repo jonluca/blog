@@ -26,6 +26,9 @@
         {% endif %}
         <meta name="og:email" content="jonluca.decaro@gmail.com"/>
         {% include head.html %}
+        {% if page.path contains '_posts' %}
+            <link rel="amphtml" href="{{ page.id | prepend: '/YOURDIR' | prepend: site.baseurl | prepend: site.url | append: '.html' }}">
+        {% endif %}
         {% if page.header-includes %}
             {{ page.header-includes }}
         {% endif %}

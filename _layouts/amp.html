@@ -8,21 +8,25 @@ layout: amp
     <meta charset="UTF-8">
     <link rel="preconnect" href="https://www.google-analytics.com">
     <link rel="preconnect" href="https://matomo.jonlu.ca">
+    {% if page.path contains '_posts' %}
+        <link rel="amphtml" href="{{ page.id | prepend: '/amp' | prepend: site.baseurl | prepend: site.url }}">
+    {% endif %}
     <meta name="author" content="JonLuca DeCaro">
-    {% if page.title %}
-    <meta content="{{ page.title }}" name='title'/>
-    <meta content="{{ page.title }}" name='og:title'/>
-    <title>{{ page.title }} - {{ site.title }}</title>
+    {% if page.title and is_home != true %}
+        <meta content="{{ page.title }}" name='title'/>
+        <meta content="{{ page.title }}" name='og:title'/>
     {% else %}
-    <meta content="{{ site.title  | markdownify}}" name='title'/>
-    <meta content="{{ site.title  | markdownify}}" name='og:title'/>
-    <title>{{ site.title }}</title>
+        <meta content="{{ site.title  | markdownify}}" name='title'/>
+        <meta content="{{ site.title  | markdownify}}" name='og:title'/>
     {% endif %}
     {% if page.header-img %}
-    <meta property="og:image" content="{{ site.url }}{{ page.header-img }}"/>
-    <meta property="image" content="{{ site.url }}{{ page.header-img }}"/>
+        <meta property="og:image" content="{{ site.url }}{{ page.header-img }}"/>
+        <meta property="image" content="{{ site.url }}{{ page.header-img }}"/>
+    {% else %}
+        <meta property="og:image" content="{{ site.url }}/images/mini-profile.png"/>
+        <meta property="image" content="{{ site.url }}/images/mini-profile.png"/>
     {% endif %}
-    <meta name="og:email" content="hi@jonlu.ca"/>
+    <meta name="og:email" content="jonluca.decaro@gmail.com"/>
     {% include head.html %}
     <meta charset="utf-8">
     <link rel="canonical" href="{{ page.canonical_url | prepend: site.baseurl | prepend: site.url }}" />
@@ -34,40 +38,40 @@ layout: amp
     <script async src="https://cdn.ampproject.org/v0.js"></script>
 </head>
 <body class="lh-copy dark-gray pa0 f6 sans-serif bg-super-white">
-<header class="tc mt4">
-    <p>{{ site.title }}</p>
-</header>
-<div class="width bg-white mt4 mb3 center br2-ns bt bb ba-ns b--light-gray">
-    <nav aria-label="Main" class="bb b--light-gray pv4 tc">
-        {% for link in site.links %}
-        <a class="link blue mh2 pv1"
-           href="{% unless link.external %}{{ site.url }}{% endunless %}{{ link.url }}">
-            {{ link.name }}
-        </a>
-        {% endfor %}
-    </nav>
-    <main class="tl f6 relative pa4 pa5-ns overflow-hidden">
-        {% if page.title %}
-        <div class="mb4">
-            {% if page.date %}
-            <div class="fw600 light-silver mt1">{{ page.date | date_to_string }}</div>
+    <header class="tc mt4">
+            <p>{{ site.title }}</p>
+        </header>
+        <div class="width bg-white mt4 mb3 center br2-ns bt bb ba-ns b--light-gray">
+            <nav aria-label="Main" class="bb b--light-gray pv4 tc">
+                {% for link in site.links %}
+                    <a class="link blue mh2 pv1"
+                    href="{% unless link.external %}{{ site.url }}{% endunless %}{{ link.url }}">
+                    {{ link.name }}
+                </a>
+            {% endfor %}
+        </nav>
+        <main class="tl f6 relative pa4 pa5-ns overflow-hidden">
+            {% if page.title and is_home != true %}
+                <div class="mb4">
+                    {% if page.date %}
+                        <div class="fw600 light-silver mt1">{{ page.date | date_to_string }}</div>
+                    {% endif %}
+                    <h1 class="ttu f3 mt0 lh-title cb mb2">
+                    {% if is_post %}
+                    {% endif %}
+                    {{ page.title }}
+                    </h1>
+                </div>
             {% endif %}
-            <h1 class="ttu f3 mt0 lh-title cb mb2">
-                {% if is_post %}
-                {% endif %}
-                {{ page.title }}
-            </h1>
-        </div>
-        {% endif %}
-        <div class="markdown-body">
-            {{ content | markdownify | amp_images}}
-        </div>
-        {% if is_post %}
-        {% include signoff.html %}
-        {% include share.html %}
-        {% endif %}
-    </main>
-</div>
+            <div class="markdown-body">
+                {{ content }}
+            </div>
+            {% if is_post %}
+                {% include signoff.html %}
+                {% include share.html %}
+            {% endif %}
+        </main>
+    </div>
 </body>
 {% include footer.html %}
 </html>
