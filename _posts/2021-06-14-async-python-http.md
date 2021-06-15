@@ -1,7 +1,7 @@
 ---
 title: "Writing fast async HTTP requests in Python"
 date: 2021-06-14 23:02:29 -0400
-header-img: "/images/vite.png"
+header-img: "/images/python-semaphore-optimal.png"
 ---
 
 I do a lot of web scraping in my spare time, and have been chasing down different formats and code snippets to make a large amount of network requests locally, with controls for rate limiting and error handling.
