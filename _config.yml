@@ -34,7 +34,6 @@ permalink:        /posts/:title
 defaults:
   - values:
       layout: "default"
-ampdir: /amp/
 sass:
   style: compressed
 
