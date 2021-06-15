@@ -4,6 +4,15 @@ date: 2018-05-16 11:43:26 -0700
 header-img: "/images/rawbash.png"
 ---
 
+Update: **June 2021**
+
+All the below still remains true, but a lot has happened in the world of Zsh performance over the last few years, in no small part due to Apple changing its default shell to zsh.
+
+An incredible theme and tool called [powerlevel10k](https://github.com/romkatv/powerlevel10k#oh-my-zsh) that fixes a lot of the most common complaints. The article below is still good for learning how to debug zsh extensions and plugins, but I'd try migrating to powerlevel10k and seeing if it solves your problems.
+
+----
+
+
 I was opening multiple shells for an unrelated project today and noticed how abysmal my shell load speed was. After the initial load it was relatively fast, but the actual shell start up was noticeably slow. I timed it with `time` and these were the results.
 
 <picture class="centered-image">
