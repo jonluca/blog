@@ -182,3 +182,31 @@ The code for the above is on a gist.
 ## Gen 4
 
 Know of a faster implementation of an HTTP library that is stateful and works locally? [Let me know!](https://twitter.com/jonluca)
+
+## HTTPX
+
+**Update - 6/17/21**
+
+A [poster on lobste.rs](https://lobste.rs/s/fxpne4/writing_fast_async_http_requests_python#c_pr0lfr) said that I should try out httpx. HTTPX is a modern implementation of a python web client.
+
+Unfortunately, in my testing, it was strictly slower than aiohttp. I used their async library with the same sempahore restricting the number of processes ran, but it was still slower.
+
+{% include image.html file="python-httpx" alt="HTTPX speeds" %}
+
+I also tried a native gather, with punting the concurrency down to the library - this did not help either.
+
+{% include image.html file="python-httpx-gather" alt="HTTPX without a semaphore" %}
+
+## PyCurl
+
+Someone [on that same lobste.er's thread](https://lobste.rs/s/fxpne4/writing_fast_async_http_requests_python) suggested [pycurl](http://pycurl.io/).
+
+PyCurl is different in that it feels like a pretty raw wrapper to `curl`. Writing the code felt more like dispatching actions and opening sockets than dealing with a nice http library.
+
+{% include image.html file="pycurl" alt="PyCurl implementation" %}
+
+The results were impressive, but the aiohttp library was _still faster_. This was my first time writing a pycurl implementation, though, based on [this template](https://www.programmersought.com/article/26191793705/) - introducing native threading might be able to speed it up, but I still haven't seen anything faster than the 393 microseconds approach.
+
+{% include image.html file="pycurl-results" alt="PyCurl results" %}
+
+If you know how to set up HTTPX or PyCurl in a way that's faster let me know!
