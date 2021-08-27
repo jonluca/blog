@@ -210,3 +210,21 @@ The results were impressive, but the aiohttp library was _still faster_. This wa
 {% include image.html file="pycurl-results" alt="PyCurl results" %}
 
 If you know how to set up HTTPX or PyCurl in a way that's faster let me know!
+
+## UVLoop
+
+Addendum: 8/27/21 - I received an email from Steve telling me about uvloop, a faster, drop in replacement for asyncio's event loop.
+
+{% include image.html file="uvloop-email" alt="uvloop email" %}
+
+It doesn't seem to have impacted the performance all that much - it did have lower variance, though. Across multiple runs of a regular asyncio event loop, I would get as high as 3s for the same 4000 requests; with uvloop, it never broke 2.1s. 
+
+{% include image.html file="uvloop" alt="speed results for uvloop" %}
+
+For a drop in replacement it seems pretty great - I don't think it'll help much at this stage, though, because most of the timing is due to the actual network call at this point. The threading and event loop implementation isn't adding that much overhead, I'm guessing.
+
+
+
+
+
+
