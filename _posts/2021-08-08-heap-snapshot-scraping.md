@@ -1,7 +1,7 @@
 ---
 title: "Snapshotting memory to scrape encrypted network requests"
 date: 2021-08-08 14:06:09
-header-img: "/images/javascript-funclength.png"
+header-img: "/images/blind-memory-obj.png"
 ---
 
 Most web reverse engineering focuses on two attack surfaces - either DOM scraping through something like puppeteer or beatifulsoup, or on MITM attacks to reverse network calls.
