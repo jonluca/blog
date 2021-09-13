@@ -147,7 +147,7 @@ The last thing to do is to lazy load functions and services that I don't need. I
 
 ### Observations
 
-Oh-My-Zsh is great and provides a lot of functionality, but it comes at a fairly heavy cost. As you can see above, it's overhead accounts for nearly 70% of my load time. 
+Oh-My-Zsh is great and provides a lot of functionality, but it comes at a fairly heavy cost. As you can see above, its overhead accounts for nearly 70% of my load time. 
 
 There is one other thing of note - `oh-my-zshzsh` provides a built in function, `vcs_info`, to provide information about the the version control status of the current working directory. However, this is quite slow! For the actual Zsh git repo, it takes about *200ms* to parse. In large projects with a heavy git history this will hang your prompt return time for seconds. This won't necessarily impact shell start time, but it will impact the amount of time it takes to actually display the prompt when navigating within a VCS-belonging directory. This can be slightly fixed with `git config oh-my-zsh.hide-status 1` on problematic repos, but it would be nice if it did so automatically. Setting the option `DISABLE_UNTRACKED_FILES_DIRTY="true"` in your `.zshrc` can help as well, but comes with a loss of functionality.
 
