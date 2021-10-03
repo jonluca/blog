@@ -1,0 +1,8 @@
+<changelog>
+	<changes>
+		<version>1.0-1</version>
+		<change>Initial release</change>
+		<version>1.0-4</version>
+		<change>Fixed iPhone 4 compatability</change>
+	</changes>
+</changelog>

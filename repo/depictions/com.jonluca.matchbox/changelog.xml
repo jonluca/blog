@@ -1,0 +1,8 @@
+<changelog>
+	<changes>
+		<version>1.0.0-1</version>
+		<change>Initial release</change>
+		<version>1.1-1</version>
+		<change>Fixed up some bugs and localization problems</change>
+	</changes>
+</changelog>
