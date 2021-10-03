@@ -1,0 +1,23 @@
+<package>
+	<id>com.jonluca.applemusicunleashed</id>
+	<name>Apple Music Unleashed</name>
+	<version>1.0-2</version>
+	<compatibility>
+		<firmware>
+			<maxiOS>8.4.1</maxiOS>
+			<otherVersions>unconfirmed</otherVersions>
+			<!--
+			for otherVersions, you can put either unsupported or unconfirmed
+			-->
+		</firmware>
+	</compatibility>
+	<dependencies></dependencies>
+	<descriptionlist>
+		<description>The way Music was supposed to be! Replaces Connect tab with Playlists, among other improvements.</description>
+	</descriptionlist>
+	<screenshots></screenshots>
+	<changelog>
+		<change>Initial release</change>
+	</changelog>
+	<links></links>
+</package>
