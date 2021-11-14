@@ -6,7 +6,7 @@ header-img: "/images/python-semaphore-optimal.png"
 
 I do a lot of web scraping in my spare time, and have been chasing down different formats and code snippets to make a large amount of network requests locally, with controls for rate limiting and error handling.
 
-I've gone through a few generations - I'll use this post to catalogue where I started and what I'm doing now.
+I've gone through a few generations - I'll use this post to catalogue where I started and what I'm doing now. If you want to skip the post and just see the final code, [it can be found here](https://gist.github.com/jonluca/14fe99be6204f34cbd61c950b0faf3b1)
 
 ## Gen 1
 
@@ -158,6 +158,42 @@ Our Threading implementation also benefits from the increase in pool - giving it
 {% include image.html file="python-gen3-4k-threads" alt="ThreadPool at 4000 requests w/ 100 threads" %}
 
 The same 36^4 requests using the ThreadPool would take 48 minutes, though.
+
+We can clean up the code and optimize it slightly as well:
+
+```py
+import sys
+import os
+import json
+import asyncio
+import aiohttp
+
+
+# Initialize connection pool
+conn = aiohttp.TCPConnector(limit_per_host=100, limit=0, ttl_dns_cache=300)
+PARALLEL_REQUESTS = 100
+results = []
+urls = ['https://jsonplaceholder.typicode.com/todos/1' for i in range(4000)] #array of urls
+
+async def gather_with_concurrency(n):
+    semaphore = asyncio.Semaphore(n)
+    session = aiohttp.ClientSession(connector=conn)
+
+    # heres the logic for the generator
+    async def get(url):
+        async with semaphore:
+            async with session.get(url, ssl=False) as response:
+                obj = json.loads(await response.read())
+                results.append(obj)
+    await asyncio.gather(*(get(url) for url in urls))
+    await session.close()
+
+loop = asyncio.get_event_loop()
+loop.run_until_complete(gather_with_concurrency(PARALLEL_REQUESTS))
+conn.close()
+
+print(f"Completed {len(urls)} requests with {len(results)} results")
+```
 
 ## Optimal semaphore size?
 
