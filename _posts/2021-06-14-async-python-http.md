@@ -211,10 +211,6 @@ Interestingly enough the optimal semaphore value was right around 60.
 
 I mostly do this locally at home, though, for my side projects - introducing parallelization and multiple hosts can get you numbers that are an order of magnituded better than this, but the purpose of this excercise is seeing what we can hit on a local machine with jupyter notebook.
 
-The code for the above is on a gist.
-
-<script src="https://gist.github.com/jonluca/3ac654bea8b0a8d2ca0c2b149cfdf2f9.js"></script>
-
 ## Gen 4
 
 Know of a faster implementation of an HTTP library that is stateful and works locally? [Let me know!](https://twitter.com/jonluca)
