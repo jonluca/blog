@@ -6,7 +6,7 @@ header-img: "/images/python-semaphore-optimal.png"
 
 I do a lot of web scraping in my spare time, and have been chasing down different formats and code snippets to make a large amount of network requests locally, with controls for rate limiting and error handling.
 
-I've gone through a few generations - I'll use this post to catalogue where I started and what I'm doing now. If you want to skip the post and just see the final code, [it can be found here](https://gist.github.com/jonluca/14fe99be6204f34cbd61c950b0faf3b1)
+I've gone through a few generations - I'll use this post to catalogue where I started and what I'm doing now. If you want to skip the post and just see the final code, [it can be found here.](https://gist.github.com/jonluca/14fe99be6204f34cbd61c950b0faf3b1)
 
 ## Gen 1
 
