@@ -298,7 +298,7 @@ Finally, just for the hell of it, I hooked it up to twilio so that it would send
 {% include image.html file="opentable-logs" %}
 
 
-I tested it and it worked great. I've got it monitoring a few different restaurants right now, and it'll book it as soon as someone cancels or it becomes available, or the restaurant releases availability.
+I tested it and it worked great. I've got it monitoring a few different restaurants right now, and it'll book it as soon as someone cancels or it becomes available, or the restaurant releases availability. I still need to modify it so that it works with restaurants that require a credit card transaction, but that can be saved for the next post.
 
 {% include image.html file="opentable-results" %}
 
