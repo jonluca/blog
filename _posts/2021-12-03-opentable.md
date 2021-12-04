@@ -1,7 +1,7 @@
 ---
 title: "Building an OpenTable bot"
 date: 2021-12-03 17:55:35
-header-img: "/images/blind-memory-obj.png"
+header-img: "/images/opentable-results.png"
 ---
 
 New York City has some of the best restaurants in the world, with some of the most competitive reservations to match. Some of the hottest restaurants are booked out months in advance, and sell out within minutes of opening their reservations. There are a few restaurants that I've tried to book to no avail - I would search for future availability, but OpenTables tool only lets you set a notification for a single day and time range.
