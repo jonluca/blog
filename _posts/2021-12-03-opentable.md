@@ -273,9 +273,9 @@ The final step is to fire one last `POST` request to `/api/v1/reservation/<resta
     "lockId": "PreviouslyObtainedLockId",
     "dinerId": "<DINERID>",
     "location": {
-        "latitude": 40.74682658570361,
-        "longitude": -73.98454033959108
-    },
+        "latitude": 40.74,
+        "longitude": -73.98
+   	},
     "dateTime": "2021-12-06T15:30",
     "uberUuid": "<UUID>"
 }
