@@ -305,3 +305,6 @@ I tested it and it worked great. I've got it monitoring a few different restaura
 
 The code [can be found on GitHub](https://github.com/jonluca/OpenTable-Reservation-Maker). There isn't a way to fetch your bearer token automatically right now, or search for a restaurant, so you'll need to know those ahead of time to make this work, but you can follow the steps above (or open a PR!).
 
+## Future work
+
+The next site I want to automate is Tock, as they have most of the best restaurants in NY, but their endpoints are protobufs, which are a bit harder to reverse engineer. Resy is also an option, but with the Amex acquisition it's actually pretty easy to get reservations at sold out restaurants if you have an Amex Platinum card.
