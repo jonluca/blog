@@ -27,33 +27,17 @@ You can <a href="/feed.xml">get an RSS feed of the blog.</a>
 
 ## What am I reading?
 
-Here are a few blogs or places on the internet that I enjoy reading. I don't agree with everything on all of them, so don't take it as an endorsement of the site as a whole, but each one has at least one thing worth considering and thinking about. 
+Here are a few blogs or places on the internet that I enjoy reading. I don't agree with everything on all of them, so don't take it as an endorsement of the site as a whole.
 
 * [http://danluu.com/](http://danluu.com/)
-
-* [https://googleprojectzero.blogspot.com/](https://googleprojectzero.blogspot.com/)
 
 * [http://www.paulgraham.com/articles.html](http://www.paulgraham.com/articles.html)
 
 * [Money Stuff by Matt Levine](https://www.bloomberg.com/opinion/authors/ARbTQlRLRjE/matthew-s-levine)
 
-### Rationalist Blogs
-
-* [https://slatestarcodex.com/](https://slatestarcodex.com/)
+* [https://astralcodexten.substack.com/](https://astralcodexten.substack.com/)
 
 * [https://www.lesswrong.com/](https://www.lesswrong.com/)
-
-* [https://everythingstudies.com/](https://everythingstudies.com/)
-
-* [https://www.readthesequences.com/](https://www.readthesequences.com/)
-
-### Not as active, but still worth reading
-
-* [https://www.gkbrk.com/](https://www.gkbrk.com/) - specifically, [this](https://www.gkbrk.com/2016/05/hotel-music/)
-
-* [https://plato.stanford.edu/index.html](https://plato.stanford.edu/index.html)
-
-* [http://blog.bumblebeelabs.com/](http://blog.bumblebeelabs.com/)
 
 ## Photos
 
