@@ -1,6 +1,6 @@
 ---
 title: "Building an OpenTable bot"
-date: 2021-12-03 17:55:35
+date: 2021-12-03 17:55:35 -0500
 header-img: "/images/opentable-results.png"
 ---
 
