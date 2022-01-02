@@ -1,4 +1,4 @@
-#! /usr/local/bin/python3
+#! /opt/homebrew/bin/python3 
 
 from pathlib import Path
 import re
