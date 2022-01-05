@@ -29,7 +29,7 @@ As soon as you get to something in the 4 character range, though, this becomes u
 
 ## Gen 2
 
-The next step here was to find ways to make these requests using Threads. Spin off a native thread for each request, and let them run behind the scense.
+The next step here was to find ways to make these requests using Threads. Spin off a native thread for each request, and let them run behind the scenes.
 
 Set up a queue and pool to pull URLs from, and we're good. The queue and Worker threads are defined pretty simply below:
 
