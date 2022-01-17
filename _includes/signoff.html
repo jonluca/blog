@@ -1,4 +1,4 @@
-<div class="mt4" style="display: flex;flex-direction: column;align-items: start;">
+<div class="mt2" style="display: flex;flex-direction: column;align-items: start;    border-top: 1px dotted;padding-top: 1rem;">
 	<div>
 		<div style="max-width: 100px; border-radius: 0.25rem; overflow: hidden;">
 			<picture class="mini-profile">
@@ -11,6 +11,8 @@
 			{{site.signoff}} <span class="silver">{{page.date | date:"at %H:%M"}}</span>
 		</p>
 	</div>
+		{% include revue.html %}
+
 	<div>
 		{% include twitter.html %}
 	</div>
