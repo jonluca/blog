@@ -25,7 +25,11 @@
     </head>
     <body class="lh-copy dark-gray pa0 f6 sans-serif bg-super-white">
         <header class="tc mt4">
-            <p>{{ site.title }}</p>
+            {% if is_home == true %}
+            <h1 style="font-size: 20px">{{ site.title }}</h1>
+            {% else %}
+            <h2 style="font-size: 20px">{{ site.title }}</h2>
+            {% endif %}
         </header>
         <div class="width bg-white mt4 mb3 center br2-ns bt bb ba-ns b--light-gray">
             <nav aria-label="Main" class="bb b--light-gray pv4 tc">
@@ -43,8 +47,6 @@
                         <div class="fw600 light-silver mt1">{{ page.date | date_to_string }}</div>
                     {% endif %}
                     <h1 class="ttu f3 mt0 lh-title cb mb2">
-                    {% if is_post %}
-                    {% endif %}
                     {{ page.title }}
                     </h1>
                 </div>
