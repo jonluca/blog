@@ -7,6 +7,7 @@
         <link rel="preconnect" href="https://www.google-analytics.com">
         <link rel="preconnect" href="https://stats.jonlu.ca">
         <meta name="author" content="JonLuca DeCaro">
+        <title>{% if page.title and is_home != true%}{{ page.title | escape }} - {% endif %}{{ site.title | escape }}{% unless page.title %} - {{ site.description | escape }}{% endunless %}</title>
         {% if page.header-img %}
         <meta name="image" property="og:image" content="{{ site.url }}{{ page.header-img }}"/>
         <meta name="image" property="image" content="{{ site.url }}{{ page.header-img }}"/>
@@ -14,10 +15,12 @@
         <meta name="image" property="og:image" content="{{ site.url }}/images/mini-profile.png"/>
         <meta name="image" property="image" content="{{ site.url }}/images/mini-profile.png"/>
         {% endif %}
-        <meta name="og:email" content="jonluca.decaro@gmail.com"/>
+        <meta name="email" property="og:email" content="jonluca.decaro@gmail.com"/>
+        {% if page.date %}
+        {% endif %}
         {% include head.html %}
         {% if page.header-includes %}
-            {{ page.header-includes }}
+        {{ page.header-includes }}
         {% endif %}
     </head>
     <body class="lh-copy dark-gray pa0 f6 sans-serif bg-super-white">
