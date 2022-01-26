@@ -5,30 +5,17 @@
     <head>
         <meta charset="UTF-8">
         <link rel="preconnect" href="https://www.google-analytics.com">
-        <link rel="preconnect" href="https://matomo.jonlu.ca">
-       <!--  {% if page.path contains '_posts' %}
-            <link rel="amphtml" href="{{ page.id | prepend: '/amp' | prepend: site.baseurl | prepend: site.url }}">
-        {% endif %} -->
+        <link rel="preconnect" href="https://stats.jonlu.ca">
         <meta name="author" content="JonLuca DeCaro">
-        {% if page.title and is_home != true %}
-            <meta content="{{ page.title }}" name='title'/>
-            <meta content="{{ page.title }}" name='og:title'/>
-        {% else %}
-            <meta content="{{ site.title  | markdownify}}" name='title'/>
-            <meta content="{{ site.title  | markdownify}}" name='og:title'/>
-        {% endif %}
         {% if page.header-img %}
-            <meta property="og:image" content="{{ site.url }}{{ page.header-img }}"/>
-            <meta property="image" content="{{ site.url }}{{ page.header-img }}"/>
+        <meta name="image" property="og:image" content="{{ site.url }}{{ page.header-img }}"/>
+        <meta name="image" property="image" content="{{ site.url }}{{ page.header-img }}"/>
         {% else %}
-            <meta property="og:image" content="{{ site.url }}/images/mini-profile.png"/>
-            <meta property="image" content="{{ site.url }}/images/mini-profile.png"/>
+        <meta name="image" property="og:image" content="{{ site.url }}/images/mini-profile.png"/>
+        <meta name="image" property="image" content="{{ site.url }}/images/mini-profile.png"/>
         {% endif %}
         <meta name="og:email" content="jonluca.decaro@gmail.com"/>
         {% include head.html %}
-        {% if page.path contains '_posts' %}
-            <link rel="amphtml" href="{{ page.id | prepend: '/YOURDIR' | prepend: site.baseurl | prepend: site.url | append: '.html' }}">
-        {% endif %}
         {% if page.header-includes %}
             {{ page.header-includes }}
         {% endif %}
