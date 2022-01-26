@@ -10,7 +10,7 @@
 <meta name="theme-color" content="#ffffff">
 {% feed_meta %}
 {% seo title=false %}
-<meta name="twitter:description" content="{% if page.content %}{{ page.content | strip_html | truncate: 240 }}{% else %}{{ site.description }}{% endif %}">
+<meta name="twitter:description" content="{{% if page.content %}}{{ page.content | strip_newlines | strip_html | truncate: 180 }}">
 <meta name="twitter:site" content="@jonluca" />
 <meta name="twitter:creator" content="@jonluca">
 <meta name="twitter:card" content="summary">
