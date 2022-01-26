@@ -10,6 +10,10 @@
 <meta name="theme-color" content="#ffffff">
 {% feed_meta %}
 {% seo title=false %}
+<meta name="twitter:description" content="{% if page.content %}{{ page.content | strip_html | truncate: 240 }}{% else %}{{ site.description }}{% endif %}">
+<meta name="twitter:site" content="@jonluca" />
+<meta name="twitter:creator" content="@jonluca">
+<meta name="twitter:card" content="summary">
 <meta content='width=device-width, initial-scale=1.0, maximum-scale=10.0, minimum-scale=.25, user-scalable=yes' name='viewport'>
 <meta content='text/html; charset=utf-8' http-equiv='content-type'/>
 <link rel="stylesheet" type="text/css" href="{{ site.url }}/stylesheets/style.css">
