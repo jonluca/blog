@@ -1,7 +1,7 @@
 ---
 title: "Web3, Free Candy, and exploits galore"
 date: 2022-02-26 18:59:43 -0500
-header-img: "/images/seated.png"
+header-img: "/images/candy-machine-withdrawal.png"
 ---
 
 On 1/4/22, nearly 4000 Solana NFT projects were drained of their funds in a reinitialization bug present in the Candy Machine v1 smart contract on Solana. The account, [cHfYkrVAwfEoe3Mr2GbvzpNQJboDL6AiBoFZDsf8dxj](https://solscan.io/account/cHfYkrVAwfEoe3Mr2GbvzpNQJboDL6AiBoFZDsf8dxj), converted 1,027 SOL into 155k USDC using Raydium Swap, and then transferred the USDC into their FTX account. The vulnerability was patched while the attack was actively going on, at 6:26am on 1/4/22.
