@@ -10,7 +10,7 @@ This investigation uncovered similar vulnerabilities in NFT exchanges, yet to be
 
 ## Background
 
-Metaplex's Candy Machine program, a Solana program which handles the logistics of NFT issuance, just launched last September. launched last September, and is a Solana program that deals with the logistics of NFT creation. You instantiate it with their CLI, feed it your image bytes, and it deals with all the technically complex parts of putting the images on chain and creating the smart contracts to deal with minting them at the right time.
+Metaplex's [Candy Machine](https://docs.metaplex.com/candy-machine-v2/introduction), a Solana program which handles the logistics of NFT issuance, just launched last September. You instantiate it with their CLI, feed it your images, and it handles the rest. It will deal with all the technically complex parts of putting the images on chain and creating the smart contracts to mint them to the buyers.
 
 It’s extremely simple to launch an NFT sale with Metaplex; you choose the price you want to set, the timing of the collection drop and any other configs - it handles the rest and mints right to recipients wallets.
 
@@ -18,21 +18,23 @@ This simplicity greatly lowered the barrier to entry - you didn't need to have a
 
 Since its inception, over 14,800 candy machines have been created, each corresponding to an NFT collection.
 
+
+{% include image.html file="cm-program-solscan" alt="Candy Machine program" %}
+
+
 ## Impact
+
+The goal of this research was to identify how the attacker exploited the vulnerability, trace the funds and their total dollar denominated value, and then to determine which projects were impacted.
+
+The attacker targeted 4,410 of the 14,800 candy machines that were created at the time. I'm guessing they didn't target every vulnerable program because they had trouble pulling the historical candy machine creation records.
+
+They fired off withdrawal transactions that took advantage of the reinitialization bug over the period of an hour.
 
 The withdrawal transactions lasted between [5:57am](https://solscan.io/tx/coSeMNsGKebMGP1vqPZcEbu6rYiF4BbCRrtBRNLFi4TbMo3Psd7KZyvDTPv6KyeqZNDyMVU3o6D3rgQPG1aV94J) and [6:49am](https://solscan.io/tx/3zhZDtCV2vr5fSG2TxEjXXTdMmfk8rfnM4mNAavKdZM1Cy6627hN8vDnu7gaUk6oPmzLLcacJpTopK1bsscX9MbB) EST on January 4th 2022. At [6:20am](https://solscan.io/tx/3zhZDtCV2vr5fSG2TxEjXXTdMmfk8rfnM4mNAavKdZM1Cy6627hN8vDnu7gaUk6oPmzLLcacJpTopK1bsscX9MbB), the patched contract was deployed, causing every subsequent transaction by the attacker to fail.
 
 Of the 4,410 candy machines targeted, 3,470 were completely drained. The vulnerability didn't give the attacker permanent control of the candy machines - only for the duration of that transaction, which means that the candy machines that were impacted are not currently vulnerable.
 
 Some of the notable projects impacted by this vulnerability are SolSteads, Contrastive, and Degen Ape Society, with a full list below.
-
-Of the 14,800 candy machines, 11,848 have had the withdraw function executed on them. The top accounts associated with these functions are below.
-
-{% include image.html file="cm-top-withdrawers" alt="Top withdrawer callers" %}
-
-Only `cHfYkrVAwfEoe3Mr2GbvzpNQJboDL6AiBoFZDsf8dxj` seems to be doing this maliciously - the other accounts are all calling legitimate withdraw functions.
-
-`F9fER1Cb8hmjapWGZDukzcEYshAUDbSFpbXkj9QuBaQj` actually seems to have created over 2,000 candy machines, and then attempted to call withdraw on them
 
 ## Vulnerability
 
@@ -186,6 +188,17 @@ const run = async () => {
   }
 };
 ```
+
+I also pulled every transaction (legitimate and the attackers) that called the withdraw function on the candy machines.
+
+Of the 14,800 candy machines, 11,848 have had the withdraw function executed on them. The top accounts associated with these functions are below.
+
+{% include image.html file="cm-top-withdrawers" alt="Top withdrawer callers" %}
+
+Only `cHfYkrVAwfEoe3Mr2GbvzpNQJboDL6AiBoFZDsf8dxj` seems to be doing this maliciously - the other accounts are all calling legitimate withdraw functions.
+
+`F9fER1Cb8hmjapWGZDukzcEYshAUDbSFpbXkj9QuBaQj` actually seems to have created over 2,000 candy machines, and then attempted to call withdraw on them, single handedly creating \~14% of all candy machines on Solana.
+
 
 ## [Redacted Pending Vulnerability Disclosure]
 
