@@ -4,7 +4,7 @@ date: 2022-02-26 18:59:43 -0500
 header-img: "/images/candy-machine-withdrawal.png"
 ---
 
-On 1/4/22, nearly 4000 Solana NFT projects were drained of their funds due to a reinitialization bug present in the Candy Machine v1 smart contract on Solana. The account, [cHfYkrVAwfEoe3Mr2GbvzpNQJboDL6AiBoFZDsf8dxj](https://solscan.io/account/cHfYkrVAwfEoe3Mr2GbvzpNQJboDL6AiBoFZDsf8dxj), converted 1,027 SOL into 155k USDC using Raydium, and then transferred the USDC into their FTX account. The vulnerability was patched while the attack was actively going on, at 6:26am on 1/4/22.
+On 1/4/22, nearly 4000 Solana NFT projects were drained of their funds due to a reinitialization bug present in the Candy Machine v1 smart contract on Solana. The account, [cHfYkrVAwfEoe3Mr2GbvzpNQJboDL6AiBoFZDsf8dxj](https://solscan.io/account/cHfYkrVAwfEoe3Mr2GbvzpNQJboDL6AiBoFZDsf8dxj), converted 1,027 SOL into 155k USDC using Raydium, and then transferred the USDC into their FTX account. The vulnerability was patched while the attack was actively going on, at 6:20am on 1/4/22.
 
 This investigation uncovered similar vulnerabilities in NFT exchanges, yet to be publicized. 
 
@@ -20,7 +20,7 @@ Since its inception, over 14,800 candy machines have been created, each correspo
 
 ## Impact
 
-The withdrawal transactions lasted between [5:57am](https://solscan.io/tx/coSeMNsGKebMGP1vqPZcEbu6rYiF4BbCRrtBRNLFi4TbMo3Psd7KZyvDTPv6KyeqZNDyMVU3o6D3rgQPG1aV94J) and [6:49am](https://solscan.io/tx/3zhZDtCV2vr5fSG2TxEjXXTdMmfk8rfnM4mNAavKdZM1Cy6627hN8vDnu7gaUk6oPmzLLcacJpTopK1bsscX9MbB) EST on January 4th 2022. At [6:26am](https://solscan.io/tx/3zhZDtCV2vr5fSG2TxEjXXTdMmfk8rfnM4mNAavKdZM1Cy6627hN8vDnu7gaUk6oPmzLLcacJpTopK1bsscX9MbB), the patched contract was deployed, causing every subsequent transaction to fail.
+The withdrawal transactions lasted between [5:57am](https://solscan.io/tx/coSeMNsGKebMGP1vqPZcEbu6rYiF4BbCRrtBRNLFi4TbMo3Psd7KZyvDTPv6KyeqZNDyMVU3o6D3rgQPG1aV94J) and [6:49am](https://solscan.io/tx/3zhZDtCV2vr5fSG2TxEjXXTdMmfk8rfnM4mNAavKdZM1Cy6627hN8vDnu7gaUk6oPmzLLcacJpTopK1bsscX9MbB) EST on January 4th 2022. At [6:20am](https://solscan.io/tx/3zhZDtCV2vr5fSG2TxEjXXTdMmfk8rfnM4mNAavKdZM1Cy6627hN8vDnu7gaUk6oPmzLLcacJpTopK1bsscX9MbB), the patched contract was deployed, causing every subsequent transaction by the attacker to fail.
 
 Of the 4,410 candy machines targeted, 3,470 were completely drained. The vulnerability didn't give the attacker permanent control of the candy machines - only for the duration of that transaction, which means that the candy machines that were impacted are not currently vulnerable.
 
