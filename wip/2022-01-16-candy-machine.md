@@ -4,23 +4,25 @@ date: 2022-02-26 18:59:43 -0500
 header-img: "/images/candy-machine-withdrawal.png"
 ---
 
-On 1/4/22, nearly 4000 Solana NFT projects were drained of their funds in a reinitialization bug present in the Candy Machine v1 smart contract on Solana. The account, [cHfYkrVAwfEoe3Mr2GbvzpNQJboDL6AiBoFZDsf8dxj](https://solscan.io/account/cHfYkrVAwfEoe3Mr2GbvzpNQJboDL6AiBoFZDsf8dxj), converted 1,027 SOL into 155k USDC using Raydium Swap, and then transferred the USDC into their FTX account. The vulnerability was patched while the attack was actively going on, at 6:26am on 1/4/22.
+On 1/4/22, nearly 4000 Solana NFT projects were drained of their funds due to a reinitialization bug present in the Candy Machine v1 smart contract on Solana. The account, [cHfYkrVAwfEoe3Mr2GbvzpNQJboDL6AiBoFZDsf8dxj](https://solscan.io/account/cHfYkrVAwfEoe3Mr2GbvzpNQJboDL6AiBoFZDsf8dxj), converted 1,027 SOL into 155k USDC using Raydium, and then transferred the USDC into their FTX account. The vulnerability was patched while the attack was actively going on, at 6:26am on 1/4/22.
 
-The investigation into the incident lead to a few more vulnerabilities being discovered in NFT exchanges, which have not been made public yet.
+This investigation uncovered similar vulnerabilities in NFT exchanges, yet to be publicized. 
 
 ## Background
 
-Metaplex's Candy Machine program originally came out last September, and is a Solana program that deals with the logistics of NFT creation. You'd instantiate it via their CLI, feed it your images, and it would deal with all the technically complex parts of putting the images on chain, and creating the smart contracts to deal with minting them at the right time. It greatly lowered the barrier to entry - you didn't need to have any Rust knowledge or Solana API experience to use it. 
+Metaplex's Candy Machine program, a Solana program which handles the logistics of NFT issuance, just launched last September. launched last September, and is a Solana program that deals with the logistics of NFT creation. You instantiate it with their CLI, feed it your image bytes, and it deals with all the technically complex parts of putting the images on chain and creating the smart contracts to deal with minting them at the right time.
 
-You feed it your images, the price you want to set, and when the collection should drop, and it deals with minting the NFTs into the right wallet. When it originally came out it lead to a huge increase in NFT collections, as it lowered the barrier to entry significantly. Someone You no longer needed any smart contract logic to create an NFT - you could just write some javascript and use their CLI, and it would "just work".
+It’s extremely simple to launch an NFT sale with Metaplex; you choose the price you want to set, the timing of the collection drop and any other configs - it handles the rest and mints right to recipients wallets.
 
-Since it's inception, over 14,800 candy machines have been created, each corresponding to an NFT project.
+This simplicity greatly lowered the barrier to entry - you didn't need to have any Rust knowledge or Solana API experience to use it. When it first came out it led to a huge increase in NFT collections.
+
+Since its inception, over 14,800 candy machines have been created, each corresponding to an NFT collection.
 
 ## Impact
 
-The withdrawal transactions lasted between 5:57am and 6:49am EST on January 4th 2022. At 6:26am, the patched contract was deployed, causing every subsequent transaction to fail.
+The withdrawal transactions lasted between [5:57am](https://solscan.io/tx/coSeMNsGKebMGP1vqPZcEbu6rYiF4BbCRrtBRNLFi4TbMo3Psd7KZyvDTPv6KyeqZNDyMVU3o6D3rgQPG1aV94J) and [6:49am](https://solscan.io/tx/3zhZDtCV2vr5fSG2TxEjXXTdMmfk8rfnM4mNAavKdZM1Cy6627hN8vDnu7gaUk6oPmzLLcacJpTopK1bsscX9MbB) EST on January 4th 2022. At [6:26am](https://solscan.io/tx/3zhZDtCV2vr5fSG2TxEjXXTdMmfk8rfnM4mNAavKdZM1Cy6627hN8vDnu7gaUk6oPmzLLcacJpTopK1bsscX9MbB), the patched contract was deployed, causing every subsequent transaction to fail.
 
-Of the 4,410 candy machines targeted, 3,470 were completely drained. The vulnerability didn't give the attacker permanent control of the candy machines - only for the dureation of that transaction, which means that the candy machines that were impacted are not currently vulnerable.
+Of the 4,410 candy machines targeted, 3,470 were completely drained. The vulnerability didn't give the attacker permanent control of the candy machines - only for the duration of that transaction, which means that the candy machines that were impacted are not currently vulnerable.
 
 Some of the notable projects impacted by this vulnerability are SolSteads, Contrastive, and Degen Ape Society, with a full list below.
 
@@ -40,19 +42,19 @@ The bug was subtle - the attacker was injecting pre-initialized accounts and the
 
 {% include image.html file="candy-machine-fix" alt="Fix for the vulnerability" %}
 
-The hack seems fairly unsophisticated - the damage this vulnerability could do was pretty high, as the bug effectively allowed any account to control the Candy Machine. The attacker also submitted the transactions fairly slowly, and would've been able to capture the entirety of the vulnerable set of candy machines had they submitted the transactions through their own RPC pool without rate limits.
+The hack seems fairly unsophisticated - the damage this vulnerability could do was pretty high, as the bug effectively allowed any account to control the Candy Machine. The attacker submitted the transactions slowly, and would probably have been able to capture the entirety of the vulnerable set of candy machines had they submitted the transactions through their own RPC pool without rate limits.
 
 What's also interesting about the fix is that it was [actually fixed in code on December 31st for Candy Machine v2](https://github.com/metaplex-foundation/metaplex/commit/e9ef376443c3c8fd2f5b151dd0b09f757b1bf35c), but the CMv1 contract wasn't redeployed until it was actively being exploited.
 
 ## Fund extraction
 
-The attacker used Serum DEX and RaydiumSwapV2 to conver the SOL to USDC, then sent the USDC to a FTX address. It should be fairly easy to reverse their idea from FTXs end if they've KYC'd properly.
+The attacker used Serum DEX and RaydiumSwapV2 to convert the SOL to USDC, then sent the USDC to a FTX address. It should be fairly easy to reverse their idea from FTXs end if they've KYC'd properly.
 
 {% include image.html file="candy-machine-withdrawal" alt="Withdrawal transaction" %}
 
 ## Research
 
-Querying for historical data on chain in Solana is a fairly time consuming process. I tried doing research in jupyter notebook at first, but the volume of data made it hard to parse and query.
+Querying for historical data on chain in Solana is a time consuming process. I tried doing research in jupyter notebook at first, but the volume of data made it hard to parse and query.
 
 I ended up cloning the historical transactions into a local database, and indexing that for faster queries.
 
@@ -547,4 +549,3 @@ Xperiment
 This vulnerability was discussed in Discord's and on Twitter but was not widely analyzed.
 
 All the code for this research will be made public pending final vulnerability disclosures on various exchanges.
-
