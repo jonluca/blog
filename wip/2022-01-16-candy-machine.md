@@ -18,7 +18,6 @@ This simplicity greatly lowered the barrier to entry - you didn't need to have a
 
 Since its inception, over 14,800 candy machines have been created, each corresponding to an NFT collection.
 
-
 {% include image.html file="cm-program-solscan" alt="Candy Machine program" %}
 
 
@@ -48,11 +47,18 @@ The hack seems fairly unsophisticated - the damage this vulnerability could do w
 
 What's also interesting about the fix is that it was [actually fixed in code on December 31st for Candy Machine v2](https://github.com/metaplex-foundation/metaplex/commit/e9ef376443c3c8fd2f5b151dd0b09f757b1bf35c), but the CMv1 contract wasn't redeployed until it was actively being exploited.
 
+
 ## Fund extraction
 
 The attacker used Serum DEX and RaydiumSwapV2 to convert the SOL to USDC, then sent the USDC to a FTX address. It should be fairly easy to reverse their idea from FTXs end if they've KYC'd properly.
 
 {% include image.html file="candy-machine-withdrawal" alt="Withdrawal transaction" %}
+
+## Candy Machine
+
+Candy Machine v1 is now deprecated, and any new candy machines created should be v2s. [From their docs](https://docs.metaplex.com/candy-machine-v2/introduction):
+
+> The second iteration of the well-known Candy Machine, a fully on-chain generative NFT distribution program, provides many improvements over its predecessor. The new version also allows you to create a whole new set of distribution scenarios and offers protection from bot attacks, while providing the same easy-to-use experience.
 
 ## Research
 
