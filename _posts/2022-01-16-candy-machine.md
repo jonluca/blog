@@ -8,6 +8,7 @@ On 1/4/22, nearly 4000 Solana NFT projects were drained of their funds due to a 
 
 This investigation uncovered similar vulnerabilities in NFT exchanges, yet to be publicized. 
 
+
 ## Background
 
 Metaplex's [Candy Machine](https://docs.metaplex.com/candy-machine-v2/introduction), a Solana program which handles the logistics of NFT issuance, just launched last September. You instantiate it with their CLI, feed it your images, and it handles the rest. It will deal with all the technically complex parts of putting the images on chain and creating the smart contracts to mint them to the buyers.
@@ -554,6 +555,13 @@ WUKONGSOL
 Xperiment
 </span>
 
+## Bug Bounty
+
+
+In conjunction with this vulnerability research, Metaplex has launched a [bug bounty program.](https://www.metaplex.com/posts/bug-bounty-blog)
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Earlier this week the <a href="https://twitter.com/metaplex?ref_src=twsrc%5Etfw">@Metaplex</a> Foundation announced a Bug Bounty program—our commitment to white-hat developers we’ve been spinning up for months.<br><br>Our first contributor, <a href="https://twitter.com/jonluca?ref_src=twsrc%5Etfw">@jonluca</a>, uncovered a vulnerability in CMv1 back in January. More below. 👇 <a href="https://t.co/sq0cjtLtTj">https://t.co/sq0cjtLtTj</a></p>&mdash; Metaplex (@metaplex) <a href="https://twitter.com/metaplex/status/1504846982954762290?ref_src=twsrc%5Etfw">March 18, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
 ## Timeline
 
 * Dec 31st - [Fix for CMv2 is landed](https://github.com/metaplex-foundation/metaplex/commit/e9ef376443c3c8fd2f5b151dd0b09f757b1bf35c)
@@ -562,6 +570,8 @@ Xperiment
 * Tue Jan 04 2022 06:49:27 GMT-0500 - [Last transaction that tries to interact with the newly updated contracted is executed](https://solscan.io/tx/3zhZDtCV2vr5fSG2TxEjXXTdMmfk8rfnM4mNAavKdZM1Cy6627hN8vDnu7gaUk6oPmzLLcacJpTopK1bsscX9MbB)
 * Tue Jan 06, 2022, 18:25 GMT-0500 - [Fix for CMv1 is landed](https://github.com/metaplex-foundation/metaplex/commit/4ddc13ea29070172f358e054baa9d4c47687a26b)
 * Tue Jan 15, 2022, 21:15 GMT-0500 - Metaplex is alerted to this specific vulnerability.
+* Fri Mar 11, 2022 - [Metaplex bug bounty program is launched in conjunction with this post](https://www.metaplex.com/posts/bug-bounty-blog)
+* Fri Mar 18, 2022 - [Metaplex bug bounty for CMv1 is announced](https://twitter.com/metaplex/status/1504846982954762290)
 
 ## Appendix
 
