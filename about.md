@@ -5,9 +5,9 @@ header-img: "/images/ctc.png"
 
 Hi! 
 
-I'm <a href="https://twitter.com/jonluca"><b>JonLuca DeCaro</b></a>. I'm currently a Software Engineer in New York, NY at Citadel. I grew up in north east Italy, and moved to the United States in 2014 to study in Los Angeles. 
+I'm <a href="https://twitter.com/jonluca"><b>JonLuca DeCaro</b></a>. I'm the co-founder of [Alta Labs](https://altafinance.com). I grew up in north east Italy, and moved to the United States in 2014 to study in Los Angeles. 
 
-Previously I worked at Pinterest, Google, Apple, and Elevate Security. I am a full stack engineer, and have worked in growth, security, and product.
+Previously I worked at Citadel, Pinterest, Google, and Apple. I am a full stack engineer, and have worked in growth, security, and product.
 
 {% include image.html footnote="San Diego, 2020" alt="San Diego, 2020" file="sandiego"%}
 
