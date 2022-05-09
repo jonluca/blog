@@ -11,9 +11,11 @@
         {% if page.header-img %}
         <meta name="image" property="og:image" content="{{ site.url }}{{ page.header-img }}"/>
         <meta name="image" property="image" content="{{ site.url }}{{ page.header-img }}"/>
+        <meta name="twitter:image" property="image" content="{{ site.url }}{{ page.header-img }}"/>
         {% else %}
         <meta name="image" property="og:image" content="{{ site.url }}/images/mini-profile.png"/>
         <meta name="image" property="image" content="{{ site.url }}/images/mini-profile.png"/>
+        <meta name="twitter:image" property="image" content="{{ site.url }}/images/mini-profile.png"/>
         {% endif %}
         <meta name="email" property="og:email" content="jonluca.decaro@gmail.com"/>
         {% if page.date %}
