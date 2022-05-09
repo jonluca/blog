@@ -6,4 +6,4 @@ gem 'jekyll-sitemap'
 gem 'jekyll-feed'
 gem 'jekyll-brotli'
 gem 'jekyll-target-blank'
-gem "webrick", "~> 1.7"
+gem "webrick"
