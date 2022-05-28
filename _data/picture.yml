@@ -1,0 +1,49 @@
+# _data/picture.yml
+
+# These are used in several places. You likely want to enter whatever CSS media queries your site
+# uses here.
+media_queries:
+    mobile: 'max-width: 480px'
+    tablet: 'max-width: 768'
+    laptop: 'max-width: 1024px'
+    desktop: 'max-width: 1200'
+    wide: 'min-width: 1201'
+
+presets:
+  # This entry is purely an example. It is not the default JPT preset, nor is it available as a
+  # built-in.
+  default:
+    formats: [webp, original] # Order matters!
+    widths: [200, 400, 800, 1200, 1600, 2400] # Image widths, in pixels.
+
+    # The sizes attribute is both important, and impossible to offer good defaults for. You need to
+    # learn about it. Short version: Web browsers parse web pages line-by-line. When they run into
+    # an external asset they must download, they start that process immediately, without waiting to
+    # finish rendering the page. This means that at the point in time when the browser must decide
+    # which image to download, it has no clue how large that image will be on the page. The sizes
+    # attribute is how we tell it.
+    #
+    # If you do not provide this, the web browser will assume the image is 100vw (100% the width of
+    # the viewport.)
+    #
+    # This doesn't have to be pixel-perfect, just close enough for the browser to make a good
+    # choice. Keys are media queries defined above, values are how large the image will be when
+    # that media query is true. You can't use % (percentage width of the parent container) for the
+    # same reason we have to do this at all.
+    sizes:
+      mobile: calc(100vw - 16px)
+      tablet: 80vw
+
+    # Size is unconditional; provided either after all conditional sizes (above) or alone. If you
+    # only have a 'size' (no 'sizes'), and it's a constant (px, em, or rem), you should use a
+    # pixel-ratio srcset.
+    size: 800px
+
+    dimension_attributes: true # Page reflow begone!
+
+    # You can add any HTML attribute you like, to any HTML element which JPT creates:
+    attributes:
+      # parent refers to the outermost tag; <picture> if it's present, otherwise the <img>.
+      parent: 'data-downloadable="true"'
+      img: 'class="centered-image"'
+    nomarkdown: true

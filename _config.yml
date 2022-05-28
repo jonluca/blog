@@ -35,6 +35,13 @@ defaults:
       layout: "default"
 sass:
   style: compressed
+picture:
+  source: "/images/"
+  output: "/images/generated"
+  suppress_warnings: true
+  relative_url: false
+  ignore_missing_images: true
+
 
 timezone: America/Los_Angeles
 keep_files:

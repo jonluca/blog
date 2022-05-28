@@ -20,7 +20,7 @@ I use a fun app called [App in the Air](https://www.appintheair.mobi/) that trac
 </video>
 <p class="footnote">JonLuca's 2019 in Review</p>
 
-I took 40 flights, for a total of 137 hours, or 5 days 17 hours of travel. This means I spent **~1.56%** of 2019 on planes.
+I took 40 flights, for a total of 137 hours, or 5 days 17 hours of travel. This means I spent **\~1.56%** of 2019 on planes.
 
 I also traveled 52,848 miles by plane, which is the equivalent of **2.12** times around the world. 
 

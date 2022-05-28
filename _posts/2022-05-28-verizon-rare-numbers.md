@@ -1,5 +1,5 @@
 ---
-title: "Getting a phone number with 4 consecutive digits"
+title: "Getting a vanity phone number with 4 consecutive digits"
 date: 2022-05-28 15:06:28
 header-img: "/images/verizon-search.png"
 ---

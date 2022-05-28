@@ -1,11 +1,7 @@
 <div class="mt2" style="display: flex;flex-direction: column;align-items: start;    border-top: 1px dotted;padding-top: 1rem;">
 	<div>
 		<div style="max-width: 100px; border-radius: 0.25rem; overflow: hidden;">
-			<picture class="mini-profile">
-				<source srcset="/images/mini-profile.webp" type="image/webp">
-				<source srcset="/images/mini-profile.png" type="image/png">
-				<img alt="JonLuca" src="/images/{{ include.file }}.png" style="border-radius: 0.25rem; overflow: hidden;">
-			</picture>
+			{% picture mini-profile.png --alt JonLuca --class mini-profile %}
 		</div>
 		<p class="mt0">
 			{{site.signoff}} <span class="silver">{{page.date | date:"at %H:%M"}}</span>

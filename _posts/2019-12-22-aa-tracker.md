@@ -288,7 +288,9 @@ if(iOS){
 	const toReplace = document.querySelectorAll('.aa-image');
 	for(const image of toReplace){
 		const imageUrl = image.id;
+        {% raw %}
 		image.outerHTML = `{% include image.html file="${imageUrl}" alt="${imageUrl}" %}`
+        {% endraw %}
 	}
 }
 

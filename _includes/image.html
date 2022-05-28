@@ -1,8 +1,4 @@
-<picture class="centered-image" style="{{ include.style }}" >
-	<source srcset="/images/{{ include.file }}.webp" type="image/webp" style="{{ include.style }}">
-	<source srcset="/images/{{ include.file }}.png" type="image/png" style="{{ include.style }}">
-	<img alt="{{ include.alt }}" class="centered-image" src="/images/{{ include.file }}.png" style="{{ include.style }}">
-</picture>
+{% picture {{include.file}}.png --alt {{include.alt}} --class centered-image %}
 {% if include.footnote %}
 <p class="footnote">{{include.footnote}}</p>
 {% endif %}
