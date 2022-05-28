@@ -11,11 +11,7 @@ One of my first projects was building a scraper for [Rate My Professor](http://r
 
 I wrote the scraper for it and managed to get all professor data, published the tool to GitHub, and promptly got a Cease & Desist notice from Viacom (RMP's parent company). 
 
-<picture class="centered-image">
-  <source srcset="/images/rmp-cd.webp" type="image/webp">
-  <source srcset="/images/rmp-cd.png" type="image/jpeg"> 
-  <img alt="Rate my professor cease and desist" class="centered-image" src="/images/rmp-cd.png">
-</picture>
+{% picture "rmp-cd.png" --alt Rate my professor cease and desist %}
 <p class="footnote">Viacom Cease & Desist</p>
 
 Womp womp. 
@@ -26,18 +22,10 @@ I was a little bummed but I let it go. I deleted the repo and moved on to anothe
 
 A few months later came USC's class registration time. I was going to be registering for senior classes, and started going through the whole process of cross-checking what professors were available for my classes with their rating on RMP. This was fairly tedious, and it was difficult to remember what each professors rating was and what their students had said about them. I came up with the idea of building a chrome extension that would pull in the data I already had and surreptitiously place the rating next to the professors name. 
 
-<picture class="centered-image">
-  <source srcset="/images/uscsh-pre.webp" type="image/webp">
-  <source srcset="/images/uscsh-pre.png" type="image/jpeg"> 
-  <img alt="Schedule helper before" class="centered-image" src="/images/uscsh-pre.png">
-</picture>
+{% picture "uscsh-pre.png" --alt Schedule helper before %}
 <p class="footnote">Before</p>
 
-<picture class="centered-image">
-  <source srcset="/images/uscsh-after.webp" type="image/webp">
-  <source srcset="/images/uscsh-after.png" type="image/jpeg"> 
-  <img alt="Schedule helper after" class="centered-image" src="/images/uscsh-after.png">
-</picture>
+{% picture "uscsh-after.png" --alt Schedule helper after %}
 <p class="footnote">After</p>
 
 The numeric rating was also clickable, which took you directly to the professor's page on RMP. The first version was [no more than 80 lines of code](https://github.com/jonluca/USC-Schedule-Helper/tree/7c5674ebe564cf827d6186b1a35bcc4042a90e5e) and got up and running quickly. 
@@ -72,11 +60,7 @@ At this point I had to make a decision - either disable text notifications, or c
 
 However, I wasn't about to have this extension actually *cost* me money, so I implemented a quick fix. 
 
-<picture class="centered-image">
-  <source srcset="/images/uscsh-venmo.webp" type="image/webp">
-  <source srcset="/images/uscsh-venmo.png" type="image/jpeg"> 
-  <img alt="Venmo" class="centered-image" src="/images/uscsh-venmo.png">
-</picture>
+{% picture "uscsh-venmo.png" --alt Venmo %}
 <p class="footnote">After</p>
 
 "If you want text notifications, venmo @JonLuca $1 with your email in the subject and I'll manually enable them for your account."
@@ -93,26 +77,10 @@ It was a small enough amount that nobody would really blink twice, and it requir
 
 This service was so successful that I actually had people venmo me *way* more than what I was charging because they enjoyed it so much.
 
-<picture class="centered-image">
-  <source srcset="/images/usc-venmo1.webp" type="image/webp">
-  <source srcset="/images/usc-venmo1.png" type="image/jpeg"> 
-  <img alt="venmo" class="centered-image" src="/images/usc-venmo1.png">
-</picture>
-<picture class="centered-image">
-  <source srcset="/images/usc-venmo2.webp" type="image/webp">
-  <source srcset="/images/usc-venmo2.png" type="image/jpeg"> 
-  <img alt="venmo" class="centered-image" src="/images/usc-venmo2.png">
-</picture>
-<picture class="centered-image">
-  <source srcset="/images/usc-venmo3.webp" type="image/webp">
-  <source srcset="/images/usc-venmo3.png" type="image/jpeg"> 
-  <img alt="venmo" class="centered-image" src="/images/usc-venmo3.png">
-</picture>
-<picture class="centered-image">
-  <source srcset="/images/usc-venmo4.webp" type="image/webp">
-  <source srcset="/images/usc-venmo4.png" type="image/jpeg"> 
-  <img alt="venmo" class="centered-image" src="/images/usc-venmo4.png">
-</picture>
+{% picture "usc-venmo1.png" --alt venmo %}
+{% picture "usc-venmo2.png" --alt venmo %}
+{% picture "usc-venmo3.png" --alt venmo %}
+{% picture "usc-venmo4.png" --alt venmo %}
 
 This was a weird experience in successful monetization. It's quite rare that it happens *accidentally*, much less in a way that offers insane profit margins.
 

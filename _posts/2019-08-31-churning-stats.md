@@ -212,20 +212,12 @@ The resulting graph shows how our comment activity is fairly cyclical. Our weeke
 
 Our deepest dip in the chart is unsurprisingly December 25th, or Christmas, which makes sense as a majority of our userbase is based in Western countries. 
 
-<picture class="centered-image">
-  <source srcset="/images/churning-oneyear.webp" type="image/webp">
-  <source srcset="/images/churning-oneyear.png" type="image/png"> 
-  <img alt="one year of churning comments" class="centered-image" src="/images/churning-oneyear.png">
-</picture>
+{% picture "churning-oneyear.png" --alt one year of churning comments %}
 <p class="footnote">1 year of /r/churning comments</p>
 
 Our distribution of comments per day is interesting as well.
 
-<picture class="centered-image">
-  <source srcset="/images/churning-histogram.webp" type="image/webp">
-  <source srcset="/images/churning-histogram.png" type="image/png"> 
-  <img alt="one year of churning comments" class="centered-image" src="/images/churning-histogram.png">
-</picture>
+{% picture "churning-histogram.png" --alt one year of churning comments %}
 <p class="footnote">Daily comment distribution</p>
 
 Our actual baseline stats put us at around 2,000 comments a day on average.
@@ -291,28 +283,16 @@ We can also look at the distribution of users that comment. We actually really o
 
 The top 500 users are also responsible for 366,038 of the comments from last year, or 51.8% of all comments. This follows a pretty typical distribution of online activity (see the [90 - 9 - 1 rule](https://en.wikipedia.org/wiki/1%25_rule_(Internet_culture))).
 
-<picture class="centered-image">
-  <source srcset="/images/churning-users.webp" type="image/webp">
-  <source srcset="/images/churning-users.png" type="image/png"> 
-  <img alt="one year of churning comments by user" class="centered-image" src="/images/churning-users.png">
-</picture>
+{% picture "churning-users.png" --alt one year of churning comments by user %}
 <p class="footnote">Top 1000 user comment distribution</p>
 
-<picture class="centered-image">
-  <source srcset="/images/churning-users-fixed.webp" type="image/webp">
-  <source srcset="/images/churning-users-fixed.png" type="image/png"> 
-  <img alt="one year of churning comments by user" class="centered-image" src="/images/churning-users-fixed.png">
-</picture>
+{% picture "churning-users-fixed.png" --alt one year of churning comments by user %}
 <p class="footnote">Top 1000 user comment distribution, without outlier</p>
 
 
 Just for fun I also looked at OJs daily activity - looks like they took a pretty signifcant break June of 2018, perhaps using up all those hard earned miles on vacation?
 
-<picture class="centered-image">
-  <source srcset="/images/churning-oj.webp" type="image/webp">
-  <source srcset="/images/churning-oj.png" type="image/png"> 
-  <img alt="one year of churning comments" class="centered-image" src="/images/churning-oj.png">
-</picture>
+{% picture "churning-oj.png" --alt one year of churning comments %}
 <p class="footnote">OJs activity</p>
 
 ## Data

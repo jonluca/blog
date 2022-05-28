@@ -14,11 +14,7 @@ In practice this means that a lot of companies have private API routes that defi
 
 When you sign in to Lyft on the web client, one of the network requests fired is to `https://www.lyft.com/api/experiments/configurations`. This replies back with a 180kb JSON object with every experiment they are running, as well as the user's current status. 
 
-<picture class="centered-image">
-  <source srcset="/images/lyft-api-network.webp" type="image/webp">
-  <source srcset="/images/lyft-api-network.png" type="image/png"> 
-  <img alt="Lyft experiments route" class="centered-image" src="/images/lyft-api-network.png">
-</picture>
+{% picture "lyft-api-network.png" --alt Lyft experiments route %}
 <p class="footnote">Lyft experiments route</p>
 
 
@@ -174,11 +170,7 @@ The full experiment list is [here](https://pastebin.com/3jZPazXs). There are cur
 * `ios_use_cases_board_ideas_quiz` - Quiz on different boards?
 * `activation_male_topic_image_replacement` - Gendered content differentiation?
 
-<picture class="centered-image">
-  <source srcset="/images/burp-pt.webp" type="image/webp">
-  <source srcset="/images/burp-pt.png" type="image/png"> 
-  <img alt="Pinterest experiments route" class="centered-image" src="/images/burp-pt.png">
-</picture>
+{% picture "burp-pt.png" --alt Pinterest experiments route %}
 <p class="footnote">Burp Suite intercepting Pinterest API calls</p>
 
 ### Reddit
