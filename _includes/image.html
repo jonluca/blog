@@ -1,7 +1,7 @@
 <picture class="centered-image" style="{{ include.style }}" >
-	<source srcset="/images/{{ include.file }}.webp" type="image/webp">
-	<source srcset="/images/{{ include.file }}.png" type="image/png">
-	<img alt="{{ include.alt }}" class="centered-image" src="/images/{{ include.file }}.png">
+	<source srcset="/images/{{ include.file }}.webp" type="image/webp" style="{{ include.style }}">
+	<source srcset="/images/{{ include.file }}.png" type="image/png" style="{{ include.style }}">
+	<img alt="{{ include.alt }}" class="centered-image" src="/images/{{ include.file }}.png" style="{{ include.style }}">
 </picture>
 {% if include.footnote %}
 <p class="footnote">{{include.footnote}}</p>
