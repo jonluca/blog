@@ -14,7 +14,7 @@ presets:
   # built-in.
   default:
     formats: [webp, original] # Order matters!
-    widths: [200, 400, 800, 1200, 1600, 2400] # Image widths, in pixels.
+    widths: [50, 100, 200, 400, 800, 1200, 1600, 2400] # Image widths, in pixels.
 
     # The sizes attribute is both important, and impossible to offer good defaults for. You need to
     # learn about it. Short version: Web browsers parse web pages line-by-line. When they run into
