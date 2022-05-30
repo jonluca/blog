@@ -1,35 +1,49 @@
-const version = "1.2";
-const cacheName = `blog-${version}`;
-self.addEventListener("install", (e) => {
-  e.waitUntil(
-    caches.open(cacheName).then((cache) => {
-      return cache
-        .addAll(["/", "/about", "/fav/favicon.ico", "/contact"])
-        .then(() => self.skipWaiting());
+---
+    layout: none
+---
+importScripts('https://storage.googleapis.com/workbox-cdn/releases/6.2.0/workbox-sw.js');
+
+const { registerRoute } = workbox.routing;
+const { CacheFirst, NetworkFirst, StaleWhileRevalidate } = workbox.strategies;
+const { CacheableResponse } = workbox.cacheableResponse;
+
+workbox.core.setCacheNameDetails({
+    prefix: 'blog.jonlu.ca',
+    suffix: '{{ site.time | date: "%Y-%m-%d" }}'
+});
+
+registerRoute(
+    '/',
+    new NetworkFirst()
+);
+
+registerRoute(
+    /posts/,
+    new StaleWhileRevalidate()
+)
+
+workbox.precaching.precacheAndRoute([
+    {% for post in site.posts limit:12 -%}
+{ url: '{{ post.url }}', revision: '{{ post.date | date: "%Y-%m-%d"}}' },
+{% endfor -%}
+{ url: '/', revision: '{{ site.time | date: "%Y%m%d%H%M" }}' },
+{ url: '/about', revision: '{{ site.time | date: "%Y%m%d%H%M" }}' },
+{ url: '/contact', revision: '{{ site.time | date: "%Y%m%d%H%M" }}' },
+{ url: '/interesting-snippets', revision: '{{ site.time | date: "%Y%m%d%H%M" }}' },
+{ url: '/stylesheets/buttons.css', revision: '{{ site.time | date: "%Y%m%d%H%M" }}' },
+{ url: '/stylesheets/style.css', revision: '{{ site.time | date: "%Y%m%d%H%M" }}' },
+{ url: '/stylesheets/footer.css', revision: '{{ site.time | date: "%Y%m%d%H%M" }}' },
+{ url: '/stylesheets/table.css', revision: '{{ site.time | date: "%Y%m%d%H%M" }}' },
+{ url: '/stylesheets/highlighter.css', revision: '{{ site.time | date: "%Y%m%d%H%M" }}' }
+])
+
+registerRoute(
+    ({request}) => {
+        return request.destination === 'image';
+    },
+    new CacheFirst({
+        plugins: [
+            new CacheableResponse({statuses: [0, 200]})
+        ],
     })
-  );
-});
-
-self.addEventListener("activate", (event) => {
-  event.waitUntil(self.clients.claim());
-});
-
-self.addEventListener("fetch", function (event) {
-  if (event.request.url && event.request.url.startsWith("http")) {
-    event.respondWith(
-      caches.open(cacheName).then(function (cache) {
-        return fetch(event.request)
-          .then(function (response) {
-            // always make network request
-            if (event && event.request && event.request.method === "GET") {
-              cache.put(event.request, response.clone()); // save in cache
-            }
-            return response;
-          })
-          .catch(function () {
-            return caches.match(event.request); // if network fails, try to respond from cache
-          });
-      })
-    );
-  }
-});
+);
