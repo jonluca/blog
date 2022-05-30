@@ -3,9 +3,9 @@ title: About
 header-img: "/images/ctc.png"
 ---
 
-Hi! 
+Hi!
 
-I'm <a href="https://twitter.com/jonluca"><b>JonLuca DeCaro</b></a>. I'm the co-founder of [Alta Labs](https://altafinance.com). I grew up in north east Italy, and moved to the United States in 2014 to study in Los Angeles. 
+I'm <a href="https://twitter.com/jonluca"><b>JonLuca DeCaro</b></a>. I'm the co-founder of [Alta Labs](https://altafinance.com). I grew up in north east Italy, and moved to the United States in 2014 to study in Los Angeles.
 
 Previously I worked at Citadel, Pinterest, Google, and Apple. I am a full stack engineer, and have worked in growth, security, and product.
 
@@ -29,19 +29,19 @@ You can <a href="/feed.xml">get an RSS feed of the blog.</a>
 
 Here are a few blogs or places on the internet that I enjoy reading. I don't agree with everything on all of them, so don't take it as an endorsement of the site as a whole.
 
-* [http://danluu.com/](http://danluu.com/)
+- [http://danluu.com/](http://danluu.com/)
 
-* [http://www.paulgraham.com/articles.html](http://www.paulgraham.com/articles.html)
+- [http://www.paulgraham.com/articles.html](http://www.paulgraham.com/articles.html)
 
-* [Money Stuff by Matt Levine](https://www.bloomberg.com/opinion/authors/ARbTQlRLRjE/matthew-s-levine)
+- [Money Stuff by Matt Levine](https://www.bloomberg.com/opinion/authors/ARbTQlRLRjE/matthew-s-levine)
 
-* [https://astralcodexten.substack.com/](https://astralcodexten.substack.com/)
+- [https://astralcodexten.substack.com/](https://astralcodexten.substack.com/)
 
-* [https://www.lesswrong.com/](https://www.lesswrong.com/)
+- [https://www.lesswrong.com/](https://www.lesswrong.com/)
 
 ## Photos
 
-Few things are as personally identifiable as photos, and as the old adage goes, a picture is worth a thousand words, so here's a bit about me. 
+Few things are as personally identifiable as photos, and as the old adage goes, a picture is worth a thousand words, so here's a bit about me.
 
 {% include image.html alt="Young me rock climbing" footnote="Probably my only time ever going rock climbing" file="rock-climbing"%}
 

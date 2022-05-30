@@ -10,13 +10,13 @@ Around a year ago they introduced their webapp - before this, they were just a m
 
 {% include image.html footnote="Blinds current web homepage (teamblind.com)" file="blindhomepage" alt="blind homepage" %}
 
-I decided to poke around and see how they decided to implement their routing and webpage. 
+I decided to poke around and see how they decided to implement their routing and webpage.
 
-Loading into their homepage I was happy to see infinite scrolling and inline comments - this _usually_ means they aren't server side rendering everything, and have pure API routes setup just to fetch these things. It's trivial to find and reverse these client side requests - no HTML scraping is needed. 
+Loading into their homepage I was happy to see infinite scrolling and inline comments - this _usually_ means they aren't server side rendering everything, and have pure API routes setup just to fetch these things. It's trivial to find and reverse these client side requests - no HTML scraping is needed.
 
-As a side note, this is probably one of the main redeeming factors for people that still use PHP to generate their HTML. It's significantly more work to scrape HTML than to use client side routes that (usually) return JSON. 
+As a side note, this is probably one of the main redeeming factors for people that still use PHP to generate their HTML. It's significantly more work to scrape HTML than to use client side routes that (usually) return JSON.
 
-Looking into the requests we see `POST` requests to https://www.teamblind.com/api/article/list. 
+Looking into the requests we see `POST` requests to https://www.teamblind.com/api/article/list.
 
 {% include image.html footnote="POST requests to retrieve additional posts on the homepage" file="blindnetwork" alt="blind network" %}
 
@@ -52,11 +52,11 @@ The javascript that was making the request was minified through webpack, and chu
 
 {% include image.html footnote="Stepping through the minified javascript" file="blindcode" alt="blind minified js" %}
 
-Stepping through wasn't particularly useful, though, as it seemed like a custom HTTP library that was just a thin wrapper around `fetch` and `XMLHttpRequest`. 
+Stepping through wasn't particularly useful, though, as it seemed like a custom HTTP library that was just a thin wrapper around `fetch` and `XMLHttpRequest`.
 
 I assumed that they were probably using an open source library for their encryption - they are still a startup, afterall, and I doubt they'd roll their own encryption library.
 
-I started looking for strings in the code that would be helpful - a lot of minification can't know what a string contains, and as such won't strip things like library version numbers and names, URLs, and other things that would give a hint of how it's being done. 
+I started looking for strings in the code that would be helpful - a lot of minification can't know what a string contains, and as such won't strip things like library version numbers and names, URLs, and other things that would give a hint of how it's being done.
 
 {% include image.html footnote="References to GitHub in the minified codebase" file="blindgit" alt="blind git" %}
 
@@ -64,10 +64,16 @@ There were quite a few references to `GitHub` (Always a good keyword to search f
 
 {% include image.html footnote="The open source library they were using for their encryption" file="blindbrowserify" alt="blind encryption library" %}
 
-Bingo. 
+Bingo.
 
 ```js
-    throw new Error(["sorry, createCredentials is not implemented yet", "we accept pull requests", "https://github.com/crypto-browserify/crypto-browserify"].join("\n"))
+throw new Error(
+  [
+    "sorry, createCredentials is not implemented yet",
+    "we accept pull requests",
+    "https://github.com/crypto-browserify/crypto-browserify",
+  ].join("\n")
+);
 ```
 
 This library had a function called `createCredentials` that hadn't been implemented yet, and had the helpful comment saying "We accept pull requests!"
@@ -114,7 +120,7 @@ This section of the code was clearly the minified version of the open source lib
 
 The description of the library is "The goal of this module is to reimplement node's crypto module, in pure javascript so that it can run in the browser."
 
-It looks like they're using Node on their backend with the `crypto` module, and want to use the same features on their front end in exactly the same way. 
+It looks like they're using Node on their backend with the `crypto` module, and want to use the same features on their front end in exactly the same way.
 
 Nice way to reuse code, but it also means that they have to pass their shared secret key to the client.
 
@@ -124,28 +130,29 @@ I assumed wrong.
 
 {% include image.html footnote="Blinds shared AES secret key" file="blindkey" alt="blind encryption key" %}
 
-They kept the static shared key as a string in the minified JS. They also helpfully named these functions `dataDec` and `dataEnc`. 
+They kept the static shared key as a string in the minified JS. They also helpfully named these functions `dataDec` and `dataEnc`.
 
 At this point it looked like we have everything we need to decrypt their data.
 
-We don't even need to download the library they used, since it's just a reimplementation of the `crypto` module. 
+We don't even need to download the library they used, since it's just a reimplementation of the `crypto` module.
 
 30 seconds in an editor later and we have the following:
 
-
 ```js
 const text = `<blob from above>`;
-const crypto = require('crypto');
+const crypto = require("crypto");
 
-const t = crypto.createDecipher("aes-256-cbc", "5d860d3eb8e4a271309c0e4c001fafcc7cc80277e5238d9796a810a93ffa27d3")
+const t = crypto.createDecipher(
+  "aes-256-cbc",
+  "5d860d3eb8e4a271309c0e4c001fafcc7cc80277e5238d9796a810a93ffa27d3"
+);
 let e = t.update(text, "base64", "utf8");
-e += t.final("utf8")
+e += t.final("utf8");
 
-
-console.log(JSON.parse(e))
+console.log(JSON.parse(e));
 ```
 
-I just copy and pasted their minified implementation and swapped out the crypto module. 
+I just copy and pasted their minified implementation and swapped out the crypto module.
 
 {% include image.html footnote="The API decrypted API response" file="blinddecrypted" alt="blind decrypted" %}
 
@@ -153,57 +160,57 @@ This worked out of the box - no additional required. The most interesting part o
 
 ```json
 {
-    "alias": "b6WJEDTp",
-    "member_nickname": "faRw33",
-    "created_at": "4d",
-    "is_auth": "Y",
-    "board_id": 114961,
-    "member_company_id": 109330,
-    "images": [],
-    "group_name": null,
-    "channel_name": "Misc.",
-    "board_name": "Misc.",
-    "title": "Is an extreme work ethic required to reach the absolute top of your potential?",
-    "content": "I was never a huge basketball fan, but after Kobe's death I spent more time into his background. He was an absolute machine in how hard/how long he worked and the results showed. It's seems like its like that with so many great people who are just so passionate about one thing they will work their b",
-    "content_length": 300,
-    "like_cnt": 2,
-    "comment_cnt": 22,
-    "view_cnt": 1337,
-    "is_liked": false,
-    "is_bookmarked": false,
-    "is_multi_poll": false,
+  "alias": "b6WJEDTp",
+  "member_nickname": "faRw33",
+  "created_at": "4d",
+  "is_auth": "Y",
+  "board_id": 114961,
+  "member_company_id": 109330,
+  "images": [],
+  "group_name": null,
+  "channel_name": "Misc.",
+  "board_name": "Misc.",
+  "title": "Is an extreme work ethic required to reach the absolute top of your potential?",
+  "content": "I was never a huge basketball fan, but after Kobe's death I spent more time into his background. He was an absolute machine in how hard/how long he worked and the results showed. It's seems like its like that with so many great people who are just so passionate about one thing they will work their b",
+  "content_length": 300,
+  "like_cnt": 2,
+  "comment_cnt": 22,
+  "view_cnt": 1337,
+  "is_liked": false,
+  "is_bookmarked": false,
+  "is_multi_poll": false,
+  "is_multi": false,
+  "is_poll": true,
+  "is_mine": false,
+  "last_comment_cnt": null,
+  "has_comment_update": false,
+  "is_hot": false,
+  "is_now": false,
+  "is_company_tagged": false,
+  "is_wormhole": false,
+  "job_title": null,
+  "is_read": false,
+  "report_msg": null,
+  "is_top_contributor": false,
+  "is_show_holic": false,
+  "mention": null,
+  "was_companies": null,
+  "bio": null,
+  "tags": [],
+  "article_tags": null,
+  "is_hidden_company": false,
+  "is_show_company": true,
+  "member_company_name": "Greenhouse Software",
+  "is_best_company": false,
+  "poll": {
+    "id": 47176,
+    "article_id": 553156,
     "is_multi": false,
-    "is_poll": true,
-    "is_mine": false,
-    "last_comment_cnt": null,
-    "has_comment_update": false,
-    "is_hot": false,
-    "is_now": false,
-    "is_company_tagged": false,
-    "is_wormhole": false,
-    "job_title": null,
-    "is_read": false,
-    "report_msg": null,
-    "is_top_contributor": false,
-    "is_show_holic": false,
-    "mention": null,
-    "was_companies": null,
-    "bio": null,
-    "tags": [],
-    "article_tags": null,
-    "is_hidden_company": false,
-    "is_show_company": true,
-    "member_company_name": "Greenhouse Software",
-    "is_best_company": false,
-    "poll": {
-        "id": 47176,
-        "article_id": 553156,
-        "is_multi": false,
-        "cnt": 108,
-        "polled": 0
-    },
-    "link": null,
-    "label": null
+    "cnt": 108,
+    "polled": 0
+  },
+  "link": null,
+  "label": null
 }
 ```
 
@@ -217,9 +224,9 @@ Back to making the requests that we alluded to earlier - it looks like the reque
 
 {% include image.html footnote="Blinds API request" file="blindreq" alt="blind request blob" %}
 
-The natural assumption would be that they follow the exact same format as above - use that same AES key to encrypt the request payload. 
+The natural assumption would be that they follow the exact same format as above - use that same AES key to encrypt the request payload.
 
-First we need to figure out what the non-encrypted request looks like. 
+First we need to figure out what the non-encrypted request looks like.
 
 Looking back above at the decryption process, there was another function called `dataEnc`. This is probably how they encrypt their requests. Putting a breakpoint there before the function is executed shows us the format.
 
@@ -227,10 +234,12 @@ Looking back above at the decryption process, there was another function called 
 
 The encryption is different this time, though - it's using an asymmetrical public key instead of the AES key from earlier. I'm not entirely sure why they do this - if someone is sniffing traffic, and they're able to see the encrypted request object, they would've been able to see the minified JS and do the same thing I'm doing right now. It does prevent an attacker from decrypting the request, since they don't have the private key, but it doesn't prevent them from just recreating the request in the first place.
 
-Regardless, their implementation looks like this: 
+Regardless, their implementation looks like this:
 
 ```js
-return new Jt("-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAhRvQEkqodGnJ9ap47FiF\nNwMTpdqUbfWyzecgJBxjWwWYwMYxpnde0WNjpzpdz9PMKLdFAg0UH1u32Y2xK/Bq\n/L8F2f+djLwGxszjTZwGGPiQxNWyDRI/In8T3S3dVqfr0QPirKsoy2OxgnbC7+BE\nH0ZN6Y4Sax588Uq+9M1Wz7ct60EZjLO9RLS/qH+t1ZBpQ/p3Ddkm/yCDvixyctvd\nGTbWUVFxtsqdTQjy8OcnQo2y1v6NUeZRqoKsk7LVmkYk3HjggDkBOZk8h1xRuCch\nkY1ix5jjArG645y863N6R+EQ9ShHZnwbVpsy47Vo8zigfk2RKl8ksxvstLrtABfW\nDQIDAQAB\n-----END PUBLIC KEY-----").encrypt(t, "base64")
+return new Jt(
+  "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAhRvQEkqodGnJ9ap47FiF\nNwMTpdqUbfWyzecgJBxjWwWYwMYxpnde0WNjpzpdz9PMKLdFAg0UH1u32Y2xK/Bq\n/L8F2f+djLwGxszjTZwGGPiQxNWyDRI/In8T3S3dVqfr0QPirKsoy2OxgnbC7+BE\nH0ZN6Y4Sax588Uq+9M1Wz7ct60EZjLO9RLS/qH+t1ZBpQ/p3Ddkm/yCDvixyctvd\nGTbWUVFxtsqdTQjy8OcnQo2y1v6NUeZRqoKsk7LVmkYk3HjggDkBOZk8h1xRuCch\nkY1ix5jjArG645y863N6R+EQ9ShHZnwbVpsy47Vo8zigfk2RKl8ksxvstLrtABfW\nDQIDAQAB\n-----END PUBLIC KEY-----"
+).encrypt(t, "base64");
 ```
 
 Looking at the function signature (`.encrypt(t, "base64")`) and code it wasn't immediately obvious what library they were using (they weren't using the same library as earlier).
@@ -239,7 +248,7 @@ Actually stepping into the code this time helped.
 
 {% include image.html footnote="Stepping into the minified third party library for public key encryption" file="blindstepinto" alt="blind stepping into code" %}
 
-Googling around for the `this.$options` had a nearly perfect match on the `node-rsa` module. 
+Googling around for the `this.$options` had a nearly perfect match on the `node-rsa` module.
 
 {% include image.html footnote="Google results for the JSON options object of the library" file="blindgoogle" alt="blind googling for options" %}
 
@@ -247,9 +256,8 @@ Minification will often not rewrite variable names for certain classes due to po
 
 I do the same as we did above and create a simple wrapper for this library:
 
-
 ```js
-const NodeRSA = require('node-rsa');
+const NodeRSA = require("node-rsa");
 const key = new NodeRSA(`-----BEGIN PUBLIC KEY-----
 MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAhRvQEkqodGnJ9ap47FiF
 NwMTpdqUbfWyzecgJBxjWwWYwMYxpnde0WNjpzpdz9PMKLdFAg0UH1u32Y2xK/Bq
@@ -261,33 +269,31 @@ DQIDAQAB
 -----END PUBLIC KEY-----`);
 
 const toenc = {
-  "channelId": "Careers",
-  "childchannelIds": [
-    120565
-  ],
-  "offset": 0,
-  "limit": 50,
-  "orderBy": "pop"
-}
+  channelId: "Careers",
+  childchannelIds: [120565],
+  offset: 0,
+  limit: 50,
+  orderBy: "pop",
+};
 
-const encrypted = key.encrypt(toenc, 'base64');
-console.log('encrypted: ', encrypted);
+const encrypted = key.encrypt(toenc, "base64");
+console.log("encrypted: ", encrypted);
 ```
 
 I was a little thrown off at first because what I got didn't match what my browser was saying, but then I realized that this library actually produces a different output on every decryption.
 
 {% include image.html footnote="Different results on every encryption" file="blindmulti" alt="blind different outputs for the same input" %}
 
-I took my request and replaced the encrypted blob from their version of the library and replaced it with mine, and got back a valid response. 
+I took my request and replaced the encrypted blob from their version of the library and replaced it with mine, and got back a valid response.
 
 We are now able to generate requests and decrypt the responses.
 
-The offset and limit are also interesting, but I'll leave that as an exercise for the reader 😉. 
+The offset and limit are also interesting, but I'll leave that as an exercise for the reader 😉.
 
 ## Conclusion
 
-Blind is encrypting their requests and responses locally. While not a good solution to network sniffing and interception by any means, this isn't as dumb as it initially looks - it prevents anyone who is `only` looking at their API route from being able to decrypt it. 
+Blind is encrypting their requests and responses locally. While not a good solution to network sniffing and interception by any means, this isn't as dumb as it initially looks - it prevents anyone who is `only` looking at their API route from being able to decrypt it.
 
-It also prevents any automated tools from harvesting the data; you'd need to do a fairly deep analysis of their libraries and keys to figure out how it was encrypted. Additionally, by encrypting the requests with the public key, you couldn't decrypt them unless you had the corresponding private key. This is less true for the AES key (but probably makes sense based on relative sizes of the requests - public/private key encryption is much more computationally expensive than AES, and the requests seem to be a few orders of magnitude smaller than the responses). 
+It also prevents any automated tools from harvesting the data; you'd need to do a fairly deep analysis of their libraries and keys to figure out how it was encrypted. Additionally, by encrypting the requests with the public key, you couldn't decrypt them unless you had the corresponding private key. This is less true for the AES key (but probably makes sense based on relative sizes of the requests - public/private key encryption is much more computationally expensive than AES, and the requests seem to be a few orders of magnitude smaller than the responses).
 
 Overall a pretty fun weekend afternoon!

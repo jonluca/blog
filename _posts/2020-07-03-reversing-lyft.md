@@ -12,15 +12,15 @@ Lyft, on the other hand, only lets you see the ride history in their app. Their 
 
 ## BurpSuite
 
-I fired up BurpSuite and got the root CA installed - fortunately, Lyft doesn't do TLS stapling, so I was able to pretty quickly find the route. 
+I fired up BurpSuite and got the root CA installed - fortunately, Lyft doesn't do TLS stapling, so I was able to pretty quickly find the route.
 
 {% include image.html file="lyft-route" alt="Lyfts ride history route" %}
 
-Unfortunately, while nearly every other route uses JSON, this one only returned serialized protobuf responses. 
+Unfortunately, while nearly every other route uses JSON, this one only returned serialized protobuf responses.
 
 {% include image.html file="lyft-protobuf" alt="Lyfts protobuf" %}
 
-The response comes back as raw protobuf responses, in which we don't actually have the original schemas. 
+The response comes back as raw protobuf responses, in which we don't actually have the original schemas.
 
 {% include image.html file="lyft-encoded" alt="Lyfts protobuf encoded" %}
 
@@ -37,22 +37,20 @@ There was one that was a bit confusing though:
 ```
   "19": {
     "1": 16980
-  }, 
+  },
 ```
 
-This didn't seem to match up with anything in the responses. After a while I figured out that it had something to do with distance - my one cancelled ride didn't have the `19` entry. 
+This didn't seem to match up with anything in the responses. After a while I figured out that it had something to do with distance - my one cancelled ride didn't have the `19` entry.
 
 Dividing 16980 by the reported distance of 10.55 gave 1609, which seemed awfully close to a constant that I didn't quite remember.. Turns out it's the number of meters in a mile.
 
 By this point I probably had 3/4 of the protobuf definitions in place in a best-guess way.
 
-
 ## When we could've just got JSON...
 
-I looked back at the request after about half an hour of trying to reverse the protobuf and realized there might be a way easier way of getting what we want - the Accept HTTP header. I tried changing the HTTP `Accept` header from `application/x-protobuf,application/json` to just `application/json` with the hopes that their API supported named keys with raw JSON. This worked, and we got valid JSON responses with labeled keys. 
+I looked back at the request after about half an hour of trying to reverse the protobuf and realized there might be a way easier way of getting what we want - the Accept HTTP header. I tried changing the HTTP `Accept` header from `application/x-protobuf,application/json` to just `application/json` with the hopes that their API supported named keys with raw JSON. This worked, and we got valid JSON responses with labeled keys.
 
 {% include image.html file="lyft-json" alt="Lyft's labeled JSON responses" %}
-
 
 A sample ride entry looks like:
 
@@ -83,10 +81,9 @@ A sample ride entry looks like:
 }
 ```
 
-It also looks like they paginate by adding a new URL param, `start_time_ms`. 
+It also looks like they paginate by adding a new URL param, `start_time_ms`.
 
 Converting the request over to python gave me this:
-
 
 ```py
 import requests
@@ -135,7 +132,7 @@ while True:
 
 ```
 
-This allowed me to query all my rides and save them out to a json file, where I could run my analysis. 
+This allowed me to query all my rides and save them out to a json file, where I could run my analysis.
 
 ## Lyft History
 
@@ -143,11 +140,10 @@ I then started up Jupyter notebook and got to analyzing the data.
 
 {% include image.html file="lyft-jupyter" alt="Lyft's analysis" %}
 
-I've spent $4,584 on Lyft in the last 6 years (my first ride was on September 20th, 2014, according to this data). This was spent across 571 rides, averaging $8 per ride. However, I only paid for 377 rides (as my University would cover a lot of the local Lyfts). 
+I've spent $4,584 on Lyft in the last 6 years (my first ride was on September 20th, 2014, according to this data). This was spent across 571 rides, averaging $8 per ride. However, I only paid for 377 rides (as my University would cover a lot of the local Lyfts).
 
 My most expensive Lyft cost $71.89, and my cheapest was $0.36 (probably some credit or promotion?).
 
-I've traveled 4,155 kilometers in that time, or 2,580 miles. I paid, on average, $1.88 per mile. 
+I've traveled 4,155 kilometers in that time, or 2,580 miles. I paid, on average, $1.88 per mile.
 
 This is \~3x the cost of actually owning the average Sedan, but I'd argue this has been worth it for my lifestyle and amount of travel - spending less than $5000 for 6 years worth of travel is pretty good, in my opinion!
-

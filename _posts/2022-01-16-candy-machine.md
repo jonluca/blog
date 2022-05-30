@@ -6,8 +6,7 @@ header-img: "/images/candy-machine-withdrawal.png"
 
 On 1/4/22, nearly 4000 Solana NFT projects were drained of their funds due to a reinitialization bug present in the Candy Machine v1 smart contract on Solana. The account, [cHfYkrVAwfEoe3Mr2GbvzpNQJboDL6AiBoFZDsf8dxj](https://solscan.io/account/cHfYkrVAwfEoe3Mr2GbvzpNQJboDL6AiBoFZDsf8dxj), converted 1,027 SOL into 155k USDC using Raydium, and then transferred the USDC into their FTX account. The vulnerability was patched while the attack was actively going on, at 6:20am on 1/4/22.
 
-This investigation uncovered similar vulnerabilities in NFT exchanges, yet to be publicized. 
-
+This investigation uncovered similar vulnerabilities in NFT exchanges, yet to be publicized.
 
 ## Background
 
@@ -20,7 +19,6 @@ This simplicity greatly lowered the barrier to entry - you didn't need to have a
 Since its inception, over 14,800 candy machines have been created, each corresponding to an NFT collection.
 
 {% include image.html file="cm-program-solscan" alt="Candy Machine program" %}
-
 
 ## Impact
 
@@ -47,7 +45,6 @@ The bug was subtle - the attacker was injecting pre-initialized accounts and the
 The hack seems fairly unsophisticated - the damage this vulnerability could do was pretty high, as the bug effectively allowed any account to control the Candy Machine. The attacker submitted the transactions slowly, and would probably have been able to capture the entirety of the vulnerable set of candy machines had they submitted the transactions through their own RPC pool without rate limits.
 
 What's also interesting about the fix is that it was [actually fixed in code on December 31st for Candy Machine v2](https://github.com/metaplex-foundation/metaplex/commit/e9ef376443c3c8fd2f5b151dd0b09f757b1bf35c), but the CMv1 contract wasn't redeployed until it was actively being exploited.
-
 
 ## Fund extraction
 
@@ -104,18 +101,16 @@ export class MongoClient {
 
 I first cloned all the transaction hashes into Mongo - I set up a connection pool of various RPCs to accomplish this, as there's no way of getting it from the Solana mainnet-beta RPC in a reasonable amount of time.
 
-
 ```js
+const history = await con.getSignaturesForAddress(
+  new PublicKey(publicKey),
+  options
+);
 
- const history = await con.getSignaturesForAddress(
-    new PublicKey(publicKey),
-    options
-  );
-
- for (const c of chunk(history, 100000)) {
-    await mc.saveHashes(c);
-    log.info("Completed chunk");
-  }
+for (const c of chunk(history, 100000)) {
+  await mc.saveHashes(c);
+  log.info("Completed chunk");
+}
 ```
 
 Then, after fetching all the hashes, I would clone the parsed transaction details into Mongo
@@ -205,7 +200,6 @@ Of the 14,800 candy machines, 11,848 have had the withdraw function executed on 
 Only `cHfYkrVAwfEoe3Mr2GbvzpNQJboDL6AiBoFZDsf8dxj` seems to be doing this maliciously - the other accounts are all calling legitimate withdraw functions.
 
 `F9fER1Cb8hmjapWGZDukzcEYshAUDbSFpbXkj9QuBaQj` actually seems to have created over 2,000 candy machines, and then attempted to call withdraw on them, single handedly creating \~14% of all candy machines on Solana.
-
 
 ## [Redacted Pending Vulnerability Disclosure]
 
@@ -503,7 +497,7 @@ SolStoners
 SolTowers
 Solutions
 Solvaders
-SolWatchers 
+SolWatchers
 Soul Dogs
 Soulofox
 Space Bums
@@ -557,21 +551,20 @@ Xperiment
 
 ## Bug Bounty
 
-
 In conjunction with this vulnerability research, Metaplex has launched a [bug bounty program.](https://www.metaplex.com/posts/bug-bounty-blog)
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Earlier this week the <a href="https://twitter.com/metaplex?ref_src=twsrc%5Etfw">@Metaplex</a> Foundation announced a Bug Bounty program—our commitment to white-hat developers we’ve been spinning up for months.<br><br>Our first contributor, <a href="https://twitter.com/jonluca?ref_src=twsrc%5Etfw">@jonluca</a>, uncovered a vulnerability in CMv1 back in January. More below. 👇 <a href="https://t.co/sq0cjtLtTj">https://t.co/sq0cjtLtTj</a></p>&mdash; Metaplex (@metaplex) <a href="https://twitter.com/metaplex/status/1504846982954762290?ref_src=twsrc%5Etfw">March 18, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 ## Timeline
 
-* Dec 31st - [Fix for CMv2 is landed](https://github.com/metaplex-foundation/metaplex/commit/e9ef376443c3c8fd2f5b151dd0b09f757b1bf35c)
-* Tue Jan 04 2022 05:57:11 GMT-0500 - [First attacker transaction is executed](https://solscan.io/tx/coSeMNsGKebMGP1vqPZcEbu6rYiF4BbCRrtBRNLFi4TbMo3Psd7KZyvDTPv6KyeqZNDyMVU3o6D3rgQPG1aV94J)
-* Tue Jan 04 2022 06:20:29 GMT-0500 - [First transaction that tries to interact with the newly updated contracted is executed](https://solscan.io/tx/3zhZDtCV2vr5fSG2TxEjXXTdMmfk8rfnM4mNAavKdZM1Cy6627hN8vDnu7gaUk6oPmzLLcacJpTopK1bsscX9MbB)
-* Tue Jan 04 2022 06:49:27 GMT-0500 - [Last transaction that tries to interact with the newly updated contracted is executed](https://solscan.io/tx/3zhZDtCV2vr5fSG2TxEjXXTdMmfk8rfnM4mNAavKdZM1Cy6627hN8vDnu7gaUk6oPmzLLcacJpTopK1bsscX9MbB)
-* Tue Jan 06, 2022, 18:25 GMT-0500 - [Fix for CMv1 is landed](https://github.com/metaplex-foundation/metaplex/commit/4ddc13ea29070172f358e054baa9d4c47687a26b)
-* Tue Jan 15, 2022, 21:15 GMT-0500 - Metaplex is alerted to this specific vulnerability.
-* Fri Mar 11, 2022 - [Metaplex bug bounty program is launched in conjunction with this post](https://www.metaplex.com/posts/bug-bounty-blog)
-* Fri Mar 18, 2022 - [Metaplex bug bounty for CMv1 is announced](https://twitter.com/metaplex/status/1504846982954762290)
+- Dec 31st - [Fix for CMv2 is landed](https://github.com/metaplex-foundation/metaplex/commit/e9ef376443c3c8fd2f5b151dd0b09f757b1bf35c)
+- Tue Jan 04 2022 05:57:11 GMT-0500 - [First attacker transaction is executed](https://solscan.io/tx/coSeMNsGKebMGP1vqPZcEbu6rYiF4BbCRrtBRNLFi4TbMo3Psd7KZyvDTPv6KyeqZNDyMVU3o6D3rgQPG1aV94J)
+- Tue Jan 04 2022 06:20:29 GMT-0500 - [First transaction that tries to interact with the newly updated contracted is executed](https://solscan.io/tx/3zhZDtCV2vr5fSG2TxEjXXTdMmfk8rfnM4mNAavKdZM1Cy6627hN8vDnu7gaUk6oPmzLLcacJpTopK1bsscX9MbB)
+- Tue Jan 04 2022 06:49:27 GMT-0500 - [Last transaction that tries to interact with the newly updated contracted is executed](https://solscan.io/tx/3zhZDtCV2vr5fSG2TxEjXXTdMmfk8rfnM4mNAavKdZM1Cy6627hN8vDnu7gaUk6oPmzLLcacJpTopK1bsscX9MbB)
+- Tue Jan 06, 2022, 18:25 GMT-0500 - [Fix for CMv1 is landed](https://github.com/metaplex-foundation/metaplex/commit/4ddc13ea29070172f358e054baa9d4c47687a26b)
+- Tue Jan 15, 2022, 21:15 GMT-0500 - Metaplex is alerted to this specific vulnerability.
+- Fri Mar 11, 2022 - [Metaplex bug bounty program is launched in conjunction with this post](https://www.metaplex.com/posts/bug-bounty-blog)
+- Fri Mar 18, 2022 - [Metaplex bug bounty for CMv1 is announced](https://twitter.com/metaplex/status/1504846982954762290)
 
 ## Appendix
 

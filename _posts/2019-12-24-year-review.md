@@ -2,12 +2,9 @@
 title: "2019 Travel in Review - 52,848 miles, 137 hours, and 40 flights"
 date: 2019-12-24 14:17:28 +0100
 header-img: "/images/vicenza.png"
-header-includes: "<link rel=\"stylesheet\" type=\"text/css\" href=\"/slick/slick.css\"/><link rel=\"stylesheet\" type=\"text/css\" href=\"/slick/slick-theme.css\"/><script type=\"text/javascript\" src=\"//code.jquery.com/jquery-1.11.0.min.js\"></script><script type=\"text/javascript\" src=\"//code.jquery.com/jquery-migrate-1.2.1.min.js\"></script><script type=\"text/javascript\" src=\"/slick/slick.min.js\"></script><script type=\"text/javascript\" src=\"/js/slideshow.js\"></script>"
 ---
-
-
-As 2019 wraps up I wanted to do a personal year in review - I traveled a lot this year, and had the good fortune of being able to live and work in a lot of different places. 
-
+<link rel="stylesheet" type="text/css" href="/slick/slick.css"/><link rel="stylesheet" type="text/css" href="/slick/slick-theme.css"/><script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script><script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script><script type="text/javascript" src="/slick/slick.min.js"></script><script type="text/javascript" src="/js/slideshow.js"></script>
+As 2019 wraps up I wanted to do a personal year in review - I traveled a lot this year, and had the good fortune of being able to live and work in a lot of different places.
 
 # Overview
 
@@ -22,16 +19,15 @@ I use a fun app called [App in the Air](https://www.appintheair.mobi/) that trac
 
 I took 40 flights, for a total of 137 hours, or 5 days 17 hours of travel. This means I spent **\~1.56%** of 2019 on planes.
 
-I also traveled 52,848 miles by plane, which is the equivalent of **2.12** times around the world. 
+I also traveled 52,848 miles by plane, which is the equivalent of **2.12** times around the world.
 
-This was also all leisure travel - none of this was company paid or work travel. 
+This was also all leisure travel - none of this was company paid or work travel.
 
-
-## January 
+## January
 
 Flights: VCE - AMS, AMS - VCE, VCE - BRU, BRU - DUB, DUB - SFO, SJC - LGB, LGB - SJC
 
-I started the year off celebrating new years back home in Vicenza, Italy. For Christmas a friend and I got gifted a trip to Amsterdam, so on the 3rd we flew to AMS and spent a little under a week there. 
+I started the year off celebrating new years back home in Vicenza, Italy. For Christmas a friend and I got gifted a trip to Amsterdam, so on the 3rd we flew to AMS and spent a little under a week there.
 
 <div class="slideshow">
     <div class="image">
@@ -72,7 +68,7 @@ I started the year off celebrating new years back home in Vicenza, Italy. For Ch
 </div>
 <p class="footnote">Amsterdam - January 3 to 7</p>
 
-I also had an incredible view of the Alps on the way back. 
+I also had an incredible view of the Alps on the way back.
 
 <div class="slideshow">
     <div class="image">
@@ -134,7 +130,7 @@ My February was fairly uneventful - I spent most of the time ramping up at work.
 
 Flights: SFO - LAX, LAX - SFO
 
-In March I  went on a few retreats - I did another trip to Los Angeles and went on one of my org retreats (shout out Scope!) and then in late March I did a work retreat to Lake Tahoe. I also celebrated a friends birthday at Le Boucherie, the high end restaurant at the top of the Intercontinental in downtown Los Angeles. 
+In March I went on a few retreats - I did another trip to Los Angeles and went on one of my org retreats (shout out Scope!) and then in late March I did a work retreat to Lake Tahoe. I also celebrated a friends birthday at Le Boucherie, the high end restaurant at the top of the Intercontinental in downtown Los Angeles.
 
 <div class="slideshow">
     <div class="image">
@@ -179,7 +175,7 @@ In March I  went on a few retreats - I did another trip to Los Angeles and went 
 
 Flights: SFO - LAX, LAX - SFO, SFO - LAX
 
-In April I wrapped up my work at Elevate Security and ended up signing on full time to work at Pinterest. 
+In April I wrapped up my work at Elevate Security and ended up signing on full time to work at Pinterest.
 
 <div class="slideshow">
     <div class="image">
@@ -199,7 +195,7 @@ In April I wrapped up my work at Elevate Security and ended up signing on full t
 </div>
 <p class="footnote">Last few days on the Berkeley campus</p>
 
-I also had to find a new apartment in the city, move out of my sublet in Berkeley, and plan my round the world trip. 
+I also had to find a new apartment in the city, move out of my sublet in Berkeley, and plan my round the world trip.
 
 I had a very kind friend that agreed to help me move into my new apartment right at the end of April - I flew down to LA, then he and I drove up to Santa Barbara to pick up some of my stuff in storage, then we stopped in San Jose and finally dropped it all off at my new place in San Francisco.
 
@@ -222,8 +218,7 @@ Flights: BKK - FRA, FRA - PMI, PMI - FRA, FRA - JFK, EWR - SFO
 </div>
 <p class="footnote">Streets of Mallorca</p>
 
-
-The first two weeks of June were also dedicated to my round the world trip. I started full time at Pinterest on June 14th. 
+The first two weeks of June were also dedicated to my round the world trip. I started full time at Pinterest on June 14th.
 
 <div class="image">
     <picture class="centered-image">
@@ -260,7 +255,7 @@ Flights: SFO - SBA, SBA - SFO
 
 August was my first full month of work - I spent a lot of time at work and didn't do that much outside traveling.
 
-I did go down to Santa Barbara for a week to see family, though. It was my fathers birthday so we enjoyed some beach time and just hung out in Montecito. 
+I did go down to Santa Barbara for a week to see family, though. It was my fathers birthday so we enjoyed some beach time and just hung out in Montecito.
 
 <div class="slideshow">
     <div class="image">
@@ -294,7 +289,7 @@ I did go down to Santa Barbara for a week to see family, though. It was my fathe
 </div>
 <p class="footnote">Santa Barbara - August 3 to 7</p>
 
-At the end of August I also met up with some friends and we all went to Outsidelands. 
+At the end of August I also met up with some friends and we all went to Outsidelands.
 
 <video class="centered-image" controls>
     <source src="/images/2019-review/cg.mp4" type="video/mp4">
@@ -356,7 +351,7 @@ Near the end of the year I also went to San Antonio, Texas and met up with a few
 
 Flights: SFO - SJD, SJD - SFO
 
-The main vacation for October was San José del Cabo, and it was *amazing*. Went with a group of three other guys and we had an incredible time there. 
+The main vacation for October was San José del Cabo, and it was _amazing_. Went with a group of three other guys and we had an incredible time there.
 
 <div class="slideshow">
     <div class="image">
@@ -405,7 +400,8 @@ I also used my resort credit from my Amex Aspire at the Waldorf Los Cabos and it
 
 Flights: SFO - LAX, LAX - SFO
 
-In November I went to a few friends birthdays down in South Bay, went to the Chrome Developer Summit, and flew down to LA for a quick weekend trip. 
+In November I went to a few friends birthdays down in South Bay, went to the Chrome Developer Summit, and flew down to LA for a quick weekend trip.
+
 <div class="image">
     <picture class="centered-image">
         <source srcset="/images/2019-review/cds.webp" type="image/webp">
@@ -477,7 +473,7 @@ The day after that I immediately flew into Bruges. I met up with an old friend t
 </div>
 <p class="footnote">Bruges - Dec 18 to 22</p>
 
-Drank a *lot* of Belgian beer - I always forget how cheap and how freely the beer flows in Europe.
+Drank a _lot_ of Belgian beer - I always forget how cheap and how freely the beer flows in Europe.
 
 <div class="image">
     <picture class="centered-image">
@@ -546,10 +542,10 @@ I got upgraded to their Premier King room with a canal view, and had personalize
 
 This year I hit:
 
-* 52,848 miles
-* 137 hours
-* 40 flights
-* 12 countries
+- 52,848 miles
+- 137 hours
+- 40 flights
+- 12 countries
 
 I averaged a flight every 9 days and a country per month.
 

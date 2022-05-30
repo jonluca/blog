@@ -5,8 +5,7 @@ date: 2018-06-06 19:06:43 -0700
 
 An interesting discussion came up on [tildes](https://tildes.net) about whether megathreads should be introduced. This lead me to look back on five years of moderating subreddits, and my experiences with megathreads.
 
-
-### Original Comment 
+### Original Comment
 
 I think that the rise of megathreads on reddit has been a detriment to the site.
 
@@ -30,17 +29,16 @@ There is something to be said about the ability to generate a new, blank sheet o
 
 Additionally, I feel like the way reddit originally conditioned us to view posts is to view them then not check them again (unless we interacted with someone in it or got a notification). This prevents potentially great (but late) content from gaining visibility, as a non-negligible portion of the population will still be browsing the subreddit, but will never click the post again.
 
-
 A user on tildes made the following comment:
 
 > Megathreads always seem to stifle discussion
-> 
+>
 > While each outlet will have the same general topic they will take there own nuanced look at it. A specific article will bring in it's own voice and color to the discussion and it is generally tailored to it's audience.
-> 
+>
 > Megathreads smear that color until it is just a grey streak. It is just a headline with no substance or analysis of the world around it.
-> 
+>
 > Also in high volume post, the 1st couple of okay comments dominate the discussion sphere, taking the air out of the event being discussed.
-> 
+>
 > No real discussion happens about any of the individual articles being posted in main megathread.
 
 The worst part about this, as well, is the fact that these top comments are usually singular and short in nature. It's difficult to create content that resounds with everyone, or that everyone reading will enjoy. This makes it so that short quips, jokes, or the same sort of content makes it to the top, invariably. Don't get me wrong, these sorts of comments are fine - but only when they're not stifling the more in depth, thought out posts/comments. When they're what 90% of people will see they become a shallow reflection of the true thoughts of the community on the matter.
@@ -49,6 +47,6 @@ Posts and comments might seem easy to dismiss at first, but they are the method 
 
 ### Megathreads Done Right
 
-The way they should be done, in my opinion, is to act as a central repository of links about the topic. They shouldn't focus the discussion itself - they should just serve to serve as an extra layer of aggregation for events that are large enough to warrant it. Posts should not be removed just because they're surrounding a large event - in fact, it's almost counterintuitive to remove them. Subreddits probably have significantly more users *because* of that event that would want to see that content. 
+The way they should be done, in my opinion, is to act as a central repository of links about the topic. They shouldn't focus the discussion itself - they should just serve to serve as an extra layer of aggregation for events that are large enough to warrant it. Posts should not be removed just because they're surrounding a large event - in fact, it's almost counterintuitive to remove them. Subreddits probably have significantly more users _because_ of that event that would want to see that content.
 
-I'm not necessarily saying all megathreads are done poorly - just those that end up forcing conversation in a single place when it's detrimental to the experience. I believe mods should take a deep look at their communities and make a decision based on their experiences around how the discussions play out and the type of content they remove. 
+I'm not necessarily saying all megathreads are done poorly - just those that end up forcing conversation in a single place when it's detrimental to the experience. I believe mods should take a deep look at their communities and make a decision based on their experiences around how the discussions play out and the type of content they remove.

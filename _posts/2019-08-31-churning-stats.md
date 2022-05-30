@@ -3,7 +3,13 @@ title: "An analysis of activity on /r/churning"
 date: 2019-08-31 15:49:35 -0700
 header-img: "/images/churning-graph.png"
 ---
-[/r/churning](https://www.reddit.com/r/churning) is a subreddit dedicated to maximizing credit rewards and travel hacking. The subreddit has a fairly unique template for activity that is fairly distinct from the rest of reddit - discussions are mostly siloed in weekly threads, with only the rare top level post. I thought it would be interesting to run an analysis of user behavior and activity in the sub, as well as find patterns in the distribution of content. 
+
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{{ site.url }}/stylesheets/table.css"
+/>
+[/r/churning](https://www.reddit.com/r/churning) is a subreddit dedicated to maximizing credit rewards and travel hacking. The subreddit has a fairly unique template for activity that is fairly distinct from the rest of reddit - discussions are mostly siloed in weekly threads, with only the rare top level post. I thought it would be interesting to run an analysis of user behavior and activity in the sub, as well as find patterns in the distribution of content.
 
 ## Getting the data
 
@@ -207,21 +213,23 @@ GROUP BY 1
 ORDER BY created_utc DIV 86400 * 86400
 ```
 
-Over the last year we have 
-The resulting graph shows how our comment activity is fairly cyclical. Our weekends are the slowest times, with a quick bounce back on Mondays. We peak on Wednesday/Thursday, and then drop again. 
+Over the last year we have
+The resulting graph shows how our comment activity is fairly cyclical. Our weekends are the slowest times, with a quick bounce back on Mondays. We peak on Wednesday/Thursday, and then drop again.
 
-Our deepest dip in the chart is unsurprisingly December 25th, or Christmas, which makes sense as a majority of our userbase is based in Western countries. 
+Our deepest dip in the chart is unsurprisingly December 25th, or Christmas, which makes sense as a majority of our userbase is based in Western countries.
 
 {% picture "churning-oneyear.png" --alt one year of churning comments %}
+
 <p class="footnote">1 year of /r/churning comments</p>
 
 Our distribution of comments per day is interesting as well.
 
 {% picture "churning-histogram.png" --alt one year of churning comments %}
+
 <p class="footnote">Daily comment distribution</p>
 
 Our actual baseline stats put us at around 2,000 comments a day on average.
-This is actually *down* year over year - last year, we averaged around 2,400 comments a day.
+This is actually _down_ year over year - last year, we averaged around 2,400 comments a day.
 
 <div class="table100 tableTop ver1 m-b-110">
     <table data-vertable="ver1">
@@ -258,46 +266,47 @@ This is actually *down* year over year - last year, we averaged around 2,400 com
 The 20 users with the most comments in the last 2 years are below.
 
 | **User**             | **Number of Comments** |
-|----------------------|----------|
-| OJtheJEWSMAN         | 48622    |
-| duffcalifornia       | 14221    |
-| POINTSmetotheMILES   | 14204    |
-| aksurvivorfan        | 13268    |
-| lenin1991            | 8980     |
-| Jeff68005            | 8303     |
-| the_fit_hit_the_shan | 7810     |
-| garettg              | 7464     |
-| m16p                 | 7181     |
-| AutoModerator        | 7046     |
-| PointsYak            | 6890     |
-| cowsareverywhere     | 6748     |
-| ilessthanthreethis   | 6645     |
-| payyoutuesday        | 5944     |
-| bplturner            | 5714     |
-| Eurynom0s            | 5686     |
-| TheTaxman_cometh     | 5602     |
-| blueeyes_austin      | 5554     |
-| Andysol1983          | 5440     |
+| -------------------- | ---------------------- |
+| OJtheJEWSMAN         | 48622                  |
+| duffcalifornia       | 14221                  |
+| POINTSmetotheMILES   | 14204                  |
+| aksurvivorfan        | 13268                  |
+| lenin1991            | 8980                   |
+| Jeff68005            | 8303                   |
+| the_fit_hit_the_shan | 7810                   |
+| garettg              | 7464                   |
+| m16p                 | 7181                   |
+| AutoModerator        | 7046                   |
+| PointsYak            | 6890                   |
+| cowsareverywhere     | 6748                   |
+| ilessthanthreethis   | 6645                   |
+| payyoutuesday        | 5944                   |
+| bplturner            | 5714                   |
+| Eurynom0s            | 5686                   |
+| TheTaxman_cometh     | 5602                   |
+| blueeyes_austin      | 5554                   |
+| Andysol1983          | 5440                   |
 
-We can also look at the distribution of users that comment. We actually really only have one outlier, u/OJtheJEWSMAN. If we remove that account, our distribution looks like a pretty typical Pareto distribution. This year, OJ has made 14,710 comments, which accounts for roughly 2% of all comments on the subreddit. 
+We can also look at the distribution of users that comment. We actually really only have one outlier, u/OJtheJEWSMAN. If we remove that account, our distribution looks like a pretty typical Pareto distribution. This year, OJ has made 14,710 comments, which accounts for roughly 2% of all comments on the subreddit.
 
-The top 500 users are also responsible for 366,038 of the comments from last year, or 51.8% of all comments. This follows a pretty typical distribution of online activity (see the [90 - 9 - 1 rule](https://en.wikipedia.org/wiki/1%25_rule_(Internet_culture))).
+The top 500 users are also responsible for 366,038 of the comments from last year, or 51.8% of all comments. This follows a pretty typical distribution of online activity (see the [90 - 9 - 1 rule](<https://en.wikipedia.org/wiki/1%25_rule_(Internet_culture)>)).
 
 {% picture "churning-users.png" --alt one year of churning comments by user %}
+
 <p class="footnote">Top 1000 user comment distribution</p>
 
 {% picture "churning-users-fixed.png" --alt one year of churning comments by user %}
-<p class="footnote">Top 1000 user comment distribution, without outlier</p>
 
+<p class="footnote">Top 1000 user comment distribution, without outlier</p>
 
 Just for fun I also looked at OJs daily activity - looks like they took a pretty signifcant break June of 2018, perhaps using up all those hard earned miles on vacation?
 
 {% picture "churning-oj.png" --alt one year of churning comments %}
+
 <p class="footnote">OJs activity</p>
 
 ## Data
 
 If you would like to run your own analysis, or get a copy of the data I used here, I uploaded a compressed version of the SQL dump [here](https://mega.nz/#!MZMkFapC!iwTIq7dNA4K4qO6y9QJW2mGD0Vv2MXXyUWHPosuuEjs). You can restore this using `bunzip2 < dump.sql.bz2 | mysql -u $USER -p`.
 
-I'm open to suggestions on what other metrics to look at! I think it would be cool to visualize who the top 5 commenters have been over time, or perhaps what the average amount of time a user has been active on the subreddit. These might be incorporated in the next State of the Subreddit. 
-
+I'm open to suggestions on what other metrics to look at! I think it would be cool to visualize who the top 5 commenters have been over time, or perhaps what the average amount of time a user has been active on the subreddit. These might be incorporated in the next State of the Subreddit.

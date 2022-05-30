@@ -3,11 +3,11 @@
 # These are used in several places. You likely want to enter whatever CSS media queries your site
 # uses here.
 media_queries:
-    mobile: 'max-width: 480px'
-    tablet: 'max-width: 768'
-    laptop: 'max-width: 1024px'
-    desktop: 'max-width: 1200'
-    wide: 'min-width: 1201'
+  mobile: "max-width: 480px"
+  tablet: "max-width: 768"
+  laptop: "max-width: 1024px"
+  desktop: "max-width: 1200"
+  wide: "min-width: 1201"
 
 presets:
   # This entry is purely an example. It is not the default JPT preset, nor is it available as a

@@ -1,13 +1,13 @@
 ---
-title:  "10x Performance Increases: Optimizing a Static Site"
-date:   2018-03-16 12:00:00 -0700
+title: "10x Performance Increases: Optimizing a Static Site"
+date: 2018-03-16 12:00:00 -0700
 ---
 
 A couple months ago, I was traveling outside of the U.S. and wanted to show a friend a link on my personal (static) site. I tried navigating to my website, but it took much longer than I anticipated. There’s absolutely nothing dynamic about it — it has animations and some responsive design, but the content always stays the same. I was pretty appalled at the results, \~4s to DOMContentLoaded, and 6.8s for a full page load. There were 20 requests for a static site, with 1mb of total data transferred. I was accustomed to my 1Gb/s, low latency internet in Los Angeles connecting to my server in San Francisco, which made this monstrosity seem lightning fast. In Italy, at 8mb/s, it was a different picture entirely.
 
 ![](https://cdn-images-1.medium.com/max/2488/1*OgqdIBjziyfhE_tbip24ww.png)
 
-This was my first foray into optimizations. Up to this point, any time I wanted to add a library or resource, I would just throw it in and point to it with *src=”…”*. I had paid zero attention to any form of [performance](https://hackernoon.com/tagged/performance), from caching to inlining to lazy loading.
+This was my first foray into optimizations. Up to this point, any time I wanted to add a library or resource, I would just throw it in and point to it with _src=”…”_. I had paid zero attention to any form of [performance](https://hackernoon.com/tagged/performance), from caching to inlining to lazy loading.
 
 I started looking around for people with similar experiences. Unfortunately, a lot of the literature on static optimizations gets dated fairly quickly — recommendations from 2010 or 2011 discussed libraries or made assumptions that simply weren’t true anymore, or just repeated the same maxims over and over.
 
@@ -19,21 +19,21 @@ However, I did find two great sources of information — [High Performance Brows
 
 The first step of the process was to profile the site. I wanted to figure out what was taking the longest, and how to best parallelize everything. I ran various tools to profile my site and test it from various locations around the world, including:
 
-* [https://tools.pingdom.com/](https://tools.pingdom.com/)
+- [https://tools.pingdom.com/](https://tools.pingdom.com/)
 
-* [www.webpagetest.org/](http://www.webpagetest.org/)
+- [www.webpagetest.org/](http://www.webpagetest.org/)
 
-* [https://tools.keycdn.com/speed](https://tools.keycdn.com/speed)
+- [https://tools.keycdn.com/speed](https://tools.keycdn.com/speed)
 
-* [https://developers.google.com/web/tools/lighthouse/](https://developers.google.com/web/tools/lighthouse/)
+- [https://developers.google.com/web/tools/lighthouse/](https://developers.google.com/web/tools/lighthouse/)
 
-* [https://developers.google.com/speed/pagespeed/insights/](https://developers.google.com/speed/pagespeed/insights/)
+- [https://developers.google.com/speed/pagespeed/insights/](https://developers.google.com/speed/pagespeed/insights/)
 
-* [https://webspeedtest.cloudinary.com/](https://webspeedtest.cloudinary.com/)
+- [https://webspeedtest.cloudinary.com/](https://webspeedtest.cloudinary.com/)
 
 Some of these offered suggestions on improvements, but there’s only so much you can do when your static site has 50 requests — everything from a spacer gif left as a remnant from the 90s to assets that aren’t used (I was loading 6 fonts and only using 1).
 
-![Timeline for my site — I tested this on the Web Archive as I didn’t screenshot the original one, but it looks similar enough to what I saw a few months ago.](https://cdn-images-1.medium.com/max/3800/1*61ngDdpQfLqBo-I8F_tuqw.png)*Timeline for my site — I tested this on the Web Archive as I didn’t screenshot the original one, but it looks similar enough to what I saw a few months ago.*
+![Timeline for my site — I tested this on the Web Archive as I didn’t screenshot the original one, but it looks similar enough to what I saw a few months ago.](https://cdn-images-1.medium.com/max/3800/1*61ngDdpQfLqBo-I8F_tuqw.png)_Timeline for my site — I tested this on the Web Archive as I didn’t screenshot the original one, but it looks similar enough to what I saw a few months ago._
 
 I wanted to improve everything that I had control over — from the contents and speed of the javascript to the actual web server (Nginx) and DNS settings.
 
@@ -59,7 +59,7 @@ While CDNs and distributed caching might make sense for large scale, distributed
 
 ### Compress Resources
 
-I was loading an 8mb sized headshot and then displaying it at 10% width/height. This wasn’t just a lack of optimization — this was *almost negligent usage of users bandwidth*.
+I was loading an 8mb sized headshot and then displaying it at 10% width/height. This wasn’t just a lack of optimization — this was _almost negligent usage of users bandwidth_.
 
 ![](https://cdn-images-1.medium.com/max/4980/1*h79KSROW3oY6KWfQm6u5yA.png)
 
@@ -75,7 +75,7 @@ I started by setting up https and redirecting all http requests to https. I got 
 
 <script src="https://gist.github.com/jonluca/dd57551f0c6f314cbc4481e14cdd0e4b.js"></script>
 
-Just by adding the http2 directive, Nginx was able to take advantage of all the modern, baked in advantages of the newest HTTP features. Note that if you want to take advantage of HTTP2 (previously SPDY), you *must* use HTTPS. Read more about it [here](https://hpbn.co/http2/).
+Just by adding the http2 directive, Nginx was able to take advantage of all the modern, baked in advantages of the newest HTTP features. Note that if you want to take advantage of HTTP2 (previously SPDY), you _must_ use HTTPS. Read more about it [here](https://hpbn.co/http2/).
 
 You can also take advantage of HTTP2 push directives with* http2_push images/Headshot.jpg;*
 
@@ -85,9 +85,9 @@ Note: Enabling gzip and TLS might put you at risk for [BREACH](https://en.wikipe
 
 What more could be accomplished through just Nginx? The first things that jump out are caching and compression directives.
 
-I was sending raw, uncompressed HTML. With just a single *gzip on;* line, I was able to go from 16000 bytes to 8000 bytes, a decrease of 50%.
+I was sending raw, uncompressed HTML. With just a single _gzip on;_ line, I was able to go from 16000 bytes to 8000 bytes, a decrease of 50%.
 
-We are actually able to improve this number even further — if set Nginx’s *gzip_static on,* it’ll look for precompressed versions of all requested files before hand. This goes hand in hand with our webpack config above — we can use the [ZopflicPlugin](https://github.com/webpack-contrib/zopfli-webpack-plugin) to precompress all our files, at build time! This saves computational resources, and allows us to maximize our compression with no tradeoff to speed.
+We are actually able to improve this number even further — if set Nginx’s _gzip_static on,_ it’ll look for precompressed versions of all requested files before hand. This goes hand in hand with our webpack config above — we can use the [ZopflicPlugin](https://github.com/webpack-contrib/zopfli-webpack-plugin) to precompress all our files, at build time! This saves computational resources, and allows us to maximize our compression with no tradeoff to speed.
 
 Additionally, my site changes fairly infrequently, so I wanted the resources to be cached for as long as possible. This would make it so that, on subsequent visits, users would not need to redownload all assets (especially bundle.js).
 
@@ -103,7 +103,7 @@ And the corresponding server block
 
 Lastly there was a small change to my actual site that would improve things by a non-negligible amount. There are 5 images that aren’t seen until you press on their corresponding tabs, but that were loaded at the same time as everything else (due to their being in a <img src=”…”> tag.
 
-I wrote a short script to modify the attribute with every element with the *lazyload class.* These images would only be loaded once the corresponding box was clicked.
+I wrote a short script to modify the attribute with every element with the _lazyload class._ These images would only be loaded once the corresponding box was clicked.
 
 <script src="https://gist.github.com/jonluca/fc74d3a0728ec5349699752947792c31.js"></script>
 
@@ -117,4 +117,4 @@ There are a few other changes that could improve the page load speeds — most n
 
 This improved my page load times from more than 8 seconds to ~350ms on first page load, and an insane ~200ms on subsequent ones. I really recommend reading through all of [High Performance Browser Networking](https://hpbn.co/#toc) — it’s a fairly quick read, and provides an incredibly well written overview of the modern internet, and optimizing at every layer of the modern internet model.
 
-*Did I miss anything? See anything that violates best practices or that could improve my performance even more? [Feel free to reach out — JonLuca De Caro!](https://jonlu.ca)*
+_Did I miss anything? See anything that violates best practices or that could improve my performance even more? [Feel free to reach out — JonLuca De Caro!](https://jonlu.ca)_

@@ -18,13 +18,13 @@ Download hs-airdrop and register for an account on https://namebase.io. Namebase
 git clone https://github.com/handshake-org/hs-airdrop.git && cd hs-airdrop && npm install
 ```
 
-Next go to https://www.namebase.io/ and find your wallets address. 
+Next go to https://www.namebase.io/ and find your wallets address.
 
 To redeem your HNS you'll need:
 
-* The `hs-airdrop` binary
-* The path to your private key
-* Your wallet address
+- The `hs-airdrop` binary
+- The path to your private key
+- Your wallet address
 
 Namebase also has similar instructions on redeeming these coins at https://www.namebase.io/airdrop.
 
@@ -32,23 +32,23 @@ Namebase also has similar instructions on redeeming these coins at https://www.n
 
 If you want to use SSH, first confirm that the key you want to use is registered on GitHub, and was associated with your account on February 4th, 2019.
 
-List all your keys with 
+List all your keys with
 
 ```
 $ ls ~/.ssh/
 ```
 
-Most likely it will be named `id_rsa`. Then run the hs-airdrop binary with the path to your private key. 
+Most likely it will be named `id_rsa`. Then run the hs-airdrop binary with the path to your private key.
 
 ```
 ./bin/hs-airdrop --bare ~/.ssh/id_rsa hs1...<your address from namebase> 0.1
 ```
 
-It will ask you to decrypt your private key. Note that the private key is *never sent anywhere* - you can verify this yourself from the source code of hs-airdrop, here: https://github.com/handshake-org/hs-airdrop. This will then proceed to submit your confirmation and check if it is in the airdrop tree. If it is, you'll get a base64 confirmation, which you'll submit below.
+It will ask you to decrypt your private key. Note that the private key is _never sent anywhere_ - you can verify this yourself from the source code of hs-airdrop, here: https://github.com/handshake-org/hs-airdrop. This will then proceed to submit your confirmation and check if it is in the airdrop tree. If it is, you'll get a base64 confirmation, which you'll submit below.
 
 ## PGP
 
-PGP is a little more tricky - the documentation on the repo is a bit lacking. 
+PGP is a little more tricky - the documentation on the repo is a bit lacking.
 
 On MacOS, using PGP Suite, you can do the following.
 
@@ -70,7 +70,7 @@ The key ID is the value below the `pub` key (in the case of the above, `849E61D1
 $ gpg --armor --export-secret-keys 849E61D17094A964866AE510E6DC4811DD593AC7 > ~/Desktop/sec.asc
 ```
 
-It will ask you for the keys password. 
+It will ask you for the keys password.
 
 to check if your key is in the airdrop tree, you next run, again replacing my key with yours:
 
@@ -78,14 +78,13 @@ to check if your key is in the airdrop tree, you next run, again replacing my ke
 ./bin/hs-airdrop --bare ~/Desktop/sec.asc 849E61D17094A964866AE510E6DC4811DD593AC7 hs1...<your address> 0.1
 ```
 
-This will tell you if your key is in the airdrop tree, and if it is, it will print out a base64 string with your airdrop redemption. 
-
+This will tell you if your key is in the airdrop tree, and if it is, it will print out a base64 string with your airdrop redemption.
 
 ## Submitting your confirmation
 
 If your SSH or public key was in the airdrop tree, it will print a base64 string. Go to https://www.namebase.io/airdrop and paste it into the 5th box.
 
-If it was valid, you'll receive your HNS in roughly 16 hours. 
+If it was valid, you'll receive your HNS in roughly 16 hours.
 
 {% include image.html file="namebase-balance" alt="Namebase Balance" %}
 
@@ -101,5 +100,5 @@ Note that if you have multiple SSH keys, it will only allow you to redeem for on
 
 ## Other Airdrops
 
-* Keybase did an XLM drop worth about $1000 USD as of May 2021 - check your https://keybase.io account
-* Uniswap did a 400 ETH drop worth about $16,000 USD as of May 2021 - https://airdrops.io/uniswap/
+- Keybase did an XLM drop worth about $1000 USD as of May 2021 - check your https://keybase.io account
+- Uniswap did a 400 ETH drop worth about $16,000 USD as of May 2021 - https://airdrops.io/uniswap/

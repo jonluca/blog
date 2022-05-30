@@ -2,17 +2,17 @@
 title: Interesting Snippets
 ---
 
-A collection of short ideas, anecdotes, and excerpts that I found interesting. I did not write any of the following, and attempt to give attribution where possible. 
+A collection of short ideas, anecdotes, and excerpts that I found interesting. I did not write any of the following, and attempt to give attribution where possible.
 
-I do not necessarily agree with the views - they simply succintly and clearly say what I believe to be an interesting topic or insight. 
+I do not necessarily agree with the views - they simply succintly and clearly say what I believe to be an interesting topic or insight.
 
 ## On Planned Obsolesence
 
 From [u/Awesomebox5000 on a thread on planned lifecycles](https://www.reddit.com/r/programming/comments/6dtze8/postmarketos_aiming_for_a_10_year_lifecycle_for/di5kfe2/)
 
-Planned obsolescence doesn't really exist in the way most people think it exists. Manufacturing processes have matured to the point that we can design a product where the average unit will last *at least* a certain period of time with the estimates on "at least" getting better all the time. People keep demanding products to be cheaper and cheaper so companies build less and less durability in the products. They're designed to last at least a certain period of time, not self-destruct after a certain period of time; it's actually REALLY HARD to make something purposefully fail at the exact moment you want it to without being obviously designed to fail.
+Planned obsolescence doesn't really exist in the way most people think it exists. Manufacturing processes have matured to the point that we can design a product where the average unit will last _at least_ a certain period of time with the estimates on "at least" getting better all the time. People keep demanding products to be cheaper and cheaper so companies build less and less durability in the products. They're designed to last at least a certain period of time, not self-destruct after a certain period of time; it's actually REALLY HARD to make something purposefully fail at the exact moment you want it to without being obviously designed to fail.
 
-Basically, it used to be that we had to overbuild the shit out of *everything* in order to ensure that it would work **at all**; this led to a lot of products that were needlessly expensive. Take a blender for example, the first price point I could find for a household blender was from [1937 at a price of $29.75](http://www.angelfire.com/ns2/mixerhistory/). Adjusted for inflation, that's over $500 today; which also happens to be around the price point you need to get a brand new blender that will last for decades. You don't *have to* spend that much money on a blender because there are much cheaper options available that aren't designed to last as long but the cheaper blenders aren't designed to fail, they're designed to be less expensive which, necessarily, reduces the average lifespan of the product.
+Basically, it used to be that we had to overbuild the shit out of _everything_ in order to ensure that it would work **at all**; this led to a lot of products that were needlessly expensive. Take a blender for example, the first price point I could find for a household blender was from [1937 at a price of $29.75](http://www.angelfire.com/ns2/mixerhistory/). Adjusted for inflation, that's over $500 today; which also happens to be around the price point you need to get a brand new blender that will last for decades. You don't _have to_ spend that much money on a blender because there are much cheaper options available that aren't designed to last as long but the cheaper blenders aren't designed to fail, they're designed to be less expensive which, necessarily, reduces the average lifespan of the product.
 
 There are totally a few classic planned obsolescence examples out there; but the majority of the time people are just expecting their walmart blender to last as long as a Blendtec. Most of what people feel is planned obsolescence can really be explained by the Terry Pratchett quote about boots:
 
@@ -27,23 +27,23 @@ From [u/TheVetSarge on a thread after the 2016 Presidential Election](https://ww
 
 In the midst of all the crying and hand-wringing about racists, people seem to have forgotten that there are people who will always vote Republican because Republicans back the things they think are important, just like there are people who will always vote Democrat because they think Democrats back the things they think are important.
 
-The majority of racists probably voted for Donald Trump. This doesn't mean the majority of people who voted for Donald Trump are racists. They voted for Donald Trump not *because* he was a dickhead. They voted for him *in spite of it*. My cousin's wife's parents are old school Virginia Republican. When my mom (die hard SoCal urban Clinton supporter) asked her who they were voting for she said (back in May) "Well, it looks like it may be Donald Trump". These are normal, nice, non-racist people. But they are economically conservative Republicans. Hillary Clinton and the Democrats don't represent their values and while they may not *like* Donald Trump's comments, those aren't their core issues.
+The majority of racists probably voted for Donald Trump. This doesn't mean the majority of people who voted for Donald Trump are racists. They voted for Donald Trump not _because_ he was a dickhead. They voted for him _in spite of it_. My cousin's wife's parents are old school Virginia Republican. When my mom (die hard SoCal urban Clinton supporter) asked her who they were voting for she said (back in May) "Well, it looks like it may be Donald Trump". These are normal, nice, non-racist people. But they are economically conservative Republicans. Hillary Clinton and the Democrats don't represent their values and while they may not _like_ Donald Trump's comments, those aren't their core issues.
 
-If you are Pro-2A, you don't care about grabbed pussies. You care about keeping another Sotomayer off the Supreme Court. If you're working class and you just missed the line for healthcare subsidies, Obamacare is hitting your wallet hard. You don't care about him saying mean things about some Mexican immigrants being criminals. Those aren't political issues that will affect your life. They're just mean things being said. 
+If you are Pro-2A, you don't care about grabbed pussies. You care about keeping another Sotomayer off the Supreme Court. If you're working class and you just missed the line for healthcare subsidies, Obamacare is hitting your wallet hard. You don't care about him saying mean things about some Mexican immigrants being criminals. Those aren't political issues that will affect your life. They're just mean things being said.
 
-Too many young Democrat voters (too many people in general) think voting is a question of feelings and feeling good about yourself at the end. It's *not*. And this is why Trump won. His voters don't *care* that he's a meaniehead. Winning the Presidential Election is about convincing the common schlub that he or she is voting in his or her own best interests. And I mean *thinking*. It doesn't matter if that isn't actually true. perception is reality.
+Too many young Democrat voters (too many people in general) think voting is a question of feelings and feeling good about yourself at the end. It's _not_. And this is why Trump won. His voters don't _care_ that he's a meaniehead. Winning the Presidential Election is about convincing the common schlub that he or she is voting in his or her own best interests. And I mean _thinking_. It doesn't matter if that isn't actually true. perception is reality.
 
 ## On RTT Times
 
 From [u/Pro_Redditor on a thread on interesting truths](https://www.reddit.com/r/AskReddit/comments/265gil/reddit_can_you_blow_my_mind_in_one_sentence/cho2rjq/)
 
-*Yeah how the hell does my internet have lower ping than my brain?*
+_Yeah how the hell does my internet have lower ping than my brain?_
 
 ## On Sorting
 
 From [Algorithms to Live By](https://www.amazon.com/Algorithms-Live-Computer-Science-Decisions/dp/1250118360/)
 
-Our email inbox typically displays the top fifty messages of potentially thousands, sorted by time of receipt. When we look for restaurants on Yelp we're shown the top dozen or so of hundreds, sorted by proximity or by rating. A blog shows a cropped list of articles, sorted by date. The Facebook news feed, Twitter stream, and Reddit homepage all present themselves as lists, sorted by some proprietary measure. We refer to things like Google and Bing as "search engines," but that is something of a misnomer: they're really sort engines. What makes Google so dominant as a means of accessing the world's information is less that it finds our text within hundreds of millions of webpages-its 1990s competitors could generally do that part well enough-but that it sorts those webpages so well, and only shows us the most relevant ten. 
+Our email inbox typically displays the top fifty messages of potentially thousands, sorted by time of receipt. When we look for restaurants on Yelp we're shown the top dozen or so of hundreds, sorted by proximity or by rating. A blog shows a cropped list of articles, sorted by date. The Facebook news feed, Twitter stream, and Reddit homepage all present themselves as lists, sorted by some proprietary measure. We refer to things like Google and Bing as "search engines," but that is something of a misnomer: they're really sort engines. What makes Google so dominant as a means of accessing the world's information is less that it finds our text within hundreds of millions of webpages-its 1990s competitors could generally do that part well enough-but that it sorts those webpages so well, and only shows us the most relevant ten.
 
 The truncated top of an immense, sorted list is in many ways the universal user interface.
 
@@ -71,7 +71,7 @@ From [E. van den Haag, on the death penalty](http://www.jstor.org/stable/1341082
 
 Maldistribution between the guilty and the innocent is, by definition, unjust. But the injustice does not lie in the nature of the punishment. Because of the finality of the death penalty, the most grievous maldistribution occurs when it is imposed upon the innocent. However, the frequent allegations of discrimination and capriciousness refer to maldistribution among the guilty and not to the punishment of the innocent.
 
-*. . .*
+_. . ._
 
 Equality, in short, seems morally less important than justice. And justice is independent of distributional inequalities. The ideal of equal justice demands that justice be equally distributed, not that it be replaced by equality. Justice requires that as many of the guilty as possible be punished, regardless of whether others have avoided punishment. To let these others escape the deserved punishment does not do justice to them, or to society. But it is not unjust to those who could not escape.
 
@@ -79,7 +79,7 @@ Equality, in short, seems morally less important than justice. And justice is in
 
 From [Algorithms to Live By](https://www.amazon.com/Algorithms-Live-Computer-Science-Decisions/dp/1250118360/)
 
-Thinking about children as simply being at the transitory exploration stage of a lifelong algorithm might provide some solace for parents of preschoolers. (Tom has two highly exploratory preschool-age daughters, and hopes they are following an algorithm that has minimal regret.) But it also provides new insights about the rationality of children. Gopnik points out that "if you look at the history of the way that people have thought about children, they have typically argued that children are cognitively deficient in various ways-because if you look at their exploit capacities, they look terrible. They can't tie their shoes, they're not good at long-term planning, they're not good at focused attention. Those are all things that kids are really awful at." But pressing buttons at random, being very interested in new toys, and jumping quickly from one thing to another are all things that kids are really great at. And those are exactly what they should be doing if their goal is exploration. If you're a baby, putting every object in the house into your mouth is like studiously pulling all the handles at the casino. 
+Thinking about children as simply being at the transitory exploration stage of a lifelong algorithm might provide some solace for parents of preschoolers. (Tom has two highly exploratory preschool-age daughters, and hopes they are following an algorithm that has minimal regret.) But it also provides new insights about the rationality of children. Gopnik points out that "if you look at the history of the way that people have thought about children, they have typically argued that children are cognitively deficient in various ways-because if you look at their exploit capacities, they look terrible. They can't tie their shoes, they're not good at long-term planning, they're not good at focused attention. Those are all things that kids are really awful at." But pressing buttons at random, being very interested in new toys, and jumping quickly from one thing to another are all things that kids are really great at. And those are exactly what they should be doing if their goal is exploration. If you're a baby, putting every object in the house into your mouth is like studiously pulling all the handles at the casino.
 
 More generally, our intuitions about rationality are too often informed by exploitation rather than exploration. When we talk about decision-making, we usually focus just on the immediate payoff of a single decision-and if you treat every decision as if it were your last, then indeed only exploitation makes sense. But over a lifetime, you're going to make a lot of decisions. And it's actually rational to emphasize exploration-the new rather than the best, the exciting rather than the safe, the random rather than the considered-for many of those choices, particularly earlier in life.
 
@@ -95,13 +95,13 @@ From [Algorithms to Live By](https://www.amazon.com/Algorithms-Live-Computer-Sci
 
 When we need to make sense of, say, national health care reform-a vast apparatus too complex to be readily understood-our political leaders typically offer us two things: cherry-picked personal anecdotes and aggregate summary statistics. The anecdotes, of course, are rich and vivid, but they're unrepresentative. Almost any piece of legislation, no matter how enlightened or misguided, will leave someone better off and someone worse off, so carefully selected stories don't offer any perspective on broader patterns. Aggregate statistics, on the other hand, are the reverse: comprehensive but thin. We might learn, for instance, whether average premiums fell nationwide, but not how that change works out on a more granular level: they might go down for most but, Omelas-style, leave some specific group-undergraduates, or Alaskans, or pregnant women-in dire straits. A statistic can only tell us part of the story, obscuring any underlying heterogeneity. And often we don't even know which statistic we need.
 
-## On Altruism 
+## On Altruism
 
 From [Stanford Encyclopedia of Philosophy](https://plato.stanford.edu/entries/altruism/#DesiMoti):
 
 This thesis that what motivates us to act is always a desire should be accepted only if we have a good understanding of what a desire is. If a desire is simply identified with whatever internal state moves someone to act, then the claim, "what motivates us to act is always a desire", when spelled out more fully, is a tautology. It says: "the internal state that moves us to act is always the internal state that moves us to act". That is not a substantive insight into human psychology, but a statement of identity, of the form "A = A". We might have thought we were learning something about what causes action by being told, "what motivates people is always a desire", but if "desire" is just a term for whatever it is that motivates us, we are learning nothing (see Nagel 1970: 27-32).
 
-*. . .*
+_. . ._
 
 To take matters to an extreme, it might be suggested that our ultimate motivation is always entirely other-regarding. According to this far-fetched hypothesis, whenever we act for our own good, we do so not at all for our own sake, but always entirely for the sake of someone else. The important point here is that the denial that altruism exists should be regarded with as much suspicion as this contrary denial, according to which people never act ultimately for their own good. Both are dubious universal generalizations. Both have far less plausibility than the common sense assumption that people sometimes act in purely egoistic ways, sometimes in purely altruistic ways, and often in ways that mix, in varying degrees, the good of oneself and the good of others
 
@@ -109,7 +109,7 @@ To take matters to an extreme, it might be suggested that our ultimate motivatio
 
 From John Stuart Mill
 
-There is no such thing as absolute certainty, but there is assurance sufficient for the purposes of human life. 
+There is no such thing as absolute certainty, but there is assurance sufficient for the purposes of human life.
 
 ## On Information
 
@@ -117,15 +117,13 @@ From [The Information](https://www.amazon.com/Information-History-Theory-Flood/d
 
 For the purposes of science, information had to mean something special. Three centuries earlier, the new discipline of physics could not proceed until Isaac Newton appropriated words that were ancient and vague-force, mass, motion, and even time-and gave them new meanings. Newton made these terms into quantities, suitable for use in mathematical formulas. Until then, motion (for example) had been just as soft and inclusive a term as information. For Aristotelians, motion covered a far-flung family of phenomena: a peach ripening, a stone falling, a child growing, a body decaying. That was too rich. Most varieties of motion had to be tossed out before Newton's laws could apply and the Scientific Revolution could succeed. In the nineteenth century, energy began to undergo a similar transformation: natural philosophers adapted a word meaning vigor or intensity. They mathematicized it, giving energy its fundamental place in the physicists' view of nature.
 It was the same with information. A rite of purification became necessary.
-And then, when it was made simple, distilled, counted in bits, information was found to be everywhere. Shannon's theory made a bridge between information and uncertainty; between information and entropy; and between information and chaos. It led to compact discs and fax machines, computers and cyberspace, Moore's law and all the world's Silicon Alleys. Information processing was born, along with information storage and information retrieval. People began to name a successor to the Iron Age and the Steam Age. "Man the food-gatherer reappears incongruously as information-gatherer," remarked Marshall McLuhan in 1967.* He wrote this an instant too soon, in the first dawn of computation and cyberspace.
-
+And then, when it was made simple, distilled, counted in bits, information was found to be everywhere. Shannon's theory made a bridge between information and uncertainty; between information and entropy; and between information and chaos. It led to compact discs and fax machines, computers and cyberspace, Moore's law and all the world's Silicon Alleys. Information processing was born, along with information storage and information retrieval. People began to name a successor to the Iron Age and the Steam Age. "Man the food-gatherer reappears incongruously as information-gatherer," remarked Marshall McLuhan in 1967.\* He wrote this an instant too soon, in the first dawn of computation and cyberspace.
 
 ## On Timezones
 
 From Thomas Browne, c. 1640
 
 ... it being no ordinary or Almanack business, but a probleme Mathematical, to finde out the difference of hours in different places; nor do the wisest exactly satisfy themselves in all. For the hours of several places anticipate each other, according to their Longitudes; which are not exactly discovered of every place.
-
 
 ## On Writing
 
@@ -151,7 +149,7 @@ The first strategy is difficult to the point of near impossibility. Few people w
 
 The second strategy is fairly easy. Everyone has at least a few areas in which they could be in the top 25% with some effort. In my case, I can draw better than most people, but I'm hardly an artist. And I'm not any funnier than the average standup comedian who never makes it big, but I'm funnier than most people. The magic is that few people can draw well and write jokes. It's the combination of the two that makes what I do so rare. And when you add in my business background, suddenly I had a topic that few cartoonists could hope to understand without living it.
 
-*. . .*
+_. . ._
 
 Get a degree in business on top of your engineering degree, law degree, medical degree, science degree, or whatever. Suddenly you're in charge, or maybe you're starting your own company using your combined knowledge.
 
@@ -181,7 +179,7 @@ Consider a contest that is completely meritocratic in the sense of being settled
 
 ## On alternate view points and online discussions
 
-From [RIP Culture War Thread](https://slatestarcodex.com/2019/02/22/rip-culture-war-thread/) - the whole post is worth a read. 
+From [RIP Culture War Thread](https://slatestarcodex.com/2019/02/22/rip-culture-war-thread/) - the whole post is worth a read.
 
 Some people think society should tolerate pedophilia, are obsessed with this, and can rattle off a laundry list of studies that they say justify their opinion. Some people think police officers are enforcers of oppression and this makes them valid targets for violence. Some people think immigrants are destroying the cultural cohesion necessary for a free and prosperous country. Some people think transwomen are a tool of the patriarchy trying to appropriate female spaces. Some people think Charles Murray and The Bell Curve were right about everything. Some people think Islam represents an existential threat to the West. Some people think women are biologically less likely to be good at or interested in technology. Some people think men are biologically more violent and dangerous to children. Some people just really worry a lot about the Freemasons.
 
@@ -201,7 +199,7 @@ And a [corresponding criticism of the above rationale](https://www.reddit.com/r/
 
 ## On status as a service
 
-This [whole article is worth a read](https://www.eugenewei.com/blog/2019/2/19/status-as-a-service). 
+This [whole article is worth a read](https://www.eugenewei.com/blog/2019/2/19/status-as-a-service).
 
 Why does proof of work matter for a social network? If people want to maximize social capital, why not make that as easy as possible?
 
@@ -215,7 +213,7 @@ By merging all updates from all the accounts you followed into a single continuo
 
 It's difficult to overstate what a momentous sea change it was for hundreds of millions, and eventually billions, of humans who had grown up competing for status in small tribes, to suddenly be dropped into a talent show competing against EVERY PERSON THEY HAD EVER MET.
 
-*. . .*
+_. . ._
 
 Yet, I come not to bury Caesar, but also not to praise him. Rather, as Emily Wilson says at the start of her brilliant new translation of The Odyssey, "tell me about a complicated man." So much of the entire internet was built on a foundation of social capital, of intangible incentives like reputation. Before the tech giants of today, I combed through newsgroups, blogs, massive FAQs, and countless other resources built by people who felt, in part, a jolt of dopamine from the recognition that comes from contributing to the world at large. At Amazon, someone coined a term for this type of motivational currency: egoboo (short for, you guessed it, egoboost). Something like Wikipedia, built in large part on egoboo, is a damned miracle. I don't want to lose that. I don't think we have to lose that.
 
@@ -239,9 +237,9 @@ It's also interesting to note that the real world is intrinsically warren while 
 
 From [The Attention Merchanges](https://www.amazon.com/Attention-Merchants-Scramble-Inside-Heads/dp/0385352018)
 
-What [Walter] Lippmann took from the war - as he explained in his 1922 classic *Public Opinion* - was the gap between the true complexity of the world and the narratives the public uses to understand it - the rough "stereotypes" (a word he coined in his book). When it came to the war, he believed that the "consent" of the governed had been, in his phrase, "manufactured". Hence, as he wrote, 'It is no longer possible... To believe in the original dogma of democracy; that the knowledge needed for the management of human affairs comes up spontaneously from the human heart. Where we act on that theory we expose ourselves to self deception, and to forms of persuasion that we cannot verify.'
+What [Walter] Lippmann took from the war - as he explained in his 1922 classic _Public Opinion_ - was the gap between the true complexity of the world and the narratives the public uses to understand it - the rough "stereotypes" (a word he coined in his book). When it came to the war, he believed that the "consent" of the governed had been, in his phrase, "manufactured". Hence, as he wrote, 'It is no longer possible... To believe in the original dogma of democracy; that the knowledge needed for the management of human affairs comes up spontaneously from the human heart. Where we act on that theory we expose ourselves to self deception, and to forms of persuasion that we cannot verify.'
 
-Any communication, Lippmann came to see, is potentially propagandistic, in the sense of propagating a view. For it presents on set of facts, or one perspective, fostering or weakening some "stereotype" held by the mind. It is fair to say, then, that any and all information that one consumes - pays attention to - will have some influence, even if just forcing a reaction. That idea, in turn, has a very radical implication, for it suggests that sometimes we overestimate our own capacity for truly independent thought. In most areas of life, we necessarily rely on others for the presentation of facts and ultimately choose between manufactured alternatives, whether it is our evaluation of a product or a political proposition. And if that is true, in the battle for our attention, there is a particular importance in who gets there first or most often. **The only communications truly without influence are those that one learns to ignore or never hears at all;** *(emphasis mine)* this is why Jacques ellul argued that it is only the disconnected - rural dwellers or the urban poor - who are truly immune to propaganda, while intellectuals, who read everything, insist on having opinions, and think themselves immune to propaganda are, in fact, easy to manipulate.
+Any communication, Lippmann came to see, is potentially propagandistic, in the sense of propagating a view. For it presents on set of facts, or one perspective, fostering or weakening some "stereotype" held by the mind. It is fair to say, then, that any and all information that one consumes - pays attention to - will have some influence, even if just forcing a reaction. That idea, in turn, has a very radical implication, for it suggests that sometimes we overestimate our own capacity for truly independent thought. In most areas of life, we necessarily rely on others for the presentation of facts and ultimately choose between manufactured alternatives, whether it is our evaluation of a product or a political proposition. And if that is true, in the battle for our attention, there is a particular importance in who gets there first or most often. **The only communications truly without influence are those that one learns to ignore or never hears at all;** _(emphasis mine)_ this is why Jacques ellul argued that it is only the disconnected - rural dwellers or the urban poor - who are truly immune to propaganda, while intellectuals, who read everything, insist on having opinions, and think themselves immune to propaganda are, in fact, easy to manipulate.
 
 ## On informational unity and trust
 
@@ -249,7 +247,7 @@ From [What the hell is going on](https://www.perell.com/blog/what-the-hell-is-go
 
 The Broadcast era was shaped by high barriers to entry, which centralized the entire media industry. At the peak of the Broadcast Era in the 1960s, fewer than 25 companies monopolized the information cables of radio, television, books, magazines, and music.
 
-There were four television networks, five book publishing houses, five record companies, and seven motion picture studios that controlled most of what America consumed. Powerful and authoritative, these media conglomerates shaped the hearts and minds of millions of Americans. They shaped narratives and controlled ideologies. Information flowed in one direction, from producer to consumer. 
+There were four television networks, five book publishing houses, five record companies, and seven motion picture studios that controlled most of what America consumed. Powerful and authoritative, these media conglomerates shaped the hearts and minds of millions of Americans. They shaped narratives and controlled ideologies. Information flowed in one direction, from producer to consumer.
 
 No individual illustrates the media's all-encompassing influence better than Walter Cronkite. "The Most Trusted Man in America" served as an anchorman for the CBS Evening News for 19 years. Cronkite's nickname was rooted in fact. According to The Quayle Poll, a survey which measured trust in public figures, Cronkite sat at the top of the list and was the only newsman to appear on it. Everybody else on the list of trusted people was a politician. Yes, you read that right. Times have changed.
 
@@ -257,19 +255,19 @@ Sitting at the nexus of American television, Cronkite covered every NASA space s
 
 In 1965, Americans consented to the Vietnam War. An October 1965 poll showed that 64 percent of Americans approved of the involvement in Vietnam. Spurred by Cronkite, the tenor of American opinions reversed. And by January 1969, 52 percent thought the Vietnam War was a mistake.
 
-How did American opinions change so fast? 
+How did American opinions change so fast?
 
-In his 1968 "Report from Vietnam," a CBS news special, Cronkite didn't just report the facts. With words that would alter the course of a nation, he criticized the war and described it as a stalemate. 
+In his 1968 "Report from Vietnam," a CBS news special, Cronkite didn't just report the facts. With words that would alter the course of a nation, he criticized the war and described it as a stalemate.
 
-Back on the American mainland, chomping at his nails with nervous trepidation, President Lyndon B. Johnson watched Cronkite's broadcast. 
+Back on the American mainland, chomping at his nails with nervous trepidation, President Lyndon B. Johnson watched Cronkite's broadcast.
 
-His hair greying by the second, the President stooped towards the television, as his back slouched like the fallen soldiers before his eyes. LBJ sensed a shifting tide. Heart pumping, legs bouncing, eyes glued to Cronkite's live report, President Johnson said to his press secretary: "If I've lost Cronkite, I've lost Middle America." Everything changed. One man. One night. One report. In a centralized media environment, that's all it took to sway American consciousness and alter the course of an international war. 
+His hair greying by the second, the President stooped towards the television, as his back slouched like the fallen soldiers before his eyes. LBJ sensed a shifting tide. Heart pumping, legs bouncing, eyes glued to Cronkite's live report, President Johnson said to his press secretary: "If I've lost Cronkite, I've lost Middle America." Everything changed. One man. One night. One report. In a centralized media environment, that's all it took to sway American consciousness and alter the course of an international war.
 
-In typical fashion, Walter Cronkite concluded his CBS Evening News Broadcasts with his famous closing words: "And that's the way it is." Speaking with the authority of God, Cronkite's words laid the ground-truth narrative from which all other discussion followed. A little more than a month after Cronkite's broadcast, on Sunday, Marsh 31st, Johnson announced he would not seek another term as President. 
+In typical fashion, Walter Cronkite concluded his CBS Evening News Broadcasts with his famous closing words: "And that's the way it is." Speaking with the authority of God, Cronkite's words laid the ground-truth narrative from which all other discussion followed. A little more than a month after Cronkite's broadcast, on Sunday, Marsh 31st, Johnson announced he would not seek another term as President.
 
-*. . .*
+_. . ._
 
-Like a coxswain yelling to his team of obedient rowers, leaders controlled the dissemination of information and determined the movement of the entire group. Even as global population skyrocketed from 1.6 billion in 1900 to 6 billion in 2000, media driven cohesion kept the group together. Millions of people moved in near-magical synchronicity. Stroke! Stroke! Stroke! 
+Like a coxswain yelling to his team of obedient rowers, leaders controlled the dissemination of information and determined the movement of the entire group. Even as global population skyrocketed from 1.6 billion in 1900 to 6 billion in 2000, media driven cohesion kept the group together. Millions of people moved in near-magical synchronicity. Stroke! Stroke! Stroke!
 
 Even if it was distorted, the masses were united by a shared reality. As long as people rowed at the same speed, society thrived. This strategy of simplifying information flows and ignoring the many shades of complexity with black and white interpretations of the news was extremely successful. So successful, in fact, that in the 20th century, America led the greatest wealth creation boom in human history. We replaced horses with cars, steam with oil, shacks with skyscrapers, trails with highways, and candles with electricity. For the most part, it was a massive success.
 
@@ -279,10 +277,9 @@ From ["Optimize what?"](https://communemag.com/optimize-what/), Commune Mag.
 
 It is by now common sense that technical education gives rise to techno-solutionism-that a curriculum expounding the primacy of code and symbolic manipulations begets graduates who proceed to tackle every social problem with software and algorithms. While true, this misses the mark about what the engineering academy fundamentally teaches. The students and instructor in the ethics course were discussing a matter of politics and policy as if it were a technical problem. The issue, then, lay in their conception of the entire exercise: they reflexively committed to saving an unworkable representative democracy, and consigned themselves to inventing a clever mechanism to encourage desirable election outcomes. **Techno-solutionism is the very soul of the neoliberal policy designer, fetishistically dedicated to the craft of incentive alignment and (when necessary) benevolent regulation.** (emphasis mine) Such a standpoint is the effective outcome of the contemporary computational culture and its formulation as curriculum.
 
-*. . .*
+_. . ._
 
 Boyd teaches this course once a year, and typically in the first lecture, he declares: "Everything is an optimization problem." The claim reeks of techno-utilitarian naivete, with its suggestion that every object can be modeled as a bunch of numbers, every human desire expressed in a utility function, every problem resolvable using the more or less crude calculation devices in our pockets. Yet for the four hundred students enrolled in the winter 2019 offering of this course-mostly PhD and Master's students in computer science, electrical engineering, and applied mathematics-these assumptions underpin everything they have learned for the better part of a decade. For them, the statement is not just true, it's banal.
-
 
 ## On beauty
 
@@ -296,7 +293,7 @@ Note that this shouldn't in any way tarnish our appreciation of the dandelion. W
 
 In fact, the same can be said for our relationship to flowers more generally. Flowers are playing multiplayer beauty with pollinators, clearly, but why they happen to appeal to us is a fascinating open question.
 
-*. . .*
+_. . ._
 
 What about sexual selection? Is it driven by Independent or Correlated Desire?
 
@@ -330,7 +327,7 @@ From [Flash Boys](https://www.amazon.com/Flash-Boys-Wall-Street-Revolt/dp/039335
 
 [On HFT firms] "I hate [HFT firms] a lot less than before we started," said Brad. "This is not their fault. I think most of them have just rationalized that the market is creating inefficiencies and they are just capitalizing on them. Really, it's brilliant what they have done within the bounds of the regulation. They are much less of a villain than I thought. The system has let down the investor."
 
-*. . .*
+_. . ._
 
 Technology had collided with Wall Street in a peculiar way. It had been used, as it should have been used, to increase efficiency. But it had also been used to introduce a peculiar sort of market inefficiency. This new inefficiency was not like the inefficiencies that financial markets can easily correct. After a big buyer enters the market and drives up the price of Brent crude oil, for example, it's healthy and good when speculators jump in and drive up the price of North Texas crude, too. It's healthy and good when traders see the relationship between the price of crude oil and the price of oil company stocks, and drive these stocks higher. It's even healthy and good when some clever high-frequency trader divines a necessary statistical relationship between the share prices of Chevron and Exxon, and responds when it gets out of whack. It was neither healthy nor good when public stock exchanges introduced order types and speed advantages that high-frequency traders could use to exploit everyone else. This sort of inefficiency didn't vanish the moment it was spotted and acted upon. It was like a broken slot machine in the casino that pays off every time. It would keep paying off until someone said something about it; but no one who played the slot machine had any interest in pointing out that it was broken.
 
@@ -366,7 +363,7 @@ Arguing semantics are often derided, but it shouldn't be. Telling someone not to
 
 In other words it's not pure "ought" as in "we should do this", because it gets elements of "is" when it tells us to adopt a particular model of reality and its associated vocabulary.
 
-*. . .* 
+_. . ._
 
 > An encounter with an ambiguous yet controversial-sounding claim starts with an instinctive emotional reaction. We infer the intentions or agenda behind the claim, interpret it in the way most compatible with our own attitude, and then immediately forget the second step ever happened and confuse the intended meaning with our own interpretation. This is a complicated way of saying that if you feel a statement is part of a rival political narrative you'll unconsciously interpret it to mean something false or unreasonable, and then think you disagree with people politically because they say false and unreasonable things.
 
@@ -388,7 +385,7 @@ and
 
 "Capitalism is morally corrupt and rewards selfishness and greed. An economy run for the people by the people is a moral imperative, but planned economies don't seem to work very well in practice so we need the market to fuel prosperity even if it is distasteful."
 
-*. . .* have very different fundamental attitudes but may well come down quite close to each other in terms of supported policies. If you model them as having one "main signal" (basic attitude) paired with a corrective to account for how the basic attitude fails to match reality perfectly, then this kind of difference is understated when the conversation is about specific issues (because then signals plus correctives are compared and the correctives bring "opposite" people closer together) but overstated when the conversation is about general principles - because then it's only about the signal.
+_. . ._ have very different fundamental attitudes but may well come down quite close to each other in terms of supported policies. If you model them as having one "main signal" (basic attitude) paired with a corrective to account for how the basic attitude fails to match reality perfectly, then this kind of difference is understated when the conversation is about specific issues (because then signals plus correctives are compared and the correctives bring "opposite" people closer together) but overstated when the conversation is about general principles - because then it's only about the signal.
 
 The funny sad thing is that this supports the view that if we saw every issue on its own terms instead of part of a Big Referendum on Which Side is Right About Everything then we would agree more and fight less (which is part of the reason politics gets less terrible as it gets more local).
 
@@ -415,7 +412,7 @@ Southern Blacks preferred Southern to Northern White officers. (Southern officer
 As long as the fighting continued, soldiers were more eager to return home than after the war ended. (During the fighting, soldiers knew they were in mortal danger.)
 How many of these findings do you think you could have predicted in advance? Three out of five? Four out of five? Are there any cases where you would have predicted the opposite-where your model takes a hit? Take a moment to think before continuing...
 
-*. . .*
+_. . ._
 
 In this demonstration (from Paul Lazarsfeld by way of Meyers), all of the findings above are the opposite of what was actually found. How many times did you think your model took a hit? How many times did you admit you would have been wrong? That's how good your model really was. The measure of your strength as a rationalist is your ability to be more confused by fiction than by reality.
 
@@ -461,7 +458,7 @@ Then things started getting more complicated. People started investigating more 
 
 And the result is a lot of essays like this one, where people who think they're smart take one side of a scientific "controversy" and say which studies you should believe. And then other people take the other side and tell you why you should believe different studies than the first person thought you should believe. And there is much argument and many insults and citing of authorities and interminable debate for, if not centuries, at least a pretty long time.
 
-The highest level of the Pyramid of Scientific Evidence is meta-analysis. But a lot of meta-analyses are crap. This meta-analysis got p < 1.2 * 10^-10 for a conclusion I'm pretty sure is false, and it isn't even one of the crap ones. Crap meta-analyses look more like this, or even worse.
+The highest level of the Pyramid of Scientific Evidence is meta-analysis. But a lot of meta-analyses are crap. This meta-analysis got p < 1.2 \* 10^-10 for a conclusion I'm pretty sure is false, and it isn't even one of the crap ones. Crap meta-analyses look more like this, or even worse.
 
 ## On confidence levels and probabilities
 
@@ -477,7 +474,7 @@ More than one in a billion times a political scientist writes a model, they will
 
 So one must distinguish between levels of confidence internal and external to a specific model or argument. Here the model's internal level of confidence is 999,999,999/billion. But my external level of confidence should be lower, even if the model is my only evidence, by an amount proportional to my trust in the model.
 
-## On AI safety 
+## On AI safety
 
 From [So Far: Unfriendly AI Edition](http://www.econlib.org/archives/2016/03/so_far_unfriend.html)
 
@@ -519,7 +516,7 @@ Just as people were never created, neither, according to the science of biology,
 Equally, there are no such things as rights in biology. There are only organs, abilities and characteristics. Birds fly not because they have a right to fly, but because they have wings. And it's not true that these organs, abilities and characteristics are 'unalienable'. Many of them undergo constant mutations, and may well be completely lost over time. The ostrich is a bird that lost its ability to fly. So 'unalienable rights' should be translated into 'mutable characteristics'.
 
 And what are the characteristics that evolved in humans? 'Life', certainly. But 'liberty'? There is no such thing in biology. Just like equality, rights and limited liability companies, liberty is something that people invented and that exists only in their imagination. From a biological viewpoint, it is meaningless to say that humans in democratic societies are free, whereas humans in dictatorships are unfree. And what about 'happiness'? So far biological research has failed to come up with a clear definition of happiness or a way to measure it objectively. Most biological studies acknowledge only the existence of pleasure, which is more easily defined and measured. So 'life, liberty, and the pursuit of happiness' should be translated into 'life and the pursuit of pleasure'.
-So here is that line from the American Declaration of Independence translated into biological terms: 
+So here is that line from the American Declaration of Independence translated into biological terms:
 
 > "We hold these truths to be self-evident, that all men evolved differently, that they are born with certain mutable characteristics, and that among these are life and the pursuit of pleasure.
 
@@ -537,10 +534,9 @@ What is true for fraud and insider trading is also true for most other accusatio
 
 ## On Relativism and Narratives
 
-From [Adaptive Markets](https://www.amazon.com/Adaptive-Markets-Financial-Evolution-Thought/dp/0691135142) 
+From [Adaptive Markets](https://www.amazon.com/Adaptive-Markets-Financial-Evolution-Thought/dp/0691135142)
 
-Like the characters in *Rashomon*, we have to recognize the possibility that complex truths are often in the eye of the beholder. This is a simple fact of human cognition; we've evolved to create narratives to suit our particular needs and desires (recall the left brain's ability to generate narratives). One shouldn't infer from this fact that relativism is correct or desirable. Not all truths are equally valid. However, the particular narrative that one adopts can color and influence the subsequent course of inquiry and debate. We should strive to entertain as many interpretations of the same set of objective facts as we can and hope that a more nuanced and internally consistent understanding of the crisis emergenes in the fullness of time. Some narratives are mistaken, incorrect, or deliberately untrue. Where facts can be verified or refuted, we should do so expeditiously and relentlessly. 
-
+Like the characters in _Rashomon_, we have to recognize the possibility that complex truths are often in the eye of the beholder. This is a simple fact of human cognition; we've evolved to create narratives to suit our particular needs and desires (recall the left brain's ability to generate narratives). One shouldn't infer from this fact that relativism is correct or desirable. Not all truths are equally valid. However, the particular narrative that one adopts can color and influence the subsequent course of inquiry and debate. We should strive to entertain as many interpretations of the same set of objective facts as we can and hope that a more nuanced and internally consistent understanding of the crisis emergenes in the fullness of time. Some narratives are mistaken, incorrect, or deliberately untrue. Where facts can be verified or refuted, we should do so expeditiously and relentlessly.
 
 ## On Coincedences
 
@@ -657,7 +653,6 @@ From [The Obligatory GPT3 Post](https://slatestarcodex.com/2020/06/10/the-obliga
 
 Could it do more radical things like write proofs or generate scientific advances? After all, if you feed it thousands of proofs, and then prompt it with a theorem to be proven, that's a text prediction task. If you feed it physics textbooks, and prompt it with "and the Theory of Everything is...", that's also a text prediction task. I realize these are wild conjectures, but the last time I made a wild conjecture, it was "maybe you can learn addition, because that's a text prediction task" and that one came true within two years. But my guess is still that this won't happen in a meaningful way anytime soon. GPT-3 is much better at writing coherent-sounding text than it is at any kind of logical reasoning; remember it still can't add 5-digit numbers very well, get its Methodist history right, or consistently figure out that a plus sign means "add things". Yes, it can do simple addition, but it has to use supercomputer-level resources to do so - it's so inefficient that it's hard to imagine even very large scaling getting it anywhere useful. At most, maybe a high-level GPT could write a plausible-sounding Theory Of Everything that uses physics terms in a vaguely coherent way, but that falls apart when a real physicist examines it.
 
-
 ## On Reverse Engineering Snapchats Binary
 
 From [the HackerNews comments](https://news.ycombinator.com/item?id=23557998) on [this article](https://hot3eed.github.io/snap_part1_obfuscations.html)
@@ -665,7 +660,6 @@ From [the HackerNews comments](https://news.ycombinator.com/item?id=23557998) on
 This is an awesome write-up; I'm shocked at the level of effort that went into Snap's obfuscation process. It implies that are entire teams of engineers out there whose sole job it is to play cat & mouse with reverse engineers and nothing more. Another comment mentioned that this effort is outsourced, so not only are there teams, but entire companies dedicated to this!
 
 What a blast that must be... though the immense amount of \[invested\|wasted\] (take your pick depending on cynicism) effort spent on this game makes me a little sad. All of these brilliant minds just... cosplaying Sisyphus?
-
 
 ## On libertarianss and the founding fathers
 
@@ -679,12 +673,9 @@ All American political movements have their roots in the 1700s- indeed, in the w
 
 > It cannot have escaped those who have attended with candor to the arguments employed against the extensive powers of the government, that the authors of them have very little considered how far these powers were necessary means of attaining a necessary end. -James Madison
 
-
 > Stable ownership is the gift of social law, and is given late in the progress of society. -Thomas Jefferson
 
-
 > All the Property that is necessary to a man is his natural Right, which none may justly deprive him of, but all Property superfluous to such Purposes is the property of the Public who, by their Laws have created it and who may, by other Laws dispose of it. -Benjamin Franklin
-
 
 The Constitution is above all a definition of a strengthened government, and the Federalist Papers are an extended argument for it. The Founders negotiated a balance between a government that was arbitrary and coercive (their experience as British colonial subjects) and one that was powerless and divided (the failed Articles of Confederation).
 

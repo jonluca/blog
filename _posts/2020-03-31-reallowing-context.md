@@ -4,10 +4,9 @@ date: 2020-03-31 22:25:40 -0700
 header-img: "/images/paste.png"
 ---
 
-A disappointing trend I've seen recently has been for sites disabling context actions like copy, paste, select, or right click on their websites. Banks are notoriously bad at this - for some reason, they think it's a "security feature" to not let you paste in your account number, instead requiring you to manually type it in. 
+A disappointing trend I've seen recently has been for sites disabling context actions like copy, paste, select, or right click on their websites. Banks are notoriously bad at this - for some reason, they think it's a "security feature" to not let you paste in your account number, instead requiring you to manually type it in.
 
-I realized it should be fairly easy to set up some global event listeners in the page and prevent the overridden behavior. 
-
+I realized it should be fairly easy to set up some global event listeners in the page and prevent the overridden behavior.
 
 ```js
 /**
@@ -16,23 +15,27 @@ I realized it should be fairly easy to set up some global event listeners in the
  * @param {string} type - the event type, i.e. 'paste', 'keyup', etc
  */
 function stopPropagationOfType(type) {
-  window.addEventListener(type, function (event) {
-    event.stopPropagation();
-  }, true);
+  window.addEventListener(
+    type,
+    function (event) {
+      event.stopPropagation();
+    },
+    true
+  );
 }
 ```
 
 If you inject this into the page with `stopPropagationOfType('paste');`, it will prevent any paste event listeners from running (which probably call `e.preventDefault()`.
 
-I created a [chrome extension called PasteEnabler](https://chrome.google.com/webstore/detail/pasteenabler/dhadehfniifbmemochpmbofcjckpdnnl) that you can use that reenables the following features: 
+I created a [chrome extension called PasteEnabler](https://chrome.google.com/webstore/detail/pasteenabler/dhadehfniifbmemochpmbofcjckpdnnl) that you can use that reenables the following features:
 
-* Ability to paste content
-* Ability to copy content
-* Ability to cut content
-* Ability to right click content
-* Ability to autocomplete certain inputs
-* Ability to select text
-* Ability to drag and drop text to/from inputs
+- Ability to paste content
+- Ability to copy content
+- Ability to cut content
+- Ability to right click content
+- Ability to autocomplete certain inputs
+- Ability to select text
+- Ability to drag and drop text to/from inputs
 
 The code is fairly straightforward, and has worked on every site I've tried.
 
@@ -42,21 +45,21 @@ The code is fairly straightforward, and has worked on every site I've tried.
  */
 function checkCopyAndPaste() {
   // enables paste on all items
-  stopPropagationOfType('paste');
+  stopPropagationOfType("paste");
   // enables copying any inputs or text
-  stopPropagationOfType('copy');
+  stopPropagationOfType("copy");
   // enables cutting text from an input
-  stopPropagationOfType('cut');
+  stopPropagationOfType("cut");
   // enables drag + drop of text into input
-  stopPropagationOfType('drop');
+  stopPropagationOfType("drop");
   // Enables autocomplete on all elements that have it
-  const autocompleteDisabled = document.querySelectorAll('[autocomplete]');
+  const autocompleteDisabled = document.querySelectorAll("[autocomplete]");
   for (const elem of autocompleteDisabled) {
-    elem.setAttribute('autocomplete', 'on');
+    elem.setAttribute("autocomplete", "on");
   }
 
   // enables right click context menu
-  stopPropagationOfType('contextmenu');
+  stopPropagationOfType("contextmenu");
 
   // Finds all elements and adds the user-select CSS property as text
   // note - this is a *little* hacky, but it's the only way I've found to get it to work, since user-select is not
@@ -64,18 +67,17 @@ function checkCopyAndPaste() {
   const elements = document.body.getElementsByTagName("*");
   if (elements.length) {
     for (const elem of elements) {
-      addStyle(elem, 'user-select', 'text', true);
+      addStyle(elem, "user-select", "text", true);
     }
   }
 
   // enables text selection
-  stopPropagationOfType('selectstart');
+  stopPropagationOfType("selectstart");
   // Enables dragging on all elements that have it
-  const draggableDisabled = document.querySelectorAll('[draggable]');
+  const draggableDisabled = document.querySelectorAll("[draggable]");
   for (const elem of draggableDisabled) {
-    elem.setAttribute('draggable', 'auto');
+    elem.setAttribute("draggable", "auto");
   }
-
 }
 
 /**
@@ -88,14 +90,21 @@ function checkCopyAndPaste() {
 function addStyle(element, property, value, important) {
   //remove previously defined property
   if (element.style.setProperty) {
-    element.style.setProperty(property, '');
+    element.style.setProperty(property, "");
   } else {
-    element.style.setAttribute(property, '');
+    element.style.setAttribute(property, "");
   }
 
   //insert the new style with all the old rules
-  element.setAttribute('style', element.style.cssText +
-    property + ':' + value + ((important) ? ' !important' : '') + ';');
+  element.setAttribute(
+    "style",
+    element.style.cssText +
+      property +
+      ":" +
+      value +
+      (important ? " !important" : "") +
+      ";"
+  );
 }
 ```
 

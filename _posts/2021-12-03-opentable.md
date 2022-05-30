@@ -8,7 +8,6 @@ New York City has some of the best restaurants in the world, with some of the mo
 
 I wanted to see if it would be possible to set up a script to monitor for changes, and to alert me any time there was any availability. There was one restaurant in particular, Chef's Table at Brooklyn Fare, that I wanted to book for early next year.
 
-
 # Finding their API routes
 
 ## Getting availability
@@ -19,26 +18,23 @@ I fired up BurpSuite and set it up. I navigated to their restaurant page and was
 
 Fortunately for us, it seemed like there was a pretty clean API to fetch the availability of any restaurant - a simple `PUT` to https://mobile-api.opentable.com/api/v3/restaurant/availability request with the following body:
 
-
 ```json
 {
-    "forceNextAvailable": "true",
-    "includeNextAvailable": true,
-    "availabilityToken": "<jwt>",
-    "dateTime": "2021-12-03T19:00",
-    "requestTicket": "true",
-    "allowPop": true,
-    "attribution": {
-        "partnerId": "84"
-    },
-    "partySize": 2,
-    "includeOffers": true,
-    "requestPremium": "true",
-    "requestDateMessages": true,
-    "rids": [
-        "211123"
-    ],
-    "requestAttributeTables": "true"
+  "forceNextAvailable": "true",
+  "includeNextAvailable": true,
+  "availabilityToken": "<jwt>",
+  "dateTime": "2021-12-03T19:00",
+  "requestTicket": "true",
+  "allowPop": true,
+  "attribution": {
+    "partnerId": "84"
+  },
+  "partySize": 2,
+  "includeOffers": true,
+  "requestPremium": "true",
+  "requestDateMessages": true,
+  "rids": ["211123"],
+  "requestAttributeTables": "true"
 }
 ```
 
@@ -46,35 +42,30 @@ And the response had exactly what we were looking for.
 
 ```json
 {
+  "dateTime": "2021-12-03T19:00",
+  "availability": {
     "dateTime": "2021-12-03T19:00",
-    "availability": {
-        "dateTime": "2021-12-03T19:00",
-        "noTimesReasons": [
-            "NoTimesExist"
-        ],
-        "minPartySize": 2,
-        "maxPartySize": 6,
-        "maxDaysInAdvance": 42,
-        "id": "211123",
-        "timeslots": [],
-        "dateMessages": [
-        ],
-        "token": "eyJ2IjoyLCJtIjowLCJwIjowLCJzIjowLCJuIjowfQ",
-        "hasPremiumTables": false,
-        "availabilityToken": "eyJ2IjoyLCJtIjowLCJwIjowLCJzIjowLCJuIjowfQ"
-    },
-    "suggestedAvailability": ["... entry availability"],
-    "experienceList": {
-        "results": []
-    },
+    "noTimesReasons": ["NoTimesExist"],
+    "minPartySize": 2,
+    "maxPartySize": 6,
+    "maxDaysInAdvance": 42,
+    "id": "211123",
+    "timeslots": [],
+    "dateMessages": [],
+    "token": "eyJ2IjoyLCJtIjowLCJwIjowLCJzIjowLCJuIjowfQ",
     "hasPremiumTables": false,
-    "dayAvailability": {
-    }
+    "availabilityToken": "eyJ2IjoyLCJtIjowLCJwIjowLCJzIjowLCJuIjowfQ"
+  },
+  "suggestedAvailability": ["... entry availability"],
+  "experienceList": {
+    "results": []
+  },
+  "hasPremiumTables": false,
+  "dayAvailability": {}
 }
 ```
 
 A quick conversion to python then gets us:
-
 
 ```py
 import requests
@@ -124,7 +115,6 @@ Success! I then tried removing all non essential cookies and headers, and it sti
 
 Another interesting thing was the `availabilityToken` in the request body. It clearly looked like a jwt (any time you see `ey` in a string your first thought should be jwt, much like a string ending in `=` should make you think base64), but when I put in a JWT debugger it looked like a simple flag mechanism.
 
-
 {% include image.html file="opentable-jwt" %}
 
 ```
@@ -143,28 +133,22 @@ The time slots were an array of objects with this format:
 
 ```json
 {
-    "dateTime": "2021-12-06T15:30",
-    "available": true,
-    "redemptionTier": "GreatDeal",
-    "diningAreas": [
-        {
-            "id": "1",
-            "isDefaultArea": true,
-            "availableAttributes": [
-                "default",
-                "outdoor"
-            ]
-        }
-    ],
-    "token": "<jwt>",
-    "slotHash": "<hash>",
-    "points": 100,
-    "type": "Standard",
-    "attributes": [
-        "default",
-        "outdoor"
-    ],
-    "priceAmount": 0
+  "dateTime": "2021-12-06T15:30",
+  "available": true,
+  "redemptionTier": "GreatDeal",
+  "diningAreas": [
+    {
+      "id": "1",
+      "isDefaultArea": true,
+      "availableAttributes": ["default", "outdoor"]
+    }
+  ],
+  "token": "<jwt>",
+  "slotHash": "<hash>",
+  "points": 100,
+  "type": "Standard",
+  "attributes": ["default", "outdoor"],
+  "priceAmount": 0
 }
 ```
 
@@ -178,16 +162,16 @@ The lock fires a `POST` to `/api/v1/reservation/<restaurant_id>/lock`, with this
 
 ```json
 {
-    "partySize": 2,
-    "dateTime": "2021-12-06T15:30",
-    "selectedDiningArea": {
-        "tableAttribute": "default",
-        "diningAreaId": "1"
-    },
-    "hash": "<hash>",
-    "attribution": {
-        "partnerId": "84"
-    }
+  "partySize": 2,
+  "dateTime": "2021-12-06T15:30",
+  "selectedDiningArea": {
+    "tableAttribute": "default",
+    "diningAreaId": "1"
+  },
+  "hash": "<hash>",
+  "attribution": {
+    "partnerId": "84"
+  }
 }
 ```
 
@@ -195,23 +179,23 @@ If your request is valid and that slot has not been locked by someone else, the 
 
 ```json
 {
-    "id": "<numericIdOfReservation>",
-    "rid": "19306",
-    "date": "2021-12-06T15:30",
-    "partySize": 2,
-    "offerLockId": "0",
-    "stripeKey": "pk_live_<STRIPEKEY>",
-    "creditCardCancellationPolicy": {
-        "cancellable": true,
-        "cancellationCutoffDate": "2021-12-04T17:00"
-    },
-    "occasions": [
-        "birthday",
-        "anniversary",
-        "date",
-        "special_occasion",
-        "business_meal"
-    ]
+  "id": "<numericIdOfReservation>",
+  "rid": "19306",
+  "date": "2021-12-06T15:30",
+  "partySize": 2,
+  "offerLockId": "0",
+  "stripeKey": "pk_live_<STRIPEKEY>",
+  "creditCardCancellationPolicy": {
+    "cancellable": true,
+    "cancellationCutoffDate": "2021-12-04T17:00"
+  },
+  "occasions": [
+    "birthday",
+    "anniversary",
+    "date",
+    "special_occasion",
+    "business_meal"
+  ]
 }
 ```
 
@@ -219,65 +203,65 @@ The final step is to fire one last `POST` request to `/api/v1/reservation/<resta
 
 ```json
 {
-    "diningFormOptIn": true,
-    "partySize": 2,
-    "gpid": "<GPID>",
-    "countryId": "US",
-    "attribution": {
-        "partnerId": "84"
+  "diningFormOptIn": true,
+  "partySize": 2,
+  "gpid": "<GPID>",
+  "countryId": "US",
+  "attribution": {
+    "partnerId": "84"
+  },
+  "loyaltyProgramOptIn": true,
+  "optIns": {
+    "smsNotifications": {
+      "reservationSms": true,
+      "waitlistSms": false
     },
-    "loyaltyProgramOptIn": true,
-    "optIns": {
-        "smsNotifications": {
-            "reservationSms": true,
-            "waitlistSms": false
-        },
-        "openTableDataSharing": {
-            "businessPartners": true,
-            "corporateGroup": true,
-            "pointOfSale": true
-        },
-        "dataSharing": {
-            "guestShare": true,
-            "dinerProfileShare": true,
-            "sync": true
-        },
-        "restaurantEmailMarketing": {
-            "restaurantEmails": true
-        },
-        "emailNotifications": {
-            "diningFeedback": true
-        },
-        "emailMarketing": {
-            "newHot": false,
-            "restaurantWeek": false,
-            "spotlight": false,
-            "product": false,
-            "promotional": false,
-            "insider": false,
-            "dinersChoice": false
-        }
+    "openTableDataSharing": {
+      "businessPartners": true,
+      "corporateGroup": true,
+      "pointOfSale": true
     },
-    "rewardTier": "GreatDeal",
-    "campaignId": "7",
-    "hash": "<HASH>",
-    "points": 100,
-    "loadInvitations": false,
-    "number": "<PHONENUMBER>",
-    "notes": "",
-    "slotAvailabilityToken": "<TOKEN>",
-    "selectedDiningArea": {
-        "diningAreaId": "1",
-        "tableAttribute": "default"
+    "dataSharing": {
+      "guestShare": true,
+      "dinerProfileShare": true,
+      "sync": true
     },
-    "lockId": "PreviouslyObtainedLockId",
-    "dinerId": "<DINERID>",
-    "location": {
-        "latitude": 40.74,
-        "longitude": -73.98
-   	},
-    "dateTime": "2021-12-06T15:30",
-    "uberUuid": "<UUID>"
+    "restaurantEmailMarketing": {
+      "restaurantEmails": true
+    },
+    "emailNotifications": {
+      "diningFeedback": true
+    },
+    "emailMarketing": {
+      "newHot": false,
+      "restaurantWeek": false,
+      "spotlight": false,
+      "product": false,
+      "promotional": false,
+      "insider": false,
+      "dinersChoice": false
+    }
+  },
+  "rewardTier": "GreatDeal",
+  "campaignId": "7",
+  "hash": "<HASH>",
+  "points": 100,
+  "loadInvitations": false,
+  "number": "<PHONENUMBER>",
+  "notes": "",
+  "slotAvailabilityToken": "<TOKEN>",
+  "selectedDiningArea": {
+    "diningAreaId": "1",
+    "tableAttribute": "default"
+  },
+  "lockId": "PreviouslyObtainedLockId",
+  "dinerId": "<DINERID>",
+  "location": {
+    "latitude": 40.74,
+    "longitude": -73.98
+  },
+  "dateTime": "2021-12-06T15:30",
+  "uberUuid": "<UUID>"
 }
 ```
 
@@ -285,23 +269,19 @@ The final step is to fire one last `POST` request to `/api/v1/reservation/<resta
 
 Not that I'd necessarily want to cancel a reservation, but it looks as easy as a `DELETE` request to `DELETE /api/v3/reservation/<restaurant_id>/<confirmation_number>`
 
-
 # Hooking it all up
 
 I put it all together into a python script, [which be found on GitHub](https://github.com/jonluca/OpenTable-Reservation-Maker). This will take in a restaurant ID and your time range, and automatically book it once it becomes available.
 
 {% include image.html file="opentable-code" %}
 
-
 Finally, just for the hell of it, I hooked it up to twilio so that it would send a text message once the reservation had been booked. It will now send me a text message once a table has been booked, and save the details to a file so that it won't double book a reservation.
 
 {% include image.html file="opentable-logs" %}
 
-
 I tested it and it worked great. I've got it monitoring a few different restaurants right now, and it'll book it as soon as someone cancels or it becomes available, or the restaurant releases availability. I still need to modify it so that it works with restaurants that require a credit card transaction, but that can be saved for the next post.
 
 {% include image.html file="opentable-results" %}
-
 
 The code [can be found on GitHub](https://github.com/jonluca/OpenTable-Reservation-Maker). There isn't a way to fetch your bearer token automatically right now, or search for a restaurant, so you'll need to know those ahead of time to make this work, but you can follow the steps above (or open a PR!).
 

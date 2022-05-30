@@ -3,27 +3,26 @@ title: "Ember.js, Dr. Carvers Shave Butter, and disappearing products"
 date: 2019-09-07 17:10:04 -0700
 header-img: "/images/dsc-full.png"
 ---
-*TL; DR - using the Ember developer tools, you can find cheaper versions of the same products on Dollar Shave Club's site, as well as find products that have been discontinued or that would not be normally shown.* 
 
+_TL; DR - using the Ember developer tools, you can find cheaper versions of the same products on Dollar Shave Club's site, as well as find products that have been discontinued or that would not be normally shown._
 
-Today I received yet another email from Dollar Shave Club (DSC) advertising one of their shaving sets. I'd previously tried their shaving butter and liked it, and I had just run out of shaving cream, so I figured I'd reup. I clicked through to their site and saw the shaving butter for $8, the Miracle Repair Serum for $12, and a bundle of both for $16. 
+Today I received yet another email from Dollar Shave Club (DSC) advertising one of their shaving sets. I'd previously tried their shaving butter and liked it, and I had just run out of shaving cream, so I figured I'd reup. I clicked through to their site and saw the shaving butter for $8, the Miracle Repair Serum for $12, and a bundle of both for $16.
 
 {% include image.html footnote="Shaving butter bundle" file="dsc-bundle" alt="shaving butter bundle" %}
 
-I quickly added the shaving butter to my cart (or actually not so quickly - their site is pretty slow, <s>probably due to the web framework they chose</s> edit: apparently it's just how they organized their site, not due to Ember itself), and then reconsidered and wanted to go back and get the bundle. 
+I quickly added the shaving butter to my cart (or actually not so quickly - their site is pretty slow, <s>probably due to the web framework they chose</s> edit: apparently it's just how they organized their site, not due to Ember itself), and then reconsidered and wanted to go back and get the bundle.
 
-However, when I went back to the product page, the bundles were gone. I searched around for a bit but couldn't find them anywhere. 
+However, when I went back to the product page, the bundles were gone. I searched around for a bit but couldn't find them anywhere.
 
 {% include image.html footnote="The bundles used to be where the question mark is" file="dsc-missing" alt="missing shaving butter bundle" %}
 
-I thought ok, maybe there is some logic that when a bundle item is in your cart they won't show you the bundle anymore (although that feels like pretty bad marketing) - so I removed the product from my cart and checked again. Still gone. 
+I thought ok, maybe there is some logic that when a bundle item is in your cart they won't show you the bundle anymore (although that feels like pretty bad marketing) - so I removed the product from my cart and checked again. Still gone.
 
-At this point I was a little peeved. I had *just* seen the bundle and it completely vanished. I tried signing out and signing in, clearing cookies, nothing. Something in my user modal had changed, and I was no longer eligible for their bundles. The total product cost was now $20, up from $16.
+At this point I was a little peeved. I had _just_ seen the bundle and it completely vanished. I tried signing out and signing in, clearing cookies, nothing. Something in my user modal had changed, and I was no longer eligible for their bundles. The total product cost was now $20, up from $16.
 
 I know, I know, it's only $4. But still. Four dollars.
 
 I decided to investigate.
-
 
 ## Investigating
 
@@ -31,19 +30,19 @@ There are a few ways to implement variable products on a site. The important dis
 
 **A**
 
-1) The client requests the product list from the server
-2) The server filters the full product list for the products that need to be shown to this user
-3) The server responds with the filtered list
-4) The client shows all the products it received
+1. The client requests the product list from the server
+2. The server filters the full product list for the products that need to be shown to this user
+3. The server responds with the filtered list
+4. The client shows all the products it received
 
 **B**
 
-1) The client requests the product list from the server
-2) The server responds with the full product list
-3) The client filters the product list for the products that should be shown to this user
-4) The client shows the filtered product list
+1. The client requests the product list from the server
+2. The server responds with the full product list
+3. The client filters the product list for the products that should be shown to this user
+4. The client shows the filtered product list
 
-If they were doing **A** I was probably out of luck. It would be difficult to guess the exact product information for the bundle. If I had captured all my network packets then I theoretically could've done a replay attack on myself, but network state is *really* tough to figure out, and my time spent doing that wouldn't be worth $4 (nor would I get an interesting blog post out of it).
+If they were doing **A** I was probably out of luck. It would be difficult to guess the exact product information for the bundle. If I had captured all my network packets then I theoretically could've done a replay attack on myself, but network state is _really_ tough to figure out, and my time spent doing that wouldn't be worth $4 (nor would I get an interesting blog post out of it).
 
 If they're doing **B**, though, then there's probably something interesting we can do. We can either intercept the network requests and hope they contain the information we need, or we can wait for the full state of the site to be set up and then find the filtering function (or just find the full product list).
 
@@ -57,7 +56,7 @@ I'd heard of Ember before but never used it myself. I knew it was a web framewor
 
 {% include image.html footnote="DSCs product list in Ember devtools" file="dsc-ember-data" alt="DSC data in ember" %}
 
-I poked around a bit and was surprised to see that 
+I poked around a bit and was surprised to see that
 
 I didn't get as lucky as having the source maps for their minified javascript available in prod, but at least Ember preserves object keys and types, which meant it was easy to figure out what everything in the state store was. I couldn't see what the filter function was doing, but I could find the full product list, and see the flags for the product information.
 
@@ -69,11 +68,11 @@ There were a lot of props in each product. These include `isReloading`, `isRetir
 
 I uploaded the full list to [pastebin here](https://pastebin.com/qw5La5JY).
 
-At this point I thought it would be easy to just toggle the boolean flags for all the products and it would show up in the full product list. I set their `isActive` status, I set `isSoldOut` to `false`, and tried a few of the other props. Unfortunately nothing got the product to actually show up in the front end so I could add it to my cart (and there was no clear way to add the product to my cart directly). 
+At this point I thought it would be easy to just toggle the boolean flags for all the products and it would show up in the full product list. I set their `isActive` status, I set `isSoldOut` to `false`, and tried a few of the other props. Unfortunately nothing got the product to actually show up in the front end so I could add it to my cart (and there was no clear way to add the product to my cart directly).
 
 At first I thought that perhaps changing these wouldn't trigger Ember's equivalent of `render`, but updating their `name` attribute got it to change so that theory was dispelled.
 
-The other problem here was that the bundle I was looking for wasn't in the product list. Any time I was on a page, it would only show me the products for that page, not all of them.  
+The other problem here was that the bundle I was looking for wasn't in the product list. Any time I was on a page, it would only show me the products for that page, not all of them.
 
 {% include image.html footnote="Only the products for a given page were in the products list" file="dsc-only" alt="missing products" %}
 
@@ -81,7 +80,7 @@ Since DSC is a single page application, though, I was just able to click through
 
 {% include image.html footnote="All 144 products on DSC" file="dsc-full" alt="full products" %}
 
-By my count there are 144 loadable products on https://www.dollarshaveclub.com. 
+By my count there are 144 loadable products on https://www.dollarshaveclub.com.
 
 In here I found the missing bundle (by filtering by price -> `16`), but I still didn't have an easy way to add it to my cart.
 
@@ -93,19 +92,19 @@ When I clicked through a product I noticed that it followed a consistent URL sch
 
 ## Having fun
 
-After successfully adding the bundle to my cart, something was still bugging me. 144 products seemed like a *lot* - I thought that DSC only had a couple dozen products, definitely not 144. 
+After successfully adding the bundle to my cart, something was still bugging me. 144 products seemed like a _lot_ - I thought that DSC only had a couple dozen products, definitely not 144.
 
-I decided to poke around and found some interesting things. There were multiple versions of the same product, as well as legacy products, and promotional products that I assume you can only get to from a direct email or having the promo flagged on your account. 
+I decided to poke around and found some interesting things. There were multiple versions of the same product, as well as legacy products, and promotional products that I assume you can only get to from a direct email or having the promo flagged on your account.
 
 {% include image.html footnote="Legacy product" file="dsc-legacy" alt="legacy product" %}
 
-The funniest one was "Nik's test product, what the f\*\*k is it? Base", with a description of "Olala bobob". Those are the kinds of developer breadcrumbs that make it to prod. 
+The funniest one was "Nik's test product, what the f\*\*k is it? Base", with a description of "Olala bobob". Those are the kinds of developer breadcrumbs that make it to prod.
 
 {% include image.html footnote="Nik's test product, what the f**k is it? Base Olala bobob" file="dsc-nik" alt="test product" %}
 
 ## Conclusion
 
-I'm still not sure why I wasn't seeing the bundles. If I had to guess, they're changing the products they show based on user behaviors and what they have in their carts, but it might also be a bug. 
+I'm still not sure why I wasn't seeing the bundles. If I had to guess, they're changing the products they show based on user behaviors and what they have in their carts, but it might also be a bug.
 
 By going directly to `https://www.dollarshaveclub.com/manage/add/now/BN-DR-SB6SRM-20` I was able to add the bundle to my cart. It was a bittersweet moment, because I had just paid $16 for shaving butter and razor burn spray, but I was pretty satisfied with my research.
 
@@ -120,7 +119,7 @@ Today I received a large box in the mail from Dollar Shave Club. I was a bit per
 I opened it up and saw that it was filled with DSC swag!
 {% include image.html footnote="Package I received in the mail from DSC" file="dsc-box" alt="DSC box" %}
 
-At the top there was a wonderful, hand written letter signed by the team that said "Hackerman". 
+At the top there was a wonderful, hand written letter signed by the team that said "Hackerman".
 
 {% include image.html footnote="Hackerman letter" file="dsc-letter" alt="DSC letter" %}
 
@@ -128,10 +127,8 @@ What a wonderful surprise! It turns out that they read this blog post (Hi DSC!) 
 
 {% include image.html footnote="Letter by the DSC devs" file="dsc-letteropen" alt="dsc open letter" %}
 
-There were some great quotes like "DIE EMBER DIE *react ftw*", "Thanks for making me [a] celebrity", by Nik, and "LOL by Russian DSC devs". 
+There were some great quotes like "DIE EMBER DIE _react ftw_", "Thanks for making me [a] celebrity", by Nik, and "LOL by Russian DSC devs".
 
 {% include image.html footnote="DSC swag" file="dsc-swag" alt="DSC swag" %}
 
-
 What a great company and culture - thanks for the swag, you've earned yourself a loyal customer!
-

@@ -4,7 +4,7 @@ date: 2021-07-18 09:18:39 -0400
 header-img: "/images/javascript-funclength.png"
 ---
 
-Here are some interesting JavaScript facts that I've encountered over the last few years. 
+Here are some interesting JavaScript facts that I've encountered over the last few years.
 
 # Function.length
 
@@ -12,32 +12,30 @@ Call `Function.length` will return the number of arguments a function is expecti
 
 {% include image.html file="javascript-funclength" alt="Javascript function length" %}
 
-The spread operator will not be included in the count. 
+The spread operator will not be included in the count.
 
 {% include image.html file="javascript-spreadlength" alt="Javascript function length" %}
 
-
 # Array.map(func)
 
-when you call `Array.map(func)`, the mapped function gets called with 3 arguments, not just the value. 
+when you call `Array.map(func)`, the mapped function gets called with 3 arguments, not just the value.
 
 So for:
 
 ```js
-['10', '11', '12'].map(parseInt);
+["10", "11", "12"].map(parseInt);
 ```
 
 You'd _expect_ to get
 
-
 ```js
-[10, 11, 12]
+[10, 11, 12];
 ```
 
-but in reality get 
+but in reality get
 
 ```js
-[10, NaN, 1]
+[10, NaN, 1];
 ```
 
 This is because `.map(parseInt)` calls the function with three arguments - `(currentValue, index, array)`. This is normally not an issue, but becomes an issue when the mapped function takes additional arguments that do not correspond to the ones being passed in.
@@ -49,10 +47,10 @@ This is because `.map(parseInt)` calls the function with three arguments - `(cur
 The only falsey values are:
 
 ```js
-[0, -0, 0n, '', "", null, undefined, NaN, false]
+[0, -0, 0n, "", "", null, undefined, NaN, false];
 ```
 
-*Everything* else is truthy - including `[]`, an empty Set(), and an empty object.
+_Everything_ else is truthy - including `[]`, an empty Set(), and an empty object.
 
 # Null comparisons to 0
 
@@ -62,7 +60,7 @@ I ran into a nasty bug once where a value I thought was guaranteed to be a numbe
 
 # Array.sort sorts by string sequence code
 
-Call `.sort()` on an array of numbers will not sort them numerically. Which is perplexing 
+Call `.sort()` on an array of numbers will not sort them numerically. Which is perplexing
 
 Null is not equal to zero, and is not greater than zero, but is greater than or equal to zero.
 

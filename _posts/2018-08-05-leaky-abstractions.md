@@ -2,11 +2,37 @@
 title: "Leaky vs punch-through abstractions"
 date: 2018-08-04 11:07:47 -0700
 ---
-Leaky abstractions are the cause of much frustration - they do not properly hide away all the complexity of the system they are covering. Unfortunately *every* abstraction is leaky to some degree[^1] - that's why the best designed abstractions offer the ability to **punch through** them.
+
+<style>
+.abstractionLayer {
+  min-height: 30px;
+  margin: 10px auto;
+  align-items: center;
+  color: #ffffff;
+  text-align: center;
+  width: 40%;
+  display: flex;
+  justify-content: center;
+}
+
+.firstAl {
+  background-color: #45a995;
+}
+
+.secondAl {
+  background-color: #378f76;
+}
+
+.thirdAl {
+  background-color: #214d3c;
+}
+</style>
+
+Leaky abstractions are the cause of much frustration - they do not properly hide away all the complexity of the system they are covering. Unfortunately _every_ abstraction is leaky to some degree[^1] - that's why the best designed abstractions offer the ability to **punch through** them.
 
 ### Background
 
-Talking about abstraction layers can get complicated fairly quickly. By definition they exist at every layer of a system, from [Microcode](https://en.wikipedia.org/wiki/Microcode) , which translates Assembly to actual instructions a CPU can interpret, to services like CDN managers which sit at a *much* higher level and treat entire segments of the internet as abstractions. They serve extremely different purposes but the end goal is always the same - to simplify some underlying service or complexity. They hide this complexity (with varying levels of success).
+Talking about abstraction layers can get complicated fairly quickly. By definition they exist at every layer of a system, from [Microcode](https://en.wikipedia.org/wiki/Microcode) , which translates Assembly to actual instructions a CPU can interpret, to services like CDN managers which sit at a _much_ higher level and treat entire segments of the internet as abstractions. They serve extremely different purposes but the end goal is always the same - to simplify some underlying service or complexity. They hide this complexity (with varying levels of success).
 
 ### Failure
 
@@ -20,14 +46,13 @@ Abstractions seem to fall in one of a few categories with regards to their failu
 
 ### Good Abstractions
 
-A leaky abstraction **forces** you to deal with the bare metal - a great abstraction **lets** you. The best abstraction layers are those that let you completely shed the layer and deal directly with the bare-metal underneath. 
+A leaky abstraction **forces** you to deal with the bare metal - a great abstraction **lets** you. The best abstraction layers are those that let you completely shed the layer and deal directly with the bare-metal underneath.
 
-No abstraction is actually perfect - there will *always* be cases when the provided abstractions aren't enough. A well designed layer takes this into account and creates a safe way to interact with the lower level.
+No abstraction is actually perfect - there will _always_ be cases when the provided abstractions aren't enough. A well designed layer takes this into account and creates a safe way to interact with the lower level.
 
 ### Implementation
 
-All abstractions are leaky. To pretend otherwise would be to lie to ourselves. When designing an abstraction layer identify the core parts you *need to do well*, and then design a way to circumvent or add on functionality in an intuitive manner. It's important not to fixate on a perfect abstraction - instead focus on handling the majority of use cases, and providing an intuitive way for the user to handle the remaining edge ones. 
-
+All abstractions are leaky. To pretend otherwise would be to lie to ourselves. When designing an abstraction layer identify the core parts you _need to do well_, and then design a way to circumvent or add on functionality in an intuitive manner. It's important not to fixate on a perfect abstraction - instead focus on handling the majority of use cases, and providing an intuitive way for the user to handle the remaining edge ones.
 
 ### ORM
 
@@ -46,27 +71,28 @@ Person p = repository.GetPerson(10);
 String name = p.getFirstName();
 ```
 
-It's easier to read (and code) when the SQL is abstracted away behind `GetPerson` functions. 
+It's easier to read (and code) when the SQL is abstracted away behind `GetPerson` functions.
 
 Unfortunately no ORM could sufficiently provide all the functionality - as your queries get more complicated the ORM will start to strain and either force to you perform bad code practices or look for a solution elsewhare. A punchthrough would be a method like so:
 
 ```c#
 Person p = repository.GetPerson(10);
 String name = p.getFirstName();
-RawSqlBuilder r = repository.buildSql(@"SELECT Orders.id FROM Orders 
-	INNER JOIN Persons ON Orders.id=Persons.id 
+RawSqlBuilder r = repository.buildSql(@"SELECT Orders.id FROM Orders
+	INNER JOIN Persons ON Orders.id=Persons.id
 	WHERE first_name=" + escapeSql(name) + ";");
 String orderName = repository.execSql(r).getOrderName(0);
 ```
 
 A library built like this acknowledges that it won't provide functionality for all usecases and offers the ability to punch straight through it - in this case, writing raw SQL that it then interprets and brings back to the ORM layer gracefully.
 
-There's an argument here that a library that does not have the above functionality is just a poorly made abstraction - that's not the point of the example, though. The point is the fact that no library will cover all use cases, and it's a significantly better experience when the library helps you and guides you through it's abstraction rather than forcing you to fork the project and modify the code yourself to fit your needs. In a perfect world the library would be adapted for your specific use case so that it fully covers it, but that's just not a reasonable approach to the problem. 
+There's an argument here that a library that does not have the above functionality is just a poorly made abstraction - that's not the point of the example, though. The point is the fact that no library will cover all use cases, and it's a significantly better experience when the library helps you and guides you through it's abstraction rather than forcing you to fork the project and modify the code yourself to fit your needs. In a perfect world the library would be adapted for your specific use case so that it fully covers it, but that's just not a reasonable approach to the problem.
 
-Even the best made abstractions wil 
+Even the best made abstractions wil
+
 ### Multi Layer Abstraction Punch-Throughs
 
-One of the biggest issues that arise when designing multiple abstraction layers is the methodology of punch through. 
+One of the biggest issues that arise when designing multiple abstraction layers is the methodology of punch through.
 
 In the example below we have a moderately complex application - there are three distinct abstraction layers that are each built on top of each, with a clear separation of duties.
 
@@ -74,17 +100,17 @@ In the example below we have a moderately complex application - there are three 
 <div id="2" class="abstractionLayer secondAl">Second Service</div>
 <div class="abstractionLayer thirdAl">Third Service</div>
 
-The question then becomes whether the punch through should go all the way through, or whether it should be limited to just the next layer. 
+The question then becomes whether the punch through should go all the way through, or whether it should be limited to just the next layer.
 
-Should the design of the system allow the first layer to modify the third one directly? 
+Should the design of the system allow the first layer to modify the third one directly?
 
-The obvious benefit is functionality. You add the ability for the user to not have to learn anything about the second layer - if they are dealing with the first service and just need to modify something on the third, they can punch straight through. 
+The obvious benefit is functionality. You add the ability for the user to not have to learn anything about the second layer - if they are dealing with the first service and just need to modify something on the third, they can punch straight through.
 
-The negatives are a bit more nuanced. When designing a straight punch-through system, you remove the locality of code. A code base could end up with poorly delineated files which touch a lot of functionality. Allowing the a high level service to directly modify low level functionality leads to a lack of intuition on where the code would reside. Since *every* layer of a service can modify any below it, there's a lot more places for misbehaving code to show up. 
+The negatives are a bit more nuanced. When designing a straight punch-through system, you remove the locality of code. A code base could end up with poorly delineated files which touch a lot of functionality. Allowing the a high level service to directly modify low level functionality leads to a lack of intuition on where the code would reside. Since _every_ layer of a service can modify any below it, there's a lot more places for misbehaving code to show up.
 
-The other potential issue is precedence. If layer one exercises its right to punch through to layer 3, but layer 2 does as well, and they conflict, which takes precedence? It's not immediately clear if it's one or the other, and would probably lay in the field of undefined behavior. 
+The other potential issue is precedence. If layer one exercises its right to punch through to layer 3, but layer 2 does as well, and they conflict, which takes precedence? It's not immediately clear if it's one or the other, and would probably lay in the field of undefined behavior.
 
-Restricting punch through to just the layer below would rectify this problem, at the cost of more functionality. 
+Restricting punch through to just the layer below would rectify this problem, at the cost of more functionality.
 
 I don't believe there's a firm answer to this, and the right choice ends up being project dependent. The coupling of the system should also be taken into account - if these layers are all tightly coupled and are unlikely to be reused, then a direct punch through might be ideal. If instead this is a genericized project that is meant to have a clear separation of duties, single layer punch through is preferred.
 
@@ -95,5 +121,4 @@ When designing an abstraction layer it's important to give your users the abilit
 ###### Footnotes
 
 [^1]: See <a rel="noopener"1D41A1 `rel="noreferrer" href="https://www.joelonsoftware.com/2002/11/11/the-law-of-leaky-abstractions/">The Law of Leaky Abstractions</a>
-
 [^2]: Credit to <a rel="noopener"1D41A1 `rel="noreferrer" href="https://en.wikipedia.org/wiki/Object-relational_mapping">Wikipedia</a>

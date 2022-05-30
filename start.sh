@@ -3,5 +3,6 @@ echo_time() {
 }
 # Build bundle first to reflect changes, then build in production to minify
 echo_time "Building"
-source ~/.rvm/scripts/rvm
+test -f ~/.rvm/scripts/rvm && source ~/.rvm/scripts/rvm
 JEKYLL_ENV="production" bundle exec jekyll build --verbose --trace
+echo_time "Done"

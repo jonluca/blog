@@ -8,7 +8,7 @@ This is going to be more of a rant than my usual posts, but I think it's worth t
 
 I recently started using good reads - it's a great service that connects directly with your amazon book purchase history and allows you to keep track of what books you've read, provide recommendations, and lets you see what your friends are reading as well.
 
-It's also one of the slowest sites I've ever used. 
+It's also one of the slowest sites I've ever used.
 
 {% include image.html footnote="Good Reads TTFB is nearly 5 seconds" file="goodreads" alt="good reads TTFB" %}
 
@@ -16,9 +16,9 @@ With a whopping time-to-first-byte (TTFB) of **5 seconds**, Good Reads has a 25x
 
 {% include image.html footnote="Next request" file="goodreads2" alt="good reads TTFB" %}
 
-Subsequent requests are also incredibly high - at 2s, it's a noticeable lag to all your actions. 
+Subsequent requests are also incredibly high - at 2s, it's a noticeable lag to all your actions.
 
-It's fairly shocking that a site owned by a trillion dollar company (Amazon) with 90 million users[^2] can be *this* non performant.
+It's fairly shocking that a site owned by a trillion dollar company (Amazon) with 90 million users[^2] can be _this_ non performant.
 
 <video class="centered-image" controls autoplay loop>
     <source src="/images/goodreads.mp4" type="video/mp4">
@@ -26,8 +26,8 @@ It's fairly shocking that a site owned by a trillion dollar company (Amazon) wit
 </video>
 <p class="footnote">Good reads initial site load video</p>
 
-This is definitely not due to my current network conditions - I'm on gigabit wifi, with low latency, in San Francisco. It makes the site almost unusable - I wonder how many daily active users they're missing out on due to their performance issues? 
- 
+This is definitely not due to my current network conditions - I'm on gigabit wifi, with low latency, in San Francisco. It makes the site almost unusable - I wonder how many daily active users they're missing out on due to their performance issues?
+
 ###### Footnotes
 
 [^1]: https://developers.google.com/speed/docs/insights/Server

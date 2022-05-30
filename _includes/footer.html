@@ -1,6 +1,18 @@
-<script async defer src="https://www.googletagmanager.com/gtag/js?id=UA-90475221-1"></script>
+<script
+  async
+  defer
+  src="https://www.googletagmanager.com/gtag/js?id=UA-90475221-1"
+></script>
 <script async defer src="/js/preload.js"></script>
-<noscript><p><img src="//j.jonlu.ca/matomo.php?idsite=1&rec=1" alt="matomo" style="border:0;" alt="" /></p></noscript>
+<noscript
+  ><p>
+    <img
+      src="//j.jonlu.ca/matomo.php?idsite=1&rec=1"
+      alt="matomo"
+      style="border: 0"
+      alt=""
+    /></p
+></noscript>
 <script>
   window.dataLayer = window.dataLayer || [];
 
@@ -8,42 +20,62 @@
     dataLayer.push(arguments);
   }
 
-  gtag('js', new Date());
-  gtag('config', 'UA-90475221-1');
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker
-      .register('/sw.js');
+  gtag("js", new Date());
+  gtag("config", "UA-90475221-1");
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("/sw.js");
   }
   // matomo
   var _paq = window._paq || [];
   _paq.push(["setRequestMethod", "POST"]);
-  _paq.push(['disableAlwaysUseSendBeacon']);
+  _paq.push(["disableAlwaysUseSendBeacon"]);
   _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
   _paq.push(["setCookieDomain", "*.jonlu.ca"]);
-  _paq.push(["setDomains", ["*.jonlu.ca","*.blog.jonlu.ca", "*.jldc.me","*.blog.jldc.me"]]);
-  _paq.push(['trackPageView']);
-  _paq.push(['enableLinkTracking']);
-  _paq.push(['enableHeartBeatTimer']);
-  if(document.referrer){
-      _paq.push(['setReferrerUrl', document.referrer]);
-    }
-  (function() {
-    var u="//j.jonlu.ca/";
-    _paq.push(['setRequestMethod', 'POST']);
-    _paq.push(['setTrackerUrl', u+'js/']);
-    _paq.push(['setSiteId', '1']);
+  _paq.push([
+    "setDomains",
+    ["*.jonlu.ca", "*.blog.jonlu.ca", "*.jldc.me", "*.blog.jldc.me"],
+  ]);
+  _paq.push(["trackPageView"]);
+  _paq.push(["enableLinkTracking"]);
+  _paq.push(["enableHeartBeatTimer"]);
+  if (document.referrer) {
+    _paq.push(["setReferrerUrl", document.referrer]);
+  }
+  (function () {
+    var u = "//j.jonlu.ca/";
+    _paq.push(["setRequestMethod", "POST"]);
+    _paq.push(["setTrackerUrl", u + "js/"]);
+    _paq.push(["setSiteId", "1"]);
 
-    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'js/'; s.parentNode.insertBefore(g,s);
+    var d = document,
+      g = d.createElement("script"),
+      s = d.getElementsByTagName("script")[0];
+    g.type = "text/javascript";
+    g.async = true;
+    g.defer = true;
+    g.src = u + "js/";
+    s.parentNode.insertBefore(g, s);
   })();
 </script>
 <!-- Twitter universal website tag code -->
 <script>
-!function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
-},s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='//static.ads-twitter.com/uwt.js',
-a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
-// Insert Twitter Pixel ID and Standard Event data below
-twq('init','o68uz');
-twq('track','PageView');
+  !(function (e, t, n, s, u, a) {
+    e.twq ||
+      ((s = e.twq =
+        function () {
+          s.exe ? s.exe.apply(s, arguments) : s.queue.push(arguments);
+        }),
+      (s.version = "1.1"),
+      (s.queue = []),
+      (u = t.createElement(n)),
+      (u.async = !0),
+      (u.defer = !0),
+      (u.src = "//static.ads-twitter.com/uwt.js"),
+      (a = t.getElementsByTagName(n)[0]),
+      a.parentNode.insertBefore(u, a));
+  })(window, document, "script");
+  // Insert Twitter Pixel ID and Standard Event data below
+  twq("init", "o68uz");
+  twq("track", "PageView");
 </script>
 <!-- End Twitter universal website tag code -->

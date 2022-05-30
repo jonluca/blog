@@ -8,7 +8,7 @@ Most web reverse engineering focuses on two attack surfaces - either DOM scrapin
 
 The former is what most traditional scraping looks like - you manually inspect a web page, you determine the right xpath/css selectors to follow, and then instruct a scraper to statically request the page and scrape it.
 
-The rise of SPAs has made this approach a bit less impractical - you now have to actually render the content, which is is significantly slower, to have the content you want to scrape show up in the DOM. 
+The rise of SPAs has made this approach a bit less impractical - you now have to actually render the content, which is is significantly slower, to have the content you want to scrape show up in the DOM.
 
 At the same time, it made web scraping as a whole much easier - sites that used to be server rendered now have nice, machine readable routes that serve JSON. This has lead to tools like Burp Suite and Charles Proxy being coopted from their original use of finding security vulnerabilities to being primarily used for web scraping.
 
@@ -16,7 +16,7 @@ In this article I want to introduce a third, more niche attack surface for scrap
 
 ## Chrome Devtools
 
-Devtools has a nice feature to detect memory leaks - the Memory tab. 
+Devtools has a nice feature to detect memory leaks - the Memory tab.
 
 {% include image.html file="memory" alt="Memory tab" %}
 
@@ -25,7 +25,6 @@ It will take a snapshot of the current tabs memory, and built a graph out of it 
 The memory tab is mostly used to compare different memory snapshots - you take a snapshot, perform some actions on the page, take another snapshot, and look at everything that got allocated to see if there are any memory leaks.
 
 Since it's pretty much a full memory snapshot, it stores all strings and objects - which, for something like React or Vue, will include all props and (typically) network request responses.
-
 
 ## Memory snapshots
 
@@ -38,7 +37,6 @@ Within the web world, though, it's hardly ever used. Most of the literature onli
 Using memory snapshots makes sense in two cases - 1), when the client encrypts the network response, and you don't have the time or energy to reverse the bundle to understand how to decrypt it programatically (like in [Blind's case, which I did here]('/posts/decrypting-blind?ref=wsenr')) and 2) when the client requests are machine readable, but there are multiple requests that get stitched together in memory to create the desired objects.
 
 {% include image.html file="encrypted-memory" alt="An encrypted memory response" %}
-
 
 ## Reversing the spec
 

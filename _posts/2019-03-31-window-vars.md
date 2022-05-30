@@ -3,6 +3,7 @@ title: "Identifying non-default global variables in JavaScript"
 date: 2019-03-31 18:22:31 -0700
 header-img: "/images/lyft-api-network.png"
 ---
+
 With the transition to [single page apps](https://en.wikipedia.org/wiki/Single-page_application), a lot of websites now store core information in actual stateful JavaScript rather than in text in HTML.
 
 ## Comparing Windows
@@ -39,9 +40,7 @@ We can try our first check with a site like GitHub. Running `checkGlobal()` retu
 ["System", "u2f", "ga", "gaplugins", "IncludeFragmentElement", "AutocompleteElement", "DetailsMenuElement", "GEmojiElement", "ImageCropElement", "MarkdownHeaderButtonElement", "MarkdownBoldButtonElement", "MarkdownItalicButtonElement", "MarkdownQuoteButtonElement", "MarkdownCodeButtonElement", "MarkdownLinkButtonElement", "MarkdownUnorderedListButtonElement", "MarkdownOrderedListButtonElement", "MarkdownTaskListButtonElement", "MarkdownMentionButtonElement", "MarkdownRefButtonElement", "MarkdownToolbarElement", "TabContainerElement", "TaskListsElement", "LocalTimeElement", "RelativeTimeElement", "TimeAgoElement", "TimeUntilElement", "ClipboardCopyElement", "DetailsDialogElement", "AutoCheckElement", "PollIncludeFragmentElement", "FileAttachmentElement", "FuzzyListElement", "FilterableInputElement", "_octo", "EmojiSuggesterElement", "checkGlobal"]
 ```
 
-
 This was a somewhat naive check - we're just comparing key names, the check function does not compare overloaded or renamed, functions, or differences at nested depths. However, we're able to actually extract quite a bit of information. We can guess that the `ga` and `gaplugins` keys are for Google Analytics. The first key that pops out of interest is clearly `_octo` - we can then check out the object, and figure out what they're storing there. Oftentimes this'll include core state of the application, and make it so we don't actually need to scrape the webpage.
-
 
 ## Deeper comparisons
 
@@ -52,13 +51,18 @@ We can do that like so:
 ```js
 function checkGlobal() {
   const currWindowKeys = Object.keys(window);
-  const unique = currWindowKeys.filter(value => !Object.keys(originalWindowKeys).includes(value));
+  const unique = currWindowKeys.filter(
+    (value) => !Object.keys(originalWindowKeys).includes(value)
+  );
   const diffHash = [];
   for (const key of currWindowKeys) {
     if (Object.keys(originalWindowKeys).includes(key)) {
       try {
         // if hashes don't match and the hash isn't an unhashable (marked with _ above)
-        if (objectHash.sha1(window[key]) !== originalWindowKeys[key] && originalWindowKeys[key] !== '_') {
+        if (
+          objectHash.sha1(window[key]) !== originalWindowKeys[key] &&
+          originalWindowKeys[key] !== "_"
+        ) {
           diffHash.push(key);
         }
       } catch (e) {
@@ -68,7 +72,7 @@ function checkGlobal() {
   }
   return {
     unique,
-    diffHash
+    diffHash,
   };
 }
 ```
@@ -78,8 +82,8 @@ I made a small [chrome extension](https://github.com/jonluca/Window-Differ) that
 This works well - clicking the chrome extension icon immediately shows me the different global variables, which for my site are different analytics modules.
 
 {% picture "global-var-diff.png" --alt Personal sites different global vars %}
-<p class="footnote">My personal sites global variable differences</p>
 
+<p class="footnote">My personal sites global variable differences</p>
 
 ## Future work
 

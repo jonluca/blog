@@ -1,67 +1,83 @@
-{% assign is_post = page.date %}
-{% assign is_home = page.is_home %}
-<!DOCTYPE html>
+{% assign is_post = page.date %} {% assign is_home = page.is_home %}
+<!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <link rel="preconnect" href="https://www.google-analytics.com">
-        <link rel="preconnect" href="https://j.jonlu.ca">
-        <meta name="author" content="JonLuca DeCaro">
-        <title>{% if page.title and is_home != true%}{{ page.title | escape }} - {% endif %}{{ site.title | escape }}{% unless page.title %} - {{ site.description | escape }}{% endunless %}</title>
-        {% if page.header-img %}
-        <meta name="image" property="og:image" content="{{ site.url }}{{ page.header-img }}"/>
-        <meta name="image" property="image" content="{{ site.url }}{{ page.header-img }}"/>
-        <meta name="twitter:image" content="{{ site.url }}{{ page.header-img }}"/>
-        {% else %}
-        <meta name="image" property="og:image" content="{{ site.url }}/images/mini-profile.png"/>
-        <meta name="image" property="image" content="{{ site.url }}/images/mini-profile.png"/>
-        <meta name="twitter:image" content="{{ site.url }}/images/mini-profile.png"/>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="preconnect" href="https://www.google-analytics.com" />
+    <link rel="preconnect" href="https://j.jonlu.ca" />
+    <meta name="author" content="JonLuca DeCaro" />
+    <title>
+      {% if page.title and is_home != true%}{{ page.title | escape }} - {% endif %}{{ site.title | escape }}{% unless page.title %} - {{ site.description | escape }}{% endunless %}
+    </title>
+    {% if page.header-img %}
+    <meta
+      name="image"
+      property="og:image"
+      content="{{ site.url }}{{ page.header-img }}"
+    />
+    <meta
+      name="image"
+      property="image"
+      content="{{ site.url }}{{ page.header-img }}"
+    />
+    <meta name="twitter:image" content="{{ site.url }}{{ page.header-img }}" />
+    {% else %}
+    <meta
+      name="image"
+      property="og:image"
+      content="{{ site.url }}/images/mini-profile.png"
+    />
+    <meta
+      name="image"
+      property="image"
+      content="{{ site.url }}/images/mini-profile.png"
+    />
+    <meta
+      name="twitter:image"
+      content="{{ site.url }}/images/mini-profile.png"
+    />
+    {% endif %}
+    <meta name="email" property="og:email" content="jonluca.decaro@gmail.com" />
+    {% include head.html %}
+  </head>
+  <body class="lh-copy dark-gray pa0 f6 bg-super-white">
+    <header class="tc mt4">
+      {% if is_home == true %}
+      <h1 style="font-size: 20px">{{ site.title }}</h1>
+      {% else %}
+      <h2 style="font-size: 20px">{{ site.title }}</h2>
+      <link
+        rel="stylesheet"
+        type="text/css"
+        href="{{ site.url }}/stylesheets/highlighter.css"
+      />
+      {% endif %}
+    </header>
+    <div
+      class="bg-white mt4 mb3 center br2-ns bt bb ba-ns b--light-gray"
+      style="max-width: 66rem"
+    >
+      <nav aria-label="Main" class="bb b--light-gray pv4 tc">
+        {% for link in site.links %}
+        <a class="link blue mh2 pv1" href="{{ link.url }}"> {{ link.name }} </a>
+        {% endfor %}
+      </nav>
+      <main class="tl f6 relative pa4 pa5-ns overflow-hidden">
+        {% if page.title and is_home != true %}
+        <div class="mb4">
+          {% if page.date %}
+          <div class="fw600 light-silver mt1">
+            {{ page.date | date_to_string }}
+          </div>
+          {% endif %}
+          <h1 class="ttu f3 mt0 lh-title cb mb2">{{ page.title }}</h1>
+        </div>
         {% endif %}
-        <meta name="email" property="og:email" content="jonluca.decaro@gmail.com"/>
-        {% if page.date %}
-        {% endif %}
-        {% include head.html %}
-        {% if page.header-includes %}
-        {{ page.header-includes }}
-        {% endif %}
-    </head>
-    <body class="lh-copy dark-gray pa0 f6 sans-serif bg-super-white">
-        <header class="tc mt4">
-            {% if is_home == true %}
-            <h1 style="font-size: 20px">{{ site.title }}</h1>
-            {% else %}
-            <h2 style="font-size: 20px">{{ site.title }}</h2>
-            {% endif %}
-        </header>
-        <div class="width bg-white mt4 mb3 center br2-ns bt bb ba-ns b--light-gray">
-            <nav aria-label="Main" class="bb b--light-gray pv4 tc">
-                {% for link in site.links %}
-                    <a class="link blue mh2 pv1"
-                    href="{{ link.url }}">
-                    {{ link.name }}
-                </a>
-            {% endfor %}
-        </nav>
-        <main class="tl f6 relative pa4 pa5-ns overflow-hidden">
-            {% if page.title and is_home != true %}
-                <div class="mb4">
-                    {% if page.date %}
-                        <div class="fw600 light-silver mt1">{{ page.date | date_to_string }}</div>
-                    {% endif %}
-                    <h1 class="ttu f3 mt0 lh-title cb mb2">
-                    {{ page.title }}
-                    </h1>
-                </div>
-            {% endif %}
-            <div class="markdown-body">
-                {{ content }}
-            </div>
-            {% if is_post %}
-                {% include signoff.html %}
-                {% include share.html %}
-            {% endif %}
-        </main>
+        <div class="markdown-body">{{ content }}</div>
+        {% if is_post %} {% include signoff.html %} {% include share.html %} {%
+        endif %}
+      </main>
     </div>
-</body>
-{% include footer.html %}
+  </body>
+  {% include footer.html %}
 </html>

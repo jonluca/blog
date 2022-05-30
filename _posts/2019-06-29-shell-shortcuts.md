@@ -13,7 +13,7 @@ function qg() {
   message="$*"
   git add --all
   # note that -S signs your commit. Remove if you have not set up GPG signatures
-  git commit -S -m $message 
+  git commit -S -m $message
   git push
 }
 ```
@@ -25,7 +25,6 @@ function mkd() {
   mkdir -p "$@" && cd "$_"
 }
 ```
-
 
 # Create a .tar.gz archive, using `zopfli`, `pigz` or `gzip` for compression
 
@@ -82,7 +81,6 @@ function fs() {
 }
 ```
 
-
 # Start an HTTP server from a directory, optionally specifying the port
 
 ```bash
@@ -107,7 +105,6 @@ function emptytrash() {
   sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* 'delete from LSQuarantineEvent'
 } 2>/dev/null
 ```
-
 
 # Extract most know archives with one command
 
@@ -189,5 +186,3 @@ alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resource
 # Flush Directory Service cache and reset internet
 alias flush="sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder && sudo ifconfig en0 down && sudo ifconfig en0 up"
 ```
-
-

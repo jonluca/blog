@@ -1,0 +1,114 @@
+.ryanair-graph {
+  margin: 0 auto;
+  width: 100%;
+  height: 500px;
+}
+
+.custom-dropdown {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 10px;
+}
+
+.custom-dropdown select {
+  background-color: #7f8c8d;
+  color: #fff;
+  font-size: inherit;
+  padding: 0.5em;
+  padding-right: 2.5em;
+  border: 0;
+  margin: 0;
+  border-radius: 3px;
+  text-indent: 0.01px;
+  text-overflow: "";
+  -webkit-appearance: button;
+}
+
+.custom-dropdown::before,
+.custom-dropdown::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+}
+
+.custom-dropdown::after {
+  content: "\25BC";
+  height: 1em;
+  font-size: 0.625em;
+  line-height: 1;
+  right: 1.2em;
+  top: 50%;
+  margin-top: -0.5em;
+}
+
+.custom-dropdown::before {
+  width: 2em;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  border-radius: 0 3px 3px 0;
+}
+
+.custom-dropdown select[disabled] {
+  color: rgba(0, 0, 0, 0.3);
+}
+
+.custom-dropdown select[disabled]::after {
+  color: rgba(0, 0, 0, 0.1);
+}
+
+.custom-dropdown::before {
+  background-color: rgba(0, 0, 0, 0.15);
+}
+
+.custom-dropdown::after {
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.plus {
+  width: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+  height: 50px;
+  background: #0093f2;
+  border-radius: 50%;
+  display: flex;
+  position: relative;
+}
+
+.plus__line {
+  width: 6px;
+  height: 25px;
+  background: #000;
+  border-radius: 10px;
+  position: absolute;
+  left: calc(50% - 3px);
+  top: calc(50% - 12.5px);
+}
+
+.plus__line--h {
+  transform: rotate(90deg);
+}
+
+.plus__line--v {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  overflow: hidden;
+  transition: all 0.4s ease 0s;
+}
+#path-header {
+  display: none;
+}
+
+.to-remove {
+  font-size: 20px;
+  text-align: center;
+  padding-top: 10px;
+}
+
+.blacked-background {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAATklEQVQoU2NkYGAwZmBgOMuAACA+CKCIMSIpADGRNaEYgKwQ3WQUjTCF6CYhWw2WAynEpgjmIpg7jUlSiM0TWK2GWUOUZ7ApxggeogIcABHJFtftKVfJAAAAAElFTkSuQmCC)
+    repeat;
+}

@@ -7,22 +7,21 @@ header-img: "/images/altitude.png"
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"
         integrity="sha256-xKeoJ50pzbUGkpQxDYHD7o7hxe0LaOGeguUidbq6vis=" crossorigin="anonymous"></script>
 
-I was on a 7 hour flight to Amsterdam last week and wanted to watch a movie. American Airlines recently transitioned this 767 to have WiFi entertainment options - you connect to their on-board WiFi, and it serves movies and tv shows from a server on board the aircraft. 
+I was on a 7 hour flight to Amsterdam last week and wanted to watch a movie. American Airlines recently transitioned this 767 to have WiFi entertainment options - you connect to their on-board WiFi, and it serves movies and tv shows from a server on board the aircraft.
 
-I thought it would be interesting to reverse their DRM - the url had `drm` in it, so I assumed it would be a fun little challenge to see if they had rolled their own DRM and how easy it would be to get back the original MP4 stream. 
+I thought it would be interesting to reverse their DRM - the url had `drm` in it, so I assumed it would be a fun little challenge to see if they had rolled their own DRM and how easy it would be to get back the original MP4 stream.
 
 {% include image.html footnote="Network requests on movie page" file="flightdata" alt="flight data" %}
 
 Alas, they were using a fairly typical implementation of Widevine and Shaka player, which wasn't that interesting.
 
-I did notice something pretty interesting while on the video page, though - every 2 seconds it would make a request to `https://services.inflightpanasonic.aero/inflight/services/flightdata/v1/flightdata`. The page I was on was just a light wrapper around [shaka player](https://github.com/google/shaka-player/) - no metadata or other information shown. 
+I did notice something pretty interesting while on the video page, though - every 2 seconds it would make a request to `https://services.inflightpanasonic.aero/inflight/services/flightdata/v1/flightdata`. The page I was on was just a light wrapper around [shaka player](https://github.com/google/shaka-player/) - no metadata or other information shown.
 
 Looking into the route I saw that it actually returned a whole bunch of information about the flight I was on.
 
 {% include image.html footnote="Flight data response from onboard server" file="flightdata-contents" alt="flight data contents" %}
 
-This is probably used to fill those tickes at the top of the inflight home page. Only thing was that this response contained *way* more information than was actually displayed on the homepage.
-
+This is probably used to fill those tickes at the top of the inflight home page. Only thing was that this response contained _way_ more information than was actually displayed on the homepage.
 
 ```
 {
@@ -73,11 +72,11 @@ This is probably used to fill those tickes at the top of the inflight home page.
 }
 ```
 
-# Getting the data 
+# Getting the data
 
-I figured it would be interesting to track this data and see how it changed overtime. How realtime was it? How accurate is it? Is there enough non-public data that it would be considered a security vulnerability to the airline? 
+I figured it would be interesting to track this data and see how it changed overtime. How realtime was it? How accurate is it? Is there enough non-public data that it would be considered a security vulnerability to the airline?
 
-I wrote a quick python script to query the data once every second and flush it to disk. I ended up collecting data for around 30 minutes - from 5:12 to 5:41. 
+I wrote a quick python script to query the data once every second and flush it to disk. I ended up collecting data for around 30 minutes - from 5:12 to 5:41.
 
 ```py
 import json
@@ -126,7 +125,7 @@ while True:
 
 I then proceeded to fix up the data. I wrote the script above fairly hastily as I wanted to get as much data as possible. I cleaned it up and put it in a presentable format (`csv`).
 
-Unfortunately I didn't get take off and landing - I only ended up getting data while I was in the air for around an hour before my computer went to sleep. 
+Unfortunately I didn't get take off and landing - I only ended up getting data while I was in the air for around an hour before my computer went to sleep.
 
 ```py
 import csv
@@ -228,7 +227,6 @@ Below are some of the graphs from the [google sheet with the data.](https://docs
 
 <iframe class="aa-image" id="aa-distance" width="600" height="371" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTTs5d5kvrE8NtQe71g6Ae8IhWiDk_bdY-WSuxHsXZj3DdQ7jm8uxQU662VirWmcijM_oE1JlLIE39o/pubchart?oid=1052998622&amp;format=interactive"></iframe>
 
-
 ## ETA
 
 <iframe class="aa-image" id="aa-eta" width="600" height="371" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTTs5d5kvrE8NtQe71g6Ae8IhWiDk_bdY-WSuxHsXZj3DdQ7jm8uxQU662VirWmcijM_oE1JlLIE39o/pubchart?oid=901012515&amp;format=interactive"></iframe>
@@ -253,7 +251,7 @@ The disclaimer that was returned with every response was:
 
 > Attn: Data elements such as temperature, flight latitude, flight longitude, etc. are classified as Product Public under the Panasonic Product Data Classification Framework. Information under this classification does not carry any access, labeling, or transmission restrictions. Deliberate or accidental exposure to these types of data elements, does not lead to any adverse impact to aircraft operations or safety.
 
-So I don't think there's anything nefarious you can really do with it. You *can* tell whether the main cabin is decompressed, whether there is weight on the wheels, and whether all doors are closed, but I'm struggling to see a case where these are either dangeorous or that you shouldn't have that info.
+So I don't think there's anything nefarious you can really do with it. You _can_ tell whether the main cabin is decompressed, whether there is weight on the wheels, and whether all doors are closed, but I'm struggling to see a case where these are either dangeorous or that you shouldn't have that info.
 
 One thing I didn't manage to figure out is how the latitude/longitude is formatted.
 
