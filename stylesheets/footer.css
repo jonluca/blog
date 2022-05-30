@@ -45,11 +45,8 @@
   letter-spacing: 1px;
   border-radius: 0 5px 5px 0;
   cursor: pointer;
-  transition: background 0.3s ease-in-out;
   height: 30px;
-  border: none;
-  border-width: 1px;
-  border-color: black;
+  border: 1px none black;
   line-height: initial;
 }
 .revue-form-field {
