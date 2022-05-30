@@ -1,11 +1,8 @@
 window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
 
-function gtag() {
-    dataLayer.push(arguments);
-}
-
-gtag("js", new Date());
-gtag("config", "UA-90475221-1");
+gtag('config', 'G-L7B5KF4CGL');
 if ("serviceWorker" in navigator) {
     navigator.serviceWorker.register("/sw.js");
 }
