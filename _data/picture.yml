@@ -47,3 +47,38 @@ presets:
       parent: 'data-downloadable="true"'
       img: 'class="centered-image"'
     nomarkdown: true
+  mini:
+    formats: [ webp, original ] # Order matters!
+    widths: [ 50, 100, 250 ] # Image widths, in pixels.
+
+    # The sizes attribute is both important, and impossible to offer good defaults for. You need to
+    # learn about it. Short version: Web browsers parse web pages line-by-line. When they run into
+    # an external asset they must download, they start that process immediately, without waiting to
+    # finish rendering the page. This means that at the point in time when the browser must decide
+    # which image to download, it has no clue how large that image will be on the page. The sizes
+    # attribute is how we tell it.
+    #
+    # If you do not provide this, the web browser will assume the image is 100vw (100% the width of
+    # the viewport.)
+    #
+    # This doesn't have to be pixel-perfect, just close enough for the browser to make a good
+    # choice. Keys are media queries defined above, values are how large the image will be when
+    # that media query is true. You can't use % (percentage width of the parent container) for the
+    # same reason we have to do this at all.
+    sizes:
+      mobile: 100px
+      tablet: 100px
+
+    # Size is unconditional; provided either after all conditional sizes (above) or alone. If you
+    # only have a 'size' (no 'sizes'), and it's a constant (px, em, or rem), you should use a
+    # pixel-ratio srcset.
+    size: 100px
+
+    dimension_attributes: true # Page reflow begone!
+
+    # You can add any HTML attribute you like, to any HTML element which JPT creates:
+    attributes:
+      # parent refers to the outermost tag; <picture> if it's present, otherwise the <img>.
+      parent: 'data-downloadable="true"'
+      img: 'class="centered-image"'
+    nomarkdown: true

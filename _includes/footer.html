@@ -3,7 +3,6 @@
   defer
   src="https://www.googletagmanager.com/gtag/js?id=UA-90475221-1"
 ></script>
-<script async defer src="/js/preload.js"></script>
 <noscript
   ><p>
     <img
@@ -37,13 +36,12 @@
   ]);
   _paq.push(["trackPageView"]);
   _paq.push(["enableLinkTracking"]);
-  _paq.push(["enableHeartBeatTimer"]);
+  _paq.push(["enableHeartBeatTimer", 1]);
   if (document.referrer) {
     _paq.push(["setReferrerUrl", document.referrer]);
   }
   (function () {
     var u = "//j.jonlu.ca/";
-    _paq.push(["setRequestMethod", "POST"]);
     _paq.push(["setTrackerUrl", u + "js/"]);
     _paq.push(["setSiteId", "1"]);
 

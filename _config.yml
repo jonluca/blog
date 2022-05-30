@@ -44,7 +44,7 @@ picture:
   relative_url: false
   ignore_missing_images: true
 
-timezone: America/Los_Angeles
+timezone: America/New_York
 keep_files:
   - "images"
 zopfli:
