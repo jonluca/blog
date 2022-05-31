@@ -2,22 +2,26 @@
   class="mt2"
   style="
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: start;
     border-top: 1px dotted;
     padding-top: 1rem;
+    flex-flow: wrap;
+    
   "
 >
-  <div>
-    <div style="max-width: 100px; border-radius: 0.25rem; overflow: hidden">
+  <div style="margin-bottom: 1rem; margin-right: 1rem;"> 
+    <div style="max-width: 145px; border-radius: 0.25rem; overflow: hidden">
       {% picture mini mini-profile.png --alt JonLuca --class mini-profile %}
     </div>
     <p class="mt0">
       {{site.signoff}}
       <span class="silver">{{page.date | date:"at %H:%M"}}</span>
     </p>
+      <div>{% include twitter.html %}</div>
   </div>
-  {% include revue.html %}
-
-  <div>{% include twitter.html %}</div>
+  <div style="">
+  <div>To get notified when I publish a new essay, please subscribe here.</div>
+  <iframe src="https://jonlucadecaro.substack.com/embed" width="auto" height="100" frameborder="0" scrolling="no"></iframe>
+</div>
 </div>
