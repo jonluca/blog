@@ -1,5 +1,5 @@
 {% assign is_post = page.date %} {% assign is_home = page.is_home %}
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -7,7 +7,9 @@
     <link rel="preconnect" href="https://j.jonlu.ca" />
     <meta name="author" content="JonLuca DeCaro" />
     <title>
-      {% if page.title and is_home != true%}{{ page.title | escape }} - {% endif %}{{ site.title | escape }}{% unless page.title %} - {{ site.description | escape }}{% endunless %}
+      {% if page.title and is_home != true%}{{ page.title | escape }} - {% endif
+      %}{{ site.title | escape }}{% unless page.title %} - {{ site.description |
+      escape }}{% endunless %}
     </title>
     {% if page.header-img %}
     <meta
@@ -74,7 +76,45 @@
         </div>
         {% endif %}
         <div class="markdown-body">{{ content }}</div>
-        {% if is_post %} {% include signoff.html %} {% endif %}
+        {% if is_post %} {% include signoff.html %}
+        <div
+          id="disqus_thread"
+          class="mt2"
+          style="
+            display: flex;
+            flex-direction: row;
+            align-items: start;
+            border-top: 1px dotted;
+            padding-top: 1rem;
+            flex-flow: wrap;
+          "
+        ></div>
+        <script>
+          /**
+           *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+           *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+          /*
+          var disqus_config = function () {
+          this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+          this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+          };
+          */
+          (function () {
+            // DON'T EDIT BELOW THIS LINE
+            var d = document,
+              s = d.createElement("script");
+            s.src = "https://jonluca.disqus.com/embed.js";
+            s.setAttribute("data-timestamp", +new Date());
+            (d.head || d.body).appendChild(s);
+          })();
+        </script>
+        <noscript
+          >Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript"
+            >comments powered by Disqus.</a
+          ></noscript
+        >
+        {% endif %}
       </main>
     </div>
   </body>

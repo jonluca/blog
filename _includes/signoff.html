@@ -7,10 +7,9 @@
     border-top: 1px dotted;
     padding-top: 1rem;
     flex-flow: wrap;
-    
   "
 >
-  <div style="margin-bottom: 1rem; margin-right: 1rem;"> 
+  <div style="margin-bottom: 1rem; margin-right: 1rem">
     <div style="max-width: 145px; border-radius: 0.25rem; overflow: hidden">
       {% picture mini mini-profile.png --alt JonLuca --class mini-profile %}
     </div>
@@ -18,10 +17,18 @@
       {{site.signoff}}
       <span class="silver">{{page.date | date:"at %H:%M"}}</span>
     </p>
-      <div>{% include twitter.html %}</div>
+    <div>{% include twitter.html %}</div>
   </div>
   <div style="">
-  <div>To get notified when I publish a new essay, please subscribe here.</div>
-  <iframe src="https://jonluca.substack.com/embed" width="auto" height="100" frameborder="0" scrolling="no"></iframe>
-</div>
+    <div>
+      To get notified when I publish a new essay, please subscribe here.
+    </div>
+    <iframe
+      src="https://jonluca.substack.com/embed"
+      width="auto"
+      height="100"
+      frameborder="0"
+      scrolling="no"
+    ></iframe>
+  </div>
 </div>
