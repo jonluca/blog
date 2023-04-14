@@ -64,7 +64,7 @@ This takes quite a while and costs money, as well as requiring you to send your 
 
 The coolest part of this project was actually in using a tool I created for this project called `repo-refactor` - it's a library that will convert a github repo from one language to another https://github.com/jonluca/repo-refactor. The rust library I mentioned above had already done some of the heavy lifting in creating data models and structures representing the schema, as well as writing some of the base queries. This was really useful for creating and understanding types early on, and for actually reading the rust code (admittedly not my forte).
 
-The tool is very much in its infancy, but the craziest part is that it works pretty well out of the box. It doesn't do great on long files, and some clear failure modes (going from weakly typed -> strongly typed is pretty bad), but I think there are some cheap techniques that can be implemented to make it way more accurate.
+The tool is very much in its infancy, and works successfully somewhere between 40 and 80 percent of the time. It doesn't do great on long files, and some clear failure modes (going from weakly typed -> strongly typed is pretty bad), but I think there are some cheap techniques that can be implemented to make it way more accurate. It's still pretty incredible that it works this well with very little prompt engineering or manual cleanup.
 
 
 ## Next Steps
