@@ -30,9 +30,12 @@ A few gotchas were:
 
 Wrapped gives you a breakdown of your iMessage habits, broken down by year and by conversation/person.
 
-{% include image.html footnote="ChatGPT's suggestions for the features in wrapped" file="chatgpt" alt="chatgpt product suggestions" %}
+{% include image.html footnote="iMessage Wrapped" file="wrapped" alt="imessage wrapped" %}
 
 I actually used ChatGPT to generate the product features included in iMessage Wrapped - as soon as it can do figma mocks I'll redesign the UI using that, as well.
+
+{% include image.html footnote="ChatGPT's suggestions for the features in wrapped" file="chatgpt" alt="chatgpt product suggestions" %}
+
 
 ## AI Conversations
 
@@ -54,7 +57,7 @@ I also created a virtual FTS5 table in the sqlite messages copy, which does `MAT
 
 ### Semantic Search
 
-I also wanted to add semantic search, as those results will often blow pure text searches out of the water. I used OpenAI and pinecone to create and store the embeddings for each text message, respectively.
+I also wanted to add semantic search, as those results will often blow pure text searches out of the water. I used OpenAI and ChromaDB to create and store the embeddings for each text message, respectively.
 
 {% include image.html footnote="Enabling semantic search on top of imessage" file="semantic-search" alt="semantic search" %}
 
