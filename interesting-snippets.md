@@ -768,3 +768,11 @@ Combined with the illusion of transparency and self-anchoring (the tendency to m
 Oh, and you'd better not drop any hints that you think you're working a dozen inferential steps away from what the audience knows, or that you think you have special background knowledge not available to them. The audience doesn't know anything about an evolutionary-psychological argument for a cognitive bias to underestimate inferential distances leading to traffic jams in communication. They'll just think you're condescending.
 
 And if you think you can explain the concept of "systematically underestimated inferential distances" briefly, in just a few words, I've got some sad news for you . . .
+
+
+## On meeting new people
+
+From Philip Roth’s American Pastoral:
+
+You might as well have the brain of a tank. You get them wrong before you meet them, while you’re anticipating meeting them; you get them wrong while you’re with them; and then you go home to tell somebody else about the meeting and you get them all wrong again. Since the same generally goes for them with you, the whole thing is really a dazzling illusion empty of all perception, an astonishing farce of misperception.
+
