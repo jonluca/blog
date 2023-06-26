@@ -776,3 +776,9 @@ From Philip Roth’s American Pastoral:
 
 You might as well have the brain of a tank. You get them wrong before you meet them, while you’re anticipating meeting them; you get them wrong while you’re with them; and then you go home to tell somebody else about the meeting and you get them all wrong again. Since the same generally goes for them with you, the whole thing is really a dazzling illusion empty of all perception, an astonishing farce of misperception.
 
+## On art as an asset class
+
+From [thediff](https://www.thediff.co/archive/the-economics-of-engineering-blogs/?ref=the-diff-newsletter):
+
+A company called Artex is trying to create an exchange for equity in paintings, starting with a $55m offering for shares of a portrait by Francis Bacon ($, WSJ). Art is a strange asset class. In one sense, it's an inflation hedge, since the supply is finite. On the other hand, it's a sort of supercharged bet on market beta, since historical peaks of art prices have coincided not just with market peaks but with cases where newly-rich people made their money very differently from whoever came before them, and want to demonstrate that they're still part of the establishment. (This works best for art prices when the establishment, too, can afford to make a bid.) 
+

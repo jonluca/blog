@@ -68,7 +68,7 @@
         {% if page.title and is_home != true %}
         <div class="mb4">
           {% if page.date %}
-          <div class="fw600 light-silver mt1">
+          <div class="fw600 light-silver mt1" alt="{{ page.date }}">
             {{ page.date | date_to_string }}
           </div>
           {% endif %}
