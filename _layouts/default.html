@@ -8,6 +8,9 @@
     <meta name="author" content="JonLuca DeCaro" />
     {% feed_meta %}
     {% seo %}
+    <meta name="twitter:description"
+          content="{{ page.content | default: page.title | default: "JonLuca's Blog" | strip_newlines | strip_html | truncate: 180 }}"
+    />
     <meta name="email" property="og:email" content="jonluca.decaro@gmail.com" />
     <link
       rel="apple-touch-icon"
@@ -63,7 +66,7 @@
     >
       <nav aria-label="Main" class="bb b--light-gray pv4 tc">
         {% for link in site.links %}
-        <a class="link blue mh2 pv1" href="{{ link.url }}"> {{ link.name }} </a>
+        <a class="link blue mh2 pv1" href="{{ link.url }}" title="{{ link.name }}"> {{ link.name }} </a>
         {% endfor %}
       </nav>
       <main class="tl f6 relative pa4 pa5-ns overflow-hidden">
