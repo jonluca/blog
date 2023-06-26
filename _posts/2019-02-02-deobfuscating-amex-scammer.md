@@ -8,7 +8,7 @@ Earlier today I received a scam email that managed to evade both my and gmail's 
 
 The email was from "American Express" and was titled "RREMINDER: We've issue a concern".
 
-{% picture "amex-scam-email.png" --alt Amex scam email %}
+{% include image.html footnote="Amex scam email" file="amex-scam-email" %}
 
 <p class="footnote">"American Express" Email</p>
 
@@ -80,7 +80,7 @@ URL of the ICANN Whois Inaccuracy Complaint Form: https://www.icann.org/wicf/
 
 The domain was registered 2 weeks ago using PublicDomainRegistry.com. A DNS query leads to where it currently resides. They prevent `ANY` queries so I had to write a short script to get all the DNS entries myself.
 
-{% picture "amex-dns.png" --alt DNS of scam site %}
+{% include image.html footnote="DNS of scam site" file="amex-dns" %}
 
 <p class="footnote">Preventing ANY DNS queries</p>
 
@@ -98,13 +98,13 @@ dig +noall +short +noshort +answer $query 2>/dev/null
 
 I ran it on a few subdomains that I found in the email headers/DNS responses.
 
-{% picture "amex-dns-valid.png" --alt Amex DNS scam site %}
+{% include image.html footnote="Amex DNS scam site" file="amex-dns-valid" %}
 
 <p class="footnote">Getting all records with any hostnames</p>
 
 They all point to `208.91.197.90`. An nmap scan reveals that the only two ports open are 53 and 80.
 
-{% picture "amex-nmap.png" --alt Scam amex nmap %}
+{% include image.html footnote="Scam amex nmap" file="amex-nmap" %}
 
 <p class="footnote">Nmap scan of the domain.</p>
 
@@ -132,7 +132,7 @@ The contents were very straight forward - it was completely empty besides a `scr
 
 The HTML loads a single javascript file from `transfrmedia.com`, which is apparently a "multidisciplinary media agency that aims to provide premium end-to-end media solutions to the event and music industries in a timely and cost effective manner". It's unknown if their service was compromised and used to host malware, whether they're a fake agency used as a front for distribution, or if they're the actual ones behind the faux email. Not relevant, but they also have a NS entry in their DNS that points to `kanye.ns.cloudflare.com`.
 
-{% picture "trnsfrmedia.png" --alt Scam site hosting js %}
+{% include image.html footnote="Scam site hosting js" file="trnsfrmedia" %}
 
 <p class="footnote">Host of the JS file</p>
 
@@ -838,7 +838,7 @@ There is another large, encrypted blob, stored in `OLnARWFQitgSyE`. Fortunately 
 </form>
 ```
 
-{% picture "amex-scam-site.png" --alt Scam amex site %}
+{% include image.html footnote="Scam amex site" file="amex-scam-site" %}
 
 <p class="footnote">"American Express" site</p>
 
@@ -848,7 +848,7 @@ This renders as above. They really try to milk you for as much information as po
 
 Upon clicking submit, your data get's `POST`ed to a URL (`http://souzoku-roots.com`).
 
-{% picture "amex-scam-route.png" --alt scam amex route %}
+{% include image.html footnote="scam amex route" file="amex-scam-route" %}
 
 <p class="footnote">"American Express" data submission</p>
 

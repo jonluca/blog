@@ -7,7 +7,9 @@ function gtag() {
 gtag("js", new Date());
 
 gtag("config", "G-L7B5KF4CGL");
-if ("serviceWorker" in navigator) {
+const isProd = window.location.hostname !== "localhost";
+const isEnableSw = window.location.href.includes('sw=true');
+if ("serviceWorker" in navigator && (isProd || isEnableSw)) {
   navigator.serviceWorker.register("/sw.js");
 }
 
@@ -16,7 +18,7 @@ var _paq = window._paq || [];
 _paq.push(["setRequestMethod", "POST"]);
 _paq.push(["disableAlwaysUseSendBeacon"]);
 _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
-if (window.location.hostname !== "localhost") {
+if (isProd) {
   _paq.push(["setCookieDomain", ".jonlu.ca"]);
   _paq.push([
     "setDomains",

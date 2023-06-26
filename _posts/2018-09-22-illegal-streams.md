@@ -14,7 +14,7 @@ I wanted to do some research and figure out if there was a way to quickly export
 
 Live streams start at the input, which is usually either a live event or a static file that is being streamed. For live events, the server requires a media encoder, which can be off-the-shelf hardware, and a way to break the encoded media into segments and save them as files. These files are then categorized into a playlist file, usually with a file extension `.m3u8`.
 
-{% picture "hls.png" --alt HLS %}
+{% include image.html footnote="HLS" file="hls" %}
 
 <p class="footnote">Courtesy <a rel="noopener noreferrer" href="https://developer.apple.com/documentation/http_live_streaming">apple.com</a></p>
 
@@ -56,11 +56,11 @@ This means that it should be fairly trivial to extract the `.m3u8` (the live str
 
 I experimented with it for a bit, and found the fastest way to do so would be to go to the Network tab and just filter by `m3u8`. At that point you can just copy and paste the URL into any program that plays `m3u8` and watch the stream (VLC and QuickTime both work).
 
-{% picture "chunklist.png" --alt List of chunks %}
+{% include image.html footnote="List of chunks" file="chunklist" %}
 
 <p class="footnote">Finding the m3u8</p>
 
-{% picture "vlc-hls.png" --alt VLC playing HLS standard %}
+{% include image.html footnote="VLC playing HLS standard" file="vlc-hls" %}
 
 <p class="footnote">Watching the stream in VLC with no ads</p>
 
@@ -78,7 +78,7 @@ I wanted to make a tool that would quickly extract the stream and start playing 
 
 I built a quick [chrome extension](https://github.com/jonluca/Stream-Enhancer) that would do just that.
 
-{% picture "scan-extension.png" --alt Chrome extension network scan %}
+{% include image.html footnote="Chrome extension network scan" file="scan-extension" %}
 
 <p class="footnote">Scanning the current page for streams</p>
 
@@ -104,7 +104,7 @@ function loadHar() {
 }
 ```
 
-{% picture "hls-index.png" --alt HLS index %}
+{% include image.html footnote="HLS index" file="hls-index" %}
 
 <p class="footnote">Wrapper to hls.js</p>
 
@@ -114,7 +114,7 @@ At this point, I could scan a page for playlist files, retrieve the HAR, encode 
 
 Chrome refuses to set certain headers, one of which is 'Referer'. Any time I tried to deconstruct the HAR and recreate the `XMLHttpRequest` it would warn me in the console that the headers I chose to set were unsafe, and refuse to apply them. There was no way around this, unfortunately. So I turned to the fastest way of keeping the work I had done so far while reaching a working solution - Electron.
 
-{% picture "unsafe-headers.png" --alt Unsafe headers in XHR %}
+{% include image.html footnote="Unsafe headers in XHR" file="unsafe-headers" %}
 
 <p class="footnote">Chrome refuses to set certain headers</p>
 
@@ -124,7 +124,7 @@ Electron is a cross platform open source framework for creating desktop apps. Wh
 
 I started by just porting everything over to electron - it worked pretty much out of the box, displaying my custom site.
 
-{% picture "electron-hls.png" --alt Electron wrapper to site %}
+{% include image.html footnote="Electron wrapper to site" file="electron-hls" %}
 
 <p class="footnote">My static site running in Electron</p>
 
@@ -142,7 +142,7 @@ Unfortunately this library _also_ refused to set unsafe headers. This time it wa
 
 After all those changes, and an experience in yak shaving that would've made Donald Knuth proud, I got the streams working. I also added some options to make the viewing experience better, such as dark mode and forcing LIVE mode.
 
-{% picture "dark-mode-hls.png" --alt Dark mode electron app %}
+{% include image.html footnote="Dark mode electron app" file="dark-mode-hls" %}
 
 <p class="footnote">Options to my static site</p>
 
@@ -150,7 +150,7 @@ After all those changes, and an experience in yak shaving that would've made Don
 
 Within the last 6 months an interesting trend has arisen - the illegal streams link to the _actual ESPN, Fox, and CBS streams_. If you inspect the network requests you'll see the streamer is linking directly to these companies' streams. The streams were beautiful quality and would now hardly every stutter or have the awkward "let me minimize the window I'm streaming and check my email" problem you'd get with bootlegged streamers.
 
-{% picture "fox-hls.png" --alt Fox network requests %}
+{% include image.html footnote="Fox network requests" file="fox-hls" %}
 
 <p class="footnote">Illegal stream to Fox</p>
 
@@ -160,7 +160,7 @@ The streamers had done something much more clever. They were actually authentica
 
 Each playlist file has a field where you can go and retrieve the keys to decrypt the stream.
 
-{% picture "keyserver-hls.png" --alt HLS keyserver %}
+{% include image.html footnote="HLS keyserver" file="keyserver-hls" %}
 
 <p class="footnote">Fox keyservers in the playlist file</p>
 
@@ -198,7 +198,7 @@ At this point I wanted to know what these streams were doing. Certain streams wo
 
 I tried changing the URL to my person site, and what do you know, it replies back with my site!
 
-{% picture "site-proxied.png" --alt Proxied requests %}
+{% include image.html footnote="Proxied requests" file="site-proxied" %}
 
 <p class="footnote">Proxied site is just shuttling along the content passed to its url parameter</p>
 
@@ -210,7 +210,7 @@ I built up a quick HTTP server that would just dump all the requests contents to
 
 I monitored my logs and all of a sudden there it was - the valid session for the streamer!
 
-{% picture "streamer-session.png" --alt Streamers session %}
+{% include image.html footnote="Streamers session" file="streamer-session" %}
 
 <p class="footnote">Valid streamer session credentials</p>
 

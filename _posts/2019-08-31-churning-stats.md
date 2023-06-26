@@ -218,13 +218,13 @@ The resulting graph shows how our comment activity is fairly cyclical. Our weeke
 
 Our deepest dip in the chart is unsurprisingly December 25th, or Christmas, which makes sense as a majority of our userbase is based in Western countries.
 
-{% picture "churning-oneyear.png" --alt one year of churning comments %}
+{% include image.html footnote="one year of churning comments" file="churning-oneyear" %}
 
 <p class="footnote">1 year of /r/churning comments</p>
 
 Our distribution of comments per day is interesting as well.
 
-{% picture "churning-histogram.png" --alt one year of churning comments %}
+{% include image.html footnote="one year of churning comments" file="churning-histogram" %}
 
 <p class="footnote">Daily comment distribution</p>
 
@@ -291,17 +291,17 @@ We can also look at the distribution of users that comment. We actually really o
 
 The top 500 users are also responsible for 366,038 of the comments from last year, or 51.8% of all comments. This follows a pretty typical distribution of online activity (see the [90 - 9 - 1 rule](<https://en.wikipedia.org/wiki/1%25_rule_(Internet_culture)>)).
 
-{% picture "churning-users.png" --alt one year of churning comments by user %}
+{% include image.html footnote="one year of churning comments by user" file="churning-users" %}
 
 <p class="footnote">Top 1000 user comment distribution</p>
 
-{% picture "churning-users-fixed.png" --alt one year of churning comments by user %}
+{% include image.html footnote="one year of churning comments by user" file="churning-users-fixed" %}
 
 <p class="footnote">Top 1000 user comment distribution, without outlier</p>
 
 Just for fun I also looked at OJs daily activity - looks like they took a pretty signifcant break June of 2018, perhaps using up all those hard earned miles on vacation?
 
-{% picture "churning-oj.png" --alt one year of churning comments %}
+{% include image.html footnote="one year of churning comments" file="churning-oj" %}
 
 <p class="footnote">OJs activity</p>
 

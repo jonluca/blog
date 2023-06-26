@@ -12,7 +12,7 @@ One of my first projects was building a scraper for [Rate My Professor](http://r
 
 I wrote the scraper for it and managed to get all professor data, published the tool to GitHub, and promptly got a Cease & Desist notice from Viacom (RMP's parent company).
 
-{% picture "rmp-cd.png" --alt Rate my professor cease and desist %}
+{% include image.html footnote="Rate my professor cease and desist" file="rmp-cd" %}
 
 <p class="footnote">Viacom Cease & Desist</p>
 
@@ -24,11 +24,11 @@ I was a little bummed but I let it go. I deleted the repo and moved on to anothe
 
 A few months later came USC's class registration time. I was going to be registering for senior classes, and started going through the whole process of cross-checking what professors were available for my classes with their rating on RMP. This was fairly tedious, and it was difficult to remember what each professors rating was and what their students had said about them. I came up with the idea of building a chrome extension that would pull in the data I already had and surreptitiously place the rating next to the professors name.
 
-{% picture "uscsh-pre.png" --alt Schedule helper before %}
+{% include image.html footnote="Schedule helper before" file="uscsh-pre" %}
 
 <p class="footnote">Before</p>
 
-{% picture "uscsh-after.png" --alt Schedule helper after %}
+{% include image.html footnote="Schedule helper after" file="uscsh-after" %}
 
 <p class="footnote">After</p>
 
@@ -64,7 +64,7 @@ At this point I had to make a decision - either disable text notifications, or c
 
 However, I wasn't about to have this extension actually _cost_ me money, so I implemented a quick fix.
 
-{% picture "uscsh-venmo.png" --alt Venmo %}
+{% include image.html footnote="Venmo" file="uscsh-venmo" %}
 
 <p class="footnote">After</p>
 
@@ -82,10 +82,10 @@ It was a small enough amount that nobody would really blink twice, and it requir
 
 This service was so successful that I actually had people venmo me _way_ more than what I was charging because they enjoyed it so much.
 
-{% picture "usc-venmo1.png" --alt venmo %}
-{% picture "usc-venmo2.png" --alt venmo %}
-{% picture "usc-venmo3.png" --alt venmo %}
-{% picture "usc-venmo4.png" --alt venmo %}
+{% include image.html footnote="venmo" file="usc-venmo1" %}
+{% include image.html footnote="venmo" file="usc-venmo2" %}
+{% include image.html footnote="venmo" file="usc-venmo3" %}
+{% include image.html footnote="venmo" file="usc-venmo4" %}
 
 This was a weird experience in successful monetization. It's quite rare that it happens _accidentally_, much less in a way that offers insane profit margins.
 

@@ -60,7 +60,7 @@ This credit score is broken down in the following categories and weights:
 - 30% - Amount Owed
 - 35% - Payment History
 
-{% picture "credit_percents.png" --alt Credit percents %}
+{% include image.html footnote="Credit percents" file="credit_percents" %}
 
 <p class="footnote">Credit score breakdown</p>
 
@@ -102,7 +102,7 @@ I'm now a [moderator of /r/churning](https://reddit.com/r/churning/about/moderat
 
 The real value from this comes from the fact that I'm still in college - this allows me to travel in a way that's way above my means, in a type of luxury that I could never afford.
 
-{% picture "wallet_status.png" --alt My wallet status %}
+{% include image.html footnote="My wallet status" file="wallet_status" %}
 
 <p class="footnote">Screenshot of my iOS wallet with some of my frequent traveler cards</p>
 

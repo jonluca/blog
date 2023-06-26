@@ -14,7 +14,7 @@ I started poking around Uber's [rides website](https://riders.uber.com/trips). I
 https://riders.uber.com/api/getTripsForClient
 ```
 
-{% picture "uber-netrequest.png" --alt Uber network request %}
+{% include image.html footnote="Uber network request" file="uber-netrequest" %}
 
 <p class="footnote">The response from the API</p>
 
@@ -128,11 +128,11 @@ $("#total-spent").html(totalSpentText);
 
 Using that data I made [UberStats (source code here)](https://github.com/jonluca/Uber-Trip-Stats), which is live on the Chrome Web Store [here](https://chrome.google.com/webstore/detail/uber-trip-stats/kddlnbejbpknoedebeojobofnbdfhpnm?ref=producthunt).
 
-{% picture "uber.png" --alt Uber stats %}
+{% include image.html footnote="Uber stats" file="uber" %}
 
 <p class="footnote">Stats (personal info redacted) on my uber history</p>
 
-{% picture "uber-graphs.png" --alt Uber stats graph %}
+{% include image.html footnote="Uber stats graph" file="uber-graphs" %}
 
 <p class="footnote">Graphs of months I've taken Ubers</p>
 

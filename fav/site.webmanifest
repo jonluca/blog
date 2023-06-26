@@ -1,6 +1,7 @@
 {
   "name": "JonLuca's Blog",
   "short_name": "JonLuca",
+  "start_url": "https://blog.jonlu.ca",
   "icons": [
     {
       "src": "/fav/android-chrome-36x36.png",
@@ -31,6 +32,12 @@
       "src": "/fav/android-chrome-192x192.png",
       "sizes": "192x192",
       "type": "image/png"
+    },
+    {
+      "src": "/fav/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
     },
     {
       "src": "/fav/android-chrome-256x256.png",

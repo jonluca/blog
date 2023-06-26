@@ -81,7 +81,7 @@ I made a small [chrome extension](https://github.com/jonluca/Window-Differ) that
 
 This works well - clicking the chrome extension icon immediately shows me the different global variables, which for my site are different analytics modules.
 
-{% picture "global-var-diff.png" --alt Personal sites different global vars %}
+{% include image.html footnote="Personal sites different global vars" file="global-var-diff" %}
 
 <p class="footnote">My personal sites global variable differences</p>
 
