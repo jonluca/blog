@@ -1,6 +1,6 @@
 ---
 title: About
-header-img: "/images/ctc.png"
+image: "/images/ctc.png"
 ---
 
 Hi!

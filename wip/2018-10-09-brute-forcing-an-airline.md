@@ -1,7 +1,7 @@
 ---
 title: "Bruteforcing an airline lounge's WiFi password"
 date: 2018-10-09 16:21:49
-header-img: "/images/airline-pass.png"
+image: "/images/airline-pass.png"
 ---
 
 I'm a frequent traveler and stay in lounges fairly often (shoutout [/r/churning](https://reddit.com/r/churning)!). Most lounges don't use traditional [WiFi Authentication](https://tools.ietf.org/html/rfc4764) - instead they rely on some form of captive gate. This allows them to provide user content, collect a more information on the users of the service, and rotate the password easily.
@@ -13,14 +13,14 @@ Most lounges follow a very similar password schema on a day to day basis. A comm
 
 ## Intercepting Network Requests
 
-Chrome trivializes intercepting network requests. Normally I'd man-in-the-middle myself using Burp Suite or Charle's Proxy, but since this was just a site we can use the built in devtools network tab. 
+Chrome trivializes intercepting network requests. Normally I'd man-in-the-middle myself using Burp Suite or Charle's Proxy, but since this was just a site we can use the built in devtools network tab.
 
 Once submitting a random password the route shows up in devtools.
 
 <img src="/images/airline-network.png">
 <p class="footnote">The airline's password attempt route</p>
 
-It looks like it'll return a `302` status if the password is incorrect and (I assumed) a `2XX` when it's correct. Devtools has a handy "Copy as Curl" function that allows you to copy any network request as a curl request just by right-clicking on it. 
+It looks like it'll return a `302` status if the password is incorrect and (I assumed) a `2XX` when it's correct. Devtools has a handy "Copy as Curl" function that allows you to copy any network request as a curl request just by right-clicking on it.
 
 <img src="/images/copyascurl.png">
 <p class="footnote">Devtools Copy as Curl functionality</p>
@@ -47,7 +47,7 @@ curl 'https://anairline.com/auth/index.html/u' \
 
 Now that I had the curl request I could play around with the state and paremeters. It looks like the form is actually encoding the password as the username and the password as NULL.
 
-As a sidenote, this **probably** means that any built in password bruteforcing checks with the library they're using *won't* work because we aren't trying the same username with a different password over and over again - we are just iterating over different usernames with the same password. I can't be sure of this but it 
+As a sidenote, this **probably** means that any built in password bruteforcing checks with the library they're using *won't* work because we aren't trying the same username with a different password over and over again - we are just iterating over different usernames with the same password. I can't be sure of this but it
 
 Shell scripting is fine in a pinch but I wanted something more robust. There's a neat utility that'll convert a curl request to Python/Node/PHP [here](https://curl.trillworks.com). Now that I had python code that had valid state I could quickly iterate over all combinations.
 
@@ -112,7 +112,7 @@ for i in range(10000):
 Unfortunately this was pretty slow - it would serialize the attempts, which would not allow an attempt to be made until the previous network request had returned. A little threading magic (and ratelimiting) and we'd be on our way.
 
 ```python
-import threading 
+import threading
 import time
 
 def brute_force_pass(attempt):
@@ -132,7 +132,7 @@ for i in range(10000):
     time.sleep(0.05) # sleep for 1/20th of a second so we don't start timing out or running out of sockets
 ```
 
-Fortunately the captive portal is running locally so the RTT is pretty low, which means that the server replies fairly quickly. At `0.05` seconds (plus overhead) per request we should be able to try the entire search space in just over 8 minutes. 
+Fortunately the captive portal is running locally so the RTT is pretty low, which means that the server replies fairly quickly. At `0.05` seconds (plus overhead) per request we should be able to try the entire search space in just over 8 minutes.
 
 I left to go grab a rum and coke and by the time I came back it had finished.
 
@@ -145,7 +145,7 @@ The best part about it was that the valid attempt automatically whitelisted that
 
 ## Preventing brute force attacks
 
-I was worried I'd run into ratelimiting or start getting `429`'s from the airline. Fortunately that never happend, but I've run into similar services that will lock you out. A good way around this is to spoof your mac address - at that point, there is no way for a router to recognize that it's your device that has made all these attempts, and will allow you to keep doing so uninhibited. 
+I was worried I'd run into ratelimiting or start getting `429`'s from the airline. Fortunately that never happend, but I've run into similar services that will lock you out. A good way around this is to spoof your mac address - at that point, there is no way for a router to recognize that it's your device that has made all these attempts, and will allow you to keep doing so uninhibited.
 
 As an aside spoofing your mac address on the 2018 MacBook Pro's seems to not work any more, so if anyone knows how to do it I'd be very grateful (`sudo ifconfig en0 ether aa:bb:cc:dd:ee:ff` no longer works).
 

@@ -1,7 +1,7 @@
 ---
 title: "Flight stats, entertainment, and trying to crack widevine"
 date: 2019-12-22 18:18:51 +0100
-header-img: "/images/altitude.png"
+image: "/images/altitude.png"
 ---
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"
@@ -281,7 +281,7 @@ Overall a pretty fun coding excursion when cracking Widevine didn't pan out.
 <script>
 const iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
 
-// iOS doesn't load google sheets embeds for some reason :/ 
+// iOS doesn't load google sheets embeds for some reason :/
 if(iOS){
 	const toReplace = document.querySelectorAll('.aa-image');
 	for(const image of toReplace){

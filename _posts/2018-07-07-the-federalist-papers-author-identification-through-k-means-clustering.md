@@ -1,7 +1,7 @@
 ---
 title: "The Federalist Papers: author identification through K-means clustering"
 date: 2018-07-07 19:06:19 -0700
-header-img: "/images/federalist_cover.jpg"
+image: "/images/federalist_cover.jpg"
 ---
 
 <link rel="stylesheet" href="{{ site.url }}/stylesheets/federalist.css"/>
@@ -236,12 +236,12 @@ results.append([classifications[2].predict(disputed_set[2]),"Syntactic Features"
 </table>
 </div>
 <!--
-|           | 49  | 50  | 51 | 52  | 53  | 54  | 55  | 56  | 57  | 58 | 62  | 63 | 
+|           | 49  | 50  | 51 | 52  | 53  | 54  | 55  | 56  | 57  | 58 | 62  | 63 |
 |------------------------------------|---|---|---|---|---|---|---|---|---|---|---|
-| Lexical Features               | H | H | M | M | M | M | M | M | M | M | H | M | 
-| Lexical Features - Punctuation | H | H | M | H | H | M | H | H | H | M | M | M | 
-| Syntactic Features             | M | M | M | M | M | H | M | M | M | M | M | M | 
-| <b>Final Results<b>            | H | H | M | M | M | M | M | M | M | M | M | M | 
+| Lexical Features               | H | H | M | M | M | M | M | M | M | M | H | M |
+| Lexical Features - Punctuation | H | H | M | H | H | M | H | H | H | M | M | M |
+| Syntactic Features             | M | M | M | M | M | H | M | M | M | M | M | M |
+| <b>Final Results<b>            | H | H | M | M | M | M | M | M | M | M | M | M |
 -->
 <i>Note: M = Madison, H = Hamilton</i>
 

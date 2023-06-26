@@ -1,7 +1,7 @@
 ---
 title: "How to redeem $2000 of HNS for being a FOSS developer"
 date: 2021-05-09 17:22:33 -0400
-header-img: "/images/namebase-balance.png"
+image: "/images/namebase-balance.png"
 ---
 
 If you were an active FOSS developer in 2019, you were gifted \~4,246 HNS, which as of May 2021 is worth 0.0359087 BTC, or $2k USD. [Handshake wanted to reward FOSS developers by gifting handshake tokens (HNS).](https://handshake.org/claim/) You can redeem these pretty easily, and either use them to support open source projects, or redeem them as bitcoin and cash them out.

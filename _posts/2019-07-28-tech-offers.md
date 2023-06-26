@@ -1,7 +1,7 @@
 ---
 title: "Compensation in 2019 new grad tech offers"
 date: 2019-07-28 19:48:00 -0700
-header-img: "/images/offers.png"
+image: "/images/offers.png"
 ---
 
 I have quite a few friends going through the new grad Software Engineering hiring process and thought I'd write up a "State of Tech Offers" for 2019 - it's meant to help shine light on how an offer is structured, how the big players are constructing their offers, and how to make sure you're not being taken advantage of or being deceived.

@@ -1,7 +1,7 @@
 ---
 title: JonLuca's Blog
 is_home: true
-header-img: "/images/mini-profile.png"
+image: "/images/mini-profile.png"
 ---
 
 <style>

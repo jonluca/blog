@@ -1,7 +1,7 @@
 ---
 title: Speeding up zsh and Oh-My-Zsh
 date: 2018-05-16 11:43:26 -0700
-header-img: "/images/rawbash.png"
+image: "/images/rawbash.png"
 ---
 
 Update: **June 2021**

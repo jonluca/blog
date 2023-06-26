@@ -1,7 +1,7 @@
 ---
 title: "An introduction to credit card churning"
 date: 2018-11-11 12:11:41 -0500
-header-img: "/images/wallet_status.png"
+image: "/images/wallet_status.png"
 ---
 
 I've been asked a lot about a hobby I take part in called _churning_. I thought I'd write up a post that explains what it is, how I got into it, and how much value it can provide.

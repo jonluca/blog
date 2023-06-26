@@ -1,7 +1,7 @@
 ---
 title: "Unlimited free WiFi on flights with T-Mobile"
 date: 2020-11-29 07:12:29 -0500
-header-img: "/images/private-address.png"
+image: "/images/private-address.png"
 ---
 
 T-mobile offers free wifi on flights by putting in your phone number. You get an hour of free regular browsing, before being kicked back to the unlimited free messaging tier.

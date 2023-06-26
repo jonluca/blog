@@ -1,7 +1,7 @@
 ---
 title: "Useful shell aliases and functions"
 date: 2019-06-29 18:55:46 -0700
-header-img: "/images/shell-shortcuts.png"
+image: "/images/shell-shortcuts.png"
 ---
 
 Below I've outlined some of my preferred aliases and functions for shells. Some of them are macOS specific - I'll indicate that if so. These can be loaded by appending them to your `.zshrc` or by creating a new dotfile and `source`ing it in your shell profile. The full list of my dotfiles can be found [here](https://github.com/jonluca/dotfiles). The origin of these vary - most I made myself but some I found useful and appropriated, and unfortunately the original source is lost.

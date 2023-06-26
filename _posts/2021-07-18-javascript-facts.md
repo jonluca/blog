@@ -1,7 +1,7 @@
 ---
 title: "JavaScript gotchas"
 date: 2021-07-18 09:18:39 -0400
-header-img: "/images/javascript-funclength.png"
+image: "/images/javascript-funclength.png"
 ---
 
 Here are some interesting JavaScript facts that I've encountered over the last few years.

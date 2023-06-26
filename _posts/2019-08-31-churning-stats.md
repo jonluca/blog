@@ -1,7 +1,7 @@
 ---
 title: "An analysis of activity on /r/churning"
 date: 2019-08-31 15:49:35 -0700
-header-img: "/images/churning-graph.png"
+image: "/images/churning-graph.png"
 ---
 
 <link

@@ -2,48 +2,12 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
     <link rel="preconnect" href="https://www.google-analytics.com" />
     <link rel="preconnect" href="https://j.jonlu.ca" />
+    <meta charset="UTF-8" />
     <meta name="author" content="JonLuca DeCaro" />
-    <title>
-      {% if page.title and is_home != true %}{{ page.title | escape }} - {%
-      endif %}{{ site.title | escape }}{% unless page.title %} - {{
-      site.description | escape }}{% endunless %}
-    </title>
-    <meta
-      name="title"
-      property="og:title"
-      content="{{ page.title | default: site.title | escape }}"
-    />
-    {% if page.header-img %}
-    <meta
-      name="image"
-      property="og:image"
-      content="{{ site.url }}{{ page.header-img }}"
-    />
-    <meta
-      name="image"
-      property="image"
-      content="{{ site.url }}{{ page.header-img }}"
-    />
-    <meta name="twitter:image" content="{{ site.url }}{{ page.header-img }}" />
-    {% else %}
-    <meta
-      name="image"
-      property="og:image"
-      content="{{ site.url }}/images/mini-profile.png"
-    />
-    <meta
-      name="image"
-      property="image"
-      content="{{ site.url }}/images/mini-profile.png"
-    />
-    <meta
-      name="twitter:image"
-      content="{{ site.url }}/images/mini-profile.png"
-    />
-    {% endif %}
+    {% feed_meta %}
+    {% seo %}
     <meta name="email" property="og:email" content="jonluca.decaro@gmail.com" />
     <link
       rel="apple-touch-icon"
@@ -69,12 +33,6 @@
     <meta name="msapplication-TileImage" content="/fav/mstile-144x144.png" />
     <meta name="msapplication-config" content="/fav/browserconfig.xml" />
     <meta name="theme-color" content="#ffffff" />
-    {% feed_meta %} {% seo title = false %} {% if page.content %}
-    <meta
-      name="twitter:description"
-      content="{{ page.content | strip_newlines | strip_html | truncate: 180 }}"
-    />
-    {% endif %}
     <meta name="twitter:site" content="@jonluca" />
     <meta name="twitter:creator" content="@jonluca" />
     <meta

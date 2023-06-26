@@ -1,7 +1,7 @@
 ---
 title: "Goodreads has a time to first byte of nearly 5 seconds"
 date: 2020-04-30 23:45:21 -0700
-header-img: "/images/goodreads.png"
+image: "/images/goodreads.png"
 ---
 
 This is going to be more of a rant than my usual posts, but I think it's worth talking about regardless.

@@ -1,7 +1,7 @@
 ---
 title: "The hidden value of automation in programming comes from saving mental context switches"
 date: 2020-01-18 16:21:31 -0700
-header-img: "/images/safeway_added.png"
+image: "/images/safeway_added.png"
 ---
 
 It's a pretty common joke in the programming community that you'll spend a lot more time writing a tool to improve productivity than the amount of time that that tool actually saves you. So much so, in fact that there's actually _two_ xkcd's on the subject.

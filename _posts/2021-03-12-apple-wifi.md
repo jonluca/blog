@@ -1,7 +1,7 @@
 ---
 title: "Fun VPN tricks due to Apple owning all of 17.X.X.X"
 date: 2021-03-12 11:03:51 -0500
-header-img: "/images/apple.png"
+image: "/images/apple.png"
 ---
 
 I worked as a security engineer intern at Apple during the Summer of 2018, on the Threat Intelligence team.

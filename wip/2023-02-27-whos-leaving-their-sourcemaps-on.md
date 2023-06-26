@@ -1,7 +1,7 @@
 ---
 title: "Who's leaving their sourcemaps up in production?"
 date: 2023-02-27 23:49:16
-header-img: "/images/sourcemap.png"
+image: "/images/sourcemap.png"
 ---
 
 

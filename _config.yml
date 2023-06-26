@@ -5,6 +5,10 @@ url: https://blog.jonlu.ca # Site url, without a slash at the end.
 signoff: "JonLuca" # Your name
 markdown: kramdown
 twitter_username: jonluca
+twitter:
+  username: jonluca
+  card: summary
+
 host: localhost
 encoding: utf-8
 plugins:
@@ -13,6 +17,19 @@ plugins:
   - jekyll-feed
   - jekyll-target-blank
   - jekyll-brotli
+
+
+logo: /images/mini-profile.png
+
+social:
+  name: JonLuca DeCaro
+  links:
+    - https://twitter.com/jonluca
+    - https://www.linkedin.com/in/jonluca
+    - https://github.com/jonluca
+
+author:
+  twitter: JonLuca
 
 exclude:
   - core
@@ -33,7 +50,8 @@ links:
     external: false
 permalink: /posts/:title
 defaults:
-  - values:
+   - values:
+      image: /images/mini-profile.png
       layout: "default"
 sass:
   style: compressed

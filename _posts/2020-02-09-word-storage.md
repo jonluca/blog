@@ -1,7 +1,7 @@
 ---
 title: "How much space would it take to store every word ever said?"
 date: 2020-02-09 13:23:47 -0700
-header-img: "/images/whale.png"
+image: "/images/whale.png"
 ---
 
 If we tally up every word ever said by any person, throughout history, how much physical storage space would be needed to store a representation of those words? Note that I do not mean unique words - rather, every word, ever said, by anyone.

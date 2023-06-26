@@ -1,7 +1,7 @@
 ---
 title: "American Airlines is an e-currency company that happens to own some planes"
 date: 2020-09-06 13:09:56 -0700
-header-img: "/images/aal-2019.png"
+image: "/images/aal-2019.png"
 ---
 
 American Airlines is an e-currency company that happens to own some planes. <sup>(at least when looking purely at their profit)</sup>

@@ -1,7 +1,7 @@
 ---
 title: "How the Nintendo Switch prevents downgrades by irreparably blowing its own fuses"
 date: 2020-06-14 13:36:09 -0700
-header-img: "/images/switch.png"
+image: "/images/switch.png"
 ---
 
 Downgrade prevention has been a cat-and-mouse game between consumers and companies since the inception of remote updates. The Nintendo Switch adopts a worrisome-strategy of preventing firmware downgrades by permanently modifying your device every time it updates. While this isn’t a new concept (the Xbox 360 was doing it back in 2007), it is part of a greater effort to prevent end users from modifying their devices to their liking.

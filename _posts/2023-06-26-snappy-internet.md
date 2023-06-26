@@ -1,7 +1,7 @@
 ---
 title: "Noticing when an app has servers in different regions"
 date: 2023-06-26 12:26:53 -0400
-header-img: "/images/ping.png"
+image: "/images/ping.png"
 ---
 
 I was talking to a friend of mine about native apps and how some apps not built using UIKit/SwiftUI just feel laggier, and it got me thinking about other latency and small performance things you notice.

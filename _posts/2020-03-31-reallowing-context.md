@@ -1,7 +1,7 @@
 ---
 title: "Re-enabling context actions on websites"
 date: 2020-03-31 22:25:40 -0700
-header-img: "/images/paste.png"
+image: "/images/paste.png"
 ---
 
 A disappointing trend I've seen recently has been for sites disabling context actions like copy, paste, select, or right click on their websites. Banks are notoriously bad at this - for some reason, they think it's a "security feature" to not let you paste in your account number, instead requiring you to manually type it in.

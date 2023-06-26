@@ -1,7 +1,7 @@
 ---
 title: "Exploring how Magic Link works"
 date: 2023-05-31 17:53:42 +1700
-header-img: "/images/magic-onboarding-1.png"
+image: "/images/magic-onboarding-1.png"
 ---
 
 [Magic Link](https://magic.link/) is a web3 wallet-as-a-service. They provide an SDK that enables users to have a crypto wallet linked to just their email address, instead of having to install a chrome extension or local wallet.

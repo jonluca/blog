@@ -1,7 +1,7 @@
 ---
 title: "Getting a vanity phone number with 4 repeating digits"
 date: 2022-05-28 15:06:28
-header-img: "/images/verizon-search.png"
+image: "/images/verizon-search.png"
 ---
 
 I find that it's pretty useful to have access to multiple phone numbers. Any time a site offers a discount if you give them their phone number, or when you want to be more anonymous online and a service needs a number, it's nice to have a number that's more than a burner but not your main number. I had heard of the Verizon My Numbers service and thought it would be cool to have a few extra numbers for cases like these. I also wanted a number with multiple consecutive digits, both because it was easier to remember and for the cool factor.

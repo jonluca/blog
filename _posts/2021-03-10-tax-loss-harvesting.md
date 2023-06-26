@@ -1,7 +1,7 @@
 ---
 title: "What is tax loss harvesting?"
 date: 2021-03-10 19:39:59 -0500
-header-img: "/images/goog-qqq.png"
+image: "/images/goog-qqq.png"
 ---
 
 <link

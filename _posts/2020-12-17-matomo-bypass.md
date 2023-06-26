@@ -1,7 +1,7 @@
 ---
 title: "Setting up Matomo in such a way to bypass adblockers"
 date: 2020-12-17 20:10:04 +0100
-header-img: "/images/private-address.png"
+image: "/images/private-address.png"
 ---
 
 Matomo is a great piece of free, open source analytics software. You are able to self host it, and make any changes you'd want.
