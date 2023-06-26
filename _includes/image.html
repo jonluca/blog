@@ -1,4 +1,4 @@
-{% picture {{include.file}}.png --alt {{include.alt}} --class centered-image %}
+{% picture {{include.file}}.png --alt {{include.alt || include.footnote}} --class centered-image %}
 {% if include.footnote %}
 <p class="footnote">{{include.footnote}}</p>
 {% endif %}
