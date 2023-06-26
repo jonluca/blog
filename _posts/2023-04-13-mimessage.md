@@ -18,7 +18,7 @@ I realized that iMessage just stores its database locally as a sqlite file, so I
 
 ## Reverse Engineering the Database Schema
 
-The database sits at `/Library/Messages/chat.db`, while all the attachments live in `~/Library/Messages/Attachments`. I made a copy of it and then opened it up and datagrip and then was ready to go. The database schema is relatively straightforward to understand - there where `message`, `chat`, `handle`, and `attachment` tables, each containing the data you'd expect. A rust library named [imessage-exporter](https://github.com/ReagentX/imessage-exporter) was particularly useful for understanding how the tables were joined together and what queries to make. 
+The database sits at `/Library/Messages/chat.db`, while all the attachments live in `~/Library/Messages/Attachments`. I made a copy of it and then opened it up and datagrip and then was ready to go. The database schema is relatively straightforward to understand - there where `message`, `chat`, `handle`, and `attachment` tables, each containing the data you'd expect. A rust library named [imessage-exporter](https://github.com/ReagentX/imessage-exporter) was particularly useful for understanding how the tables were joined together and what queries to make.
 
 A few gotchas were:
 
@@ -43,7 +43,7 @@ One of the first ideas that came to mind when I was building this was to use GPT
 
 {% include image.html footnote="AI generated chat that really can't make it to dinner" file="ai-chat" alt="Chatting with someone" %}
 
-I started building Mimessage on April 1st, and just a few days ago [I saw someone on hackernews had had the same idea to clone their friends](https://www.izzy.co/blogs/robo-boys.html). I think that training a model is actually a much smarter way of accomplishing this, and seems to lead to better results than naively continuing the conversation with GPT4. I'll try and get it running locally with LLaMA soon. 
+I started building Mimessage on April 1st, and just a few days ago [I saw someone on hackernews had had the same idea to clone their friends](https://www.izzy.co/blogs/robo-boys.html). I think that training a model is actually a much smarter way of accomplishing this, and seems to lead to better results than naively continuing the conversation with GPT4. I'll try and get it running locally with LLaMA soon.
 
 ## Better Search
 
@@ -72,4 +72,4 @@ The tool is very much in its infancy, and works successfully somewhere between 4
 
 The whole project was built in open source [here](https://github.com/jonluca/mimessage) and you can grab a copy of the latest working code from the [releases page](https://github.com/jonluca/mimessage/releases/latest). I want to get the inference running entirely locally, probably with alpaca or with vicuna weights, so that it's free and privacy preserving.
 
-I also want to add more stats to the wrapped page, and make it more of an experience like Spotify's is - if there's any designer reading this that wants to collaborate on it, [shoot me an email](hi@jonlu.ca)
+I also want to add more stats to the wrapped page, and make it more of an experience like Spotify's is - if there's any designer reading this that wants to collaborate on it, [shoot me an email](mailto:hi@jonlu.ca)
