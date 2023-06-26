@@ -1,34 +1,17 @@
-<div
-  class="mt2"
-  style="
+<div class="mt2" style="
     display: flex;
     flex-direction: row;
     align-items: start;
     border-top: 1px dotted;
     padding-top: 1rem;
     flex-flow: wrap;
-  "
->
+  ">
   <div style="margin-bottom: 1rem; margin-right: 1rem">
-    <div style="max-width: 145px; border-radius: 0.25rem; overflow: hidden">
-      {% picture mini mini-profile.png --alt JonLuca --class mini-profile %}
-    </div>
-    <p class="mt0">
-      {{site.signoff}}
-      <span class="silver">{{page.date | date:"at %H:%M"}}</span>
-    </p>
+    <div style="max-width: 145px; border-radius: 0.25rem; overflow: hidden"> {% picture mini mini-profile.png --alt JonLuca --class mini-profile %} </div>
+    <p class="mt0"> {{site.signoff}} <span class="silver">{{page.date | date:"at %H:%M"}}</span> </p>
     <div>{% include twitter.html %}</div>
   </div>
   <div style="">
-    <div>
-      To get notified when I publish a new essay, please subscribe here.
-    </div>
-    <iframe
-      src="https://jonluca.substack.com/embed"
-      width="auto"
-      height="100"
-      frameborder="0"
-      scrolling="no"
-    ></iframe>
+    <div> To get notified when I publish a new essay, please subscribe <a href="https://jonluca.substack.com/" target="_blank">here</a>. </div>
   </div>
 </div>

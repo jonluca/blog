@@ -11,6 +11,12 @@
   border: #fff 0.5em solid;
 }
 
+.mini-profile {
+  margin: 0 auto !important;
+  display: block;
+  max-width: 100%;
+}
+
 html {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
