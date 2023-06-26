@@ -24,7 +24,7 @@ Magic is somewhere in between - they say they are non custodial, but offer the U
 
 Magic is relies on AWS for their product. Their sign in and user logic uses AWS Cognito, and their key storage uses KMS.
 
-AWS Cognito is the identity solution offered by AWS - they will handle authenticating your users for you, and offer a wide variety of sign on methods, including email/password, phone number, 3rd party, and magic email. 
+AWS Cognito is the identity solution offered by AWS - they will handle authenticating your users for you, and offer a wide variety of sign on methods, including email/password, phone number, 3rd party, and magic email.
 
 When setting up a Magic wallet, you start with your email address. This will talk to AWS, which will send a link to your email address containing a unique token.
 
@@ -46,7 +46,7 @@ Your browser will send the UK in plain text to KMS directly, never speaking to M
 
 If you copy and paste the "Plaintext" from above into Metamask, you can use your Magic.link private key outside of the Magic ecosystem.
 
-Once they have the encrypted key contents, the decrypted key in memory, and the public key, magic will create an account for you on their centralized servers.
+Once they have the encrypted key contents, the decrypted key in memory, and the public key, magic will create an account for you on their centralized servers. They will save the encrypted key contents, and will use this for subsequent logins on new devices.
 
 ```json
 {
