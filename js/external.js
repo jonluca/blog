@@ -11,10 +11,10 @@ var _paq = window._paq || [];
 _paq.push(["setRequestMethod", "POST"]);
 _paq.push(["disableAlwaysUseSendBeacon"]);
 _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
-_paq.push(["setCookieDomain", "*.jonlu.ca"]);
+_paq.push(["setCookieDomain", ".jonlu.ca"]);
 _paq.push([
     "setDomains",
-    ["*.jonlu.ca", "*.blog.jonlu.ca", "*.jldc.me", "*.blog.jldc.me"],
+    [".jonlu.ca", ".blog.jonlu.ca", ".jldc.me", ".blog.jldc.me"],
 ]);
 _paq.push(["trackPageView"]);
 _paq.push(["enableLinkTracking"]);
