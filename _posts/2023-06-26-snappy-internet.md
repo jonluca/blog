@@ -1,5 +1,5 @@
 ---
-title: "Noticing when an app has servers in different regions"
+title: "Feeling when an app only deploys to us-east-1"
 date: 2023-06-26 12:26:53 -0400
 image: "/images/ping.png"
 ---
