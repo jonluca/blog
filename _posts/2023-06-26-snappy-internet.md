@@ -4,17 +4,11 @@ date: 2023-06-26 12:26:53 -0400
 image: "/images/ping.png"
 ---
 
-I was talking to a friend of mine about native apps and how some apps not built using UIKit/SwiftUI just feel laggier, and it got me thinking about other latency and small performance things you notice.
-
-It reminded me about how every time I land back in Europe or in Asia, I can immediately tell which apps have a global CDN or edge computing. Everything just immediately feels a little slower.
-
-There's some debate about when users start feeling latency, but it's widely accepted that increased latency will impact conversions and user behavior significantly.
-
-The figure often thrown around is that [for every 100ms of latency amazon lost ~1% of sales](https://www.conductor.com/academy/page-speed-resources/faq/amazon-page-speed-study/). While I don't know how true this is (especially given how slow the amazon app feels), it is something I know first hand. While at Pinterest we spent a ton of time improving the performance of our landing pages, as the faster it was the more users would convert and the more content they would consume.
+Every time I leave New York and land back in Europe or in Asia, I can immediately tell which apps have a global presence and which apps only deploy to a single US region. Everything just immediately feels a little slower. The pull to refresh feels a bit sluggish, the preview images take a little longer to load, and even native apps just feel less responsive.
 
 ## Floored Latency
 
-The speed of the experience you can offer your users is floored by a few variables, but most notably the physical distance from the origin server to where the user is actually sitting.
+The speed of the experience you can offer your users is floored by a few variables, most notably the physical distance from the origin server to where the user is actually sitting.
 
 Us-east-1 (appropriately located right by "Centreville, Virginia") is one of the main data centers run by AWS. If you're a startup (or even quite a few mature companies), you are likely to deploy your application here. If you manage a stateful service, or your architecture doesn't support distributed compute, you are likely to *only* deploy here. If you have users in Sydney, Australia, any network request you  make will need to travel 15,677km to make it there, as the crow flies.
 
