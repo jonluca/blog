@@ -2,6 +2,8 @@
 title: "Noticing when an app is only hosted in us-east-1"
 date: 2023-06-26 12:26:53 -0400
 image: "/images/ping.png"
+redirect_from:
+- /posts/snappy-internet
 ---
 
 Every time I leave New York and land back in Europe or in Asia, I can immediately tell which apps have a global presence and which apps only deploy to a single US region. Everything just immediately feels a little slower. The pull to refresh feels a bit sluggish, the preview images take a little longer to load, and even native apps just feel less responsive.

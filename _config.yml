@@ -17,7 +17,7 @@ plugins:
   - jekyll-feed
   - jekyll-target-blank
   - jekyll-brotli
-
+  - jekyll-redirect-from
 
 logo: /images/mini-profile.png
 

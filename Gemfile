@@ -7,6 +7,8 @@ gem 'jekyll-feed'
 gem 'jekyll-brotli'
 gem 'jekyll-target-blank'
 gem "webrick"
+gem 'jekyll-redirect-from'
+
 group :jekyll_plugins do
    # (other jekyll plugins)
    gem 'jekyll_picture_tag', '~> 2.0'
