@@ -36,9 +36,11 @@ In reality, the ping you'll experience will be worse, at around 215ms (which is 
 
 And this is just what is added on top of everything else that happens on a request - TLS termination and DNS lookup. This isn't a one-time hit to performance - every connection the client opens needs to go through TLS termination, or be queued up on the same connection and be executed serially. For simple sites that are basic html and css this isn't an issue, but for many sites you'll have dozens of requests to different domains, and each one will need to be established and terminated.
 
+## Compounding latency
+
 The full TLS 1.2 handshake requires 2 round-trips to complete, and when combined with TCP's SYN and SYN-ACK negotiation it extends to 3 full round-trips. While, TLS 1.3 reduces that to two round-trips when under TCP, it still adds considerable latency to every connection. [^1]
 
-The problem gets compounded when you realize many requests are chained - loading the initial HTML might not be that much worse than when you're in the US, but then you need to load the CSS, and then the JS, and then the images, and then the fonts, and then the API requests, and then you'll have dynamically loaded content. HTTP/2 and its multiplexing improves this but doesn't completely solve this - each of these could be hosted on a different domain, or saturate the max concurrent connections from your browser.
+The problem gets compounded when you realize many requests are chained, or dependent on each other. Images in CSS files can only be requested once the CSS has been downloaded, and the CSS can only be downloaded once the browser has parsed the HTML. HTTP/2 and its multiplexing improves this but doesn't completely solve this - each of these could be hosted on a different domain, or saturate the max concurrent connections from your browser.
 
 Protocol improvements also don't fix fundamental issues with how the site is architected - if you have an SPA that hasn't been optimized properly, your browser needs to first download all the content, then execute the javascript, and only once the JS has executed will it begin to make the API requests and fetch the assets to populate the content of the page.
 
