@@ -34,6 +34,10 @@ In reality, the ping you'll experience will be worse, at around 215ms (which is 
 
 {% include image.html footnote="Ping to various cities around the globe" file="ping" alt="screenshot shwing ping to various cities around the globe" %}
 
+And this is just what is added on top of everything else that happens on a request - TLS termination and DNS lookup. The problem gets compounded when you realize many requests are chained - you take a 200ms hit on the first TLS handshake, a 200ms hit on the completion, and then for a webpage many assets are critical resources that are only known about after receiving the HTML.
+
+In aggregate this can add thousands of milliseconds for an average website.
+
 ## Realized latency
 
 Having spent so much time trying to optimize web pages and API responses for performance, I've gotten a pretty good internal model for latency. I can't quite tell the difference between a us-east-1 server when I'm in New York versus San Francisco, but I can definitely tell if you've got an instance deployed in `eu-central-1` or not when I'm in Italy, or `ap-east-1` when I'm in Sydney.
