@@ -772,9 +772,9 @@ And if you think you can explain the concept of "systematically underestimated i
 
 ## On meeting new people
 
-From Philip Roth’s American Pastoral:
+From Philip Roth's American Pastoral:
 
-You might as well have the brain of a tank. You get them wrong before you meet them, while you’re anticipating meeting them; you get them wrong while you’re with them; and then you go home to tell somebody else about the meeting and you get them all wrong again. Since the same generally goes for them with you, the whole thing is really a dazzling illusion empty of all perception, an astonishing farce of misperception.
+You might as well have the brain of a tank. You get them wrong before you meet them, while you're anticipating meeting them; you get them wrong while you're with them; and then you go home to tell somebody else about the meeting and you get them all wrong again. Since the same generally goes for them with you, the whole thing is really a dazzling illusion empty of all perception, an astonishing farce of misperception.
 
 ## On art as an asset class
 
@@ -786,5 +786,5 @@ A company called Artex is trying to create an exchange for equity in paintings, 
 
 From [Contra The xAI Alignment Plan](https://astralcodexten.substack.com/p/contra-the-xai-alignment-plan)
 
-Now we direct AIs through reinforcement learning - telling them to do certain things and avoid certain other things. But this is a blunt instrument. Reinforcement learning directs the AI towards a certain cluster of correlated high-dimensional concepts that have the same lower-dimensional shadow of rewarded and punished behaviors. But we can’t be sure which concept it’s chosen or whether it’s the one we think.
+Now we direct AIs through reinforcement learning - telling them to do certain things and avoid certain other things. But this is a blunt instrument. Reinforcement learning directs the AI towards a certain cluster of correlated high-dimensional concepts that have the same lower-dimensional shadow of rewarded and punished behaviors. But we can't be sure which concept it's chosen or whether it's the one we think.
 
