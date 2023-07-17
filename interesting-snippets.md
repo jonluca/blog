@@ -780,5 +780,11 @@ You might as well have the brain of a tank. You get them wrong before you meet t
 
 From [thediff](https://www.thediff.co/archive/the-economics-of-engineering-blogs/?ref=the-diff-newsletter):
 
-A company called Artex is trying to create an exchange for equity in paintings, starting with a $55m offering for shares of a portrait by Francis Bacon ($, WSJ). Art is a strange asset class. In one sense, it's an inflation hedge, since the supply is finite. On the other hand, it's a sort of supercharged bet on market beta, since historical peaks of art prices have coincided not just with market peaks but with cases where newly-rich people made their money very differently from whoever came before them, and want to demonstrate that they're still part of the establishment. (This works best for art prices when the establishment, too, can afford to make a bid.) 
+A company called Artex is trying to create an exchange for equity in paintings, starting with a $55m offering for shares of a portrait by Francis Bacon ($, WSJ). Art is a strange asset class. In one sense, it's an inflation hedge, since the supply is finite. On the other hand, it's a sort of supercharged bet on market beta, since historical peaks of art prices have coincided not just with market peaks but with cases where newly-rich people made their money very differently from whoever came before them, and want to demonstrate that they're still part of the establishment. (This works best for art prices when the establishment, too, can afford to make a bid.)
+
+## On Reinforcement Learning
+
+From [Contra The xAI Alignment Plan](https://astralcodexten.substack.com/p/contra-the-xai-alignment-plan)
+
+Now we direct AIs through reinforcement learning - telling them to do certain things and avoid certain other things. But this is a blunt instrument. Reinforcement learning directs the AI towards a certain cluster of correlated high-dimensional concepts that have the same lower-dimensional shadow of rewarded and punished behaviors. But we can’t be sure which concept it’s chosen or whether it’s the one we think.
 
