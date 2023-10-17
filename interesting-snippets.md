@@ -788,3 +788,8 @@ From [Contra The xAI Alignment Plan](https://astralcodexten.substack.com/p/contr
 
 Now we direct AIs through reinforcement learning - telling them to do certain things and avoid certain other things. But this is a blunt instrument. Reinforcement learning directs the AI towards a certain cluster of correlated high-dimensional concepts that have the same lower-dimensional shadow of rewarded and punished behaviors. But we can't be sure which concept it's chosen or whether it's the one we think.
 
+## On Verifiable Information
+
+From [A Bull Market in Facts; A Bear Market in Narratives, The Diff](https://www.thediff.co/r/494b3afd?m=c42ded07-19d2-4a6f-b288-0a46f3972f0a)
+
+So, on one hand, we're in an increasingly hostile information environment specifically because it's easier to assemble enough verifiable, factual claims to support any arbitrary narrative behind them. That should be worrisome: no level of fact-checking can protect against it, and "narrative-checking" is either a redundant description of what people do all the time, or a product for which there's no demand. But that also means we live in a relatively better world for people who care about dead issues rather than live ones. Very few people particularly care if the Battle of Kadesh in 1,274 BC was a victory for the Egyptians or the Hittites (both sides claimed victory, and there's a snippy letter from the Pharaoh responding to these Hittite claims), but the physical evidence isn't getting any sparser while the ability to analyze it is growing. And, who knows, maybe Linear A is next.
