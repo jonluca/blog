@@ -65,8 +65,8 @@ It already sounds fairly tin-y. Minimizing the sample rate has a huge effect on 
 We can use a [Short Time Fourier Transform](https://en.wikipedia.org/wiki/Short-time_Fourier_transform) to "bin" the resampled audio into its respective frequencies. Then we can just zero out the frequencies mentioned in AMR - 0 through 200 and 3400 onwards.
 
 ```python
-SPEECH_LOW_BAND = 200
-SPEECH_UPPER_BAND = 3400
+SPEECH_LOW_BAND =   int(200/4)
+SPEECH_UPPER_BAND = int(3400/4)
 
 short_time_fourier_transform = librosa.core.stft(y=resampled_time_series)
 
@@ -93,3 +93,17 @@ This sounds almost _exactly_ like a phone call. This was a suprisingly quick and
 I want to play around with implementing linear predictive coding (LPC) to synthesize the speech from a residual waveform. There are a few signal processing books on my reading list, and I'll update this blog post with any corrections or fun discoveries as I get through those.
 
 The code for this project lives [here](https://github.com/jonluca/Phone-Audio-Processing).
+
+## Credits
+
+Thanks to Peter for noticing an error with the script above:
+
+> SPEECH_LOW_BAND and SPEECH_UPPER_BAND are in Hz, and do not map directly to the indices of the short_time_fourier_transform
+
+> The output of the Fourier transform has the range of 0 to 4048Hz (= samplerate/2) over 1025 bins.
+
+> In this one case you need to divide the desired frequency range by a factor 4 to convert the frequencies to bin indices in the short_time_fourier_transform.
+
+SPEECH_LOW_BAND =   int(200/4)
+SPEECH_UPPER_BAND = int(3400/4)
+
