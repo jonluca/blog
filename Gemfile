@@ -3,6 +3,7 @@ source 'http://rubygems.org'
 gem "jekyll"
 gem 'jekyll-seo-tag'
 gem 'jekyll-sitemap'
+gem 'ruby-vips'
 gem 'jekyll-feed'
 gem 'jekyll-brotli'
 gem 'jekyll-target-blank'

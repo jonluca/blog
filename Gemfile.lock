@@ -175,6 +175,7 @@ DEPENDENCIES
   jekyll-sitemap
   jekyll-target-blank
   jekyll_picture_tag (~> 2.0)
+  ruby-vips
   webrick
 
 BUNDLED WITH
