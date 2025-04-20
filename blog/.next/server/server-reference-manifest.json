@@ -1,0 +1,39 @@
+{
+  "node": {
+    "7f02a7651783f6325a5805dbc6700cc0db5fe7017b": {
+      "workers": {
+        "app/posts/[slug]/page": {
+          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fjonlucadecaro%2FDocuments%2FWebsites%2Fblog%2Fblog%2Fapp%2Fcustom-code%2FRyanairGraphServer.tsx%22%2C%5B%7B%22id%22%3A%227f02a7651783f6325a5805dbc6700cc0db5fe7017b%22%2C%22exportedName%22%3A%22RyanairMidContent%22%7D%2C%7B%22id%22%3A%227f1c6208d01e87d6eb5d5d25c1e28471fce13c4586%22%2C%22exportedName%22%3A%22RyanairMainApp%22%7D%2C%7B%22id%22%3A%227f90348e8e640350c986651f2a4e7d62b171655cac%22%2C%22exportedName%22%3A%22RyanairPostContent%22%7D%5D%5D%5D&__client_imported__=!",
+          "async": true
+        }
+      },
+      "layer": {
+        "app/posts/[slug]/page": "rsc"
+      }
+    },
+    "7f1c6208d01e87d6eb5d5d25c1e28471fce13c4586": {
+      "workers": {
+        "app/posts/[slug]/page": {
+          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fjonlucadecaro%2FDocuments%2FWebsites%2Fblog%2Fblog%2Fapp%2Fcustom-code%2FRyanairGraphServer.tsx%22%2C%5B%7B%22id%22%3A%227f02a7651783f6325a5805dbc6700cc0db5fe7017b%22%2C%22exportedName%22%3A%22RyanairMidContent%22%7D%2C%7B%22id%22%3A%227f1c6208d01e87d6eb5d5d25c1e28471fce13c4586%22%2C%22exportedName%22%3A%22RyanairMainApp%22%7D%2C%7B%22id%22%3A%227f90348e8e640350c986651f2a4e7d62b171655cac%22%2C%22exportedName%22%3A%22RyanairPostContent%22%7D%5D%5D%5D&__client_imported__=!",
+          "async": true
+        }
+      },
+      "layer": {
+        "app/posts/[slug]/page": "rsc"
+      }
+    },
+    "7f90348e8e640350c986651f2a4e7d62b171655cac": {
+      "workers": {
+        "app/posts/[slug]/page": {
+          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fjonlucadecaro%2FDocuments%2FWebsites%2Fblog%2Fblog%2Fapp%2Fcustom-code%2FRyanairGraphServer.tsx%22%2C%5B%7B%22id%22%3A%227f02a7651783f6325a5805dbc6700cc0db5fe7017b%22%2C%22exportedName%22%3A%22RyanairMidContent%22%7D%2C%7B%22id%22%3A%227f1c6208d01e87d6eb5d5d25c1e28471fce13c4586%22%2C%22exportedName%22%3A%22RyanairMainApp%22%7D%2C%7B%22id%22%3A%227f90348e8e640350c986651f2a4e7d62b171655cac%22%2C%22exportedName%22%3A%22RyanairPostContent%22%7D%5D%5D%5D&__client_imported__=!",
+          "async": true
+        }
+      },
+      "layer": {
+        "app/posts/[slug]/page": "rsc"
+      }
+    }
+  },
+  "edge": {},
+  "encryptionKey": "J1Oyv0AT3xTpgsFhPuiXXJT3d1LcHznddOudgE1XlBI="
+}

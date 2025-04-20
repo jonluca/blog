@@ -1,0 +1,98 @@
+---
+title: "Exploring how Magic Link works"
+date: 2023-05-31 17:53:42 +1700
+image: "https://assets.jonlu.ca/magic-onboarding-1.png"
+---
+
+This blog is co-written by [Ricky Moezinia](https://twitter.com/_ricky_mo)
+
+[Magic Link](https://magic.link/) is a web3 wallet-as-a-service. They provide an SDK that enables users to have a crypto wallet linked to just their email address, instead of having to install a chrome extension or local wallet.
+
+I wanted to explore how it worked, and what it was actually doing under the hood.
+
+## Web3 Wallets
+
+There are broadly two options for storing your crypto assets - custodial and non-custodial.
+
+A custodial solution is something like coinbase - typically a single company, which manages the private key to your wallet for you, and which is the centralized gatekeeper to your funds.
+
+A non custodial solution is one in which you store the private key yourself - the wallet simply provides the software that you run locally that generates and stores the key. This looks like Metamask or Phantom - you will typically install a chrome extension, go through an onboarding flow, save your recovery pass phrase, and only then can you begin to use it on various dapps or to move tokens around.
+
+Generally speaking, the user experience with custodial services is better, and allows for easier user onboarding. However, it comes with some fairly major downsides, including centralization and greater likelihood of regulatory scrutiny.
+
+Magic is somewhere in between - they say they are non custodial, but offer the UX of a custodial solution. No need for a user to install a separater chrome extension - they just need an email address and their browser.
+
+## Under the hood
+
+Magic is relies on AWS for their product. Their sign in and user logic uses AWS Cognito, and their key storage uses KMS.
+
+AWS Cognito is the identity solution offered by AWS - they will handle authenticating your users for you, and offer a wide variety of sign on methods, including email/password, phone number, 3rd party, and magic email.
+
+When setting up a Magic wallet, you start with your email address. This will talk to AWS, which will send a link to your email address containing a unique token.
+
+<CustomImage file="magic-onboarding-1" footnote="Embedded Magic Link form (in this case, ImmutableX)" alt="magic link form" />
+
+<CustomImage file="magic-onboarding-2" footnote="Confirmation code for auth sign in" alt="magic link form 2" />
+
+Once you're on the verification page, your browser will talk to AWS to authenticate you, and Magic will start creating your key.
+
+They will first generate the private key for the chain you're using in the browser, using javascript, and keep that in memory. This is the root key material, which is used to sign transactions for whichver chain you're using - this can be imported into metamask, a hardware wallet, etc.
+
+This key, which we'll call user key (UK), is never shown to the user. If you intercept the network request for initial encryption you'll see it, base64 encoded.
+
+It will then talk to KMS, using the user account that was just authenticated for you, and create a new key within KMS. This is the key that lives inside of Amazons data centers, and which will be used to encrypt and decrypt the UK.
+
+Your browser will send the UK in plain text to KMS directly, never speaking to Magic links servers. It will retrieve the encrypted material, and store that both within the browser cache and with magic link.
+
+<CustomImage file="keymaterialresponse" footnote="Decrypted private key coming back from KMS" alt="raw private key" />
+
+If you copy and paste the "Plaintext" from above into Metamask, you can use your Magic.link private key outside of the Magic ecosystem.
+
+Once they have the encrypted key contents, the decrypted key in memory, and the public key, magic will create an account for you on their centralized servers. They will save the encrypted key contents, and will use this for subsequent logins on new devices.
+
+```json
+{
+  "data": {
+    "auth_user_id": "my-magic-link-id",
+    "auth_user_mfa_active": false,
+    "auth_user_wallet_id": "my-wallet-id=",
+    "challenge_message": null,
+    "client_id": "my-client-id",
+    "consent": {},
+    "delegated_wallet_info": {
+      "delegated_access_token": "{\"ciphertext\": \"cipher text\"}",
+      "delegated_identity_id": "us-west-2:aws-key-id",
+      "delegated_key_id": "delegated-key-id",
+      "delegated_pool_id": "us-west-2:delegated-pool-id",
+      "should_create_delegated_wallet": false
+    },
+    "encrypted_private_address": "long base64 encoded encrypted private key",
+    "encrypted_seed_phrase": null,
+    "hd_path": null,
+    "login": {
+      "identifiers": [],
+      "oauth2": null,
+      "type": "email_link",
+      "webauthn": null
+    },
+    "public_address": "0xmypublickey",
+    "recovery_factors": [],
+    "utc_timestamp_ms": 1687790408203
+  },
+  "error_code": "",
+  "message": "",
+  "status": "ok"
+}
+```
+
+Any subsequent logins follow this same setup, with the only difference being that once you've authenticated with AWS, your browser will first check with Magic to see if you already have an encrypted key stored with them, and if so, will retrieve the encrypted key and decrypt it using AWS KMS.
+
+## Is this safe?
+
+The common refrain amongst crypto purists is "not your keys not your tokens" - this is in reference to custodial services, like Coinbase and FTX.
+
+Magic is being a bit disingenuous when they say they say they are non custodial - while it's true that in their current set up they don't directly have access to your raw private keys, they are still the admins of their AWS account. They are limited only by the policies they themselves have put in place - they can just go into their AWS console and change the key policy, and decrypt the encrypted private keys they have for every account.
+
+Additionally, every time you authenticate on a new device, the raw key is transmitted over HTTPS to your machine. If your machine is being man in the middle'd, an attacker will be able to see your _raw key materials_ if you sign in. Additionally, because this is in-browser, Magic is not using any form of certificate pinning for AWS.
+
+This isn't ideal. This isn't MPC or any sort of advanced cryptography - it's just using AWS as your trust layer, and some clever engineering to make the user experience good. I'm a bit skeptical of their claims that this isn't custodial, since Magic technically has the ability to just recover everyone's private keys. This might be good enough, though, and the users magic is targeting (web3 gamers and casual users) are't likely to care about the security implications.

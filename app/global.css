@@ -1,0 +1,265 @@
+@import "tailwindcss";
+
+@theme {
+  --text-xs: 16px;
+}
+
+::selection {
+  background-color: #47a3f3;
+  color: #fefefe;
+}
+
+:root {
+  --sh-class: #2d5e9d;
+  --sh-identifier: #354150;
+  --sh-sign: #8996a3;
+  --sh-string: #007f7a;
+  --sh-keyword: #e02518;
+  --sh-comment: #a19595;
+  --sh-jsxliterals: #6266d1;
+  --sh-property: #e25a1c;
+  --sh-entity: #e25a1c;
+}
+
+.centered-image {
+  @apply mx-auto mb-1 block h-auto max-w-full rounded object-contain shadow-sm;
+}
+
+.footnote {
+  @apply text-center text-[10px];
+}
+
+html {
+  min-width: 360px;
+  line-height: 1.5;
+}
+
+code {
+  font-size: 14px;
+}
+
+.prose .anchor {
+  @apply invisible absolute no-underline;
+
+  margin-left: -1em;
+  padding-right: 0.5em;
+  width: 80%;
+  max-width: 700px;
+  cursor: pointer;
+}
+
+.anchor:hover {
+  @apply visible;
+}
+
+.a {
+  @apply text-[#244ebc] no-underline decoration-[0.1em] underline-offset-2 transition-all hover:underline dark:decoration-neutral-600;
+}
+
+.prose .anchor:after {
+  @apply text-neutral-300 dark:text-neutral-700;
+  content: "#";
+}
+
+.prose *:hover > .anchor {
+  @apply visible;
+}
+
+.prose pre {
+  @apply overflow-x-auto rounded-lg border border-neutral-200 bg-neutral-50 px-3 py-2 text-sm;
+}
+
+.prose p {
+  @apply my-4 text-black;
+}
+
+.prose h1 {
+  @apply mt-6 mb-2 text-4xl font-bold tracking-tight;
+}
+
+.prose h2 {
+  @apply mt-6 mb-2 text-xl font-bold tracking-tight;
+}
+
+.prose h3 {
+  @apply mt-6 mb-2 text-xl font-bold tracking-tight;
+}
+
+.prose h4 {
+  @apply mt-6 mb-2 text-lg font-bold tracking-tight;
+}
+
+.prose strong {
+  @apply font-bold;
+}
+
+.prose ul {
+  @apply list-disc pb-2 pl-6;
+}
+
+.prose ol {
+  @apply list-decimal pl-6;
+}
+
+.prose > :first-child {
+  /* Override removing top margin, causing layout shift */
+  margin-top: 1.25em !important;
+  margin-bottom: 1.25em !important;
+}
+
+/* Remove Safari input shadow on mobile */
+input[type="text"],
+input[type="email"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.abstractionLayer {
+  min-height: 30px;
+  margin: 10px auto;
+  align-items: center;
+  color: #ffffff;
+  text-align: center;
+  width: 40%;
+  display: flex;
+  justify-content: center;
+}
+
+.firstAl {
+  background-color: #45a995;
+}
+
+.secondAl {
+  background-color: #378f76;
+}
+
+.thirdAl {
+  background-color: #214d3c;
+}
+
+.graph {
+  margin: 0 auto;
+  width: 100%;
+  height: 350px;
+}
+
+.ryanair-graph {
+  margin: 0 auto;
+  width: 100%;
+  height: 500px;
+}
+
+.custom-dropdown {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 10px;
+}
+
+.custom-dropdown select {
+  background-color: #7f8c8d;
+  color: #fff;
+  font-size: inherit;
+  padding: 0.5em;
+  padding-right: 2.5em;
+  border: 0;
+  margin: 0;
+  border-radius: 3px;
+  text-indent: 0.01px;
+  text-overflow: "";
+  -webkit-appearance: button;
+}
+
+.custom-dropdown::before,
+.custom-dropdown::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+}
+
+.custom-dropdown::after {
+  content: "\25BC";
+  height: 1em;
+  font-size: 0.625em;
+  line-height: 1;
+  right: 1.2em;
+  top: 50%;
+  margin-top: -0.5em;
+}
+
+.custom-dropdown::before {
+  width: 2em;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  border-radius: 0 3px 3px 0;
+}
+
+.custom-dropdown select[disabled] {
+  color: rgba(0, 0, 0, 0.3);
+}
+
+.custom-dropdown select[disabled]::after {
+  color: rgba(0, 0, 0, 0.1);
+}
+
+.custom-dropdown::before {
+  background-color: rgba(0, 0, 0, 0.15);
+}
+
+.custom-dropdown::after {
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.plus {
+  width: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+  height: 50px;
+  background: #0093f2;
+  border-radius: 50%;
+  display: flex;
+  position: relative;
+}
+
+.plus__line {
+  width: 6px;
+  height: 25px;
+  background: #000;
+  border-radius: 10px;
+  position: absolute;
+  left: calc(50% - 3px);
+  top: calc(50% - 12.5px);
+}
+
+.plus__line--h {
+  transform: rotate(90deg);
+}
+
+.plus__line--v {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  overflow: hidden;
+  transition: all 0.4s ease 0s;
+}
+#path-header {
+  display: none;
+}
+
+.to-remove {
+  font-size: 20px;
+  text-align: center;
+  padding-top: 10px;
+}
+
+.blacked-background {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAATklEQVQoU2NkYGAwZmBgOMuAACA+CKCIMSIpADGRNaEYgKwQ3WQUjTCF6CYhWw2WAynEpgjmIpg7jUlSiM0TWK2GWUOUZ7ApxggeogIcABHJFtftKVfJAAAAAElFTkSuQmCC)
+    repeat;
+}
+.audio-block {
+  display: block;
+  margin: auto;
+  text-align: center;
+}

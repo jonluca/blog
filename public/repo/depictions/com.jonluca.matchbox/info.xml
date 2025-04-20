@@ -1,0 +1,23 @@
+<package>
+	<id>com.jonluca.matchbox</id>
+	<name>Matchbox</name>
+	<version>1.1-1</version>
+	<compatibility>
+		<firmware>
+			<maxiOS>8.4.1</maxiOS>
+			<otherVersions>unconfirmed</otherVersions>
+			<!--
+			for otherVersions, you can put either unsupported or unconfirmed
+			-->
+		</firmware>
+	</compatibility>
+	<dependencies></dependencies>
+	<descriptionlist>
+		<description>Take control of Tinder!</description>
+	</descriptionlist>
+	<screenshots></screenshots>
+	<changelog>
+		<change>Initial release</change>
+	</changelog>
+	<links></links>
+</package>

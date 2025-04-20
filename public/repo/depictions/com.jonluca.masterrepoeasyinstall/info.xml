@@ -1,0 +1,26 @@
+<package>
+	<id>com.jonluca.yakanywhere</id>
+	<name>YakAnywhere</name>
+	<version>1.1</version>
+	<compatibility>
+		<firmware>
+			<maxiOS>10.2</maxiOS>
+			<otherVersions>unconfirmed</otherVersions>
+			<!--
+			for otherVersions, you can put either unsupported or unconfirmed
+			-->
+		</firmware>
+	</compatibility>
+	<dependencies></dependencies>
+	<descriptionlist>
+		<description>Running list of all working repos.</description>
+	</descriptionlist>
+	<screenshots></screenshots>
+	<changelog>
+		<change>Updated repos</change>
+	</changelog>
+	<changelog>
+		<change>Initial release</change>
+	</changelog>
+	<links></links>
+</package>

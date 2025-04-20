@@ -1,0 +1,77 @@
+---
+title: "JavaScript gotchas"
+date: 2021-07-18 09:18:39 -0400
+image: "https://assets.jonlu.ca/javascript-funclength.png"
+---
+
+Here are some interesting JavaScript facts that I've encountered over the last few years.
+
+# Function.length
+
+Call `Function.length` will return the number of arguments a function is expecting.
+
+<CustomImage file="javascript-funclength" alt="Javascript function length" />
+
+The spread operator will not be included in the count.
+
+<CustomImage file="javascript-spreadlength" alt="Javascript function length" />
+
+# Array.map(func)
+
+when you call `Array.map(func)`, the mapped function gets called with 3 arguments, not just the value.
+
+So for:
+
+```js
+["10", "11", "12"].map(parseInt);
+```
+
+You'd _expect_ to get
+
+```js
+[10, 11, 12];
+```
+
+but in reality get
+
+```js
+[10, NaN, 1];
+```
+
+This is because `.map(parseInt)` calls the function with three arguments - `(currentValue, index, array)`. This is normally not an issue, but becomes an issue when the mapped function takes additional arguments that do not correspond to the ones being passed in.
+
+`parseInt` takes in two arguments - `value, [, radix]`, and thus tries to parse `11` with radix `1`, which is `NaN`
+
+# Values are truth-y by default
+
+The only falsey values are:
+
+```js
+[0, -0, 0n, "", "", null, undefined, NaN, false];
+```
+
+_Everything_ else is truthy - including `[]`, an empty Set(), and an empty object.
+
+# Null comparisons to 0
+
+I ran into a nasty bug once where a value I thought was guaranteed to be a number was actually explicitly set to null. I was doing a comparison with `0` and ran into this weird behavior:
+
+<CustomImage file="javascript-null" alt="Javascript null comparison" />
+
+# Array.sort sorts by string sequence code
+
+Call `.sort()` on an array of numbers will not sort them numerically. Which is perplexing
+
+Null is not equal to zero, and is not greater than zero, but is greater than or equal to zero.
+
+# String.replace() only replaces the first instance of a match
+
+It's almost a rite of passage for javascript developers to be bewildered that `String.replace` only replaces the first instance of a match in a string.
+
+Thankfully in ES2021 we now have `String.replaceAll`, which behaves as you'd expect.
+
+<CustomImage file="javascript-replace" alt="Javascript replace" />
+
+# WTFJS
+
+Someone also pointed out [WTFJS.com](https://wtfjs.com/) which is a site that has a lot more javascript oddities and examples.
