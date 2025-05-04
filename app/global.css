@@ -52,7 +52,7 @@ code {
   @apply visible;
 }
 
-.a {
+a {
   @apply text-[#244ebc] no-underline decoration-[0.1em] underline-offset-2 transition-all hover:underline dark:decoration-neutral-600;
 }
 
