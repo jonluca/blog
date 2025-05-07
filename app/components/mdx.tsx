@@ -36,12 +36,26 @@ function CustomLink(props: CustomLinkProps) {
 
 // Jekyll-style image component with footnote support
 function CustomImage({ alt, src, footnote, file }: { alt?: string; src?: string; footnote?: string | React.ReactNode; file?: string }) {
-  const imageFile = file ? `https://assets.jonlu.ca/${file}.png` : src;
+  const getSrc = () => {
+    if (src) {
+      return src;
+    }
+    if (file) {
+      const url = new URL(file, "https://assets.jonlu.ca");
+      const extensions = [".png", ".jpg", ".jpeg", ".gif", ".webp"];
+      const isValidExtension = extensions.some((ext) => file.endsWith(ext));
+      if (!isValidExtension) {
+        url.pathname += ".png";
+      }
+      return url.href;
+    }
+    return undefined;
+  };
 
   return (
     <>
       <div className={"centered-image-container"}>
-        <img src={imageFile} alt={alt || (typeof footnote === "string" && footnote) || "image"} className={"centered-image"} />
+        <img src={getSrc()} alt={alt || (typeof footnote === "string" && footnote) || "image"} className={"centered-image"} />
       </div>
       {footnote && <p className={"footnote"}>{footnote}</p>}
     </>

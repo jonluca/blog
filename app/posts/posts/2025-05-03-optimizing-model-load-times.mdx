@@ -1,0 +1,173 @@
+---
+title: "Optimizing AI model load times"
+date: 2025-05-03 15:28:40 -0700
+description: "How we improved PyTorch model loading performance in containerized environments using memory-based filesystems and distributed storage."
+tags: ["AI", "DevOps", "Docker", "Kubernetes", "PyTorch", "Performance"]
+image: "https://assets.jonlu.ca/ping.png"
+---
+
+At [Weights](https://www.weights.com), we handle millions of inference and training requests every day. Users come to the platform to use and train LoRa's - we have nearly a petabyte of user trained models.
+
+We've had to develop a robust and efficient infrastructure to support our AI/ML workloads. One of the most critical aspects of this infrastructure is the speed at which we can load our models into memory.
+
+When you're running AI/ML workloads in production, every second of model loading time matters. Recently, we faced challenges with slow model initialization in our PyTorch microservices running in Docker containers orchestrated by Kubernetes. Our larger models were taking up to 45 seconds to load, creating unacceptable latency during container restarts and scaling events.
+
+Here's how we tackled the problem and reduced load times by over 80%.
+
+## Understanding the Problem
+
+The typical pattern for loading models in containerized environments looks something like this:
+
+```python
+import os
+import shutil
+import torch
+import time
+import subprocess
+
+
+def download_weights(url: str, dest: str):
+    if url.endswith("tar"):
+        subprocess.check_call(["pget", "--log-level=WARNING", "-x", url, dest], close_fds=False)
+    else:
+        subprocess.check_call(["pget", "--log-level=WARNING", url, dest], close_fds=False)
+
+
+def fast_load_model(model_s3_path, model_name):
+    weights_path = f"./weights/{model_name}"
+    os.makedirs(shm_path, exist_ok=True)
+
+    # Download to shared memory (pseudo-code)
+    pth_file = f"{weights_path}/model.pth"
+    if not os.path.exists(pth_file):
+        download_weights(model_s3_path, pth_file)
+
+    # Load model from shared memory
+    model = MyModel()
+    model.load_state_dict(torch.load(pth_file))
+    return model
+```
+
+Simple enough. But when your model is several gigabytes and running inside a Docker container in a Kubernetes pod, this innocent-looking code hides several performance pitfalls:
+
+1. The model files are typically stored on a persistent volume (often network-attached)
+2. Loading requires reading the entire file into memory
+3. Docker's overlay filesystem adds overhead
+4. Container resource limits can throttle I/O
+5. Default PyTorch loading isn't optimized for this scenario
+
+Our largest model (a 32GB transformer) was taking up to 12 minutes to load in production (when downloaded to a NAS drive), or nearly 2 minutes to the ephemeral filesystem. During a rolling update of our service, this meant each pod was unavailable for nearly a minute during startup, creating a ripple effect on our entire serving infrastructure.
+
+## The Memory Solution: /dev/shm and tmpfs
+
+The first optimization we implemented was moving model loading to memory-based filesystems. It turns out that a lot of the default disks provided by the large cloud providers aren't that fast.
+
+Linux provides `/dev/shm` as a tmpfs mount, which is essentially a RAM-backed filesystem. It's perfect for our use case:
+
+```python
+import os
+import shutil
+import torch
+import time
+import subprocess
+
+
+def download_weights(url: str, dest: str):
+    if url.endswith("tar"):
+        subprocess.check_call(["pget", "--log-level=WARNING", "-x", url, dest], close_fds=False)
+    else:
+        subprocess.check_call(["pget", "--log-level=WARNING", url, dest], close_fds=False)
+
+
+def fast_load_model(model_s3_path, model_name):
+    # Create directory in shared memory
+    shm_path = f"/dev/shm/{model_name}"
+    os.makedirs(shm_path, exist_ok=True)
+
+    # Download to shared memory (pseudo-code)
+    local_path = f"{shm_path}/model.pth"
+    if not os.path.exists(local_path):
+        download_weights(model_s3_path, local_path)
+
+    # Load model from shared memory
+    model = MyModel()
+    model.load_state_dict(torch.load(local_path))
+    return model
+```
+
+This simple change reduced load times from 1m30s seconds to around 30s seconds - a 66% improvement.
+
+<Image file="file_system_download.png" footnote="Downloading directly to the filesystem." />
+<Image file="in_memory_download.png" footnote="Distance from Centreville, Virginia to Sydney, Australia" />
+
+To implement this in our Docker containers, we needed to ensure /dev/shm had sufficient size. By default, Docker allocates only 64MB to /dev/shm, which isn't enough for large models. We increased this limit in our Kubernetes deployments, and allocate the same amount of RAM as the instance we are running on.
+
+Fortunately, most A100 and H100 instances have >120GB of RAM, which is more than enough for our base models.
+
+## Distributed Model Storage with Ceph
+
+While the memory-based loading worked well, we still had a challenge: each pod was downloading the model independently, which wasted network bandwidth and added startup latency. To solve this, we implemented a Ceph distributed filesystem for model storage.
+
+Ceph provides a unified storage system that allowed us to:
+
+1. Cache models across our Kubernetes cluster
+2. Provide high-speed access from any node
+3. Ensure redundancy for model files
+4. Pre-warm the cache before deployments
+
+With Ceph in place, we modified our model loading code:
+
+```python
+def load_model():
+    ceph_path = "/mnt/models/model.pth"
+    shm_path = "/dev/shm/model.pth"
+
+    # Copy from Ceph to shared memory if needed
+    if os.path.exists("/mnt/models"):
+
+      if not os.path.exists(shm_path):
+          os.makedirs(os.path.dirname(shm_path), exist_ok=True)
+          shutil.copy(ceph_path, shm_path)
+    else:
+        # Download from S3 to shared memory
+        download_weights(model_s3_path, shm_path)
+
+    # Load from shared memory
+    model = MyModel()
+    model.load_state_dict(torch.load(shm_path))
+    return model
+```
+
+This approach gave us the best of both worlds: shared storage for model distribution and memory-based loading for performance.
+
+## Optimizing PyTorch Loading
+
+Besides the storage optimizations, we also made some changes to how PyTorch loads models:
+
+1. Using safetensors instead of the default pytorch implementation - `sft` loads the model using mmap in Rust, and is much faster than the default PyTorch implementation. You get about a [2x speed up on loading time](https://huggingface.co/docs/safetensors/en/speed).
+2. We implemented lazy loading for model components when possible
+3. We used PyTorch's compilation capabilities to optimize the loaded model
+4. We experimented with quantization to reduce model size
+5. We store and save the compiled model, using Pytorch 2.7's new artifact cacheing and loading.
+
+```python@torch.compile
+def fn(x, y):
+    return x.sin() @ y
+
+a = torch.rand(100, 100, dtype=dtype, device=device)
+b = torch.rand(100, 100, dtype=dtype, device=device)
+
+result = fn(a, b)
+
+artifacts = torch.compiler.save_cache_artifacts()
+
+assert artifacts is not None
+artifact_bytes, cache_info = artifacts
+
+# Now, potentially store artifact_bytes in a database
+
+# later one, as we load the model
+torch.compiler.load_cache_artifacts(artifact_bytes)
+```
+
+This pattern allowed our service to start up quickly and defer the model loading until the first inference request.
