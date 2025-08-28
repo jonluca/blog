@@ -25,9 +25,13 @@ This `POST` request sets a `JSESSIONID` cookie, if that cookie is not already pr
 
 I wrote a simple script to generate a session and then start searching for plates in paralle. The project is open source, and can be found on [GitHub](https://github.com/jonluca/CA-DMV-Plate-Finder). After writing this I realized there was already another project on GitHub that already did this, [this project in Python](https://github.com/brivera2524/california-plate-checker) - always shows you should check if someone else has already done it.
 
+The script is simple - it generates a session using the first request, then uses that session to check for available plates.
+
+We use an async generator and streamed reads to be performant, and can check ~50,000 plates in about a minute and a half. I didn't test above 50 parallel requests, but the DMVs service seemed to be able to handle that no problem.
+
 ## Interesting plates
 
-Now it was time to find interesting plates - the requirements are that the plate be between 2 and 7 characters, and can only contain letters and numbers.
+Now we could find interesting plates - the requirements are that the plate be between 2 and 7 characters, and can only contain letters and numbers.
 
 I started by checking if any of the 2 character combinations were available - there were only 4 valid available.
 
@@ -85,3 +89,9 @@ The DMV always reserves the right to reject a plate, so some of these may be req
 The full list of words can be found on [this gist](https://gist.github.com/jonluca/2ef6eb946e74363033c41a1bfb99177c).
 
 <Gist id="jonluca/2ef6eb946e74363033c41a1bfb99177c" />
+
+## Conclusion
+
+Unfortunately there doesn't seem to be a way to reserve a plate without actually assigning it to your car. It looks like if you already have a car, and have a plate you want to keep, you can sell the car and then pay a $45/year fee to keep the plate, but it must be attached to a VIN first. At least this means it's pretty hard to "park" or "squat" valuable license plates.
+
+I already have a pretty cool plate for my car (I won't say what it is on my blog, but my friends can easily recognize it), so I won't be using any of these plates, but hopefully someone else can find a cool one!
