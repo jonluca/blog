@@ -7,6 +7,7 @@ import type { MDXRemoteProps } from "next-mdx-remote/dist/rsc";
 import { Code } from "./code";
 import { Table } from "./table";
 import dynamic from "next/dynamic";
+import ReactGist from "./gist";
 
 const SpfDkimCharts = dynamic(() => import("../custom-code/spf-dkim-charts").then((mod) => mod.SpfDkimCharts));
 const InformationGraph = dynamic(() => import("../custom-code/InformationGraph").then((mod) => mod.InformationGraph));
@@ -15,6 +16,10 @@ const ClockContent = dynamic(() => import("../custom-code/mathjax").then((mod) =
 const Information = dynamic(() => import("../custom-code/mathjax").then((mod) => mod.Information));
 
 type CustomLinkProps = ComponentProps<"a">;
+
+const Gist = ({ id }: { id: string }) => {
+  return <ReactGist id={id} />;
+};
 
 function CustomLink(props: CustomLinkProps) {
   const href = props.href!;
@@ -121,6 +126,7 @@ const components = {
   h6: createHeading(6),
   Image: CustomImage,
   Video,
+  Gist,
   CustomImage,
   InformationGraph,
   RyanairApp,

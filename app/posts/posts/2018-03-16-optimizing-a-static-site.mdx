@@ -45,7 +45,7 @@ The first thing I noticed was that I was making a dozen requests each for CSS an
 
 I used [webpack](https://webpack.js.org/) to coalesce all my resources into a single js file. Any time I make a change to my content, it automatically minifies and turns all my dependencies into a single file.
 
-<script src="https://gist.github.com/jonluca/1760ab0dca958f62e316b1516eb5c481.js"></script>
+<Gist id="https://gist.github.com/jonluca/1760ab0dca958f62e316b1516eb5c481.js"></Gist>
 
 I played around with different options — currently, this single bundle.js file is in the {"<head>"} of my site, and is blocking. It’s final size is 829kb, and that includes every single non-image asset (fonts, css, all libraries and dependencies, and js). The vast majority of this is are the font-awesome fonts, which make up 724 of the 829kb.
 
@@ -69,11 +69,11 @@ I compressed all my images using [https://webspeedtest.cloudinary.com/](https://
 
 The first thing I did was transition to https — when I started, I was running Nginx bare on port 80, just serving files from /var/www/html
 
-<script src="https://gist.github.com/jonluca/4046c6c3fcf13fbe4c8c35a1992465d4.js"></script>
+<Gist id="https://gist.github.com/jonluca/4046c6c3fcf13fbe4c8c35a1992465d4.js"></Gist>
 
 I started by setting up https and redirecting all http requests to https. I got my TLS certificate from [Let’s Encrypt ](https://letsencrypt.org/)(an great organization that just started signing [wildcard certificates](https://community.letsencrypt.org/t/acme-v2-and-wildcard-certificate-support-is-live/55579) as well!).
 
-<script src="https://gist.github.com/jonluca/dd57551f0c6f314cbc4481e14cdd0e4b.js"></script>
+<Gist id="https://gist.github.com/jonluca/dd57551f0c6f314cbc4481e14cdd0e4b.js"></Gist>
 
 Just by adding the http2 directive, Nginx was able to take advantage of all the modern, baked in advantages of the newest HTTP features. Note that if you want to take advantage of HTTP2 (previously SPDY), you _must_ use HTTPS. Read more about it [here](https://hpbn.co/http2/).
 
@@ -93,11 +93,11 @@ Additionally, my site changes fairly infrequently, so I wanted the resources to 
 
 My updated server config looks like this. Note that I won’t touch on all the changes I made, such as TCP settings changes, gzip directives, and file cache. If you’d like to know more about these, [read this article on tuning Nginx.](https://www.nginx.com/blog/tuning-nginx/)
 
-<script src="https://gist.github.com/jonluca/af6699f795d9680387821a2e18a58a84.js"></script>
+<Gist id="https://gist.github.com/jonluca/af6699f795d9680387821a2e18a58a84.js"></Gist>
 
 And the corresponding server block
 
-<script src="https://gist.github.com/jonluca/7b0e3a0c21f6ddc5a650ff68da56e481.js"></script>
+<Gist id="https://gist.github.com/jonluca/7b0e3a0c21f6ddc5a650ff68da56e481.js"></Gist>
 
 ### Lazy Loading
 
@@ -105,7 +105,7 @@ Lastly there was a small change to my actual site that would improve things by a
 
 I wrote a short script to modify the attribute with every element with the _lazyload class._ These images would only be loaded once the corresponding box was clicked.
 
-<script src="https://gist.github.com/jonluca/fc74d3a0728ec5349699752947792c31.js"></script>
+<Gist id="https://gist.github.com/jonluca/fc74d3a0728ec5349699752947792c31.js"></Gist>
 
 So once the document had completed loading, it would modify the {"<img>"} tags so that they went from {`<img data-src="..."> to <img src="...">`}, and load it in the background.
 

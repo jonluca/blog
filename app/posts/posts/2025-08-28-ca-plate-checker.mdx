@@ -1,0 +1,87 @@
+---
+title: "Finding cool custom CA license plates"
+date: 2025-08-28 13:26:40 -0700
+description: "Reverse engineering the California DMV's license plate availability checker to find cool custom plates."
+image: https://assets.jonlu.ca/ca-dmv.png
+---
+
+I recently wanted to get a custom license plate for my car, and was looking for a cool combination of letters and numbers. The California DMV has a [license plate availability checker](https://www.dmv.ca.gov/portal/vehicle-registration/license-plates-decals-and-placards/license-plates/order-special-interest-and-personalized-license-plates/) that lets you check if a specific plate is available, but it only allows you to check one plate at a time.
+
+<CustomImage file="ca-plate-personalize" footnote="California DMV Plate Checker" alt="California DMV Plate Checker" />
+
+## Finding the endpoint
+
+You can go through the process of checking a plate without ever signing in, so this seemed feasible to automate. I opened up devtools and started inspecting the network requests.
+
+Interestingly enough, they seem to have an invisible recaptcha check, but this recaptcha is never used or validated, fortunately for us.
+
+<CustomImage file="ca-dmv-session-init" footnote="POST request to initialize the session" alt="Session initialization" />
+
+This `POST` request sets a `JSESSIONID` cookie, if that cookie is not already present. This cookie is required for all subsequent requests.
+
+<CustomImage file="ca-plate-check-request" footnote="POST request to initialize the session" alt="Session initialization" />
+
+## Writing the script
+
+I wrote a simple script to generate a session and then start searching for plates in paralle. The project is open source, and can be found on [GitHub](https://github.com/jonluca/CA-DMV-Plate-Finder). After writing this I realized there was already another project on GitHub that already did this, [this project in Python](https://github.com/brivera2524/california-plate-checker) - always shows you should check if someone else has already done it.
+
+## Interesting plates
+
+Now it was time to find interesting plates - the requirements are that the plate be between 2 and 7 characters, and can only contain letters and numbers.
+
+I started by checking if any of the 2 character combinations were available - there were only 4 valid available.
+
+<CustomImage file="ca-plate-two-letter-checks" footnote="All available two character plates" />
+
+The only four currently available are C2, C5, C6, and C9. These are all Chevrolet car models, so I'm not sure if the DMV is holding on to these for some reason or denying their requests. I'd at least assume that C9 would be taken by someone, as it's a pretty cool plate for a Chevy aficionado getting ready for the next gen Corvette.
+
+I then moved on to 3 character combinations, of which there are a ton. I won't write them all here, but [there are 1,315 available 3 character combinations](https://gist.github.com/jonluca/c288294aed666f08746915ec996154cb).
+
+## Common words
+
+I found a list of the 10,000 most common English words [here](https://apiacoa.org/publications/teaching/datasets/google-10000-english.txt), and processed those. There were 439 available plates in that list.
+
+Obviously a lot of these are not very interesting, but there were some fun ones. These are some highlights that I found:
+
+```
+ADSL
+CITED
+ATTACKS
+BROWSE
+CAUSE
+CONF
+DIES
+DIFFS
+DISK
+DISKS
+DONATED
+DROVE
+ENDED
+ENTERS
+ENTRY
+EXPIRES
+FAILS
+FOLLOWS
+GOTTA
+INCHES
+LOCATED
+LOGGED
+MOBILES
+NCAA
+PASSES
+PHPBB
+RELAY
+SPIES
+SPOUSE
+TEXTS
+TITLED
+TOWARD
+VIDEO
+YEARS
+```
+
+The DMV always reserves the right to reject a plate, so some of these may be requested frequently but approved.
+
+The full list of words can be found on [this gist](https://gist.github.com/jonluca/2ef6eb946e74363033c41a1bfb99177c).
+
+<Gist id="jonluca/2ef6eb946e74363033c41a1bfb99177c" />
