@@ -1,0 +1,199 @@
+---
+title: "SkyCards, ground truth: reverse‑engineering a flight‑spotting game"
+date: 2025-09-11 18:50:21 -0700
+description: "Automating SkyCards, the FlightRadar24 plane‑spotting game"
+image: https://assets.jonlu.ca/skycards.png
+---
+
+> **TL;DR** - I reverse‑engineered SkyCards, a game that turns live flight spotting into a collectible. This post walks through intercepting traffic, reading a React Native + Hermes bundle, finding a native request‑signing bridge, and wiring up a small client that talks to FlightRadar24's protobuf/gRPC endpoints to automate captures.
+
+## SkyCards in a nutshell
+
+SkyCards takes the plane‑spotter vibe and turns it into a collection loop. The app shows live flights near you with a rarity score. You pick one, jump into a mini‑game, and try to "photograph" the aircraft as it crosses the frame. If roughly ≥90% of the plane is inside the shot, you capture it. Captures store tail number, model (e.g., "Boeing 787"), route, and a timestamp. Rarer flights give more XP. You have a camera with a limited number of shots that refresh over time (with optional in‑app purchases for more).
+
+<CustomImage className={"mx-auto flex w-1/2 items-center justify-center"} file="skycards" footnote="SkyCards - map view" />
+
+Once you tap a plane, you see its card and can decide whether to try a capture.
+
+<CustomImage className={"mx-auto flex w-1/2 items-center justify-center"} file="skycards-card" footnote="SkyCards - plane card" />
+
+If you try to capture it, you play a mini‑game: the plane flies across the screen and you snap the photo when it's fully in frame.
+
+<CustomImage className={"mx-auto flex w-1/2 items-center justify-center"} file="skycards-game" footnote="SkyCards - capture mini‑game" />
+
+On success, you get a confirmation screen and the flight is added to your collection.
+
+<CustomImage className={"mx-auto flex w-1/2 items-center justify-center"} file="skycards-capture" footnote="SkyCards - capture success" />
+
+## Digging into the app
+
+I enjoy aviation and reverse engineering, so this felt like a good crossover project. I started by booting up Proxyman to see if I could intercept the app's traffic.
+
+Luckily the app didn't do certificate pinning or TLS fingerprinting, so I was off to the races.
+
+The flights endpoint returned binary (protobuf) data that I didn't have definitions for yet, while the capture‑related endpoint spoke JSON.
+
+When you attempt a capture, two client actions pop out immediately:
+
+1. **Spend camera shot** - decrements your shot inventory.
+2. **Register capture** - sends the result (selected flight, "% in frame," and some metadata).
+
+<CustomImage file="skycards-capture-endpoint" footnote="The two endpoints called when you go through a mini game" />
+
+Notably, the captures endpoint was separate from the consume (shot‑spend) endpoint and didn't validate against a prior consume call. Practically, you could sinkhole the consume endpoint and never burn shots.
+
+The mini‑game itself runs client‑side; "how much of the plane is in frame" ultimately becomes a number in the request body, seen below. `coverage` represents the percent of the plane in the shot, and `cloudiness` captures how cloudy the frame is (which affects score/XP).
+
+```json
+{
+  "sub": "your-user-id",
+  "iat": 1757403992,
+  "data": {
+    "alt": 3000,
+    "speed": 0,
+    "reg": "SKY-CARDS",
+    "callsign": "ONBOARDING",
+    "associatedAirportId": 3147,
+    "flightId": 1,
+    "track": 45,
+    "icon": 0,
+    "status": 0,
+    "timestamp": 1757403964331,
+    "onGround": false,
+    "source": 0,
+    "model": "B738",
+    "xp": 1380,
+    "xpUserBonus": 1700,
+    "coverage": 100,
+    "cloudiness": 85,
+    "glow": false,
+    "coins": 1,
+    "newAirport": false
+  }
+}
+```
+
+### Registering the capture (signing)
+
+The register endpoint was the interesting one: a single `POST` with a signed JSON payload.
+
+<CustomImage file="skycards-http-payload" footnote="HTTP payload (redacted)" />
+
+The server wouldn't accept unsigned register requests, so it was time to fire up the decompiler.
+
+## Android reverse engineering: APKLab + JADX
+
+I booted a rooted Android emulator, installed the app from the Play Store, and extracted the APK. Then I opened it in APKLab and let it infer Java sources from the DEX/smali files.
+
+It turned out the app was built with React Native, which meant the interesting bits were likely in the JS bundle.
+
+## Architecture tour: React Native + Hermes (and how I read it)
+
+The app is React Native using Hermes. I jumped straight into the bundle-application and auth logic in RN apps is usually in JS. Native modules are typically small bridges to platform functionality (camera, crypto, storage) or third‑party deps, so I didn't bother there first.
+
+Hermes emits compact bytecode. Gone are the days of trivially reversing RN bundles; Hermes reads more like a tiny VM than JavaScript. (Tools like `hermes-dec` help extract readable bytecode from the bundle.)
+
+Fortunately, function names and strings weren't heavily obfuscated, which made tracing pleasant.
+
+**My workflow:**
+
+1. Grep the RN bundle for endpoint‑like strings.
+2. Jump to the callers, then bubble up to action creators.
+3. For bytecode that's tedious to read, paste chunks into GPT‑5 to get a JS sketch, then verify manually.
+
+That takes you straight to the JS that assembles the capture payload. The actual signing happens elsewhere.
+
+I was honestly surprised how well GPT‑5 read and interpreted the bytecode. It's not perfect, but it's a huge time saver for tedious chunks.
+
+<CustomImage file="skycards-gpt5-question" />
+
+GPT‑5 returned a solid outline of what the original JavaScript looked like.
+
+<CustomImage file="skycards-gpt5-answer" />
+
+The full conversation and examples it decompiled are [here](https://chatgpt.com/c/68bf89c1-d4dc-832c-a2f3-9bd80c9f4d57) - some pretty impressive stuff.
+
+## Where the heavy lifting happens: the native bridge for signing
+
+React Native calls into a native "request signer." On Android, that's implemented in Java/Kotlin (visible as smali/Java in the APK). The signer generates a compact, JWT‑like token over the JSON payload using HS256, which the server verifies.
+
+It turned out they were using a native module after all, which is fairly surprising. I looked up "Request Signer" in the code base, and there it was, in decompiled glory.
+
+<CustomImage file="skycards-request-signer" />
+
+## Signing the request
+
+Once we had the secret, reimplementing the signature logic became trivial.
+
+```ts
+import { CompactSign } from "jose";
+
+export async function signPayload(payload: string): Promise<string> {
+  const enc = new TextEncoder();
+  const key = enc.encode("nGrEGVfrB9rGfgEbsgOUTcdkJAXsh8jE");
+
+  const jws = await new CompactSign(enc.encode(payload)).setProtectedHeader({ alg: "HS256", typ: "JWT" }).sign(key);
+
+  return jws;
+}
+```
+
+We could now succesfully submit any plane capture we wanted. The server would respond with a success message and add the flight to our collection.
+
+<CustomImage file="skycards-success" footnote="Successful response from the SkyCards API" />
+
+## Flight data side‑quest: protobuf/gRPC and a tiny client
+
+SkyCards needs a list of nearby flights. FlightRadar24's web stack uses gRPC‑Web with protobuf for flight lists. [The community has reverse‑documented enough message shapes from the web UI artifacts to be useful.](https://github.com/abc8747/fr24/blob/master/src/fr24/proto/_common.proto)
+
+With those, I wrote a tiny client that:
+
+- Accepts a bounding box.
+- Calls the flight list endpoint and returns active flights.
+- Produces just enough metadata to mirror what SkyCards expects when you select a flight.
+
+<CustomImage file="skycards-proto" />
+
+## Putting it together: a simple automation loop
+
+With (a) the capture payload shape and (b) a way to fetch flights, the loop looks like this:
+
+```ts
+const run = async () => {
+  const airportCodes = Array.from(airportMap.keys());
+
+  for (const c of chunk(airportCodes, 10)) {
+    const nearbyFlights = await findLiveFlights(c);
+    const uniqueByDestination = uniqBy(nearbyFlights.flightsList, (f) => f.extraInfo?.route?.to);
+
+    console.log(`Found ${uniqueByDestination.length} flights to ${c.join(", ")}`);
+
+    if (uniqueByDestination.length > 0) {
+      await pMap(
+        uniqueByDestination,
+        async (flight) => {
+          const details = await requestFlightDetails(flight.flightid);
+          const flightInfo = details.selectedFlightList[0]!;
+          const signedPayload = await constructSignedPayload(flightInfo);
+          await submitSignedPayload(signedPayload);
+
+          console.log(
+            `Tracked flight ${flightInfo.callsign} from ${flightInfo.extraInfo?.route?.from} to ${flightInfo.extraInfo?.route?.to}`,
+          );
+        },
+        { concurrency: 2, stopOnError: false },
+      );
+    }
+
+    console.log("Done");
+  }
+};
+
+await run();
+```
+
+I ran this for a bit and, less than an hour later, received an email saying I was banned for terms‑of‑service abuse. Fair. The point was the tour through the stack and to see if I could, not botting.
+
+### Appendix
+
+The full code can be found on [GitHub](https://github.com/jonluca/skycards), as well as the decompiled APK and RN bundle.
