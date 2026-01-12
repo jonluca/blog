@@ -1,0 +1,86 @@
+Privacy Policy for Palate
+
+Last updated: 1/12/2026
+
+Palate (“Palate,” “we,” “our,” or “us”) is an iOS application designed to operate fully on-device. Your privacy is a core design principle. This Privacy Policy explains what data we do and do not collect, how it is used, and your rights.
+
+1. Overview
+
+Palate is a fully local, on-device application. All core functionality runs entirely on your device. We do not require accounts, do not upload your photos or content to our servers, and do not sell or share personal data.
+
+2. Data We Do Not Collect
+
+Palate does not collect, store, or transmit:
+
+Photos, videos, or media from your device
+
+Location data or precise GPS coordinates
+
+Contacts, calendars, messages, or call data
+
+User-generated content or metadata derived from it
+
+Personally identifiable information (PII) such as name, email, phone number, or address
+
+Payment or financial information
+
+Advertising identifiers for ad targeting
+
+All analysis and processing remain on your device.
+
+3. On-Device Processing
+
+Any analysis performed by Palate (including image recognition, classification, or organization) happens entirely on your device using local system APIs and models. No media or analysis results are transmitted off the device.
+
+4. Telemetry & Diagnostics (Optional)
+
+To improve app stability and performance, Palate may collect limited, anonymized telemetry, which can include:
+
+App launch and crash reports
+
+Performance metrics (e.g., feature usage frequency, latency)
+
+Device information such as iOS version, app version, and hardware model
+
+Important:
+
+Telemetry data is not linked to your identity
+
+Telemetry does not include photos, content, or personal data
+
+Telemetry collection may be optional and configurable via system or in-app settings
+
+We do not use telemetry for advertising or tracking across apps
+
+We may use Apple-provided services (such as App Store or system diagnostics) to collect this information.
+
+5. Third-Party Services
+
+Palate does not integrate third-party SDKs for advertising, analytics, or tracking that collect personal data.
+
+If system-level Apple services are used (e.g., crash reporting), they are governed by Apple’s Privacy Policy.
+
+6. Data Retention
+
+Because Palate does not collect personal data or user content, there is no personal data retention on our servers.
+
+Any locally stored data remains on your device and is deleted when you delete the app.
+
+7. Children’s Privacy
+
+Palate does not knowingly collect any personal information from children under the age of 13. Because the app operates locally and does not collect personal data, no special data handling is required.
+
+8. Your Rights
+
+Since Palate does not collect or store personal data, there is no data to access, export, or delete from our servers. You remain in full control of your data on your device at all times.
+
+9. Changes to This Policy
+
+We may update this Privacy Policy from time to time. Any changes will be reflected by updating the “Last updated” date. Continued use of the app after changes constitutes acceptance of the revised policy.
+
+10. Contact
+
+If you have questions about this Privacy Policy, you may contact us at:
+
+Email: jonluca.decaro@gmail.com
+Developer: JonLuca DeCaro
