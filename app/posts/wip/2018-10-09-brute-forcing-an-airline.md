@@ -6,7 +6,7 @@ image: "/images/airline-pass.png"
 
 I'm a frequent traveler and stay in lounges fairly often (shoutout [/r/churning](https://reddit.com/r/churning)!). Most lounges don't use traditional [WiFi Authentication](https://tools.ietf.org/html/rfc4764) - instead they rely on some form of captive gate. This allows them to provide user content, collect a more information on the users of the service, and rotate the password easily.
 
-This is how one could *theoretically* brute force an easily enumerable captive portal password. This is a genericized article that does **not name any airline in particular**.
+This is how one could _theoretically_ brute force an easily enumerable captive portal password. This is a genericized article that does **not name any airline in particular**.
 
 Let's suppose I had been traveling
 Most lounges follow a very similar password schema on a day to day basis. A common one is of the format `WORLDWIDE####`, with a random last 4 digits. This only creates 10,000 unique possible passwords, which is a fairly small search space. Although I had the password in front of me but I wanted to see if I could figure it out using other means.
@@ -43,11 +43,12 @@ curl 'https://anairline.com/auth/index.html/u' \
 --data 'user=GLOBAL1111&password=NULL&cmd=authenticate&Login=Sign+in' \
 --compressed -v
 ```
+
 <p class="footnote">Note: Session and User IDs removed</p>
 
 Now that I had the curl request I could play around with the state and paremeters. It looks like the form is actually encoding the password as the username and the password as NULL.
 
-As a sidenote, this **probably** means that any built in password bruteforcing checks with the library they're using *won't* work because we aren't trying the same username with a different password over and over again - we are just iterating over different usernames with the same password. I can't be sure of this but it
+As a sidenote, this **probably** means that any built in password bruteforcing checks with the library they're using _won't_ work because we aren't trying the same username with a different password over and over again - we are just iterating over different usernames with the same password. I can't be sure of this but it
 
 Shell scripting is fine in a pinch but I wanted something more robust. There's a neat utility that'll convert a curl request to Python/Node/PHP [here](https://curl.trillworks.com). Now that I had python code that had valid state I could quickly iterate over all combinations.
 
@@ -151,7 +152,7 @@ As an aside spoofing your mac address on the 2018 MacBook Pro's seems to not wor
 
 ## Conclusions
 
-This also would've been possible to do with BurpSuite and setting up Intruder, but I didn't really want to go to that effort. This was a quick exercise in seeing how easy this would be if I was standing *outside* the lounge, without access to the password. Any online service that uses a captive portal is susceptible to this attack. One of these days I'm planning on building an airport-centric wordlist (i.e. Lounge, WiFi, &lt;airport name&gt;, &lt;airline name&gt;, current year, etc.) so that bruteforcing *without* any preexisting knowledge also becomes feasible.
+This also would've been possible to do with BurpSuite and setting up Intruder, but I didn't really want to go to that effort. This was a quick exercise in seeing how easy this would be if I was standing _outside_ the lounge, without access to the password. Any online service that uses a captive portal is susceptible to this attack. One of these days I'm planning on building an airport-centric wordlist (i.e. Lounge, WiFi, &lt;airport name&gt;, &lt;airline name&gt;, current year, etc.) so that bruteforcing _without_ any preexisting knowledge also becomes feasible.
 
 Overall fairly successful for 10 minutes of work!
 

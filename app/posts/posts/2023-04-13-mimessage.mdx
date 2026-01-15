@@ -9,10 +9,10 @@ I've always been surprised at how slow and and clunky it is to search in iMessag
 
 I realized that iMessage just stores its database locally as a sqlite file, so I went about building an alternate UI for searching, and adding in a few features that I thought would be interesting. These include:
 
-* **Semantic Search** - I wanted to create embeddings for every message/conversation and then add proper semantic search on top of it
-* **Wrapped** - I really like seeing stats about my life, and I really enjoy what Spotify has done with Wrapped, so I set out to do the same for iMessage
-* **AI Conversations** - Talk with your friends, AI-ifiied; once you have all the context around a conversation, you can understand how that person texts and what their tone it. Then it's as simple as plugging it into ChatGPT
-* **Export** - Export your conversations in JSON or plain text
+- **Semantic Search** - I wanted to create embeddings for every message/conversation and then add proper semantic search on top of it
+- **Wrapped** - I really like seeing stats about my life, and I really enjoy what Spotify has done with Wrapped, so I set out to do the same for iMessage
+- **AI Conversations** - Talk with your friends, AI-ifiied; once you have all the context around a conversation, you can understand how that person texts and what their tone it. Then it's as simple as plugging it into ChatGPT
+- **Export** - Export your conversations in JSON or plain text
 
 <CustomImage file="wrapped" footnote="Your iMessage Wrapped" alt="imessage wrapped" />
 
@@ -22,9 +22,9 @@ The database sits at `/Library/Messages/chat.db`, while all the attachments live
 
 A few gotchas were:
 
-* iMessage does not receive raw text as its messages - it actually receives a `typedstream`, and then later on post processes it and backfills in the `text` column. There's a fairly obscure library for parsing these in typescript (with a bug fixed) [here](https://github.com/jonluca/node-typedstream)
+- iMessage does not receive raw text as its messages - it actually receives a `typedstream`, and then later on post processes it and backfills in the `text` column. There's a fairly obscure library for parsing these in typescript (with a bug fixed) [here](https://github.com/jonluca/node-typedstream)
 
-* When using Messages in iCloud, your messages app won't have all your conversations and attachments. This will make your old conversations look much more sparse than they really are. You can force iMessage to download all your conversations by toggling it on and off in iMessage settings.
+- When using Messages in iCloud, your messages app won't have all your conversations and attachments. This will make your old conversations look much more sparse than they really are. You can force iMessage to download all your conversations by toggling it on and off in iMessage settings.
 
 ## Wrapped
 
@@ -33,7 +33,6 @@ Wrapped gives you a breakdown of your iMessage habits, broken down by year and b
 I actually used ChatGPT to generate the product features included in iMessage Wrapped - as soon as it can do figma mocks I'll redesign the UI using that, as well.
 
 <CustomImage file="chatgpt" footnote="ChatGPT" alt="chatgpt product suggestions" />
-
 
 ## AI Conversations
 
@@ -66,7 +65,6 @@ This takes quite a while and costs money, as well as requiring you to send your 
 The coolest part of this project was actually in using a tool I created for this project called `repo-refactor` - it's a library that will convert a github repo from one language to another https://github.com/jonluca/repo-refactor. The rust library I mentioned above had already done some of the heavy lifting in creating data models and structures representing the schema, as well as writing some of the base queries. This was really useful for creating and understanding types early on, and for actually reading the rust code (admittedly not my forte).
 
 The tool is very much in its infancy, and works successfully somewhere between 40 and 80 percent of the time. It doesn't do great on long files, and some clear failure modes (going from weakly typed -> strongly typed is pretty bad), but I think there are some cheap techniques that can be implemented to make it way more accurate. It's still pretty incredible that it works this well with very little prompt engineering or manual cleanup.
-
 
 ## Next Steps
 
