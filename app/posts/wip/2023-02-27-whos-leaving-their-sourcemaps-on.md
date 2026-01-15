@@ -4,8 +4,6 @@ date: 2023-02-27 23:49:16
 image: "/images/sourcemap.png"
 ---
 
-
-
 #### Addendum
 
 I generated the title and the outline with ChatGPT.

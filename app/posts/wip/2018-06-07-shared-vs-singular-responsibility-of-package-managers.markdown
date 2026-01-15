@@ -7,15 +7,15 @@ At [JSConf EU 2018](https://www.youtube.com/watch?v=M3BM9TB-8yA), day Ryan Dahl 
 
 I wanted to expand on his points and genericize it across platforms and dive into how every language or framework does it - from \*nix's `apt` to Rust's `crates` to PHP's `composer`.
 
-# Overview 
+# Overview
 
-To start we have to actually define what a package manager actually *is* - what exactly does a modern package manager provide?
+To start we have to actually define what a package manager actually _is_ - what exactly does a modern package manager provide?
 
-* Remote package installation
+- Remote package installation
 
-* Dependency management
+- Dependency management
 
-* Version management 
+- Version management
 
 # History
 
@@ -27,4 +27,4 @@ To start we have to actually define what a package manager actually *is* - what 
 
 ### Additional Reading
 
-These are some links and resources that helped me while I was researching this article. 
+These are some links and resources that helped me while I was researching this article.
