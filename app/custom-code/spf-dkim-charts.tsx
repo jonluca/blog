@@ -1,6 +1,6 @@
 "use client";
-import { useEffect } from "react";
-import { Chart } from "chart.js";
+import { useEffect, useRef } from "react";
+import Chart from "chart.js/auto";
 
 const getContextById = (id: string) => {
   const canvas = document.getElementById(id) as HTMLCanvasElement | null;
@@ -10,16 +10,17 @@ const getContextById = (id: string) => {
   return canvas.getContext("2d")!;
 };
 export const SpfDkimCharts = () => {
+  const mountRef = useRef(false);
   useEffect(() => {
+    if (mountRef.current) {
+      return;
+    }
+    mountRef.current = true;
     const options = {
       scales: {
-        yAxes: [
-          {
-            ticks: {
-              beginAtZero: true,
-            },
-          },
-        ],
+        y: {
+          beginAtZero: true,
+        },
       },
     };
     const borderColor = [
