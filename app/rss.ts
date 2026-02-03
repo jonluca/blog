@@ -16,7 +16,7 @@ export async function generateRssFeed() {
       (post) =>
         `<item>
           <title>${post.metadata.title}</title>
-          <link>${baseUrl}/blog/${post.slug}</link>
+          <link>${baseUrl}/posts/${post.slug}</link>
           <description>${post.metadata.summary || ""}</description>
           <pubDate>${new Date(post.metadata.date).toUTCString()}</pubDate>
         </item>`,
