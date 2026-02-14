@@ -165,12 +165,13 @@ export function CustomMDX(props: MDXRemoteProps) {
   return (
     <MDXRemote
       options={{
+        blockJS: false,
         mdxOptions: {
           remarkPlugins: [remarkFootnotes],
         },
       }}
       {...props}
-      components={{ ...components, ...(props.components || {}) }}
+      components={{ ...(props.components || {}), ...components }}
     />
   );
 }
