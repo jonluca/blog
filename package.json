@@ -8,12 +8,12 @@
     "upload:file": "tsx scripts/upload-asset.ts"
   },
   "dependencies": {
-    "@aws-sdk/client-s3": "^3.990.0",
+    "@aws-sdk/client-s3": "^3.994.0",
     "@eslint/compat": "^2.0.2",
     "@eslint/js": "^10.0.1",
-    "@tailwindcss/postcss": "4.1.18",
+    "@tailwindcss/postcss": "4.2.0",
     "@types/gtag.js": "^0.0.20",
-    "@types/node": "25.2.3",
+    "@types/node": "25.3.0",
     "@types/react": "19.2.14",
     "@types/react-dom": "19.2.3",
     "@vercel/analytics": "^1.6.1",
@@ -24,7 +24,7 @@
     "cssnano": "^7.1.2",
     "cytoscape": "3",
     "dotenv": "^17.3.1",
-    "eslint": "^10.0.0",
+    "eslint": "^10.0.1",
     "eslint-config-prettier": "^10.1.8",
     "eslint-import-resolver-typescript": "^4.4.4",
     "eslint-plugin-ft-flow": "^3.0.11",
@@ -34,7 +34,7 @@
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-unused-imports": "^4.4.1",
     "geist": "1.7.0",
-    "glob": "^13.0.3",
+    "glob": "^13.0.6",
     "globals": "^17.3.0",
     "next": "^16.1.6",
     "next-mdx-remote": "^6.0.0",
@@ -48,11 +48,11 @@
     "react-syntax-highlighter": "^16.1.0",
     "remark-footnotes": "^5.0.0",
     "remark-gfm": "^4.0.1",
-    "tailwind-merge": "^3.4.0",
-    "tailwindcss": "4.1.18",
+    "tailwind-merge": "^3.5.0",
+    "tailwindcss": "4.2.0",
     "tsx": "^4.21.0",
     "typescript": "5.9.3",
-    "typescript-eslint": "^8.55.0"
+    "typescript-eslint": "^8.56.0"
   },
   "prettier": {
     "printWidth": 140,
