@@ -1,9 +1,8 @@
 import Link from "next/link";
-import { MDXRemote } from "next-mdx-remote/rsc";
+import { MDXRemote, type MDXRemoteProps } from "next-mdx-remote/rsc";
 import type { ComponentProps } from "react";
 import React from "react";
 import remarkFootnotes from "remark-gfm";
-import type { MDXRemoteProps } from "next-mdx-remote/dist/rsc";
 import { Code } from "./code";
 import { Table } from "./table";
 import dynamic from "next/dynamic";

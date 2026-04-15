@@ -9,52 +9,21 @@ export const metadata: Metadata = {
 const content = `
 Hi!
 
-I'm [**JonLuca DeCaro**](https://twitter.com/jonluca). I'm the co-founder of [Weights](https://weights.gg). I grew up in north east Italy, and moved to the United States in 2014 to study in Los Angeles.
-
-Previously I was a founder at Alta, and before that I worked at Citadel, Pinterest, Google, and Apple. I am a full stack engineer, and have worked in growth, security, and product.
+I'm JonLuca DeCaro. I currently work at [OpenAI](https://openai.com). Prior to that, I was a founder of [Weights](https://weights.com).
 
 <Image alt="San Diego, 2020" footnote="San Diego, 2020" file="sandiego" />
 
 ## New here?
 
-I recommend starting with the following three posts. They all focus on tech and explorations of topics I find interesting.
+If you're new here, these three posts are a good place to start. They're representative of what I like writing about: technical rabbit holes, reverse engineering, product systems, and odd corners of the internet.
 
-1. [Illegal streams, decrypting m3u8's, and building a better stream experience](https://blog.jonlu.ca/posts/illegal-streams?ref=about) - An article on exploring illegal sports streams online, building a client to watch them, and seeing how the streamers are piggybacking real services.
+1. [Illegal streams, decrypting m3u8's, and building a better stream experience](https://blog.jonlu.ca/posts/illegal-streams?ref=about) - A look at illegal sports streams, how they piggyback real services, and what it took to build a better viewing client.
 
-2. [Obfuscated javascript, scam emails, and American Express](https://blog.jonlu.ca/posts/deobfuscating-amex-scammer?ref=about) - An article on reversing and decompiling obfuscated javascript, tracking spam emails, and finding the root command and control server for a scam campaign.
+2. [Obfuscated javascript, scam emails, and American Express](https://blog.jonlu.ca/posts/deobfuscating-amex-scammer?ref=about) - Reverse-engineering obfuscated JavaScript from scam emails and tracing the campaign back to its command-and-control server.
 
-3. [Ryanair, Hamiltonian Cycles, and using graph theory to find cheap flights](https://blog.jonlu.ca/posts/ryan-air?ref=about) - An article on how I routed my European vacation, writing an NP hard problem solver, and releasing a tool to help you do the same.
+3. [Ryanair, Hamiltonian Cycles, and using graph theory to find cheap flights](https://blog.jonlu.ca/posts/ryan-air?ref=about) - Using graph theory to plan a cheap European trip through Ryanair's network, then turning the idea into a tool other people can use.
 
-I also write for HackerNoon and freeCodeCamp on [Medium](https://medium.com/@jonluca).
-
-You can [get an RSS feed of the blog.](/feed.xml)
-
-## What am I reading?
-
-Here are a few blogs or places on the internet that I enjoy reading. I don't agree with everything on all of them, so don't take it as an endorsement of the site as a whole.
-
-- [http://danluu.com/](http://danluu.com/)
-
-- [http://www.paulgraham.com/articles.html](http://www.paulgraham.com/articles.html)
-
-- [Money Stuff by Matt Levine](https://www.bloomberg.com/opinion/authors/ARbTQlRLRjE/matthew-s-levine)
-
-- [https://astralcodexten.substack.com/](https://astralcodexten.substack.com/)
-
-- [https://www.lesswrong.com/](https://www.lesswrong.com/)
-
-## Photos
-
-Few things are as personally identifiable as photos, and as the old adage goes, a picture is worth a thousand words, so here's a bit about me.
-
-<Image alt="Young me rock climbing" footnote="Probably my only time ever going rock climbing" file="rock-climbing" />
-
-<Image alt="Castle" footnote="Christmas dinner in a castle" file="castle" />
-
-<Image alt="Helicopter" footnote="On a peak in Denali" file="helicopter" />
-
-<Image alt="Igloo" footnote="Our igloo in fairbanks" file="igloo" />
-`;
+You can also [subscribe to the blog via RSS.](/feed.xml)`;
 
 export default function AboutPage() {
   return (
