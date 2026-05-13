@@ -1,0 +1,11 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "printWidth": 140,
+  "arrowParens": "always",
+  "semi": true,
+  "tabWidth": 2,
+  "trailingComma": "all",
+  "sortTailwindcss": {},
+  "sortPackageJson": false,
+  "ignorePatterns": [".claude/**", ".next/**", "out/**", "node_modules/**", "public/repo/**", "public/slick/**"]
+}
