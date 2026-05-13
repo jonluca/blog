@@ -1,0 +1,62 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["eslint", "typescript", "oxc", "unicorn", "react", "nextjs", "promise", "import"],
+  "env": {
+    "browser": true,
+    "builtin": true,
+    "es2021": true,
+    "node": true,
+    "serviceworker": true,
+    "worker": true
+  },
+  "globals": {
+    "React": "readonly"
+  },
+  "ignorePatterns": [".next/**", "out/**", "node_modules/**", "public/repo/**", "public/slick/**"],
+  "settings": {
+    "next": {
+      "rootDir": "."
+    },
+    "react": {
+      "version": "19.2.6"
+    }
+  },
+  "options": {
+    "denyWarnings": true
+  },
+  "rules": {
+    "react/exhaustive-deps": "error",
+    "react/rules-of-hooks": "error",
+    "prefer-const": "error",
+    "curly": ["error", "all"],
+    "no-prototype-builtins": "off",
+    "nextjs/no-html-link-for-pages": "off",
+    "nextjs/no-img-element": "off",
+    "promise/no-callback-in-promise": "off",
+    "unicorn/no-useless-fallback-in-spread": "off",
+    "typescript/no-non-null-assertion": "off",
+    "no-empty": "off",
+    "no-bitwise": "off",
+    "no-case-declarations": "off",
+    "no-constant-binary-expression": "off",
+    "no-constant-condition": "off",
+    "no-control-regex": "off",
+    "no-unused-expressions": "off",
+    "promise/always-return": "off",
+    "promise/catch-or-return": "off",
+    "typescript/no-namespace": "off",
+    "typescript/no-empty-interface": "off",
+    "typescript/consistent-type-definitions": ["error", "interface"],
+    "typescript/consistent-type-imports": [
+      "error",
+      {
+        "prefer": "type-imports"
+      }
+    ],
+    "typescript/ban-ts-comment": "off",
+    "typescript/no-explicit-any": "off",
+    "react/jsx-curly-brace-presence": ["error", { "props": "always", "children": "ignore", "propElementValues": "always" }],
+    "object-shorthand": "error",
+    "no-async-promise-executor": "off"
+  }
+}
