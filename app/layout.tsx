@@ -3,8 +3,6 @@ import type { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import { Navbar } from "./components/nav";
-import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 import { baseUrl } from "./sitemap";
 import Script from "next/script";
 import Head from "next/head";
@@ -109,9 +107,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <img src={"https://j.jonlu.ca/js/?idsite=1&rec=1"} style={{ border: 0 }} alt={""} />
           </p>
         </noscript>
-
-        <Analytics />
-        <SpeedInsights />
       </body>
     </html>
   );
