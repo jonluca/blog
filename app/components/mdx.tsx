@@ -25,7 +25,7 @@ function CustomLink(props: CustomLinkProps) {
 
   if (href.startsWith("/")) {
     return (
-      <Link href={href} {...props}>
+      <Link href={href} prefetch={false} {...props}>
         {props.children}
       </Link>
     );

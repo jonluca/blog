@@ -1,11 +1,9 @@
 import "./global.css";
 import type { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
-import { GeistMono } from "geist/font/mono";
 import { Navbar } from "./components/nav";
 import { baseUrl } from "./sitemap";
 import Script from "next/script";
-import Head from "next/head";
 import { UnregisterServiceWorker } from "./components/UnregisterServiceWorker";
 import { MatomoAnalytics } from "./components/matomo-analytics";
 
@@ -76,12 +74,8 @@ const cx = (...classes: string[]) => classes.filter(Boolean).join(" ");
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang={"en"} className={cx("bg-[#f9f9f9]", GeistSans.variable, GeistMono.variable)}>
+    <html lang={"en"} className={cx("bg-[#f9f9f9]", GeistSans.className)}>
       <UnregisterServiceWorker />
-      <Head>
-        <link rel={"preconnect"} href={"https://www.google-analytics.com"} />
-        <link rel={"preconnect"} href={"https://j.jonlu.ca"} />
-      </Head>
       <body className={"bg-[#f9f9f9] p-0 text-xs leading-relaxed text-gray-800"}>
         <header className={"mt-8 text-center"}>
           <h1 className={"text-xl font-bold"}>JonLuca&apos;s Blog</h1>

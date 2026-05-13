@@ -29,7 +29,7 @@ export function Navbar() {
             {name}
           </a>
         ) : (
-          <Link key={path} href={path} className={linkClassName} title={name}>
+          <Link key={path} href={path} className={linkClassName} title={name} prefetch={false}>
             {name}
           </Link>
         );
