@@ -9,6 +9,7 @@ import { baseUrl } from "./sitemap";
 import Script from "next/script";
 import Head from "next/head";
 import { UnregisterServiceWorker } from "./components/UnregisterServiceWorker";
+import { MatomoAnalytics } from "./components/matomo-analytics";
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
@@ -100,44 +101,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', 'G-L7B5KF4CGL');
-  
-            // matomo
-            var _paq = window._paq || [];
-            _paq.push(["setRequestMethod", "POST"]);
-            _paq.push(["disableAlwaysUseSendBeacon"]);
-            _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
-            if (location.hostname !== 'localhost') {
-              _paq.push(["setCookieDomain", ".jonlu.ca"]);
-              _paq.push([
-                "setDomains",
-                [".jonlu.ca", ".blog.jonlu.ca", ".jldc.me", ".blog.jldc.me"],
-              ]);
-            }
-            _paq.push(["trackPageView"]);
-            _paq.push(["enableLinkTracking"]);
-            _paq.push(["enableHeartBeatTimer", 1]);
-            if (document.referrer) {
-              _paq.push(["setReferrerUrl", document.referrer]);
-            }
-            (function () {
-              var u = "https://j.jonlu.ca/";
-              _paq.push(["setTrackerUrl", u + "js/"]);
-              _paq.push(["setSiteId", "1"]);
-
-              var d = document,
-                g = d.createElement("script"),
-                s = d.getElementsByTagName("script")[0];
-              g.type = "text/javascript";
-              g.async = true;
-              g.defer = true;
-              g.src = u + "js/";
-              s.parentNode.insertBefore(g, s);
-            })();
           `}
         </Script>
+        <MatomoAnalytics />
         <noscript>
           <p>
-            <img src={"https://j.jonlu.ca/matomo.php?idsite=1&rec=1"} style={{ border: 0 }} alt={""} />
+            <img src={"https://j.jonlu.ca/js/?idsite=1&rec=1"} style={{ border: 0 }} alt={""} />
           </p>
         </noscript>
 
