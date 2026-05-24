@@ -13,17 +13,27 @@ Hi!
 
 I'm JonLuca DeCaro. I currently work at [OpenAI](https://openai.com). Prior to that, I was a founder of [Weights](https://weights.com).
 
-<Image alt="San Diego, 2020" footnote="San Diego, 2020" file="sandiego" loading="eager" fetchPriority="high" />
+<Image
+  alt="San Diego, 2020"
+  footnote="San Diego, 2020"
+  src="/images/sandiego-1120.webp"
+  srcSet="/images/sandiego-560.webp 560w, /images/sandiego-1120.webp 1120w"
+  sizes="(min-width: 48rem) 560px, calc(100vw - 4rem)"
+  width={1120}
+  height={748}
+  loading="eager"
+  fetchPriority="high"
+/>
 
 ## New here?
 
 If you're new here, these three posts are a good place to start. They're representative of what I like writing about: technical rabbit holes, reverse engineering, product systems, and odd corners of the internet.
 
-1. [Illegal streams, decrypting m3u8's, and building a better stream experience](https://blog.jonlu.ca/posts/illegal-streams?ref=about) - A look at illegal sports streams, how they piggyback real services, and what it took to build a better viewing client.
+1. [Illegal streams, decrypting m3u8's, and building a better stream experience](/posts/illegal-streams?ref=about) - A look at illegal sports streams, how they piggyback real services, and what it took to build a better viewing client.
 
-2. [Obfuscated javascript, scam emails, and American Express](https://blog.jonlu.ca/posts/deobfuscating-amex-scammer?ref=about) - Reverse-engineering obfuscated JavaScript from scam emails and tracing the campaign back to its command-and-control server.
+2. [Obfuscated javascript, scam emails, and American Express](/posts/deobfuscating-amex-scammer?ref=about) - Reverse-engineering obfuscated JavaScript from scam emails and tracing the campaign back to its command-and-control server.
 
-3. [Ryanair, Hamiltonian Cycles, and using graph theory to find cheap flights](https://blog.jonlu.ca/posts/ryan-air?ref=about) - Using graph theory to plan a cheap European trip through Ryanair's network, then turning the idea into a tool other people can use.
+3. [Ryanair, Hamiltonian Cycles, and using graph theory to find cheap flights](/posts/ryan-air?ref=about) - Using graph theory to plan a cheap European trip through Ryanair's network, then turning the idea into a tool other people can use.
 
 You can also [subscribe to the blog via RSS.](/feed.xml)`;
 

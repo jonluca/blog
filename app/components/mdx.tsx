@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { MDXRemote, type MDXRemoteProps } from "next-mdx-remote/rsc";
 import type { ComponentProps } from "react";
 import React from "react";
@@ -13,9 +12,9 @@ type CustomLinkProps = ComponentProps<"a">;
 function CustomLink({ children, href = "", ...props }: CustomLinkProps) {
   if (href.startsWith("/")) {
     return (
-      <Link href={href} prefetch={false} {...props}>
+      <a href={href} {...props}>
         {children}
-      </Link>
+      </a>
     );
   }
 

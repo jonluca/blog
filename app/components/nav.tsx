@@ -1,39 +1,19 @@
-import Link from "next/link";
-
 const navItems = {
-  "/": {
-    name: "Posts",
-    external: false,
-  },
-  "/about": {
-    name: "About",
-    external: false,
-  },
-  "/contact": {
-    name: "Contact",
-    external: false,
-  },
-  "/interesting-snippets": {
-    name: "Interesting Snippets",
-    external: false,
-  },
+  "/": "Posts",
+  "/about": "About",
+  "/contact": "Contact",
+  "/interesting-snippets": "Interesting Snippets",
 };
 
 const linkClassName = "mx-2 text-[#244ebc] no-underline text-[14px]";
 export function Navbar() {
   return (
     <nav aria-label={"Main"} className={"text-md border-b border-gray-200 py-8 text-center"}>
-      {Object.entries(navItems).map(([path, { name, external }]) => {
-        return external ? (
-          <a key={path} className={linkClassName} href={path} title={name}>
-            {name}
-          </a>
-        ) : (
-          <Link key={path} href={path} className={linkClassName} title={name} prefetch={false}>
-            {name}
-          </Link>
-        );
-      })}
+      {Object.entries(navItems).map(([path, name]) => (
+        <a key={path} className={linkClassName} href={path} title={name}>
+          {name}
+        </a>
+      ))}
     </nav>
   );
 }

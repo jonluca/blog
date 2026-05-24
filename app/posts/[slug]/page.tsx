@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import { CustomMDX } from "app/components/mdx";
 import { Footer } from "app/components/footer";
@@ -114,18 +113,18 @@ export default async function Blog({ params }: Props) {
         {(adjacent.older || adjacent.newer) && (
           <nav className={"post-neighbors"} aria-label={"Adjacent posts"}>
             {adjacent.older ? (
-              <Link href={`/posts/${adjacent.older.slug}`} prefetch={false}>
+              <a href={`/posts/${adjacent.older.slug}`}>
                 <span>Older post</span>
                 {adjacent.older.metadata.title}
-              </Link>
+              </a>
             ) : (
               <span />
             )}
             {adjacent.newer && (
-              <Link className={"text-right"} href={`/posts/${adjacent.newer.slug}`} prefetch={false}>
+              <a className={"text-right"} href={`/posts/${adjacent.newer.slug}`}>
                 <span>Newer post</span>
                 {adjacent.newer.metadata.title}
-              </Link>
+              </a>
             )}
           </nav>
         )}

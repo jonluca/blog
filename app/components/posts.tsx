@@ -1,14 +1,13 @@
-import Link from "next/link";
 import { formatDate, getSortedBlogPosts, type Post } from "app/posts/utils";
 
 function ArticleLink({ post }: { post: Post }) {
   return (
-    <Link className={"archive-row"} href={`/posts/${post.slug}`} prefetch={false}>
+    <a className={"archive-row"} href={`/posts/${post.slug}`}>
       <span className={"text-[#244ebc]"}>{post.metadata.title}</span>
       <time className={"text-sm text-[#737373] uppercase sm:text-right"} dateTime={post.metadata.date.toISOString()}>
         {formatDate(post.metadata.date, false)}
       </time>
-    </Link>
+    </a>
   );
 }
 
@@ -21,9 +20,7 @@ export function BlogPosts() {
       <section aria-labelledby={"latest-post"}>
         <p className={"mb-3 text-sm tracking-wider text-neutral-500 uppercase"}>Latest</p>
         <h2 id={"latest-post"} className={"mb-2 text-2xl font-semibold"}>
-          <Link href={`/posts/${latest.slug}`} prefetch={false}>
-            {latest.metadata.title}
-          </Link>
+          <a href={`/posts/${latest.slug}`}>{latest.metadata.title}</a>
         </h2>
         <time className={"text-sm text-neutral-500"} dateTime={latest.metadata.date.toISOString()}>
           {formatDate(latest.metadata.date)}
