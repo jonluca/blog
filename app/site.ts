@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const siteName = "JonLuca's Blog";
-export const siteUrl = "https://blog.jonlu.ca";
+export const siteUrl = "https://jonlu.ca";
 export const siteDescription = "Essays by JonLuca DeCaro about programming, reverse engineering, product systems, travel, and technology.";
 export const author = {
   name: "JonLuca DeCaro",

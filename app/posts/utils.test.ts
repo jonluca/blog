@@ -47,10 +47,10 @@ test("rejects incomplete or invalid published metadata", () => {
 });
 
 test("generates canonical post and social-image URLs", () => {
-  assert.equal(postUrl("example"), "https://blog.jonlu.ca/posts/example");
-  assert.equal(socialImageUrl("/images/example.png"), "https://blog.jonlu.ca/images/example.png");
+  assert.equal(postUrl("example"), "https://jonlu.ca/posts/example");
+  assert.equal(socialImageUrl("/images/example.png"), "https://jonlu.ca/images/example.png");
   assert.equal(socialImageUrl("https://assets.jonlu.ca/example.png"), "https://assets.jonlu.ca/example.png");
-  assert.equal(socialImageUrl(), `https://blog.jonlu.ca${defaultSocialImagePath}`);
+  assert.equal(socialImageUrl(), `https://jonlu.ca${defaultSocialImagePath}`);
 });
 
 test("generates rendered heading anchor slugs", () => {
@@ -72,7 +72,7 @@ test("escapes feed content and publishes canonical item URLs", () => {
   assert.equal(escapeXml("A & B"), "A &amp; B");
   assert.match(feed, /A &amp; B/);
   assert.match(feed, /A &lt;useful&gt; &quot;summary&quot;\./);
-  assert.match(feed, /https:\/\/blog\.jonlu\.ca\/posts\/feed-test/);
+  assert.match(feed, /https:\/\/jonlu\.ca\/posts\/feed-test/);
 });
 
 test("optional widgets must be explicitly registered for their post", () => {
