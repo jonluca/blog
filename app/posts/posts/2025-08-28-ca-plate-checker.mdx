@@ -7,7 +7,13 @@ image: https://assets.jonlu.ca/ca-dmv.png
 
 I recently wanted to get a custom license plate for my car, and was looking for a cool combination of letters and numbers. The California DMV has a [license plate availability checker](https://www.dmv.ca.gov/portal/vehicle-registration/license-plates-decals-and-placards/license-plates/order-special-interest-and-personalized-license-plates/) that lets you check if a specific plate is available, but it only allows you to check one plate at a time.
 
-<CustomImage file="ca-plate-personalize" footnote="California DMV Plate Checker" alt="California DMV Plate Checker" />
+<CustomImage
+  file="ca-plate-personalize"
+  footnote="California DMV Plate Checker"
+  alt="California DMV Plate Checker"
+  loading="eager"
+  fetchPriority="high"
+/>
 
 I ended up building a site to automate checking for available plates, and wanted to share how I did it, as well as some of the interesting plates I found. You can use it yourself at https://californiaplatefinder.com.
 

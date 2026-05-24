@@ -13,7 +13,7 @@ Hi!
 
 I'm JonLuca DeCaro. I currently work at [OpenAI](https://openai.com). Prior to that, I was a founder of [Weights](https://weights.com).
 
-<Image alt="San Diego, 2020" footnote="San Diego, 2020" file="sandiego" />
+<Image alt="San Diego, 2020" footnote="San Diego, 2020" file="sandiego" loading="eager" fetchPriority="high" />
 
 ## New here?
 

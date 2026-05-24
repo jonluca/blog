@@ -4,6 +4,7 @@ import type { ComponentProps } from "react";
 import React from "react";
 import remarkFootnotes from "remark-gfm";
 import { Code } from "./code";
+import { fileImageDimensions, sourceImageDimensions } from "./image-dimensions";
 import { Table } from "./table";
 import { slugifyHeading } from "../posts/headings";
 
@@ -33,6 +34,25 @@ function CustomLink({ children, href = "", ...props }: CustomLinkProps) {
   );
 }
 
+type CustomImageProps = ComponentProps<"img"> & {
+  footnote?: string | React.ReactNode;
+  file?: string;
+};
+
+function resolveImageSource(src?: string | Blob, file?: string) {
+  if (src) {
+    return src;
+  }
+  if (file) {
+    const url = new URL(file, "https://assets.jonlu.ca");
+    if (!/\.(gif|jpe?g|png|svg|webp)$/i.test(url.pathname)) {
+      url.pathname += ".png";
+    }
+    return url.href;
+  }
+  return undefined;
+}
+
 // Jekyll-style image component with footnote support
 function CustomImage({
   alt,
@@ -40,38 +60,28 @@ function CustomImage({
   footnote,
   file,
   className,
-}: {
-  className?: string;
-  alt?: string;
-  src?: string;
-  footnote?: string | React.ReactNode;
-  file?: string;
-}) {
-  const getSrc = () => {
-    if (src) {
-      return src;
-    }
-    if (file) {
-      const url = new URL(file, "https://assets.jonlu.ca");
-      const extensions = [".png", ".jpg", ".jpeg", ".gif", ".webp"];
-      const isValidExtension = extensions.some((ext) => file.endsWith(ext));
-      if (!isValidExtension) {
-        url.pathname += ".png";
-      }
-      return url.href;
-    }
-    return undefined;
-  };
+  width,
+  height,
+  loading = "lazy",
+  decoding = "async",
+  ...imageProps
+}: CustomImageProps) {
+  const resolvedSource = resolveImageSource(src, file);
+  const dimensions =
+    fileImageDimensions[file ?? ""] ?? (typeof resolvedSource === "string" ? sourceImageDimensions[resolvedSource] : undefined);
 
   return (
     <>
       <div className={`centered-image-container ${className || ""}`.trim()}>
         <img
-          src={getSrc()}
+          {...imageProps}
+          src={resolvedSource}
           alt={alt || (typeof footnote === "string" && footnote) || ""}
           className={"centered-image"}
-          loading={"lazy"}
-          decoding={"async"}
+          width={width ?? dimensions?.width}
+          height={height ?? dimensions?.height}
+          loading={loading}
+          decoding={decoding}
         />
       </div>
       {footnote && <p className={"footnote"}>{footnote}</p>}
@@ -79,21 +89,30 @@ function CustomImage({
   );
 }
 
-type VideoProps = { src?: string; footnote?: string } & (
+function MdxImage({ src, width, height, alt = "", ...imageProps }: ComponentProps<"img">) {
+  const dimensions = typeof src === "string" ? sourceImageDimensions[src] : undefined;
+  return <img {...imageProps} src={src} alt={alt} width={width ?? dimensions?.width} height={height ?? dimensions?.height} />;
+}
+
+function MediaImage({ loading = "lazy", decoding = "async", ...imageProps }: ComponentProps<"img">) {
+  return <MdxImage {...imageProps} loading={loading} decoding={decoding} />;
+}
+
+type VideoProps = { src?: string; footnote?: string; width?: number; height?: number } & (
   | { silent: true; captionsSrc?: never; captionsLabel?: never }
   | { silent?: false; captionsSrc: string; captionsLabel?: string }
 );
 
 /* oxlint-disable react/jsx-curly-brace-presence -- Literal track metadata is required by static accessibility checks. */
 function Video(props: VideoProps) {
-  const { src, footnote, silent = false } = props;
+  const { src, footnote, silent = false, width, height } = props;
   const label = footnote || "Embedded video";
   const captionsSrc = props.silent ? "/captions/silent.vtt" : props.captionsSrc;
   const captionsLabel = props.silent ? "Silent video" : props.captionsLabel || "English captions";
 
   return (
     <>
-      <video className={"centered-image"} controls preload={"metadata"} muted={silent} aria-label={label}>
+      <video className={"centered-image"} controls preload={"none"} muted={silent} aria-label={label} width={width} height={height}>
         <source src={src} type={"video/mp4"} />
         <track kind="captions" src={captionsSrc} srcLang="en" label={captionsLabel} default />
         Your browser does not support the video tag.
@@ -158,6 +177,8 @@ const components = {
   Image: CustomImage,
   Video,
   CustomImage,
+  MediaImage,
+  img: MdxImage,
   a: CustomLink,
   code: Code,
   Table,

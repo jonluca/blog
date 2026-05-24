@@ -11,6 +11,7 @@
     "test": "tsx --test app/posts/*.test.ts",
     "build": "next build",
     "start": "next start",
+    "images:sync": "tsx scripts/generate-image-dimensions.ts",
     "upload:file": "tsx scripts/upload-asset.ts"
   },
   "dependencies": {
