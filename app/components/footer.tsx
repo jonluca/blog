@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 
 export function Footer({ date }: { date?: string | Date }) {
   // Format date similar to Jekyll's date filter
@@ -26,18 +25,6 @@ export function Footer({ date }: { date?: string | Date }) {
         <p className={"m-0 my-2"}>
           JonLuca <span className={"text-gray-400"}>at {formattedTime}</span>
         </p>
-      </div>
-      <div className={"text-[14px]"}>
-        To get notified when I publish a new essay,{" "}
-        <Link
-          href={"https://jonluca.substack.com/"}
-          target={"_blank"}
-          className={"text-[#244ebc] hover:text-blue-800"}
-          title={"JonLuca's Substack"}
-        >
-          please subscribe here
-        </Link>
-        .
       </div>
     </div>
   );
