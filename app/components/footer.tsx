@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { POST_TIME_ZONE } from "app/posts/utils";
 
 export function Footer({ date }: { date?: string | Date }) {
@@ -16,11 +15,13 @@ export function Footer({ date }: { date?: string | Date }) {
     <footer className={"mt-4 flex flex-row flex-wrap items-start border-t border-dotted pt-4"}>
       <div className={"mr-4 mb-4"}>
         <div className={"max-w-[145px] overflow-hidden rounded"}>
-          <Image
-            src={"https://assets.jonlu.ca/mini-profile.png"}
+          <img
+            src={"/images/mini-profile.webp"}
             alt={"JonLuca"}
             width={145}
             height={145}
+            loading={"lazy"}
+            decoding={"async"}
             className={"mx-auto block max-w-full"}
           />
         </div>
