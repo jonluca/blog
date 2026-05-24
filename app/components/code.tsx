@@ -1,9 +1,8 @@
 import React, { type ComponentProps } from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { oneDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
 
 function CodePre({ children }: { children: React.ReactNode }) {
-  return <div className={"-mx-16 my-7 bg-[#282c34] px-16 py-1"}>{children}</div>;
+  return <div className={"-mx-4 my-7 overflow-x-auto bg-[#282c34] px-4 py-1 sm:-mx-16 sm:px-16"}>{children}</div>;
 }
 
 export function Code({ children, className, isBlock, ...props }: ComponentProps<"code"> & { isBlock?: boolean; children: string }) {
@@ -31,39 +30,12 @@ export function Code({ children, className, isBlock, ...props }: ComponentProps<
   return (
     <CodePre>
       <SyntaxHighlighter
-        customStyle={{
-          border: "none",
-        }}
+        className={"syntax-code-block"}
         language={language}
-        style={oneDark}
+        useInlineStyles={false}
         codeTagProps={{
-          className: "py-4",
-          style: {
-            display: "block",
-            userSelect: "text",
-            MozUserSelect: "text",
-            WebkitUserSelect: "text",
-            msUserSelect: "text",
-            overflow: "auto",
-          },
+          className: "block py-4 select-text",
         }}
-        // Ensure parent elements don't interfere with selection
-        PreTag={({ children, ...preProps }) => (
-          <pre
-            {...preProps}
-            style={{
-              ...preProps.style,
-              padding: 0,
-              paddingLeft: 8,
-              userSelect: "text",
-              MozUserSelect: "text",
-              WebkitUserSelect: "text",
-              msUserSelect: "text",
-            }}
-          >
-            {children}
-          </pre>
-        )}
       >
         {children.trim()}
       </SyntaxHighlighter>

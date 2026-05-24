@@ -11,7 +11,7 @@ export function Footer({ date }: { date?: string | Date }) {
     : "";
 
   return (
-    <div className={"mt-4 flex flex-row flex-wrap items-start border-t border-dotted pt-4"}>
+    <footer className={"mt-4 flex flex-row flex-wrap items-start border-t border-dotted pt-4"}>
       <div className={"mr-4 mb-4"}>
         <div className={"max-w-[145px] overflow-hidden rounded"}>
           <Image
@@ -26,6 +26,6 @@ export function Footer({ date }: { date?: string | Date }) {
           JonLuca <span className={"text-gray-400"}>at {formattedTime}</span>
         </p>
       </div>
-    </div>
+    </footer>
   );
 }

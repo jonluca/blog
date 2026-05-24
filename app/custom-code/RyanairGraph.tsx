@@ -332,7 +332,7 @@ export const RyanairApp = ({ midcontent, postcontent }: { midcontent: React.Reac
   // Render a stop
   const renderStop = (stop) => (
     <p key={`stop-${stop.number}`}>
-      <span>Stop {stop.number}</span>
+      <label htmlFor={`stop${stop.number}`}>Stop {stop.number}</label>
       <span className={"custom-dropdown big"}>
         <select id={`stop${stop.number}`} className={"dropdown-options stop"} data-stop={stop.number}>
           {generateOptions(stop.prevValue)}
@@ -347,16 +347,25 @@ export const RyanairApp = ({ midcontent, postcontent }: { midcontent: React.Reac
       <div>
         <p className={"caption"}>
           <button
+            type={"button"}
             onClick={handleStart}
-            className={"cursor-pointer rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700"}
+            className={
+              "cursor-pointer rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700 disabled:cursor-default disabled:opacity-70"
+            }
             disabled={started}
           >
-            Warning - these graphs are computationally expensive. Viewing them will probably slow down your webpage for a few seconds. Click
-            here to start!
+            {started
+              ? "Graphs loaded. Use the controls below to explore routes."
+              : "Warning - these graphs are computationally expensive. Viewing them will probably slow down your webpage for a few seconds. Click here to start!"}
           </button>
         </p>
 
-        <div className={`ryanair-graph ${!started ? "blacked-background" : ""}`} id={"all-airports"}>
+        <div
+          className={`ryanair-graph ${!started ? "blacked-background" : ""}`}
+          id={"all-airports"}
+          role={"img"}
+          aria-label={"Graph of Ryanair airport routes"}
+        >
           {!started && <div className={"to-remove"}>Click Start Above</div>}
         </div>
       </div>
@@ -365,6 +374,7 @@ export const RyanairApp = ({ midcontent, postcontent }: { midcontent: React.Reac
       <div>
         <p className={"caption"}>
           <button
+            type={"button"}
             onClick={animateDFS}
             disabled={!started || didAnimate}
             className={`${!started ? "blacked-background" : ""} rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700`}
@@ -377,8 +387,8 @@ export const RyanairApp = ({ midcontent, postcontent }: { midcontent: React.Reac
           <>
             <h3>Path</h3>
             <ul>
-              {dfsPath.map((path, index) => (
-                <li key={`path-${index}`}>{path}</li>
+              {dfsPath.map((path) => (
+                <li key={path}>{path}</li>
               ))}
             </ul>
           </>
@@ -389,7 +399,7 @@ export const RyanairApp = ({ midcontent, postcontent }: { midcontent: React.Reac
       <div className={"hidden"}>
         <div>
           <div>
-            <span>Number of Additional Stops</span>
+            <label htmlFor={"stops"}>Number of Additional Stops</label>
             <span className={"custom-dropdown big"}>
               <select id={"stops"}>
                 <option value={"1"}>1</option>
@@ -402,7 +412,7 @@ export const RyanairApp = ({ midcontent, postcontent }: { midcontent: React.Reac
             </span>
           </div>
           <div>
-            <span>Start</span>
+            <label htmlFor={"start"}>Start</label>
             <span className={"custom-dropdown big"}>
               <select id={"start"} className={"dropdown-options"}>
                 {started ? generateOptions() : null}
@@ -415,17 +425,12 @@ export const RyanairApp = ({ midcontent, postcontent }: { midcontent: React.Reac
         {stops.map((stop) => renderStop(stop))}
 
         {/* Plus button to add more stops */}
-        <div className={"plus"} onClick={handleAddStop} style={{ cursor: "pointer" }}>
-          <div className={"plus__line plus__line--v"}>
-            <a href={"#"} className={"plus__link ion-person"}></a>
-            <a href={"#"} className={"plus__link ion-images"}></a>
-            <a href={"#"} className={"plus__link ion-music-note"}></a>
-            <a href={"#"} className={"plus__link ion-location"}></a>
-          </div>
-          <div className={"plus__line plus__line--h"}></div>
-        </div>
+        <button type={"button"} className={"plus"} onClick={handleAddStop} aria-label={"Add another stop"}>
+          <span className={"plus__line plus__line--v"} aria-hidden={"true"}></span>
+          <span className={"plus__line plus__line--h"} aria-hidden={"true"}></span>
+        </button>
 
-        <span>End</span>
+        <label htmlFor={"end"}>End</label>
         <span className={"custom-dropdown big"}>
           <select id={"end"} className={"dropdown-options"}>
             {started ? generateOptions() : null}
@@ -434,6 +439,7 @@ export const RyanairApp = ({ midcontent, postcontent }: { midcontent: React.Reac
 
         <p className={"caption"} id={"route-finder"}>
           <button
+            type={"button"}
             onClick={findRoute}
             disabled={!started}
             className={`${!started ? "blacked-background" : ""} rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700`}
@@ -446,11 +452,7 @@ export const RyanairApp = ({ midcontent, postcontent }: { midcontent: React.Reac
         {validRoutes.length > 0 && (
           <div id={"valid-routes-found"}>
             <h3>Valid Routes</h3>
-            {validRoutes.length > 0 ? (
-              validRoutes.map((route, index) => <p key={`route-${index}`}>{route}</p>)
-            ) : (
-              <p>No valid routes found</p>
-            )}
+            {validRoutes.length > 0 ? validRoutes.map((route) => <p key={route}>{route}</p>) : <p>No valid routes found</p>}
           </div>
         )}
       </div>

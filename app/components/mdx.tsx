@@ -5,37 +5,32 @@ import React from "react";
 import remarkFootnotes from "remark-gfm";
 import { Code } from "./code";
 import { Table } from "./table";
-import dynamic from "next/dynamic";
-import ReactGist from "./gist";
-
-const SpfDkimCharts = dynamic(() => import("../custom-code/spf-dkim-charts").then((mod) => mod.SpfDkimCharts));
-const InformationGraph = dynamic(() => import("../custom-code/InformationGraph").then((mod) => mod.InformationGraph));
-const RyanairApp = dynamic(() => import("../custom-code/RyanairGraphServer").then((mod) => mod.RyanairMainApp));
-const ClockContent = dynamic(() => import("../custom-code/mathjax").then((mod) => mod.ClockContent));
-const Information = dynamic(() => import("../custom-code/mathjax").then((mod) => mod.Information));
+import { slugifyHeading } from "../posts/headings";
 
 type CustomLinkProps = ComponentProps<"a">;
 
-const Gist = ({ id }: { id: string }) => {
-  return <ReactGist id={id} />;
-};
-
-function CustomLink(props: CustomLinkProps) {
-  const href = props.href!;
-
+function CustomLink({ children, href = "", ...props }: CustomLinkProps) {
   if (href.startsWith("/")) {
     return (
       <Link href={href} prefetch={false} {...props}>
-        {props.children}
+        {children}
       </Link>
     );
   }
 
   if (href.startsWith("#")) {
-    return <a {...props} />;
+    return (
+      <a href={href} {...props}>
+        {children}
+      </a>
+    );
   }
 
-  return <a target={"_blank"} rel={"noopener noreferrer"} {...props} />;
+  return (
+    <a href={href} target={"_blank"} rel={"noopener noreferrer"} {...props}>
+      {children}
+    </a>
+  );
 }
 
 // Jekyll-style image component with footnote support
@@ -71,52 +66,77 @@ function CustomImage({
   return (
     <>
       <div className={`centered-image-container ${className || ""}`.trim()}>
-        <img src={getSrc()} alt={alt || (typeof footnote === "string" && footnote) || "image"} className={"centered-image"} />
+        <img
+          src={getSrc()}
+          alt={alt || (typeof footnote === "string" && footnote) || ""}
+          className={"centered-image"}
+          loading={"lazy"}
+          decoding={"async"}
+        />
       </div>
       {footnote && <p className={"footnote"}>{footnote}</p>}
     </>
   );
 }
 
-// Jekyll-style image component with footnote support
-function Video({ src, footnote }: { src?: string; footnote?: string }) {
+type VideoProps = { src?: string; footnote?: string } & (
+  | { silent: true; captionsSrc?: never; captionsLabel?: never }
+  | { silent?: false; captionsSrc: string; captionsLabel?: string }
+);
+
+/* oxlint-disable react/jsx-curly-brace-presence -- Literal track metadata is required by static accessibility checks. */
+function Video(props: VideoProps) {
+  const { src, footnote, silent = false } = props;
+  const label = footnote || "Embedded video";
+  const captionsSrc = props.silent ? "/captions/silent.vtt" : props.captionsSrc;
+  const captionsLabel = props.silent ? "Silent video" : props.captionsLabel || "English captions";
+
   return (
     <>
-      <video className={"centered-image"} controls autoPlay loop>
+      <video className={"centered-image"} controls preload={"metadata"} muted={silent} aria-label={label}>
         <source src={src} type={"video/mp4"} />
+        <track kind="captions" src={captionsSrc} srcLang="en" label={captionsLabel} default />
         Your browser does not support the video tag.
       </video>
-      {footnote && <p className={"footnote"}>{footnote}</p>}
+      {footnote && (
+        <p className={"footnote"}>
+          {footnote}
+          {silent ? " (silent video)" : ""}
+        </p>
+      )}
     </>
   );
 }
+/* oxlint-enable react/jsx-curly-brace-presence */
 
-function slugify(str: React.ReactNode) {
-  return str!
-    .toString()
-    .toLowerCase()
-    .trim() // Remove whitespace from both ends of a string
-    .replace(/\s+/g, "-") // Replace spaces with -
-    .replace(/&/g, "-and-") // Replace & with 'and'
-    .replace(/[^\w-]+/g, "") // Remove all non-word characters except for -
-    .replace(/--+/g, "-"); // Replace multiple - with single -
+function headingText(children: React.ReactNode): string {
+  return React.Children.toArray(children)
+    .map((child) => {
+      if (typeof child === "string" || typeof child === "number") {
+        return String(child);
+      }
+      if (React.isValidElement<{ children?: React.ReactNode }>(child)) {
+        return headingText(child.props.children);
+      }
+      return "";
+    })
+    .join("");
 }
 
 function createHeading(level: number) {
   const Heading = ({ children }: { children: React.ReactNode }) => {
-    const slug = slugify(children);
-    return React.createElement(
-      `h${level}`,
-      { id: slug, className: "text-black font-bold" },
-      [
-        React.createElement("a", {
-          href: `#${slug}`,
-          key: `link-${slug}`,
-          className: "anchor text-black font-bold",
-        }),
-      ],
-      children,
+    const label = headingText(children);
+    const slug = slugifyHeading(label);
+    const headingContent = (
+      <>
+        <a href={`#${slug}`} className={"anchor font-bold text-black"} aria-label={`Link to section: ${label}`}>
+          <span aria-hidden={"true"}>#</span>
+        </a>
+        {children}
+      </>
     );
+
+    return React.createElement(`h${level}`, { id: slug, className: "text-black font-bold" }, headingContent);
   };
 
   Heading.displayName = `Heading${level}`;
@@ -125,7 +145,7 @@ function createHeading(level: number) {
 }
 // Custom blockquote component to support ">" syntax in markdown
 function Blockquote({ children }: { children: React.ReactNode }) {
-  return <blockquote className={"-mx-16 my-7 border-l-3 border-gray-300 bg-[#f9f9f9] px-16 py-2"}>{children}</blockquote>;
+  return <blockquote className={"my-7 border-l-3 border-gray-300 bg-[#f9f9f9] px-6 py-2 md:-mx-8 md:px-8"}>{children}</blockquote>;
 }
 
 const components = {
@@ -137,17 +157,11 @@ const components = {
   h6: createHeading(6),
   Image: CustomImage,
   Video,
-  Gist,
   CustomImage,
-  InformationGraph,
-  RyanairApp,
   a: CustomLink,
-  ClockContent,
-  Information,
-  SpfDkimCharts,
   code: Code,
   Table,
-  blockquote: Blockquote, // Add custom blockquote component
+  blockquote: Blockquote,
   pre: ({ children }) => (
     <>
       {React.Children.map(children, (child) => {
@@ -170,7 +184,7 @@ export function CustomMDX(props: MDXRemoteProps) {
         },
       }}
       {...props}
-      components={{ ...(props.components || {}), ...components }}
+      components={{ ...components, ...(props.components || {}) }}
     />
   );
 }

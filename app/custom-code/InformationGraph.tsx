@@ -165,8 +165,17 @@ export const InformationGraph = () => {
   }
   return (
     <>
-      <div className={"graph"} id={"cyTime"}></div>
-      <button onClick={animateBFS} className={"cursor-pointer rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700"}>
+      <div
+        className={"graph"}
+        id={"cyTime"}
+        role={"img"}
+        aria-label={"Animated graph demonstrating breadth-first traversal between information clusters"}
+      ></div>
+      <button
+        type={"button"}
+        onClick={animateBFS}
+        className={"cursor-pointer rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700"}
+      >
         Start Animation
       </button>
     </>

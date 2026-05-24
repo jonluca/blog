@@ -1,69 +1,99 @@
 "use client";
-import React, { useEffect, useRef } from "react";
+
+import { useEffect, useId, useMemo, useRef, useState } from "react";
 
 interface GistProps {
   id: string;
   file?: string;
 }
 
-const Gist: React.FC<GistProps> = ({ id, file }) => {
+const minHeight = 100;
+const maxHeight = 600;
+
+function escapeHtml(value: string) {
+  return value.replaceAll("&", "&amp;").replaceAll('"', "&quot;").replaceAll("<", "&lt;").replaceAll(">", "&gt;");
+}
+
+function getGistUrl(id: string, file?: string) {
+  const url = id.startsWith("http") ? new URL(id) : new URL(`${id.endsWith(".js") ? id : `${id}.js`}`, "https://gist.github.com/");
+
+  if (url.origin !== "https://gist.github.com" || !url.pathname.endsWith(".js")) {
+    throw new Error("Gist embeds must use a gist.github.com JavaScript embed URL");
+  }
+
+  if (file) {
+    url.searchParams.set("file", file);
+  }
+
+  return url.toString();
+}
+
+export default function Gist({ id, file }: GistProps) {
   const iframeRef = useRef<HTMLIFrameElement>(null);
+  const messageId = useId();
+  const [height, setHeight] = useState(180);
+  const gistUrl = getGistUrl(id, file);
+  const title = file ? `Embedded GitHub Gist: ${file}` : "Embedded GitHub Gist";
+  const srcDoc = useMemo(() => {
+    const safeUrl = escapeHtml(gistUrl);
+    const safeMessageId = JSON.stringify(messageId);
+
+    return `<!doctype html>
+<html>
+  <head>
+    <base target="_blank">
+    <style>html,body{margin:0;padding:0;}*{font-size:12px;}</style>
+  </head>
+  <body>
+    <script>
+      (() => {
+        const notify = () => parent.postMessage({
+          type: "jonluca-gist-height",
+          id: ${safeMessageId},
+          height: Math.ceil(document.documentElement.scrollHeight)
+        }, "*");
+        new ResizeObserver(notify).observe(document.documentElement);
+        window.addEventListener("load", notify);
+      })();
+    </script>
+    <script src="${safeUrl}"></script>
+  </body>
+</html>`;
+  }, [gistUrl, messageId]);
 
   useEffect(() => {
-    const defineUrl = (): string => {
-      if (id.startsWith("http")) {
-        return id;
-      }
-      const fileArg = file ? `?file=${file}` : "";
-      const suffix = id.endsWith(".js") ? "" : ".js";
-      return `https://gist.github.com/${id}${suffix}${fileArg}`;
-    };
-
-    const updateIframeContent = (): void => {
-      const iframe = iframeRef.current;
-      if (!iframe) {
+    function handleMessage(event: MessageEvent) {
+      const data = event.data as { height?: unknown; id?: unknown; type?: unknown } | null;
+      if (
+        event.source !== iframeRef.current?.contentWindow ||
+        !data ||
+        data.type !== "jonluca-gist-height" ||
+        data.id !== messageId ||
+        typeof data.height !== "number" ||
+        !Number.isFinite(data.height)
+      ) {
         return;
       }
 
-      let doc: Document | null = null;
-      if (iframe.contentDocument) {
-        doc = iframe.contentDocument;
-      } else if (iframe.contentWindow) {
-        doc = iframe.contentWindow.document;
-      }
+      setHeight(Math.min(maxHeight, Math.max(minHeight, Math.ceil(data.height))));
+    }
 
-      if (!doc) {
-        return;
-      }
-
-      const gistLink = defineUrl();
-      const gistScript = `<script type="text/javascript" src="${gistLink}"></script>`;
-      const styles = "<style>*{font-size:12px;}</style>";
-      const elementId = file ? `gist-${id}-${file}` : `gist-${id}`;
-      const resizeScript = `onload="parent.document.getElementById('${elementId}').style.height=document.body.scrollHeight + 'px'"`;
-      const iframeHtml = `<html><head><base target="_parent">${styles}</head><body ${resizeScript}>${gistScript}</body></html>`;
-
-      doc.open();
-      doc.writeln(iframeHtml);
-      doc.close();
+    window.addEventListener("message", handleMessage);
+    return () => {
+      window.removeEventListener("message", handleMessage);
     };
-    updateIframeContent();
-  }, [id, file]); // Re-run when id or file changes
-
-  const elementId = file ? `gist-${id}-${file}` : `gist-${id}`;
+  }, [messageId]);
 
   return (
     <iframe
       ref={iframeRef}
-      style={{
-        maxHeight: 400,
-        overflow: "auto",
-      }}
+      title={title}
+      srcDoc={srcDoc}
+      loading={"lazy"}
+      sandbox={"allow-scripts allow-popups allow-popups-to-escape-sandbox"}
+      style={{ height, maxHeight, overflow: "auto" }}
       width={"100%"}
-      frameBorder={0}
-      id={elementId}
+      className={"my-6 border-0"}
     />
   );
-};
-
-export default Gist;
+}

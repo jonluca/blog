@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#f9f9f9"/>
+  <rect x="80" y="76" width="1040" height="478" rx="10" fill="#ffffff" stroke="#e6e6e6" stroke-width="2"/>
+  <line x1="154" y1="218" x2="1046" y2="218" stroke="#eeeeee" stroke-width="2"/>
+  <text x="154" y="174" fill="#1f2937" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700">JonLuca&apos;s Blog</text>
+  <text x="154" y="335" fill="#111827" font-family="Arial, Helvetica, sans-serif" font-size="60" font-weight="700">Essays and experiments</text>
+  <text x="154" y="404" fill="#4b5563" font-family="Arial, Helvetica, sans-serif" font-size="29">Programming, reverse engineering, product systems, and technology</text>
+  <text x="154" y="492" fill="#244ebc" font-family="Arial, Helvetica, sans-serif" font-size="25">blog.jonlu.ca</text>
+</svg>

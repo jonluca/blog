@@ -1,6 +1,6 @@
 import React from "react";
 import { CustomMDX } from "../components/mdx";
-import { RyanairApp } from "./RyanairGraph";
+import { DeferredRyanairApp } from "./DeferredRyanairApp";
 
 // Main app component
 export const RyanairMidContent = () => {
@@ -9,7 +9,12 @@ export const RyanairMidContent = () => {
       <CustomMDX
         source={`We could now visualize a graph of every airport and it's destinations. This was significantly more than I was expecting - the graph is almost unusable there are so many connections (there are 4223 edges!). We'd need to filter this more to remove all airports that did not satisfy our conditions.`}
       />
-      <div className={"ryanair-graph blacked-background"} id={"only-ber-connections"}>
+      <div
+        className={"ryanair-graph blacked-background"}
+        id={"only-ber-connections"}
+        role={"img"}
+        aria-label={"Graph of flight connections from Berlin Schonefeld"}
+      >
         <div className={"to-remove"}>Click Start Above</div>
       </div>
       <CustomMDX
@@ -20,7 +25,12 @@ export const RyanairMidContent = () => {
       We can just check each of the airports in the above graph and cross reference it with our original \`mappings\` - if \`TSF\` is not in the mapping, then we can remove it and all it's edges from the graph.
       `}
       />
-      <div className={"ryanair-graph blacked-background"} id={"only-valid-connections"}>
+      <div
+        className={"ryanair-graph blacked-background"}
+        id={"only-valid-connections"}
+        role={"img"}
+        aria-label={"Graph of routes that can return to Venice Treviso"}
+      >
         <div className={"to-remove"}>Click Start Above</div>
       </div>
       <CustomMDX
@@ -75,6 +85,10 @@ export const RyanairPostContent = () => {
     </>
   );
 };
+
+const ryanairMidContent = <RyanairMidContent />;
+const ryanairPostContent = <RyanairPostContent />;
+
 export const RyanairMainApp = () => {
-  return <RyanairApp midcontent={<RyanairMidContent />} postcontent={<RyanairPostContent />} />;
+  return <DeferredRyanairApp midcontent={ryanairMidContent} postcontent={ryanairPostContent} />;
 };
