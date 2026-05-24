@@ -7,6 +7,7 @@
     "format": "oxfmt --write .",
     "format:check": "oxfmt --check .",
     "typecheck": "tsc --noEmit",
+    "knip": "knip",
     "test": "tsx --test app/posts/*.test.ts",
     "build": "next build",
     "start": "next start",
@@ -28,8 +29,6 @@
     "geist": "1.7.1",
     "glob": "^13.0.6",
     "gray-matter": "^4.0.3",
-    "mdast": "^3.0.0",
-    "mdast-util-to-string": "^4.0.0",
     "next": "^16.2.6",
     "next-mdx-remote": "^6.0.0",
     "oxfmt": "^0.51.0",
@@ -40,18 +39,16 @@
     "react": "19.2.6",
     "react-dom": "19.2.6",
     "react-syntax-highlighter": "^16.1.1",
-    "remark-footnotes": "^5.0.0",
     "remark-gfm": "^4.0.1",
-    "remark-parse": "^11.0.0",
     "tailwind-merge": "^3.6.0",
     "tailwindcss": "4.3.0",
     "tsx": "^4.22.3",
-    "typescript": "6.0.3",
-    "unified": "^11.0.5"
+    "typescript": "6.0.3"
   },
   "packageManager": "pnpm@11.2.2",
   "devDependencies": {
-    "@types/react-syntax-highlighter": "^15.5.13"
+    "@types/react-syntax-highlighter": "^15.5.13",
+    "knip": "^6.14.2"
   },
   "postcss": {
     "plugins": {

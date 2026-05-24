@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import { buildRssFeed, escapeXml } from "../rss";
 import { defaultSocialImagePath, postUrl, socialImageUrl } from "../site";
-import { extractLevelTwoHeadings, slugifyHeading } from "./headings";
+import { slugifyHeading } from "./headings";
 import { normalizeRedirectFrom, parsePostDate, parsePostSource, type Post } from "./utils";
 import { validatePostWidgetUsage } from "./widget-config";
 
@@ -42,12 +42,7 @@ test("generates canonical post and social-image URLs", () => {
   assert.equal(socialImageUrl(), `https://blog.jonlu.ca${defaultSocialImagePath}`);
 });
 
-test("extracts table-of-contents headings with rendered anchor slugs", () => {
-  const source = "## First Heading\n\nText\n\n### Ignored\n\n## SPF & DKIM: Results";
-  assert.deepEqual(extractLevelTwoHeadings(source), [
-    { id: "first-heading", title: "First Heading" },
-    { id: "spf-and-dkim-results", title: "SPF & DKIM: Results" },
-  ]);
+test("generates rendered heading anchor slugs", () => {
   assert.equal(slugifyHeading("SPF & DKIM: Results"), "spf-and-dkim-results");
 });
 
@@ -55,7 +50,6 @@ test("escapes feed content and publishes canonical item URLs", () => {
   const post: Post = {
     slug: "feed-test",
     content: "",
-    headings: [],
     metadata: {
       title: "A & B",
       description: 'A <useful> "summary".',

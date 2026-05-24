@@ -1,7 +1,6 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
-import { extractLevelTwoHeadings, type TableOfContentsEntry } from "./headings";
 import { validatePostWidgetUsage } from "./widget-config";
 
 export interface PostMetadata {
@@ -14,7 +13,6 @@ export interface PostMetadata {
 
 export interface Post {
   content: string;
-  headings: TableOfContentsEntry[];
   metadata: PostMetadata;
   slug: string;
 }
@@ -110,7 +108,6 @@ function getMDXData(dir: string): Post[] {
       metadata,
       slug,
       content,
-      headings: extractLevelTwoHeadings(content),
     };
   });
 }
