@@ -29,7 +29,7 @@ You can also [subscribe to the blog via RSS.](/feed.xml)`;
 
 export default function AboutPage() {
   return (
-    <div className={"mb-8"}>
+    <div className={"text-page reading-column mb-8"}>
       <h1 className={"clear-both mt-0 mb-2 text-2xl leading-tight font-semibold uppercase"}>About</h1>
       <div className={"prose"}>
         <CustomMDX source={content} />

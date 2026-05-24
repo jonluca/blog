@@ -17,7 +17,7 @@ You can email me at [hello@jonlu.ca](mailto:hello@jonlu.ca). You can also DM me 
 
 export default function ContactPage() {
   return (
-    <div className={"mb-8"}>
+    <div className={"text-page reading-column mb-8"}>
       <h1 className={"clear-both mt-0 mb-2 text-2xl leading-tight font-semibold uppercase"}>Contact</h1>
       <div className={"prose"}>
         <CustomMDX source={content} />

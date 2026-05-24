@@ -45,7 +45,8 @@ html {
 }
 
 @media (min-width: 48rem) {
-  .site-frame:has(article.prose) {
+  .site-frame:has(article.prose),
+  .site-frame:has(.text-page) {
     max-width: calc(var(--reading-column-width) + 8rem + 2px);
   }
 }

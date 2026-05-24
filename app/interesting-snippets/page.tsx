@@ -807,7 +807,7 @@ So, on one hand, we're in an increasingly hostile information environment specif
 
 export default function InterestingSnippetsPage() {
   return (
-    <div className={"mb-8"}>
+    <div className={"text-page reading-column mb-8"}>
       <h1 className={"clear-both mt-0 mb-2 text-2xl leading-tight font-semibold uppercase"}>Interesting Snippets</h1>
       <div className={"prose"}>
         <CustomMDX source={content} />
