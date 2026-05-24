@@ -17,8 +17,6 @@ I'm JonLuca DeCaro. I currently work at [OpenAI](https://openai.com). Prior to t
   alt="San Diego, 2020"
   footnote="San Diego, 2020"
   src="/images/sandiego-1120.webp"
-  srcSet="/images/sandiego-560.webp 560w, /images/sandiego-1120.webp 1120w"
-  sizes="(min-width: 48rem) 560px, calc(100vw - 4rem)"
   width={1120}
   height={748}
   loading="eager"

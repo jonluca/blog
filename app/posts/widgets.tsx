@@ -1,36 +1,28 @@
 import type { MDXRemoteProps } from "next-mdx-remote/rsc";
+import { DeferredWidget } from "../components/deferred-widget";
+import { RyanairMainApp } from "../custom-code/RyanairGraphServer";
 
 type Components = NonNullable<MDXRemoteProps["components"]>;
+const Gist = ({ id, file }: { id: string; file?: string }) => <DeferredWidget name={"Gist"} widgetProps={{ id, file }} />;
+const ClockContent = () => <DeferredWidget name={"ClockContent"} />;
+const Information = () => <DeferredWidget name={"Information"} />;
+const InformationGraph = () => <DeferredWidget name={"InformationGraph"} />;
+const SpfDkimCharts = () => <DeferredWidget name={"SpfDkimCharts"} />;
 
-export async function getPostComponents(slug: string): Promise<Components> {
+export function getPostComponents(slug: string): Components {
   switch (slug) {
     case "ca-plate-checker":
     case "nintendo-switch":
-    case "optimizing-a-static-site": {
-      const { DeferredWidget } = await import("../components/deferred-widget");
-      const Gist = ({ id, file }: { id: string; file?: string }) => <DeferredWidget name={"Gist"} widgetProps={{ id, file }} />;
+    case "optimizing-a-static-site":
       return { Gist };
-    }
-    case "clock": {
-      const { DeferredWidget } = await import("../components/deferred-widget");
-      const ClockContent = () => <DeferredWidget name={"ClockContent"} />;
+    case "clock":
       return { ClockContent };
-    }
-    case "information": {
-      const { DeferredWidget } = await import("../components/deferred-widget");
-      const Information = () => <DeferredWidget name={"Information"} />;
-      const InformationGraph = () => <DeferredWidget name={"InformationGraph"} />;
+    case "information":
       return { Information, InformationGraph };
-    }
-    case "ryan-air": {
-      const { RyanairMainApp } = await import("../custom-code/RyanairGraphServer");
+    case "ryan-air":
       return { RyanairApp: RyanairMainApp };
-    }
-    case "spf-dkim": {
-      const { DeferredWidget } = await import("../components/deferred-widget");
-      const SpfDkimCharts = () => <DeferredWidget name={"SpfDkimCharts"} />;
+    case "spf-dkim":
       return { SpfDkimCharts };
-    }
     default:
       return {};
   }
