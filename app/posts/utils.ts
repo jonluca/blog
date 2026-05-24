@@ -1,7 +1,22 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
+import { CORE_SCHEMA, load } from "js-yaml";
 import { validatePostWidgetUsage } from "./widget-config";
+
+export const POST_TIME_ZONE = "America/Los_Angeles";
+
+const POST_DATE_WITHOUT_TIME_ZONE_PATTERN = /^\d{4}-\d{2}-\d{2}(?:[T ]\d{2}:\d{2}(?::\d{2}(?:\.\d+)?)?)?$/;
+const postTimeZoneOffsetFormatter = new Intl.DateTimeFormat("en-US", {
+  timeZone: POST_TIME_ZONE,
+  timeZoneName: "longOffset",
+});
+const postDatePartsFormatter = new Intl.DateTimeFormat("en-US", {
+  timeZone: POST_TIME_ZONE,
+  year: "numeric",
+  month: "numeric",
+  day: "numeric",
+});
 
 export interface PostMetadata {
   title: string;
@@ -17,6 +32,29 @@ export interface Post {
   slug: string;
 }
 
+function getPostTimeZoneOffset(date: Date) {
+  const timeZoneName = postTimeZoneOffsetFormatter.formatToParts(date).find((part) => part.type === "timeZoneName")?.value;
+  if (!timeZoneName?.startsWith("GMT")) {
+    throw new Error(`Could not resolve offset for ${POST_TIME_ZONE}`);
+  }
+
+  return timeZoneName.slice(3) || "+00:00";
+}
+
+function parseDateInPostTimeZone(value: string) {
+  const isoDateTime = value.includes("T") ? value : value.includes(" ") ? value.replace(" ", "T") : `${value}T00:00:00`;
+  const estimate = new Date(`${isoDateTime}Z`);
+  if (Number.isNaN(estimate.getTime())) {
+    return estimate;
+  }
+
+  const estimatedOffset = getPostTimeZoneOffset(estimate);
+  const date = new Date(`${isoDateTime}${estimatedOffset}`);
+  const actualOffset = getPostTimeZoneOffset(date);
+
+  return actualOffset === estimatedOffset ? date : new Date(`${isoDateTime}${actualOffset}`);
+}
+
 export function parsePostDate(value: unknown, fileName = "post") {
   if (value instanceof Date && !Number.isNaN(value.getTime())) {
     return value;
@@ -26,7 +64,10 @@ export function parsePostDate(value: unknown, fileName = "post") {
     throw new Error(`${fileName}: metadata.date must be a valid date string`);
   }
 
-  const date = value.includes("T") || value.includes(" ") ? new Date(value) : new Date(`${value}T00:00:00`);
+  const normalizedValue = value.trim();
+  const date = POST_DATE_WITHOUT_TIME_ZONE_PATTERN.test(normalizedValue)
+    ? parseDateInPostTimeZone(normalizedValue)
+    : new Date(normalizedValue);
   if (Number.isNaN(date.getTime())) {
     throw new Error(`${fileName}: metadata.date must be a valid date string`);
   }
@@ -70,7 +111,13 @@ export function normalizeRedirectFrom(value: unknown, fileName = "post") {
 }
 
 export function parsePostSource(fileContent: string, fileName = "post") {
-  const parsed = matter(fileContent);
+  const parsed = matter(fileContent, {
+    engines: {
+      yaml: {
+        parse: (source) => load(source, { schema: CORE_SCHEMA }) as Record<string, unknown>,
+      },
+    },
+  });
   const title = requiredText(parsed.data.title, "title", fileName);
   const description = requiredText(parsed.data.description, "description", fileName);
   const date = parsePostDate(parsed.data.date, fileName);
@@ -146,7 +193,8 @@ export function formatDate(targetDate: Date, includeRelative = false) {
     return "Invalid date";
   }
 
-  const fullDate = targetDate.toLocaleString("en-us", {
+  const fullDate = targetDate.toLocaleString("en-US", {
+    timeZone: POST_TIME_ZONE,
     month: "short",
     day: "numeric",
     year: "numeric",
@@ -156,10 +204,11 @@ export function formatDate(targetDate: Date, includeRelative = false) {
     return fullDate;
   }
 
-  const currentDate = new Date();
-  let yearsAgo = currentDate.getFullYear() - targetDate.getFullYear();
-  let monthsAgo = currentDate.getMonth() - targetDate.getMonth();
-  let daysAgo = currentDate.getDate() - targetDate.getDate();
+  const currentDate = getPostDateParts(new Date());
+  const targetDateParts = getPostDateParts(targetDate);
+  let yearsAgo = currentDate.year - targetDateParts.year;
+  let monthsAgo = currentDate.month - targetDateParts.month;
+  let daysAgo = currentDate.day - targetDateParts.day;
 
   if (monthsAgo < 0) {
     yearsAgo--;
@@ -167,8 +216,8 @@ export function formatDate(targetDate: Date, includeRelative = false) {
   }
 
   if (daysAgo < 0) {
-    const lastMonth = new Date(currentDate.getFullYear(), currentDate.getMonth(), 0);
-    daysAgo += lastMonth.getDate();
+    const lastMonth = new Date(Date.UTC(currentDate.year, currentDate.month, 0));
+    daysAgo += lastMonth.getUTCDate();
     monthsAgo--;
 
     if (monthsAgo < 0) {
@@ -179,4 +228,14 @@ export function formatDate(targetDate: Date, includeRelative = false) {
 
   const relativeDate = yearsAgo > 0 ? `${yearsAgo}y ago` : monthsAgo > 0 ? `${monthsAgo}mo ago` : daysAgo > 0 ? `${daysAgo}d ago` : "Today";
   return `${fullDate} (${relativeDate})`;
+}
+
+function getPostDateParts(date: Date) {
+  const parts = Object.fromEntries(postDatePartsFormatter.formatToParts(date).map((part) => [part.type, part.value]));
+
+  return {
+    year: Number(parts.year),
+    month: Number(parts.month) - 1,
+    day: Number(parts.day),
+  };
 }

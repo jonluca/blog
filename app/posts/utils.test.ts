@@ -3,7 +3,7 @@ import test from "node:test";
 import { buildRssFeed, escapeXml } from "../rss";
 import { defaultSocialImagePath, postUrl, socialImageUrl } from "../site";
 import { slugifyHeading } from "./headings";
-import { normalizeRedirectFrom, parsePostDate, parsePostSource, type Post } from "./utils";
+import { formatDate, normalizeRedirectFrom, parsePostDate, parsePostSource, type Post } from "./utils";
 import { validatePostWidgetUsage } from "./widget-config";
 
 test("parses and validates normalized post metadata", () => {
@@ -27,6 +27,17 @@ Text.`,
   assert.equal(parsed.metadata.description, "A useful description.");
   assert.equal(parsed.metadata.date.toISOString(), "2023-06-26T16:26:53.000Z");
   assert.deepEqual(parsed.metadata.redirectFrom, ["/posts/old-test"]);
+});
+
+test("parses timezone-less post dates as Pacific time", () => {
+  const summerPost = parsePostSource("---\ntitle: Summer\ndate: 2021-08-08 14:06:09\ndescription: A useful description.\n---\nText");
+
+  assert.equal(summerPost.metadata.date.toISOString(), "2021-08-08T21:06:09.000Z");
+  assert.equal(parsePostDate("2026-02-01 20:34:03").toISOString(), "2026-02-02T04:34:03.000Z");
+});
+
+test("formats authored dates in Pacific time on any build server", () => {
+  assert.equal(formatDate(new Date("2026-05-24T01:20:00.000Z")), "May 23, 2026");
 });
 
 test("rejects incomplete or invalid published metadata", () => {

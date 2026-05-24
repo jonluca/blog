@@ -1,9 +1,11 @@
 import Image from "next/image";
+import { POST_TIME_ZONE } from "app/posts/utils";
 
 export function Footer({ date }: { date?: string | Date }) {
   // Format date similar to Jekyll's date filter
   const formattedTime = date
     ? new Date(date).toLocaleTimeString("en-US", {
+        timeZone: POST_TIME_ZONE,
         hour: "2-digit",
         minute: "2-digit",
         hour12: false,
