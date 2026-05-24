@@ -5,7 +5,7 @@ import { CustomMDX } from "app/components/mdx";
 import { Footer } from "app/components/footer";
 import { formatDate, getAdjacentPosts, getPostFromSlug, getStaticPostSlugs } from "app/posts/utils";
 import { getPostComponents } from "app/posts/widgets";
-import { author, postUrl, siteName, socialImageUrl } from "app/site";
+import { author, feedAlternates, postUrl, siteName, siteUrl, socialImageUrl } from "app/site";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -32,6 +32,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: post.metadata.description,
     alternates: {
       canonical: canonicalUrl,
+      types: feedAlternates(),
     },
     openGraph: {
       title: post.metadata.title,
@@ -40,13 +41,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       siteName,
       publishedTime: post.metadata.date.toISOString(),
       url: canonicalUrl,
-      images: [{ url: image }],
+      authors: [author.url],
+      images: [{ url: image, width: 1200, height: 630, alt: post.metadata.title }],
     },
     twitter: {
       card: "summary_large_image",
       title: post.metadata.title,
       description: post.metadata.description,
-      images: [image],
+      images: [{ url: image, alt: post.metadata.title }],
       creator: "@jonluca",
     },
   };
@@ -71,7 +73,21 @@ export default async function Blog({ params }: Props) {
     description: post.metadata.description,
     image: socialImageUrl(post.metadata.image),
     url: canonicalUrl,
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": canonicalUrl,
+    },
+    isPartOf: {
+      "@type": "Blog",
+      name: siteName,
+      url: `${siteUrl}/`,
+    },
     author: {
+      "@type": "Person",
+      name: author.name,
+      url: author.url,
+    },
+    publisher: {
       "@type": "Person",
       name: author.name,
       url: author.url,

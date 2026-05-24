@@ -5,7 +5,7 @@ import { Navbar } from "./components/nav";
 import Script from "next/script";
 import { UnregisterServiceWorker } from "./components/UnregisterServiceWorker";
 import { MatomoAnalytics } from "./components/matomo-analytics";
-import { author, siteName, siteUrl, socialImageUrl } from "./site";
+import { author, feedAlternates, siteDescription, siteName, siteUrl, socialImageUrl } from "./site";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -13,11 +13,14 @@ export const metadata: Metadata = {
     default: siteName,
     template: `%s | ${siteName}`,
   },
-  description: "JonLuca's Blog - A blog about tech, programming, and finance",
+  description: siteDescription,
   authors: [author],
+  alternates: {
+    types: feedAlternates(),
+  },
   openGraph: {
     title: siteName,
-    description: "JonLuca's Blog - A blog about tech, programming, and finance",
+    description: siteDescription,
     url: siteUrl,
     siteName,
     locale: "en_US",
@@ -27,14 +30,16 @@ export const metadata: Metadata = {
         url: socialImageUrl(),
         width: 1200,
         height: 630,
+        alt: siteName,
       },
     ],
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: siteName,
-    description: "JonLuca's Blog - A blog about tech, programming, and finance",
+    description: siteDescription,
     creator: "@jonluca",
+    images: [{ url: socialImageUrl(), alt: siteName }],
   },
   robots: {
     index: true,
@@ -81,7 +86,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           Skip to content
         </a>
         <header className={"mt-8 text-center"}>
-          <h1 className={"text-xl font-semibold"}>JonLuca&apos;s Blog</h1>
+          <p className={"text-xl font-semibold"}>JonLuca&apos;s Blog</p>
         </header>
         <div className={"site-frame mx-auto mt-8 mb-3 max-w-[66rem] border-t border-b border-[#eee] bg-white md:rounded-md md:border"}>
           <Navbar />

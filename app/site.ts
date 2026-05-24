@@ -2,11 +2,13 @@ import type { Metadata } from "next";
 
 export const siteName = "JonLuca's Blog";
 export const siteUrl = "https://blog.jonlu.ca";
+export const siteDescription = "Essays by JonLuca DeCaro about programming, reverse engineering, product systems, travel, and technology.";
 export const author = {
   name: "JonLuca DeCaro",
   url: "https://jonlu.ca",
 };
 export const defaultSocialImagePath = "/images/default-og.png";
+export const rssFeedPath = "/feed.xml";
 
 export function absoluteUrl(pathOrUrl: string) {
   return new URL(pathOrUrl, `${siteUrl}/`).toString();
@@ -22,6 +24,12 @@ export function postUrl(slug: string) {
 
 export function socialImageUrl(image?: string) {
   return absoluteUrl(image || defaultSocialImagePath);
+}
+
+export function feedAlternates() {
+  return {
+    "application/rss+xml": absoluteUrl(rssFeedPath),
+  };
 }
 
 interface PageMetadataOptions {
@@ -41,6 +49,7 @@ export function createPageMetadata({ description, image, path, title }: PageMeta
     description,
     alternates: {
       canonical: url,
+      types: feedAlternates(),
     },
     openGraph: {
       title: socialTitle,
@@ -49,14 +58,14 @@ export function createPageMetadata({ description, image, path, title }: PageMeta
       siteName,
       locale: "en_US",
       type: "website",
-      images: [{ url: socialImage, width: 1200, height: 630 }],
+      images: [{ url: socialImage, width: 1200, height: 630, alt: socialTitle }],
     },
     twitter: {
       card: "summary_large_image",
       title: socialTitle,
       description,
       creator: "@jonluca",
-      images: [socialImage],
+      images: [{ url: socialImage, alt: socialTitle }],
     },
   };
 }

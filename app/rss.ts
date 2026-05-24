@@ -1,5 +1,5 @@
 import { getSortedBlogPosts, type Post } from "app/posts/utils";
-import { absoluteUrl, postUrl, siteName, siteUrl } from "./site";
+import { absoluteUrl, postUrl, siteDescription, siteName, siteUrl } from "./site";
 
 export function escapeXml(value: string) {
   return value.replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll('"', "&quot;").replaceAll("'", "&apos;");
@@ -25,7 +25,7 @@ export function buildRssFeed(posts: Post[] = getSortedBlogPosts()) {
     <title>${escapeXml(siteName)}</title>
     <link>${siteUrl}</link>
     <atom:link href="${absoluteUrl("/feed.xml")}" rel="self" type="application/rss+xml" />
-    <description>Essays by JonLuca DeCaro about programming, reverse engineering, product systems, travel, and technology.</description>
+    <description>${escapeXml(siteDescription)}</description>
     ${itemsXml}
   </channel>
 </rss>`;
