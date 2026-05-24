@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import { CustomMDX } from "../components/mdx";
+import { createPageMetadata } from "../site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
+  path: "/interesting-snippets",
   title: "Interesting Snippets",
   description: "A collection of interesting programming snippets by JonLuca DeCaro",
-};
+});
 
 // In a production implementation, this would be imported from a file or CMS
 // For this example, we're creating placeholder content that would be replaced
@@ -806,7 +808,7 @@ So, on one hand, we're in an increasingly hostile information environment specif
 export default function InterestingSnippetsPage() {
   return (
     <div className={"mb-8"}>
-      <h1 className={"clear-both mt-0 mb-2 text-2xl leading-tight font-bold uppercase"}>Interesting Snippets</h1>
+      <h1 className={"clear-both mt-0 mb-2 text-2xl leading-tight font-semibold uppercase"}>Interesting Snippets</h1>
       <div className={"prose"}>
         <CustomMDX source={content} />
       </div>

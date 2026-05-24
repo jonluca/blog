@@ -2,29 +2,29 @@ import "./global.css";
 import type { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
 import { Navbar } from "./components/nav";
-import { baseUrl } from "./sitemap";
 import Script from "next/script";
 import { UnregisterServiceWorker } from "./components/UnregisterServiceWorker";
 import { MatomoAnalytics } from "./components/matomo-analytics";
+import { author, siteName, siteUrl, socialImageUrl } from "./site";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(baseUrl),
+  metadataBase: new URL(siteUrl),
   title: {
-    default: "JonLuca's Blog",
-    template: "%s | JonLuca's Blog",
+    default: siteName,
+    template: `%s | ${siteName}`,
   },
   description: "JonLuca's Blog - A blog about tech, programming, and finance",
-  authors: [{ name: "JonLuca DeCaro", url: "https://jonlu.ca" }],
+  authors: [author],
   openGraph: {
-    title: "JonLuca's Blog",
+    title: siteName,
     description: "JonLuca's Blog - A blog about tech, programming, and finance",
-    url: baseUrl,
-    siteName: "JonLuca's Blog",
+    url: siteUrl,
+    siteName,
     locale: "en_US",
     type: "website",
     images: [
       {
-        url: `${baseUrl}/images/mini-profile.png`,
+        url: socialImageUrl(),
         width: 1200,
         height: 630,
       },
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary",
-    title: "JonLuca's Blog",
+    title: siteName,
     description: "JonLuca's Blog - A blog about tech, programming, and finance",
     creator: "@jonluca",
   },
@@ -75,14 +75,19 @@ const cx = (...classes: string[]) => classes.filter(Boolean).join(" ");
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang={"en"} className={cx("bg-[#f9f9f9]", GeistSans.className)}>
-      <UnregisterServiceWorker />
       <body className={"bg-[#f9f9f9] p-0 text-xs leading-relaxed text-gray-800"}>
+        <UnregisterServiceWorker />
+        <a className={"skip-link"} href={"#main-content"}>
+          Skip to content
+        </a>
         <header className={"mt-8 text-center"}>
-          <h1 className={"text-xl font-bold"}>JonLuca&apos;s Blog</h1>
+          <h1 className={"text-xl font-semibold"}>JonLuca&apos;s Blog</h1>
         </header>
-        <div className={"mx-auto mt-8 mb-3 max-w-[66rem] border-t border-b border-[#eee] bg-white md:rounded-md md:border"}>
+        <div className={"site-frame mx-auto mt-8 mb-3 max-w-[66rem] border-t border-b border-[#eee] bg-white md:rounded-md md:border"}>
           <Navbar />
-          <main className={"relative overflow-hidden p-8 text-left text-xs md:p-16"}>{children}</main>
+          <main id={"main-content"} tabIndex={-1} className={"relative overflow-hidden p-8 text-left text-xs md:p-16"}>
+            {children}
+          </main>
         </div>
 
         {/* Google Analytics */}

@@ -1,4 +1,4 @@
-import { baseUrl } from "app/sitemap";
+import { absoluteUrl } from "./site";
 
 export const dynamic = "force-static";
 
@@ -9,6 +9,6 @@ export default function robots() {
         userAgent: "*",
       },
     ],
-    sitemap: `${baseUrl}/sitemap.xml`,
+    sitemap: absoluteUrl("/sitemap.xml"),
   };
 }

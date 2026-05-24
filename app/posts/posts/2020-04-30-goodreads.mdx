@@ -1,6 +1,7 @@
 ---
 title: "Goodreads has a time to first byte of nearly 5 seconds"
 date: 2020-04-30 23:45:21 -0700
+description: "Investigating why Goodreads pages responded slowly and what its requests revealed."
 image: "https://assets.jonlu.ca/goodreads.png"
 ---
 
@@ -20,7 +21,7 @@ Subsequent requests are also incredibly high - at 2s, it's a noticeable lag to a
 
 It's fairly shocking that a site owned by a trillion dollar company (Amazon) with 90 million users[^2] can be _this_ non performant.
 
-<Video src="https://assets.jonlu.ca/goodreads.mp4" footnote="Good reads initial site load video" />
+<Video src="https://assets.jonlu.ca/goodreads.mp4" footnote="Good reads initial site load video" silent />
 
 This is definitely not due to my current network conditions - I'm on gigabit wifi, with low latency, in San Francisco. It makes the site almost unusable - I wonder how many daily active users they're missing out on due to their performance issues?
 

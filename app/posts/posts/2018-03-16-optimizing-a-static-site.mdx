@@ -1,6 +1,7 @@
 ---
 title: "10x Performance Increases: Optimizing a Static Site"
 date: 2018-03-16 12:00:00 -0700
+description: "How compression, caching, HTTP/2, and deployment changes made a static personal site dramatically faster."
 ---
 
 A couple months ago, I was traveling outside of the U.S. and wanted to show a friend a link on my personal (static) site. I tried navigating to my website, but it took much longer than I anticipated. There’s absolutely nothing dynamic about it — it has animations and some responsive design, but the content always stays the same. I was pretty appalled at the results, \~4s to DOMContentLoaded, and 6.8s for a full page load. There were 20 requests for a static site, with 1mb of total data transferred. I was accustomed to my 1Gb/s, low latency internet in Los Angeles connecting to my server in San Francisco, which made this monstrosity seem lightning fast. In Italy, at 8mb/s, it was a different picture entirely.

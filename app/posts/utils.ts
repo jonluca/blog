@@ -1,126 +1,151 @@
 import fs from "fs";
 import path from "path";
+import matter from "gray-matter";
+import { extractLevelTwoHeadings, type TableOfContentsEntry } from "./headings";
+import { validatePostWidgetUsage } from "./widget-config";
 
-interface Metadata {
+export interface PostMetadata {
   title: string;
   date: Date;
-  summary: string;
+  description: string;
   image?: string;
-  redirect_from?: string[];
+  redirectFrom?: string[];
 }
 
-function getDateFromString(date: string): Date {
-  let targetDate: Date;
-
-  // Handle different date formats
-  if (date.match(/\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2} [+-]\d{4}/)) {
-    // Format: "2023-06-26 12:26:53 -0400"
-    targetDate = new Date(date);
-  } else if (date.match(/\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}/)) {
-    // Format: "2022-05-28 15:06:28" (without timezone)
-    targetDate = new Date(date.replace(" ", "T"));
-  } else {
-    // Default handling for ISO-like formats
-    if (!date.includes("T")) {
-      date = `${date}T00:00:00`;
-    }
-    targetDate = new Date(date);
-  }
-  return targetDate;
+export interface Post {
+  content: string;
+  headings: TableOfContentsEntry[];
+  metadata: PostMetadata;
+  slug: string;
 }
-function parseFrontmatter(fileContent: string) {
-  const frontmatterRegex = /---\s*([\s\S]*?)\s*---/;
-  const match = frontmatterRegex.exec(fileContent);
 
-  if (!match) {
-    throw new Error("No metadata found");
+export function parsePostDate(value: unknown, fileName = "post") {
+  if (value instanceof Date && !Number.isNaN(value.getTime())) {
+    return value;
   }
 
-  const frontMatterBlock = match[1];
-  const content = fileContent.replace(frontmatterRegex, "").trim();
+  if (typeof value !== "string") {
+    throw new Error(`${fileName}: metadata.date must be a valid date string`);
+  }
 
-  // Parse frontmatter with YAML-like structure
-  const metadata: Partial<Metadata> = {};
-  let currentKey: string | null = null;
-  let inArray = false;
+  const date = value.includes("T") || value.includes(" ") ? new Date(value) : new Date(`${value}T00:00:00`);
+  if (Number.isNaN(date.getTime())) {
+    throw new Error(`${fileName}: metadata.date must be a valid date string`);
+  }
 
-  const frontMatterLines = frontMatterBlock.trim().split("\n");
+  return date;
+}
 
-  frontMatterLines.forEach((line) => {
-    const trimmedLine = line.trim();
+function requiredText(value: unknown, key: string, fileName: string) {
+  if (typeof value !== "string" || value.trim() === "") {
+    throw new Error(`${fileName}: metadata.${key} must be a non-empty string`);
+  }
 
-    // Check if this is an array item
-    if (trimmedLine.startsWith("- ") && currentKey && inArray) {
-      const value = trimmedLine.substring(2).trim();
+  return value.trim();
+}
 
-      if (!Array.isArray(metadata[currentKey as keyof Metadata])) {
-        metadata[currentKey as keyof Metadata] = [] as any;
-      }
+function optionalText(value: unknown, key: string, fileName: string) {
+  if (value === undefined) {
+    return undefined;
+  }
 
-      (metadata[currentKey as keyof Metadata] as any).push(value);
-      return;
+  return requiredText(value, key, fileName);
+}
+
+export function normalizeRedirectFrom(value: unknown, fileName = "post") {
+  if (value === undefined) {
+    return undefined;
+  }
+
+  if (!Array.isArray(value)) {
+    throw new Error(`${fileName}: metadata.redirect_from must be an array of post paths`);
+  }
+
+  return value.map((redirect) => {
+    const route = requiredText(redirect, "redirect_from", fileName).replace(/\/$/, "");
+    if (!/^\/posts\/[a-z0-9-]+$/.test(route)) {
+      throw new Error(`${fileName}: redirect path "${route}" must match /posts/{slug}`);
     }
 
-    // Check if this is a new key
-    if (trimmedLine.includes(":")) {
-      const colonIndex = trimmedLine.indexOf(":");
-      currentKey = trimmedLine.substring(0, colonIndex).trim();
-      const restOfLine = trimmedLine.substring(colonIndex + 1).trim();
-
-      // Check if this is the start of an array
-      if (restOfLine === "") {
-        inArray = true;
-        metadata[currentKey as keyof Metadata] = [] as any;
-      } else {
-        inArray = false;
-        let value = restOfLine;
-        value = value.replace(/^['"](.*)['"]$/, "$1"); // Remove quotes
-        metadata[currentKey as keyof Metadata] = value as any;
-      }
-    }
+    return route;
   });
+}
 
-  // now process metadata.date as a Date object, handling the timezone offset like 2023-04-13 21:31:20 -0700
-  if (metadata.date) {
-    metadata.date = getDateFromString(metadata.date.toString());
-  }
+export function parsePostSource(fileContent: string, fileName = "post") {
+  const parsed = matter(fileContent);
+  const title = requiredText(parsed.data.title, "title", fileName);
+  const description = requiredText(parsed.data.description, "description", fileName);
+  const date = parsePostDate(parsed.data.date, fileName);
+  const image = optionalText(parsed.data.image, "image", fileName);
+  const redirectFrom = normalizeRedirectFrom(parsed.data.redirect_from ?? parsed.data.redirectFrom, fileName);
 
-  return { metadata: metadata as Metadata, content };
+  return {
+    content: parsed.content.trim(),
+    metadata: {
+      title,
+      date,
+      description,
+      ...(image ? { image } : {}),
+      ...(redirectFrom ? { redirectFrom } : {}),
+    },
+  };
 }
 
 function getMDXFiles(dir: string) {
   return fs.readdirSync(dir).filter((file) => path.extname(file) === ".mdx");
 }
 
-function readMDXFile(filePath: string) {
-  const rawContent = fs.readFileSync(filePath, "utf-8");
-  return parseFrontmatter(rawContent);
+function slugFromFile(file: string) {
+  return path.basename(file, path.extname(file)).replace(/^(\d+-)+/, "");
 }
 
-function getMDXData(dir: string) {
-  const mdxFiles = getMDXFiles(dir);
-  return mdxFiles.map((file) => {
-    const { metadata, content } = readMDXFile(path.join(dir, file));
-    let slug = path.basename(file, path.extname(file));
-    // strip leading numbers from slug
-    slug = slug.replace(/^(\d+-)+/, "");
+function getMDXData(dir: string): Post[] {
+  return getMDXFiles(dir).map((file) => {
+    const slug = slugFromFile(file);
+    const rawContent = fs.readFileSync(path.join(dir, file), "utf-8");
+    const { metadata, content } = parsePostSource(rawContent, file);
+    validatePostWidgetUsage(slug, content);
 
     return {
       metadata,
       slug,
       content,
+      headings: extractLevelTwoHeadings(content),
     };
   });
 }
 
 export function getBlogPosts() {
-  const postsDir = path.join(process.cwd(), "app", "posts", "posts");
-  const mdxData = getMDXData(postsDir);
-  return mdxData;
+  return getMDXData(path.join(process.cwd(), "app", "posts", "posts"));
 }
+
+export function getSortedBlogPosts() {
+  return getBlogPosts().sort((a, b) => b.metadata.date.getTime() - a.metadata.date.getTime());
+}
+
+export function getPostFromSlug(slug: string) {
+  return getBlogPosts().find((post) => post.slug === slug || post.metadata.redirectFrom?.includes(`/posts/${slug}`));
+}
+
+export function getStaticPostSlugs() {
+  return getBlogPosts().flatMap((post) => [
+    post.slug,
+    ...(post.metadata.redirectFrom || []).map((redirect) => redirect.replace(/^\/posts\//, "")),
+  ]);
+}
+
+export function getAdjacentPosts(slug: string) {
+  const posts = getSortedBlogPosts();
+  const index = posts.findIndex((post) => post.slug === slug);
+
+  return {
+    newer: index > 0 ? posts[index - 1] : undefined,
+    older: index >= 0 && index < posts.length - 1 ? posts[index + 1] : undefined,
+  };
+}
+
 export function formatDate(targetDate: Date, includeRelative = false) {
-  // Check if the date is valid
-  if (isNaN(targetDate.getTime())) {
+  if (Number.isNaN(targetDate.getTime())) {
     return "Invalid date";
   }
 
@@ -133,44 +158,28 @@ export function formatDate(targetDate: Date, includeRelative = false) {
   if (!includeRelative) {
     return fullDate;
   }
-  const currentDate = new Date();
 
-  // Calculate time differences
+  const currentDate = new Date();
   let yearsAgo = currentDate.getFullYear() - targetDate.getFullYear();
   let monthsAgo = currentDate.getMonth() - targetDate.getMonth();
   let daysAgo = currentDate.getDate() - targetDate.getDate();
 
-  // Adjust for negative months
   if (monthsAgo < 0) {
     yearsAgo--;
     monthsAgo += 12;
   }
 
-  // Adjust for negative days
   if (daysAgo < 0) {
-    // Get the last day of the previous month
     const lastMonth = new Date(currentDate.getFullYear(), currentDate.getMonth(), 0);
     daysAgo += lastMonth.getDate();
     monthsAgo--;
 
-    // Readjust negative months if needed
     if (monthsAgo < 0) {
       yearsAgo--;
       monthsAgo += 12;
     }
   }
 
-  let formattedDate = "";
-
-  if (yearsAgo > 0) {
-    formattedDate = `${yearsAgo}y ago`;
-  } else if (monthsAgo > 0) {
-    formattedDate = `${monthsAgo}mo ago`;
-  } else if (daysAgo > 0) {
-    formattedDate = `${daysAgo}d ago`;
-  } else {
-    formattedDate = "Today";
-  }
-
-  return `${fullDate} (${formattedDate})`;
+  const relativeDate = yearsAgo > 0 ? `${yearsAgo}y ago` : monthsAgo > 0 ? `${monthsAgo}mo ago` : daysAgo > 0 ? `${daysAgo}d ago` : "Today";
+  return `${fullDate} (${relativeDate})`;
 }

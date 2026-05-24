@@ -1,107 +1,119 @@
+import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { CustomMDX } from "app/components/mdx";
-import { formatDate, getBlogPosts } from "app/posts/utils";
-import { baseUrl } from "app/sitemap";
-import type { Metadata } from "next";
-import { Footer } from "../../components/footer";
+import { Footer } from "app/components/footer";
+import { formatDate, getAdjacentPosts, getPostFromSlug, getStaticPostSlugs } from "app/posts/utils";
+import { getPostComponents } from "app/posts/widgets";
+import { author, postUrl, siteName, socialImageUrl } from "app/site";
 
 interface Props {
   params: Promise<{ slug: string }>;
-  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }
 
-function getPostFromSlug(slug: string) {
-  const blogPosts = getBlogPosts();
-  const post = blogPosts.find(
-    (post) => post.slug === slug || (post.metadata.redirect_from && post.metadata.redirect_from?.some((l) => l.endsWith(slug))),
-  );
+export const dynamicParams = false;
 
-  return post;
-}
 export async function generateStaticParams() {
-  const posts = getBlogPosts();
-
-  return posts.map((post) => ({
-    slug: post.slug,
-  }));
+  return getStaticPostSlugs().map((slug) => ({ slug }));
 }
 
-export async function generateMetadata(props: Props): Promise<Metadata> {
-  const params = await props.params;
-  const post = getPostFromSlug(params.slug);
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params;
+  const post = getPostFromSlug(slug);
   if (!post) {
-    return {
-      title: "Not Found",
-    };
+    return { title: "Not Found" };
   }
 
-  const { title, date: publishedTime, summary: description, image } = post.metadata;
-  const ogImage = image ? image : `${baseUrl}/og?title=${encodeURIComponent(title)}`;
+  const canonicalUrl = postUrl(post.slug);
+  const image = socialImageUrl(post.metadata.image);
 
   return {
-    title,
-    description,
+    title: post.metadata.title,
+    description: post.metadata.description,
+    alternates: {
+      canonical: canonicalUrl,
+    },
     openGraph: {
-      title,
-      description,
+      title: post.metadata.title,
+      description: post.metadata.description,
       type: "article",
-      publishedTime: publishedTime.toISOString(),
-      url: `${baseUrl}/blog/${post.slug}`,
-      images: [
-        {
-          url: ogImage,
-        },
-      ],
+      siteName,
+      publishedTime: post.metadata.date.toISOString(),
+      url: canonicalUrl,
+      images: [{ url: image }],
     },
     twitter: {
       card: "summary_large_image",
-      title,
-      description,
-      images: [ogImage],
+      title: post.metadata.title,
+      description: post.metadata.description,
+      images: [image],
+      creator: "@jonluca",
     },
   };
 }
 
 export default async function Blog({ params }: Props) {
-  const p = await params;
-  const post = getPostFromSlug(p.slug);
+  const { slug } = await params;
+  const post = getPostFromSlug(slug);
   if (!post) {
     notFound();
   }
 
+  const components = await getPostComponents(post.slug);
+  const adjacent = getAdjacentPosts(post.slug);
+  const canonicalUrl = postUrl(post.slug);
+  const jsonLd = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.metadata.title,
+    datePublished: post.metadata.date.toISOString(),
+    dateModified: post.metadata.date.toISOString(),
+    description: post.metadata.description,
+    image: socialImageUrl(post.metadata.image),
+    url: canonicalUrl,
+    author: {
+      "@type": "Person",
+      name: author.name,
+      url: author.url,
+    },
+  }).replaceAll("<", "\\u003c");
+
   return (
     <section>
-      <script
-        type={"application/ld+json"}
-        suppressHydrationWarning
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BlogPosting",
-            headline: post.metadata.title,
-            datePublished: post.metadata.date,
-            dateModified: post.metadata.date,
-            description: post.metadata.summary,
-            image: post.metadata.image ? `${baseUrl}${post.metadata.image}` : `/og?title=${encodeURIComponent(post.metadata.title)}`,
-            url: `${baseUrl}/blog/${post.slug}`,
-            author: {
-              "@type": "Person",
-              name: "My Portfolio",
-            },
-          }),
-        }}
-      />
-      <div className={"mb-8"}>
-        <p className={"text-sm text-neutral-600 dark:text-neutral-400"} title={post.metadata.date.toISOString()}>
+      <script type={"application/ld+json"} suppressHydrationWarning dangerouslySetInnerHTML={{ __html: jsonLd }} />
+      <header className={"reading-column mb-10"}>
+        <time className={"text-sm text-neutral-600"} dateTime={post.metadata.date.toISOString()}>
           {formatDate(post.metadata.date)}
-        </p>
-        <h1 className={"mb-2 text-2xl font-bold text-balance uppercase"}>{post.metadata.title}</h1>
-      </div>
+        </time>
+        <h1 className={"mt-2 mb-3 text-2xl font-semibold text-balance uppercase"}>{post.metadata.title}</h1>
+        <p className={"text-base leading-relaxed text-neutral-600"}>{post.metadata.description}</p>
+      </header>
 
       <article className={"prose text-black"}>
-        <CustomMDX source={post.content} />
+        <CustomMDX source={post.content} components={components} />
       </article>
-      <Footer date={post.metadata.date} />
+
+      <div className={"reading-column"}>
+        <Footer date={post.metadata.date} />
+        {(adjacent.older || adjacent.newer) && (
+          <nav className={"post-neighbors"} aria-label={"Adjacent posts"}>
+            {adjacent.older ? (
+              <Link href={`/posts/${adjacent.older.slug}`} prefetch={false}>
+                <span>Older post</span>
+                {adjacent.older.metadata.title}
+              </Link>
+            ) : (
+              <span />
+            )}
+            {adjacent.newer && (
+              <Link className={"text-right"} href={`/posts/${adjacent.newer.slug}`} prefetch={false}>
+                <span>Newer post</span>
+                {adjacent.newer.metadata.title}
+              </Link>
+            )}
+          </nav>
+        )}
+      </div>
     </section>
   );
 }

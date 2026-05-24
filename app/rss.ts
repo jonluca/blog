@@ -1,41 +1,40 @@
-import { getBlogPosts } from "app/posts/utils";
-import { baseUrl } from "./sitemap";
+import { getSortedBlogPosts, type Post } from "app/posts/utils";
+import { absoluteUrl, postUrl, siteName, siteUrl } from "./site";
 
-export const dynamic = "force-static";
-export async function generateRssFeed() {
-  const allBlogs = await getBlogPosts();
+export function escapeXml(value: string) {
+  return value.replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll('"', "&quot;").replaceAll("'", "&apos;");
+}
 
-  const itemsXml = allBlogs
-    .sort((a, b) => {
-      if (new Date(a.metadata.date) > new Date(b.metadata.date)) {
-        return -1;
-      }
-      return 1;
+export function buildRssFeed(posts: Post[] = getSortedBlogPosts()) {
+  const itemsXml = posts
+    .map((post) => {
+      const url = postUrl(post.slug);
+      return `<item>
+        <title>${escapeXml(post.metadata.title)}</title>
+        <link>${url}</link>
+        <guid isPermaLink="true">${url}</guid>
+        <description>${escapeXml(post.metadata.description)}</description>
+        <pubDate>${post.metadata.date.toUTCString()}</pubDate>
+      </item>`;
     })
-    .map(
-      (post) =>
-        `<item>
-          <title>${post.metadata.title}</title>
-          <link>${baseUrl}/posts/${post.slug}</link>
-          <description>${post.metadata.summary || ""}</description>
-          <pubDate>${new Date(post.metadata.date).toUTCString()}</pubDate>
-        </item>`,
-    )
     .join("\n");
 
-  const rssFeed = `<?xml version="1.0" encoding="UTF-8" ?>
-  <rss version="2.0">
-    <channel>
-        <title>JonLuca's Blog</title>
-        <link>${baseUrl}</link>
-        <description>This is my blog RSS feed</description>
-        ${itemsXml}
-    </channel>
-  </rss>`;
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>${escapeXml(siteName)}</title>
+    <link>${siteUrl}</link>
+    <atom:link href="${absoluteUrl("/feed.xml")}" rel="self" type="application/rss+xml" />
+    <description>Essays by JonLuca DeCaro about programming, reverse engineering, product systems, travel, and technology.</description>
+    ${itemsXml}
+  </channel>
+</rss>`;
+}
 
-  return new Response(rssFeed, {
+export async function generateRssFeed() {
+  return new Response(buildRssFeed(), {
     headers: {
-      "Content-Type": "text/xml",
+      "Content-Type": "application/rss+xml; charset=utf-8",
     },
   });
 }

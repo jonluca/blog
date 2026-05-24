@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import { CustomMDX } from "../components/mdx";
+import { createPageMetadata } from "../site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
+  path: "/about",
   title: "About",
   description: "About JonLuca DeCaro",
-};
+});
 
 const content = `
 Hi!
@@ -28,7 +30,7 @@ You can also [subscribe to the blog via RSS.](/feed.xml)`;
 export default function AboutPage() {
   return (
     <div className={"mb-8"}>
-      <h1 className={"clear-both mt-0 mb-2 text-2xl leading-tight font-bold uppercase"}>About</h1>
+      <h1 className={"clear-both mt-0 mb-2 text-2xl leading-tight font-semibold uppercase"}>About</h1>
       <div className={"prose"}>
         <CustomMDX source={content} />
       </div>

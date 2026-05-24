@@ -10,6 +10,7 @@
 }
 
 :root {
+  --reading-column-width: 70rch;
   --sh-class: #2d5e9d;
   --sh-identifier: #354150;
   --sh-sign: #8996a3;
@@ -30,8 +31,39 @@
 }
 
 html {
-  min-width: 360px;
   line-height: 1.5;
+}
+
+.skip-link {
+  @apply fixed top-2 left-2 z-50 -translate-y-16 rounded bg-white px-4 py-2 shadow transition-transform focus:translate-y-0;
+}
+
+.reading-column {
+  @apply mx-auto;
+
+  max-width: var(--reading-column-width);
+}
+
+@media (min-width: 48rem) {
+  .site-frame:has(article.prose) {
+    max-width: calc(var(--reading-column-width) + 8rem + 2px);
+  }
+}
+
+.archive-row {
+  @apply grid gap-1 border-b border-neutral-100 py-3 text-base sm:grid-cols-[minmax(0,1fr)_auto] sm:items-baseline sm:gap-6;
+}
+
+.post-neighbors {
+  @apply mt-10 grid grid-cols-2 gap-6 border-t border-neutral-200 pt-6 text-sm;
+}
+
+.post-neighbors a {
+  @apply flex flex-col gap-1;
+}
+
+.post-neighbors a span {
+  @apply text-xs tracking-wider text-neutral-500 uppercase;
 }
 
 code {
@@ -39,7 +71,7 @@ code {
 }
 
 .prose .anchor {
-  @apply invisible absolute no-underline;
+  @apply invisible absolute text-neutral-300 no-underline;
 
   margin-left: -1em;
   padding-right: 0.5em;
@@ -52,21 +84,95 @@ code {
   @apply visible;
 }
 
-a {
-  @apply text-[#244ebc] no-underline decoration-[0.1em] underline-offset-2 transition-all hover:underline dark:decoration-neutral-600;
+.prose .anchor:focus-visible {
+  @apply visible;
 }
 
-.prose .anchor:after {
-  @apply text-neutral-300 dark:text-neutral-700;
-  content: "#";
+a {
+  @apply text-[#244ebc] no-underline;
+}
+
+a:hover {
+  text-decoration-line: underline;
+  text-decoration-style: dotted;
+  text-decoration-color: #b7c8e9;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
 }
 
 .prose *:hover > .anchor {
   @apply visible;
 }
 
+.prose > p,
+.prose > h1,
+.prose > h2,
+.prose > h3,
+.prose > h4,
+.prose > h5,
+.prose > h6,
+.prose > ul,
+.prose > ol,
+.prose > blockquote {
+  @apply mx-auto;
+
+  max-width: var(--reading-column-width);
+}
+
 .prose pre {
   @apply overflow-x-auto rounded-lg border border-neutral-200 bg-neutral-50 px-3 py-2 text-sm;
+}
+
+.prose pre.syntax-code-block {
+  @apply m-0 overflow-x-auto rounded-none border-0 bg-transparent px-2 py-0 text-sm text-[#abb2bf];
+}
+
+.syntax-code-block .token.comment,
+.syntax-code-block .token.prolog,
+.syntax-code-block .token.cdata {
+  color: #5c6370;
+  font-style: italic;
+}
+
+.syntax-code-block .token.doctype,
+.syntax-code-block .token.punctuation,
+.syntax-code-block .token.entity {
+  color: #abb2bf;
+}
+
+.syntax-code-block .token.attr-name,
+.syntax-code-block .token.class-name,
+.syntax-code-block .token.function,
+.syntax-code-block .token.property {
+  color: #e5c07b;
+}
+
+.syntax-code-block .token.boolean,
+.syntax-code-block .token.constant,
+.syntax-code-block .token.number,
+.syntax-code-block .token.symbol {
+  color: #d19a66;
+}
+
+.syntax-code-block .token.atrule,
+.syntax-code-block .token.builtin,
+.syntax-code-block .token.keyword,
+.syntax-code-block .token.operator,
+.syntax-code-block .token.selector {
+  color: #c678dd;
+}
+
+.syntax-code-block .token.attr-value,
+.syntax-code-block .token.char,
+.syntax-code-block .token.regex,
+.syntax-code-block .token.string,
+.syntax-code-block .token.url {
+  color: #98c379;
+}
+
+.syntax-code-block .token.tag,
+.syntax-code-block .token.variable {
+  color: #e06c75;
 }
 
 .prose p {
@@ -105,6 +211,10 @@ a {
   /* Override removing top margin, causing layout shift */
   margin-top: 1.25em !important;
   margin-bottom: 1.25em !important;
+}
+
+.prose > p:first-child {
+  margin-top: 0 !important;
 }
 
 /* Remove Safari input shadow on mobile */
