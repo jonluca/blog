@@ -17,7 +17,7 @@ export function BlogPosts() {
   const latest = allPosts[0];
 
   return (
-    <div className={"space-y-14"}>
+    <div className={"text-page reading-column space-y-14"}>
       <section aria-labelledby={"latest-post"}>
         <p className={"mb-3 text-sm tracking-wider text-neutral-500 uppercase"}>Latest</p>
         <h2 id={"latest-post"} className={"mb-2 text-2xl font-semibold"}>
