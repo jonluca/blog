@@ -10,9 +10,7 @@ const navItems = {
 <nav aria-label="Main" class="text-md border-b border-gray-200 py-8 text-center">
   {
     Object.entries(navItems).map(([path, name]) => (
-      <a class="mx-2 text-[14px] text-[#244ebc] no-underline" href={path} title={name}>
-        {name}
-      </a>
+      <a class="mx-2 text-[14px] text-[#244ebc] no-underline" href={path} title={name}>{name}</a>
     ))
   }
 </nav>
