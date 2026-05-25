@@ -41,6 +41,9 @@ importers:
       dotenv:
         specifier: ^17.4.2
         version: 17.4.2
+      esbuild:
+        specifier: ^0.28.0
+        version: 0.28.0
       glob:
         specifier: ^13.0.6
         version: 13.0.6
