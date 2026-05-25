@@ -10,7 +10,8 @@
 }
 
 :root {
-  --reading-column-width: 70rch;
+  /* Do not let the webfont's glyph metrics resize the content frame on load. */
+  --reading-column-width: 46rem;
   --sh-class: #2d5e9d;
   --sh-identifier: #354150;
   --sh-sign: #8996a3;
@@ -53,7 +54,7 @@ html {
 }
 
 .archive-row {
-  @apply grid gap-1 border-b border-neutral-100 py-3 text-base sm:grid-cols-[minmax(0,1fr)_auto] sm:items-baseline sm:gap-6;
+  @apply grid gap-1 border-b border-neutral-100 py-2 text-base sm:grid-cols-[minmax(0,1fr)_auto] sm:items-baseline sm:gap-6;
 }
 
 .post-neighbors {

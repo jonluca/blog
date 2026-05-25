@@ -112,6 +112,7 @@ const staticSiteScripts = `
     <title>{documentTitle}</title>
     <meta name="description" content={description} />
     <meta name="author" content={author.name} />
+    <link rel="preload" href="/fonts/Roboto-Roman-Latin.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="canonical" href={canonicalUrl} />
     <link rel="alternate" type="application/rss+xml" href={absoluteUrl(rssFeedPath)} title={siteName} />
     <meta property="og:title" content={documentTitle} />
@@ -150,7 +151,7 @@ const staticSiteScripts = `
     </header>
     <div class="site-frame mx-auto mt-8 mb-3 max-w-[66rem] border-t border-b border-[#eee] bg-white md:rounded-md md:border">
       <Navbar />
-      <main id="main-content" tabindex="-1" class="relative overflow-hidden p-8 text-left text-xs md:p-16">
+      <main id="main-content" class="relative overflow-hidden p-8 text-left text-xs md:p-16">
         <slot />
       </main>
     </div>
