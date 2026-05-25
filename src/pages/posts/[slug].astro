@@ -1,0 +1,115 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { getCollection, render } from "astro:content";
+import type { Post } from "../../../app/posts/utils";
+import { formatDate, getAdjacentPosts, getPostFromSlug, getStaticPostSlugs } from "../../../app/posts/utils";
+import Footer from "../../components/Footer.astro";
+import { mdxComponents } from "../../components/mdx/components";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { author, postUrl, siteName, siteUrl, socialImageUrl } from "../../lib/site";
+
+interface Props {
+  entry: CollectionEntry<"posts">;
+  post: Post;
+}
+
+export async function getStaticPaths() {
+  const entries = await getCollection("posts");
+  const entriesBySlug = new Map(entries.map((entry: CollectionEntry<"posts">) => [entry.id, entry]));
+
+  return getStaticPostSlugs().map((slug) => {
+    const post = getPostFromSlug(slug);
+    if (!post) {
+      throw new Error(`Could not load post metadata for ${slug}`);
+    }
+    const entry = entriesBySlug.get(post.slug);
+    if (!entry) {
+      throw new Error(`Could not load MDX content for ${post.slug}`);
+    }
+
+    return {
+      params: { slug },
+      props: { entry, post },
+    };
+  });
+}
+
+const { entry, post } = Astro.props;
+const { Content } = await render(entry);
+const adjacent = getAdjacentPosts(post.slug);
+const canonicalUrl = postUrl(post.slug);
+const jsonLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  headline: post.metadata.title,
+  datePublished: post.metadata.date.toISOString(),
+  dateModified: post.metadata.date.toISOString(),
+  description: post.metadata.description,
+  image: socialImageUrl(post.metadata.image),
+  url: canonicalUrl,
+  mainEntityOfPage: {
+    "@type": "WebPage",
+    "@id": canonicalUrl,
+  },
+  isPartOf: {
+    "@type": "Blog",
+    name: siteName,
+    url: `${siteUrl}/`,
+  },
+  author: {
+    "@type": "Person",
+    name: author.name,
+    url: author.url,
+  },
+  publisher: {
+    "@type": "Person",
+    name: author.name,
+    url: author.url,
+  },
+}).replaceAll("<", "\\u003c");
+---
+
+<BaseLayout
+  title={post.metadata.title}
+  path={`/posts/${post.slug}`}
+  description={post.metadata.description}
+  image={post.metadata.image}
+  publishedTime={post.metadata.date}
+>
+  <section>
+    <script is:inline type="application/ld+json" set:html={jsonLd} />
+    <header class="reading-column mb-10">
+      <time class="text-sm text-neutral-600" datetime={post.metadata.date.toISOString()}>{formatDate(post.metadata.date)}</time>
+      <h1 class="mt-2 mb-3 text-2xl font-semibold text-balance uppercase">{post.metadata.title}</h1>
+      <p class="text-base leading-relaxed text-neutral-600">{post.metadata.description}</p>
+    </header>
+
+    <article class="prose text-black">
+      <Content components={mdxComponents} />
+    </article>
+
+    <div class="reading-column">
+      <Footer date={post.metadata.date} />
+      {
+        (adjacent.older || adjacent.newer) && (
+          <nav class="post-neighbors" aria-label="Adjacent posts">
+            {adjacent.older ? (
+              <a href={`/posts/${adjacent.older.slug}`}>
+                <span>Older post</span>
+                {adjacent.older.metadata.title}
+              </a>
+            ) : (
+              <span />
+            )}
+            {adjacent.newer && (
+              <a class="text-right" href={`/posts/${adjacent.newer.slug}`}>
+                <span>Newer post</span>
+                {adjacent.newer.metadata.title}
+              </a>
+            )}
+          </nav>
+        )
+      }
+    </div>
+  </section>
+</BaseLayout>

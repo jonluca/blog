@@ -1,0 +1,61 @@
+---
+interface Props {
+  className?: string;
+  data: TableCell[][];
+  headers: string[];
+  maxHeight?: string;
+}
+
+type RichTableCell =
+  | { kind: "bold"; value: string }
+  | { className?: string; kind: "span"; style?: string; value: string }
+  | { code: string; kind: "code-note"; note: string };
+type TableCell = string | number | RichTableCell;
+
+function isRichCell(cell: TableCell): cell is RichTableCell {
+  return typeof cell === "object" && "kind" in cell;
+}
+
+const { className = "", data, headers, maxHeight = "400px" } = Astro.props;
+---
+
+<div class={`relative my-8 w-full ${className}`.trim()}>
+  <div class="w-full overflow-auto rounded-lg border border-gray-200" style={{ maxHeight }}>
+    <table class="w-full table-auto border-collapse text-left text-sm text-gray-500">
+      <thead class="sticky top-0 bg-gray-100 text-xs font-medium text-gray-700 uppercase">
+        <tr>
+          {headers.map((header) => <th scope="col" class="px-6 py-3">{header}</th>)}
+        </tr>
+      </thead>
+      <tbody>
+        {
+          data.map((row, rowIndex) => (
+            <tr class={`bg-white hover:bg-gray-50 ${rowIndex !== data.length - 1 ? "border-b border-gray-200" : ""}`.trim()}>
+              {
+                row.map((cell) => (
+                  <td class="px-6 py-4">
+                    {isRichCell(cell) && cell.kind === "bold" && <b>{cell.value}</b>}
+                    {isRichCell(cell) && cell.kind === "span" && (
+                      <span class={cell.className} style={cell.style}>
+                        {cell.value}
+                      </span>
+                    )}
+                    {isRichCell(cell) && cell.kind === "code-note" && (
+                      <>
+                        <code>{cell.code}</code>
+                        <br />
+                        <br />
+                        {cell.note}
+                      </>
+                    )}
+                    {!isRichCell(cell) && cell}
+                  </td>
+                ))
+              }
+            </tr>
+          ))
+        }
+      </tbody>
+    </table>
+  </div>
+</div>

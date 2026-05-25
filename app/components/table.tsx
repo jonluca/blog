@@ -3,9 +3,19 @@ import { twMerge } from "tailwind-merge";
 
 interface TableProps {
   headers: string[];
-  data: (string | number | React.ReactNode)[][];
+  data: TableCell[][];
   className?: string;
   maxHeight?: string;
+}
+
+type RichTableCell =
+  | { kind: "bold"; value: string }
+  | { className?: string; kind: "span"; style?: React.CSSProperties; value: string }
+  | { code: string; kind: "code-note"; note: string };
+type TableCell = string | number | RichTableCell;
+
+function isRichCell(cell: TableCell): cell is RichTableCell {
+  return typeof cell === "object" && "kind" in cell;
 }
 
 export const Table: React.FC<TableProps> = ({
@@ -35,7 +45,21 @@ export const Table: React.FC<TableProps> = ({
               >
                 {row.map((cell, cellIndex) => (
                   <td className={"px-6 py-4"} key={`${String(cell)}-${cellIndex}`}>
-                    {cell}
+                    {isRichCell(cell) && cell.kind === "bold" && <b>{cell.value}</b>}
+                    {isRichCell(cell) && cell.kind === "span" && (
+                      <span className={cell.className} style={cell.style}>
+                        {cell.value}
+                      </span>
+                    )}
+                    {isRichCell(cell) && cell.kind === "code-note" && (
+                      <>
+                        <code>{cell.code}</code>
+                        <br />
+                        <br />
+                        {cell.note}
+                      </>
+                    )}
+                    {!isRichCell(cell) && cell}
                   </td>
                 ))}
               </tr>

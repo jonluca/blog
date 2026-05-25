@@ -50,10 +50,10 @@ Each of these mechanisms is prefixed by a qualifier. If there is no qualifier sp
 <Table
   headers={["Qualifier", "Result"]}
   data={[
-    [<span style={{ fontSize: "18px" }}>+</span>, "Pass (default)"],
-    [<span style={{ fontSize: "18px" }}>-</span>, "Fail"],
-    [<span style={{ fontSize: "18px" }}>~</span>, "SoftFail"],
-    [<span style={{ fontSize: "18px" }}>?</span>, "Neutral"],
+    [{ kind: "span", style: { fontSize: "18px" }, value: "+" }, "Pass (default)"],
+    [{ kind: "span", style: { fontSize: "18px" }, value: "-" }, "Fail"],
+    [{ kind: "span", style: { fontSize: "18px" }, value: "~" }, "SoftFail"],
+    [{ kind: "span", style: { fontSize: "18px" }, value: "?" }, "Neutral"],
   ]}
 />
 
@@ -94,26 +94,21 @@ Additionally, 4 out of the 100 actually had invalid or no SPF records.
   data={[
     [
       "businessinsider.com",
-      <>
-        <code>v=spf1 include:_spf.googlemail.com include:mail.zendesk.com include:aspmx.pardot.com -all</code>
-        <br />
-        <br />
-        The domain _spf.googlemail.com does not exist
-      </>,
+      {
+        kind: "code-note",
+        code: "v=spf1 include:_spf.googlemail.com include:mail.zendesk.com include:aspmx.pardot.com -all",
+        note: "The domain _spf.googlemail.com does not exist",
+      },
     ],
     ["go.com", "go.com has no SPF record"],
     ["office.com", "office.com has no SPF record"],
     [
       "apartments.com",
-      <>
-        <code>
-          v=spf1 ip4:66.231.92.15 ip4:50.28.24.60 ip4:65.222.181.0/24 ip4:204.253.48.0/24 ip4:65.210.23.128/25 ip4:65.222.180.0/24
-          include:salesforce.com include:s._spf.pardot.com ~all
-        </code>
-        <br />
-        <br />
-        The domain s._spf.pardot.com does not exist
-      </>,
+      {
+        kind: "code-note",
+        code: "v=spf1 ip4:66.231.92.15 ip4:50.28.24.60 ip4:65.222.181.0/24 ip4:204.253.48.0/24 ip4:65.210.23.128/25 ip4:65.222.180.0/24 include:salesforce.com include:s._spf.pardot.com ~all",
+        note: "The domain s._spf.pardot.com does not exist",
+      },
     ],
   ]}
 />

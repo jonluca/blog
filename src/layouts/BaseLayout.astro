@@ -1,0 +1,162 @@
+---
+import "../../app/global.css";
+import "../styles/font.css";
+import Navbar from "../components/Navbar.astro";
+import {
+  absoluteUrl,
+  author,
+  rssFeedPath,
+  siteDescription,
+  siteName,
+  socialImageUrl,
+} from "../lib/site";
+
+interface Props {
+  description?: string;
+  image?: string;
+  noIndex?: boolean;
+  path?: string;
+  publishedTime?: Date;
+  title?: string;
+}
+
+const {
+  description = siteDescription,
+  image,
+  noIndex = false,
+  path = Astro.url.pathname,
+  publishedTime,
+  title,
+} = Astro.props;
+const documentTitle = title ? `${title} | ${siteName}` : siteName;
+const canonicalUrl = absoluteUrl(path);
+const socialImage = socialImageUrl(image);
+const contentType = publishedTime ? "article" : "website";
+
+const staticSiteScripts = `
+  (function () {
+    function runWhenIdle(callback) {
+      function schedule() {
+        if ("requestIdleCallback" in window) {
+          window.requestIdleCallback(callback, { timeout: 2000 });
+        } else {
+          window.setTimeout(callback, 0);
+        }
+      }
+
+      if (document.readyState === "complete") {
+        schedule();
+      } else {
+        window.addEventListener("load", schedule, { once: true });
+      }
+    }
+
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", function () {
+        navigator.serviceWorker.getRegistrations().then(function (registrations) {
+          registrations.forEach(function (registration) {
+            registration.unregister();
+          });
+        });
+      }, { once: true });
+    }
+
+    runWhenIdle(function () {
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function () { window.dataLayer.push(arguments); };
+      window.gtag("js", new Date());
+      window.gtag("config", "G-L7B5KF4CGL");
+
+      var googleScript = document.createElement("script");
+      googleScript.async = true;
+      googleScript.src = "https://www.googletagmanager.com/gtag/js?id=G-L7B5KF4CGL";
+      document.head.appendChild(googleScript);
+    });
+
+    runWhenIdle(function () {
+      var endpoint = "https://j.jonlu.ca/js/";
+      var queue = window._paq = window._paq || [];
+      queue.push(["setTrackerUrl", endpoint]);
+      queue.push(["setSiteId", "1"]);
+      queue.push(["setRequestMethod", "POST"]);
+      queue.push(["disableAlwaysUseSendBeacon"]);
+
+      var hostname = window.location.hostname.toLowerCase();
+      if (hostname === "jonlu.ca" || hostname.endsWith(".jonlu.ca")) {
+        queue.push(["setCookieDomain", ".jonlu.ca"]);
+        queue.push(["setDomains", ["*.jonlu.ca", "*.jldc.me"]]);
+      } else if (hostname === "jldc.me" || hostname.endsWith(".jldc.me")) {
+        queue.push(["setCookieDomain", ".jldc.me"]);
+        queue.push(["setDomains", ["*.jonlu.ca", "*.jldc.me"]]);
+      }
+
+      queue.push(["enableLinkTracking"]);
+      queue.push(["enableHeartBeatTimer", 1]);
+      queue.push(["trackPageView"]);
+
+      var matomoScript = document.createElement("script");
+      matomoScript.async = true;
+      matomoScript.defer = true;
+      matomoScript.src = endpoint;
+      document.head.appendChild(matomoScript);
+    });
+  })();
+`;
+---
+
+<!doctype html>
+<html lang="en" class="bg-[#f9f9f9]">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{documentTitle}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content={author.name} />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="alternate" type="application/rss+xml" href={absoluteUrl(rssFeedPath)} title={siteName} />
+    <meta property="og:title" content={documentTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content={siteName} />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content={contentType} />
+    <meta property="og:image" content={socialImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={documentTitle} />
+    {publishedTime && <meta property="article:published_time" content={publishedTime.toISOString()} />}
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={documentTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:creator" content="@jonluca" />
+    <meta name="twitter:image" content={socialImage} />
+    <meta name="twitter:image:alt" content={documentTitle} />
+    <meta name="robots" content={noIndex ? "noindex, nofollow" : "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"} />
+    <link rel="icon" sizes="32x32" type="image/png" href="/fav/favicon-32x32.png" />
+    <link rel="icon" sizes="16x16" type="image/png" href="/fav/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/fav/apple-touch-icon.png" />
+    <link rel="mask-icon" href="/fav/safari-pinned-tab.svg" />
+    <link rel="manifest" href="/fav/site.webmanifest" />
+    <meta name="msapplication-TileColor" content="#00aba9" />
+    <meta name="msapplication-TileImage" content="/fav/mstile-144x144.png" />
+    <meta name="msapplication-config" content="/fav/browserconfig.xml" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="email" content="jonluca.decaro@gmail.com" />
+  </head>
+  <body class="bg-[#f9f9f9] p-0 text-xs leading-relaxed text-gray-800">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="mt-8 text-center">
+      <p class="text-xl font-semibold">JonLuca's Blog</p>
+    </header>
+    <div class="site-frame mx-auto mt-8 mb-3 max-w-[66rem] border-t border-b border-[#eee] bg-white md:rounded-md md:border">
+      <Navbar />
+      <main id="main-content" tabindex="-1" class="relative overflow-hidden p-8 text-left text-xs md:p-16">
+        <slot />
+      </main>
+    </div>
+    <script is:inline set:html={staticSiteScripts}></script>
+    <noscript>
+      <p><img src="https://j.jonlu.ca/js/?idsite=1&rec=1" style="border: 0" alt="" /></p>
+    </noscript>
+  </body>
+</html>

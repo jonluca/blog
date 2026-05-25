@@ -1,0 +1,23 @@
+---
+interface Props {
+  captionsLabel?: string;
+  captionsSrc?: string;
+  footnote?: string;
+  height?: number | string;
+  silent?: boolean;
+  src?: string;
+  width?: number | string;
+}
+
+const { captionsLabel, captionsSrc, footnote, height, silent = false, src, width } = Astro.props;
+const label = footnote || "Embedded video";
+const resolvedCaptionsSrc = silent ? "/captions/silent.vtt" : captionsSrc;
+const resolvedCaptionsLabel = silent ? "Silent video" : captionsLabel || "English captions";
+---
+
+<video class="centered-image" controls preload="none" muted={silent} aria-label={label} width={width} height={height}>
+  <source src={src} type="video/mp4" />
+  <track kind="captions" src={resolvedCaptionsSrc} srclang="en" label={resolvedCaptionsLabel} default />
+  Your browser does not support the video tag.
+</video>
+{footnote && <p class="footnote">{footnote}{silent ? " (silent video)" : ""}</p>}

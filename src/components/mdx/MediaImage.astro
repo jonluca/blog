@@ -1,0 +1,42 @@
+---
+import { sourceImageDimensions } from "../../../app/components/image-dimensions";
+
+interface Props {
+  alt?: string;
+  class?: string;
+  className?: string;
+  decoding?: "async" | "auto" | "sync";
+  fetchPriority?: "high" | "low" | "auto";
+  height?: number | string;
+  loading?: "eager" | "lazy";
+  src?: string;
+  width?: number | string;
+  [key: string]: unknown;
+}
+
+const {
+  alt = "",
+  class: htmlClass,
+  className,
+  decoding = "async",
+  fetchPriority,
+  height,
+  loading = "lazy",
+  src,
+  width,
+  ...imageProps
+} = Astro.props;
+const dimensions = src ? sourceImageDimensions[src] : undefined;
+---
+
+<img
+  {...imageProps}
+  src={src}
+  alt={alt}
+  class={className || htmlClass}
+  width={width ?? dimensions?.width}
+  height={height ?? dimensions?.height}
+  loading={loading}
+  decoding={decoding}
+  fetchpriority={fetchPriority}
+/>

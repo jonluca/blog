@@ -60,7 +60,7 @@ export default async function Blog({ params }: Props) {
     notFound();
   }
 
-  const components = await getPostComponents(post.slug);
+  const components = getPostComponents(post.slug);
   const adjacent = getAdjacentPosts(post.slug);
   const canonicalUrl = postUrl(post.slug);
   const jsonLd = JSON.stringify({

@@ -1,0 +1,12 @@
+---
+import { DeferredWidget } from "../../../app/components/deferred-widget";
+
+interface Props {
+  file?: string;
+  id: string;
+}
+
+const { file, id } = Astro.props;
+---
+
+<DeferredWidget name="Gist" widgetProps={{ id, file }} client:visible />

@@ -1,0 +1,34 @@
+---
+import { POST_TIME_ZONE } from "../../app/posts/utils";
+
+interface Props {
+  date?: Date | string;
+}
+
+const { date } = Astro.props;
+const formattedTime = date
+  ? new Date(date).toLocaleTimeString("en-US", {
+      timeZone: POST_TIME_ZONE,
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: false,
+    })
+  : "";
+---
+
+<footer class="mt-4 flex flex-row flex-wrap items-start border-t border-dotted pt-4">
+  <div class="mr-4 mb-4">
+    <div class="max-w-[145px] overflow-hidden rounded">
+      <img
+        src="/images/mini-profile.webp"
+        alt="JonLuca"
+        width="145"
+        height="145"
+        loading="lazy"
+        decoding="async"
+        class="mx-auto block max-w-full"
+      />
+    </div>
+    <p class="m-0 my-2">JonLuca <span class="text-gray-400">at {formattedTime}</span></p>
+  </div>
+</footer>

@@ -1,0 +1,24 @@
+---
+import { slugifyHeading } from "../../../app/posts/headings";
+
+interface Props {
+  level: 1 | 2 | 3 | 4 | 5 | 6;
+}
+
+const { level } = Astro.props;
+const renderedHeading = await Astro.slots.render("default");
+const label = renderedHeading
+  .replace(/<[^>]*>/g, "")
+  .replaceAll("&amp;", "&")
+  .replaceAll("&quot;", '"')
+  .replaceAll("&#39;", "'");
+const slug = slugifyHeading(label);
+const Tag: any = `h${level}`;
+---
+
+<Tag id={slug} class="text-black font-bold">
+  <a href={`#${slug}`} class="anchor font-bold text-black" aria-label={`Link to section: ${label}`}>
+    <span aria-hidden="true">#</span>
+  </a>
+  <slot />
+</Tag>

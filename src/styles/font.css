@@ -1,0 +1,11 @@
+@font-face {
+  font-family: "GeistSans";
+  font-display: swap;
+  font-style: normal;
+  font-weight: 100 900;
+  src: url("/fonts/Geist-Variable.woff2") format("woff2");
+}
+
+html {
+  font-family: "GeistSans", Arial, sans-serif;
+}

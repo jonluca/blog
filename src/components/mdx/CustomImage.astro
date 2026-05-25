@@ -1,0 +1,79 @@
+---
+import { fileImageDimensions, sourceImageDimensions } from "../../../app/components/image-dimensions";
+
+interface Props {
+  alt?: string;
+  class?: string;
+  className?: string;
+  decoding?: "async" | "auto" | "sync";
+  fetchPriority?: "high" | "low" | "auto";
+  file?: string;
+  footnote?: string;
+  height?: number | string;
+  loading?: "eager" | "lazy";
+  src?: string;
+  style?: string | Record<string, string>;
+  width?: number | string;
+  [key: string]: unknown;
+}
+
+function resolveImageSource(src?: string, file?: string) {
+  if (src) {
+    return src;
+  }
+  if (!file) {
+    return undefined;
+  }
+
+  const url = new URL(file, "https://assets.jonlu.ca");
+  if (!/\.(gif|jpe?g|png|svg|webp)$/i.test(url.pathname)) {
+    url.pathname += ".png";
+  }
+  return url.href;
+}
+
+function serializeStyle(style?: string | Record<string, string>) {
+  if (!style || typeof style === "string") {
+    return style;
+  }
+
+  return Object.entries(style)
+    .map(([key, value]) => `${key.replace(/[A-Z]/g, (character) => `-${character.toLowerCase()}`)}: ${value}`)
+    .join("; ");
+}
+
+const {
+  alt,
+  class: htmlClass,
+  className,
+  decoding = "async",
+  fetchPriority,
+  file,
+  footnote,
+  height,
+  loading = "lazy",
+  src,
+  style,
+  width,
+  ...imageProps
+} = Astro.props;
+const resolvedSource = resolveImageSource(src, file);
+const dimensions = fileImageDimensions[file ?? ""] ?? (resolvedSource ? sourceImageDimensions[resolvedSource] : undefined);
+const containerClass = `centered-image-container ${className || htmlClass || ""}`.trim();
+---
+
+<div class={containerClass}>
+  <img
+    {...imageProps}
+    src={resolvedSource}
+    alt={alt || footnote || ""}
+    class="centered-image"
+    width={width ?? dimensions?.width}
+    height={height ?? dimensions?.height}
+    loading={loading}
+    decoding={decoding}
+    fetchpriority={fetchPriority}
+    style={serializeStyle(style)}
+  />
+</div>
+{footnote && <p class="footnote">{footnote}</p>}

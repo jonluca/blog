@@ -1,0 +1,45 @@
+---
+import CustomImage from "../components/mdx/CustomImage.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout path="/about" title="About" description="About JonLuca DeCaro">
+  <div class="text-page reading-column mb-8">
+    <h1 class="clear-both mt-0 mb-2 text-2xl leading-tight font-semibold uppercase">About</h1>
+    <div class="prose">
+      <p>
+        Hi! I'm JonLuca DeCaro. I currently work at <a href="https://openai.com" target="_blank" rel="noopener noreferrer">OpenAI</a>.
+        Prior to that, I was a founder of <a href="https://weights.com" target="_blank" rel="noopener noreferrer">Weights</a>.
+      </p>
+      <CustomImage
+        alt="San Diego, 2020"
+        footnote="San Diego, 2020"
+        src="/images/sandiego-1120.webp"
+        width={1120}
+        height={748}
+        loading="eager"
+        fetchPriority="high"
+      />
+      <h2>New here?</h2>
+      <p>
+        If you're new here, these three posts are a good place to start. They're representative of what I like writing
+        about: technical rabbit holes, reverse engineering, product systems, and odd corners of the internet.
+      </p>
+      <ol>
+        <li>
+          <a href="/posts/illegal-streams?ref=about">Illegal streams, decrypting m3u8's, and building a better stream experience</a>
+          {" "} - A look at illegal sports streams, how they piggyback real services, and what it took to build a better viewing client.
+        </li>
+        <li>
+          <a href="/posts/deobfuscating-amex-scammer?ref=about">Obfuscated javascript, scam emails, and American Express</a>
+          {" "} - Reverse-engineering obfuscated JavaScript from scam emails and tracing the campaign back to its command-and-control server.
+        </li>
+        <li>
+          <a href="/posts/ryan-air?ref=about">Ryanair, Hamiltonian Cycles, and using graph theory to find cheap flights</a>
+          {" "} - Using graph theory to plan a cheap European trip through Ryanair's network, then turning the idea into a tool other people can use.
+        </li>
+      </ol>
+      <p>You can also <a href="/feed.xml">subscribe to the blog via RSS.</a></p>
+    </div>
+  </div>
+</BaseLayout>
