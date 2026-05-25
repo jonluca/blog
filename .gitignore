@@ -32,6 +32,9 @@ npm-debug.log*
 # vercel
 .vercel
 
+# cloudflare
+/.wrangler/
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
