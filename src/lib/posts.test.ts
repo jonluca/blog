@@ -1,47 +1,20 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { buildRssFeed, escapeXml } from "../rss";
-import { defaultSocialImagePath, postUrl, socialImageUrl } from "../site";
 import { slugifyHeading } from "./headings";
-import { formatDate, normalizeRedirectFrom, parsePostDate, parsePostSource, type Post } from "./utils";
+import { formatDate, normalizeRedirectFrom, parsePostDate } from "./post-metadata";
+import type { Post } from "./posts";
+import { buildRssFeed, escapeXml } from "./rss";
+import { defaultSocialImagePath, postUrl, socialImageUrl } from "./site";
 import { validatePostWidgetUsage } from "./widget-config";
 
-test("parses and validates normalized post metadata", () => {
-  const parsed = parsePostSource(
-    `---
-title: Test Post
-date: 2023-06-26 12:26:53 -0400
-description: A useful description.
-image: /images/test.png
-redirect_from:
-  - /posts/old-test
----
-
-## One
-
-Text.`,
-    "test.mdx",
-  );
-
-  assert.equal(parsed.metadata.title, "Test Post");
-  assert.equal(parsed.metadata.description, "A useful description.");
-  assert.equal(parsed.metadata.date.toISOString(), "2023-06-26T16:26:53.000Z");
-  assert.deepEqual(parsed.metadata.redirectFrom, ["/posts/old-test"]);
-});
-
-test("parses timezone-less post dates as Pacific time", () => {
-  const summerPost = parsePostSource("---\ntitle: Summer\ndate: 2021-08-08 14:06:09\ndescription: A useful description.\n---\nText");
-
-  assert.equal(summerPost.metadata.date.toISOString(), "2021-08-08T21:06:09.000Z");
-  assert.equal(parsePostDate("2026-02-01 20:34:03").toISOString(), "2026-02-02T04:34:03.000Z");
+test("normalizes post dates and redirects", () => {
+  assert.equal(parsePostDate("2023-06-26 12:26:53 -0400").toISOString(), "2023-06-26T16:26:53.000Z");
+  assert.equal(parsePostDate("2021-08-08 14:06:09").toISOString(), "2021-08-08T21:06:09.000Z");
+  assert.deepEqual(normalizeRedirectFrom(["/posts/old-test/"]), ["/posts/old-test"]);
 });
 
 test("formats authored dates in Pacific time on any build server", () => {
   assert.equal(formatDate(new Date("2026-05-24T01:20:00.000Z")), "May 23, 2026");
-});
-
-test("rejects incomplete or invalid published metadata", () => {
-  assert.throws(() => parsePostSource("---\ntitle: Missing description\ndate: 2024-01-01\n---\nText"), /description/);
   assert.throws(() => parsePostDate("not-a-date"), /valid date/);
   assert.throws(() => normalizeRedirectFrom(["/blog/old-post"]), /must match/);
 });
@@ -58,15 +31,14 @@ test("generates rendered heading anchor slugs", () => {
 });
 
 test("escapes feed content and publishes canonical item URLs", () => {
-  const post: Post = {
-    slug: "feed-test",
-    content: "",
-    metadata: {
+  const post = {
+    id: "feed-test",
+    data: {
       title: "A & B",
       description: 'A <useful> "summary".',
       date: new Date("2025-01-01T00:00:00Z"),
     },
-  };
+  } as Post;
   const feed = buildRssFeed([post]);
 
   assert.equal(escapeXml("A & B"), "A &amp; B");

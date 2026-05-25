@@ -9,8 +9,7 @@
 /coverage
 /.playwright-cli/
 
-# next.js
-/.next/
+# generated output
 /out/
 /.astro/
 
@@ -29,12 +28,8 @@ npm-debug.log*
 # env files
 .env
 
-# vercel
-.vercel
-
 # cloudflare
 /.wrangler/
 
 # typescript
 *.tsbuildinfo
-next-env.d.ts

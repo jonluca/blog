@@ -1,5 +1,101 @@
----
-import RyanairIsland from "./RyanairIsland";
----
+<section data-ryanair-app>
+  <p class="caption">
+    <button
+      type="button"
+      data-ryanair-start
+      class="cursor-pointer rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700 disabled:cursor-default disabled:opacity-70"
+    >
+      Warning - these graphs are computationally expensive. Viewing them will probably slow down your webpage for a few seconds. Click here to
+      start!
+    </button>
+  </p>
+  <div class="ryanair-graph blacked-background" data-all-airports role="img" aria-label="Graph of Ryanair airport routes">
+    <div class="to-remove">Click Start Above</div>
+  </div>
 
-<RyanairIsland client:load />
+  <p>
+    We could now visualize a graph of every airport and its destinations. This was significantly more than I was expecting - the graph is almost
+    unusable there are so many connections (there are 4223 edges!). We'd need to filter this more to remove all airports that did not satisfy our
+    conditions.
+  </p>
+  <div class="ryanair-graph blacked-background" data-berlin-connections role="img" aria-label="Graph of flight connections from Berlin Schonefeld">
+    <div class="to-remove">Click Start Above</div>
+  </div>
+  <p>
+    This is a graph that only shows outgoing connections from <code>SXF</code>, Berlin Schonefeld. However, this shows us destinations that might
+    not connect to <code>TSF</code>. We want a list of potential cities that are reachable from Berlin and will fly to <code>TSF</code>, Venice
+    Treviso.
+  </p>
+  <div class="ryanair-graph blacked-background" data-valid-connections role="img" aria-label="Graph of routes that can return to Venice Treviso">
+    <div class="to-remove">Click Start Above</div>
+  </div>
+  <p>
+    And there we have our graph! All valid connections that go <code>TSF -&gt; SXF -&gt; ??? -&gt; TSF</code>. Any path in the graph above lets
+    us return to <code>TSF</code>, so a depth-first search can compute the full path to every node.
+  </p>
+  <p class="caption">
+    <button
+      type="button"
+      data-ryanair-dfs
+      disabled
+      class="rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700 disabled:cursor-default disabled:opacity-70"
+    >
+      Start DFS
+    </button>
+  </p>
+  <section data-ryanair-path hidden>
+    <h3>Path</h3>
+    <ul data-ryanair-path-list></ul>
+  </section>
+
+  <h2 id="deciding-on-cities" class="font-semibold text-black">Deciding on cities</h2>
+  <p>
+    The graphs above are a cool visual representation, but our end goal is really just a list of possible voyages - something like
+    <code>TSF -&gt; SXF -&gt; MLA -&gt; TSF</code>. The full list is here:
+  </p>
+  <ul>
+    <li>AGP - Malaga, Spain</li>
+    <li>BRI - Bari, Italy</li>
+    <li>BRU - Brussels, Belgium</li>
+    <li>BUD - Budapest, Hungary</li>
+    <li>CGN - Cologne, Germany</li>
+    <li>CTA - Catania, Italy</li>
+    <li>DUB - Dublin, Ireland</li>
+    <li>EDI - Edinburgh, United Kingdom</li>
+    <li>EMA - East Midlands, United Kingdom</li>
+    <li>KRK - Krakow, Poland</li>
+    <li>LPA - Gran Canaria, Spain</li>
+    <li>MAN - Manchester, United Kingdom</li>
+    <li>MLA - Malta, Malta</li>
+    <li>OPO - Porto, Portugal</li>
+    <li>PMO - Palermo, Italy</li>
+    <li>RAK - Marrakesh, Morocco</li>
+    <li>SOF - Sofia, Bulgaria</li>
+    <li>STN - London Stansted, United Kingdom</li>
+    <li>SVQ - Seville, Spain</li>
+    <li>SXF - Berlin Schonefeld, Germany</li>
+    <li>TFS - Tenerife South, Spain</li>
+    <li>VLC - Valencia, Spain</li>
+    <li>VNO - Vilnius, Lithuania</li>
+  </ul>
+</section>
+
+<script>
+  const ryanairWidget = document.querySelector<HTMLElement>("[data-ryanair-app]:not([data-loaded])");
+  const startButton = ryanairWidget?.querySelector<HTMLButtonElement>("[data-ryanair-start]");
+
+  startButton?.addEventListener(
+    "click",
+    async () => {
+      if (!ryanairWidget) {
+        return;
+      }
+      startButton.disabled = true;
+      startButton.textContent = "Loading route graphs...";
+      const { initializeRyanairGraphs } = await import("../../scripts/ryanair");
+      initializeRyanairGraphs(ryanairWidget);
+      ryanairWidget.dataset.loaded = "true";
+      startButton.textContent = "Graphs loaded. Use the controls below to explore routes.";
+    },
+    { once: true },
+  );

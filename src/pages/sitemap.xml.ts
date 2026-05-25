@@ -1,11 +1,11 @@
-import { getBlogPosts } from "../../app/posts/utils";
+import { getBlogPosts } from "../lib/posts";
 import { absoluteUrl, postUrl } from "../lib/site";
 import { escapeXml } from "../lib/rss";
 
-export function GET() {
+export async function GET() {
   const routes = ["/", "/about", "/contact", "/interesting-snippets"].map((route) => `<url><loc>${absoluteUrl(route)}</loc></url>`);
-  const posts = getBlogPosts().map(
-    (post) => `<url><loc>${postUrl(post.slug)}</loc><lastmod>${post.metadata.date.toISOString()}</lastmod></url>`,
+  const posts = (await getBlogPosts()).map(
+    (post) => `<url><loc>${postUrl(post.id)}</loc><lastmod>${post.data.date.toISOString()}</lastmod></url>`,
   );
   const urls = [...routes, ...posts].map(escapeXmlSafely).join("");
 

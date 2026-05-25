@@ -6,7 +6,7 @@ interface Dimensions {
   height: number;
 }
 
-const outputPath = "app/components/image-dimensions.ts";
+const outputPath = "src/lib/image-dimensions.ts";
 const imageExtension = /\.(gif|jpe?g|png|svg|webp)$/i;
 
 function collectMatches(contents: string, pattern: RegExp) {
@@ -128,7 +128,7 @@ function formatMap(name: string, dimensions: Map<string, Dimensions>) {
 }
 
 async function main() {
-  const sourceFiles = await glob(["app/about/page.tsx", "app/interesting-snippets/page.tsx", "app/posts/posts/*.mdx"]);
+  const sourceFiles = await glob(["src/pages/about.astro", "src/content/interesting-snippets.mdx", "src/content/posts/*.mdx"]);
   const contents = (await Promise.all(sourceFiles.map((file) => readFile(file, "utf8")))).join("\n");
   const renderedContents = contents.replaceAll(/```[\s\S]*?```/g, "");
   const files = collectMatches(renderedContents, /<(?:CustomImage|Image)\b[^>]*?\bfile=(?:"([^"]+)"|'([^']+)')/gs);

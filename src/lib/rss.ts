@@ -1,20 +1,20 @@
-import { getSortedBlogPosts, type Post } from "../../app/posts/utils";
+import type { Post } from "./posts";
 import { absoluteUrl, postUrl, siteDescription, siteName, siteUrl } from "./site";
 
 export function escapeXml(value: string) {
   return value.replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll('"', "&quot;").replaceAll("'", "&apos;");
 }
 
-export function buildRssFeed(posts: Post[] = getSortedBlogPosts()) {
+export function buildRssFeed(posts: readonly Post[]) {
   const itemsXml = posts
     .map((post) => {
-      const url = postUrl(post.slug);
+      const url = postUrl(post.id);
       return `<item>
-        <title>${escapeXml(post.metadata.title)}</title>
+        <title>${escapeXml(post.data.title)}</title>
         <link>${url}</link>
         <guid isPermaLink="true">${url}</guid>
-        <description>${escapeXml(post.metadata.description)}</description>
-        <pubDate>${post.metadata.date.toUTCString()}</pubDate>
+        <description>${escapeXml(post.data.description)}</description>
+        <pubDate>${post.data.date.toUTCString()}</pubDate>
       </item>`;
     })
     .join("\n");
@@ -31,8 +31,10 @@ export function buildRssFeed(posts: Post[] = getSortedBlogPosts()) {
 </rss>`;
 }
 
-export function generateRssFeed() {
-  return new Response(buildRssFeed(), {
+export async function generateRssFeed() {
+  const { getSortedBlogPosts } = await import("./posts");
+
+  return new Response(buildRssFeed(await getSortedBlogPosts()), {
     headers: {
       "Content-Type": "application/rss+xml; charset=utf-8",
     },

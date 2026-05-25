@@ -1,5 +1,5 @@
 import { generateRssFeed } from "../lib/rss";
 
-export function GET() {
+export async function GET() {
   return generateRssFeed();
 }

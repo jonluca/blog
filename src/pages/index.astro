@@ -1,9 +1,9 @@
 ---
-import { getSortedBlogPosts } from "../../app/posts/utils";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { getSortedBlogPosts } from "../lib/posts";
 import { author, siteDescription, siteName, siteUrl } from "../lib/site";
 
-const allPosts = getSortedBlogPosts();
+const allPosts = await getSortedBlogPosts();
 const latest = allPosts[0];
 const jsonLd = JSON.stringify({
   "@context": "https://schema.org",
@@ -34,12 +34,12 @@ const jsonLd = JSON.stringify({
       <section aria-labelledby="latest-post">
         <p class="mb-3 text-sm tracking-wider text-neutral-500 uppercase">Latest</p>
         <h2 id="latest-post" class="mb-2 text-2xl font-semibold">
-          <a href={`/posts/${latest.slug}`}>{latest.metadata.title}</a>
+          <a href={`/posts/${latest.id}`}>{latest.data.title}</a>
         </h2>
-        <time class="text-sm text-neutral-500" datetime={latest.metadata.date.toISOString()}>
-          {latest.metadata.date.toLocaleString("en-US", { timeZone: "America/Los_Angeles", month: "short", day: "numeric", year: "numeric" })}
+        <time class="text-sm text-neutral-500" datetime={latest.data.date.toISOString()}>
+          {latest.data.date.toLocaleString("en-US", { timeZone: "America/Los_Angeles", month: "short", day: "numeric", year: "numeric" })}
         </time>
-        <p class="mt-4 max-w-[68ch] leading-relaxed text-black">{latest.metadata.description}</p>
+        <p class="mt-4 max-w-[68ch] leading-relaxed text-black">{latest.data.description}</p>
       </section>
 
       <section aria-labelledby="archive">
@@ -47,10 +47,10 @@ const jsonLd = JSON.stringify({
         <div class="flex flex-col">
           {
             allPosts.map((post) => (
-              <a class="archive-row" href={`/posts/${post.slug}`}>
-                <span class="text-[#244ebc]">{post.metadata.title}</span>
-                <time class="text-sm text-[#737373] uppercase sm:text-right" datetime={post.metadata.date.toISOString()}>
-                  {post.metadata.date.toLocaleString("en-US", {
+              <a class="archive-row" href={`/posts/${post.id}`}>
+                <span class="text-[#244ebc]">{post.data.title}</span>
+                <time class="text-sm text-[#737373] uppercase sm:text-right" datetime={post.data.date.toISOString()}>
+                  {post.data.date.toLocaleString("en-US", {
                     timeZone: "America/Los_Angeles",
                     month: "short",
                     day: "numeric",

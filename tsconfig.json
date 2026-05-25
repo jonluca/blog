@@ -13,13 +13,9 @@
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "react-jsx",
-    "paths": {
-      "app/*": ["./app/*"]
-    },
     "incremental": true,
     "strictNullChecks": true
   },
-  "include": ["src/env.d.ts", "**/*.astro", "**/*.ts", "**/*.tsx"],
+  "include": ["src/env.d.ts", "**/*.astro", "**/*.ts"],
   "exclude": ["node_modules", "dist", "out"]
 }

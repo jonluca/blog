@@ -1,5 +1,37 @@
----
-import { DeferredWidget } from "../../../app/components/deferred-widget";
----
+<section data-information-graph>
+  <div class="graph" data-information-animation role="img" aria-label="Animated graph demonstrating breadth-first traversal between information clusters"></div>
+  <button
+    type="button"
+    data-information-start
+    disabled
+    class="cursor-pointer rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700 disabled:cursor-default disabled:opacity-70"
+  >
+    Start Animation
+  </button>
+</section>
 
-<DeferredWidget name="InformationGraph" client:visible />
+<script>
+  const graphWidget = document.querySelector<HTMLElement>("[data-information-graph]:not([data-loaded])");
+
+  if (graphWidget) {
+    const loadGraph = async () => {
+      graphWidget.dataset.loaded = "true";
+      const { initializeInformationGraphs } = await import("../../scripts/information-graph");
+      initializeInformationGraphs(graphWidget);
+    };
+
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          if (entries.some((entry) => entry.isIntersecting)) {
+            observer.disconnect();
+            void loadGraph();
+          }
+        },
+        { rootMargin: "200px" },
+      );
+      observer.observe(graphWidget);
+    } else {
+      void loadGraph();
+    }
+  }

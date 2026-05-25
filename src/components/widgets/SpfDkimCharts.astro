@@ -1,5 +1,27 @@
----
-import { DeferredWidget } from "../../../app/components/deferred-widget";
----
+<div data-spf-dkim-charts aria-hidden="true"></div>
 
-<DeferredWidget name="SpfDkimCharts" client:visible />
+<script>
+  const chartsMarker = document.querySelector<HTMLElement>("[data-spf-dkim-charts]:not([data-loaded])");
+
+  if (chartsMarker) {
+    const loadCharts = async () => {
+      chartsMarker.dataset.loaded = "true";
+      const { initializeSpfDkimCharts } = await import("../../scripts/spf-dkim-charts");
+      initializeSpfDkimCharts();
+    };
+
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          if (entries.some((entry) => entry.isIntersecting)) {
+            observer.disconnect();
+            void loadCharts();
+          }
+        },
+        { rootMargin: "300px" },
+      );
+      observer.observe(chartsMarker);
+    } else {
+      void loadCharts();
+    }
+  }
