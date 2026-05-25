@@ -89,12 +89,14 @@ export function initializeInformationGraphs(widget: HTMLElement) {
   const overview = document.getElementById("cy");
   const animated = widget.querySelector<HTMLElement>("[data-information-animation]");
   const button = widget.querySelector<HTMLButtonElement>("[data-information-start]");
-  if (!overview || !animated || !button) {
+  if (!animated || !button) {
     return;
   }
 
   const nodes = buildNodes();
-  createGraph(overview, nodes);
+  if (overview) {
+    createGraph(overview, nodes);
+  }
   let animatedGraph = createGraph(animated, nodes);
 
   button.disabled = false;

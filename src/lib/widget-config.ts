@@ -1,4 +1,4 @@
-export const widgetUsage: Record<string, readonly string[]> = {
+const widgetUsage: Record<string, readonly string[]> = {
   "ca-plate-checker": ["Gist"],
   clock: ["ClockContent"],
   information: ["Information", "InformationGraph"],

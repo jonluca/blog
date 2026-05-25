@@ -12,7 +12,7 @@ export function absoluteUrl(pathOrUrl: string) {
   return new URL(pathOrUrl, `${siteUrl}/`).toString();
 }
 
-export function postPath(slug: string) {
+function postPath(slug: string) {
   return `/posts/${slug}`;
 }
 
