@@ -62,18 +62,6 @@ const staticSiteScripts = `
     }
 
     runWhenIdle(function () {
-      window.dataLayer = window.dataLayer || [];
-      window.gtag = function () { window.dataLayer.push(arguments); };
-      window.gtag("js", new Date());
-      window.gtag("config", "G-L7B5KF4CGL");
-
-      var googleScript = document.createElement("script");
-      googleScript.async = true;
-      googleScript.src = "https://www.googletagmanager.com/gtag/js?id=G-L7B5KF4CGL";
-      document.head.appendChild(googleScript);
-    });
-
-    runWhenIdle(function () {
       var endpoint = "https://j.jonlu.ca/js/";
       var queue = window._paq = window._paq || [];
       queue.push(["setTrackerUrl", endpoint]);
