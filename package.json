@@ -10,7 +10,7 @@
     "knip": "knip",
     "test": "tsx --test src/lib/*.test.ts",
     "build": "astro build",
-    "deploy": "pnpm build && wrangler deploy --config wrangler.jsonc",
+    "deploy": "pnpm build && wrangler pages deploy out --project-name blog",
     "start": "astro preview",
     "images:sync": "tsx scripts/generate-image-dimensions.ts",
     "upload:file": "tsx scripts/upload-asset.ts"
