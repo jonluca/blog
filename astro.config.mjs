@@ -11,6 +11,8 @@ export default defineConfig({
   },
   build: {
     format: "file",
+    // Avoid a render-blocking request for the site's single compact stylesheet.
+    inlineStylesheets: "always",
   },
   integrations: [mdx()],
   vite: {
