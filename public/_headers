@@ -1,2 +1,17 @@
-/_next/static/*
+# Astro/Vite build assets are content-hashed.
+/_astro/*
   Cache-Control: public, max-age=31556952, immutable
+
+# Rename the font file when replacing it so cached copies are invalidated.
+/fonts/*
+  Cache-Control: public, max-age=31556952, immutable
+
+# Public media is not hashed, so allow it to refresh while keeping repeat visits fast.
+/images/*
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+/fav/*
+  Cache-Control: public, max-age=604800, stale-while-revalidate=2592000
+
+/slick/*
+  Cache-Control: public, max-age=604800, stale-while-revalidate=2592000

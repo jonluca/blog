@@ -10,12 +10,12 @@
     "knip": "knip",
     "test": "tsx --test src/lib/*.test.ts",
     "build": "astro build",
+    "deploy": "pnpm build && wrangler deploy",
     "start": "astro preview",
     "images:sync": "tsx scripts/generate-image-dimensions.ts",
     "upload:file": "tsx scripts/upload-asset.ts"
   },
   "dependencies": {
-    "@astrojs/cloudflare": "^13.5.4",
     "@astrojs/mdx": "^5.0.6",
     "@aws-sdk/client-s3": "^3.1053.0",
     "@tailwindcss/postcss": "4.3.0",
