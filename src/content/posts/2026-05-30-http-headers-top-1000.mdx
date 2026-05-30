@@ -12,21 +12,9 @@ For each domain I hit the root page, then one same-origin internal page when I c
 
 ## The dataset
 
-The crawl produced:
+Of the 1,000 domains I attempted, 417 returned clean pages I could analyze; the rest were WAFs, bot walls, or challenge pages I dropped. Those clean sites sent 677 distinct header names, and 619 of them aren't in the IANA HTTP Field Name Registry.
 
-| metric | count |
-| --- | ---: |
-| Top 1,000 domains by traffic attempted | 1,000 |
-| Page-result rows | 1,294 |
-| Clean eligible sites | 417 |
-| Clean eligible responses | 696 |
-| Likely WAF/challenge responses | 330 |
-| Distinct header names on eligible responses | 677 |
-| Header names not in the IANA registry | 619 |
-
-That last number needs a caveat. All "not in IANA" means is that the name isn't in the HTTP Field Name Registry. The web runs on standards, but it also runs on convention, vendor prefixes, CDN metadata, and whatever someone shipped five years ago that still works.
-
-Still, 619 of 677 is a useful reminder. Learn only the standardized headers and you'll have the formal grammar of the web while missing the dialect anyone actually speaks.
+All "not in IANA" means is that the name isn't registered. The web runs on standards, but it also runs on convention, vendor prefixes, CDN metadata, and whatever someone shipped five years ago that still works. Learn only the standardized headers and you'll have the formal grammar of the web while missing the dialect anyone actually speaks.
 
 ## X- headers are not dead
 
@@ -92,24 +80,6 @@ Plenty of sites have good reasons to skip some of these, so read the table as a 
 
 The spread still tells a story. HSTS is now normal. CSP is common but not yet universal. The newer cross-origin isolation headers remain rare. Browser security is a stack of migrations, and most migrations never finish.
 
-## Cookies are still messy
-
-I redacted cookie values before writing anything to disk but kept enough metadata to count flags. Across 1,096 `Set-Cookie` headers in the eligible responses:
-
-| attribute | cookies with it | share |
-| --- | ---: | ---: |
-| `Secure` | 731 | 66.7% |
-| `HttpOnly` | 375 | 34.2% |
-| `SameSite` | 510 | 46.5% |
-| `Partitioned` | 23 | 2.1% |
-| `Priority` | 17 | 1.6% |
-
-The denominator matters here. Not every cookie needs every flag; a harmless preference cookie doesn't need `HttpOnly` if JavaScript is supposed to read it.
-
-Even so, the shape is clear. `Secure` rides two-thirds of cookies yet still falls short of automatic. `SameSite` has gone mainstream. `Partitioned` cookies sit at the bleeding edge of adoption.
-
-Headers show policy. Cookies show policy plus product pressure.
-
 ## Infrastructure leaks through
 
 Some headers act as status lights on the machines behind the page.
@@ -142,10 +112,36 @@ The biggest header block I saw belonged to `state.gov`, around 15.6 KB. The runn
 
 These are approximate, since the crawler redacts sensitive-looking values before analysis. The point holds: headers can grow into a real chunk of the response. The bulk usually comes from reporting endpoints, CSP directives, cookies, or CDN metadata. The body gets blamed for web bloat, but the prelude packs on weight too.
 
+## Some headers are just for fun
+
+A few headers in the crawl weren't metadata at all. Someone wrote them by hand.
+
+| header | value | site |
+| --- | --- | --- |
+| `x-clacks-overhead` | `GNU Terry Pratchett` | mozilla.org, debian.org |
+| `x-hacker` | a recruiting pitch (full text below) | wordpress.com |
+| `x-recruiting` | a recruiting pitch (full text below) | otto.de |
+| `x-launch-status` | `Go Flight!` | nasa.gov |
+| `x-olaf` | `⛄` | wordpress.org |
+| `x-ballmer` | `bff-section` | welt.de |
+| `x-frankenstein-eligible` | `true` | bloomberg.com |
+| `x-minion` | `Varnish` | washington.edu |
+| `x-asdf` | `l-70` | ivi.ru |
+
+The best one is `x-clacks-overhead`. Mozilla, Firefox, Ubuntu, and Debian all send `GNU Terry Pratchett`, a tribute to the author that started as a fan project and never stopped. It does nothing. That's the point.
+
+Automattic uses headers to recruit. WordPress.com sends `x-hacker: Want root? Visit join.a8c.com/hacker and mention this header.`, and TechCrunch carries a VIP variant pointing at `join.a8c.com/viphacker`. The German retailer Otto runs the same play with `x-recruiting`: "Seems you like http headers. To write ours, apply at www.otto.de/jobs/ and mention this header."
+
+NASA sends `x-launch-status: Go Flight!`. WordPress.org sends `x-olaf: ⛄`, a snowman.
+
+Others are internal names that escaped. Welt.de has an `x-ballmer`. Bloomberg has `x-frankenstein-eligible`. The University of Washington calls its Varnish cache `x-minion`. Fox News and WPS ship `x-debug-*` headers straight to production, and Xerox leaks its whole feature-flag list through a stack of `rollout-*` headers that quietly admit it runs Remix on Contentful.
+
+Headers are where the web keeps its inside jokes.
+
 ## A protocol, plus sediment
 
 The clean mental model of HTTP is a request, a response, and a small set of standard fields. The real web is messier, and better for it.
 
-It carries standardized headers and de facto CDN headers, knobs for browsers that barely exist, cache gossip, security policies stuck halfway through adoption, cookies encoding years of platform churn, and infrastructure quietly naming itself.
+It carries standardized headers and de facto CDN headers, knobs for browsers that barely exist, cache gossip, security policies stuck halfway through adoption, infrastructure quietly naming itself, and the occasional snowman.
 
 That's why headers are worth reading. They're the receipt, and the receipt says the web is still alive, still migrating, and still hauling a lot of old furniture from apartment to apartment.
