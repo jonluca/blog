@@ -2,3 +2,8 @@ allowBuilds:
   esbuild: true
   sharp: true
   workerd: true
+minimumReleaseAgeExclude:
+  - '@aws-sdk/client-s3@3.1057.0'
+  - '@aws-sdk/credential-provider-ini@3.972.46'
+  - '@aws-sdk/credential-provider-node@3.972.47'
+  - '@smithy/credential-provider-imds@4.3.6'
