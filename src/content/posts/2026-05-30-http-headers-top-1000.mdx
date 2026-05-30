@@ -1,0 +1,151 @@
+---
+title: "HTTP Headers Are the Web's Junk Drawer"
+date: 2026-05-30 12:33:57 -0700
+description: "What HTTP response headers reveal about browser fossils, CDNs, cookies, and the messy operational layer of the modern web."
+---
+
+HTML is what a site shows you. JavaScript is what it does. Headers are what it can't help telling you.
+
+They leak the habits of the machinery underneath: CDNs, frameworks, caches, security controls, dead browser workarounds, migration scars, and bits of infrastructure that were meant to be temporary and never left. I thought it would be interesting to see what unique or non-standard headers the most popular sites on the internet were serving, so I crawled the top 1,000 domains by traffic and saved their response headers.
+
+For each domain I hit the root page, then one same-origin internal page when I could find one safely. I used a browser-like HTTP client and retried likely challenge pages once with Playwright. If a response still looked like a WAF, a bot wall, or an access-denied page, I logged it and dropped it from the stats so they wouldn't skew the header counts.
+
+## The dataset
+
+The crawl produced:
+
+| metric | count |
+| --- | ---: |
+| Top 1,000 domains by traffic attempted | 1,000 |
+| Page-result rows | 1,294 |
+| Clean eligible sites | 417 |
+| Clean eligible responses | 696 |
+| Likely WAF/challenge responses | 330 |
+| Distinct header names on eligible responses | 677 |
+| Header names not in the IANA registry | 619 |
+
+That last number needs a caveat. All "not in IANA" means is that the name isn't in the HTTP Field Name Registry. The web runs on standards, but it also runs on convention, vendor prefixes, CDN metadata, and whatever someone shipped five years ago that still works.
+
+Still, 619 of 677 is a useful reminder. Learn only the standardized headers and you'll have the formal grammar of the web while missing the dialect anyone actually speaks.
+
+## X- headers are not dead
+
+The old rule was simple: if a header was private, experimental, or implementation-specific, prefix it with `X-`. We've discouraged that for years. The web never read the memo.
+
+The most common non-IANA headers in the crawl:
+
+| header | sites |
+| --- | ---: |
+| `x-xss-protection` | 178 |
+| `x-cache` | 147 |
+| `x-amz-cf-id` | 78 |
+| `x-amz-cf-pop` | 78 |
+| `x-served-by` | 53 |
+| `x-cache-hits` | 52 |
+| `report-to` | 49 |
+
+Most of these earn their place. `x-amz-cf-id` and `x-amz-cf-pop` are CloudFront breadcrumbs. `x-served-by` shows up on Fastly-backed sites. `x-cache` is often the fastest way to tell whether an edge response was hot, cold, stale, or stranger than that.
+
+The interesting one is `x-xss-protection`. It toggles a browser XSS filter that Chromium ripped out years ago. It appeared on 178 sites, more than 42% of the clean set. Many send `0` to disable the filter. Others still send `1; mode=block`, as if the browser were a museum exhibit that might wake up and start enforcing 2012-era security policy.
+
+Headers outlive their usefulness and settle into sediment.
+
+## Browser fossils
+
+The crawl turned up a whole fossil bed:
+
+| header | sites | note |
+| --- | ---: | --- |
+| `x-xss-protection` | 178 | Chrome's old XSS auditor switch |
+| `pragma` | 84 | deprecated, but still used for cache control |
+| `p3p` | 24 | compact privacy policies for old Internet Explorer cookie behavior |
+| `x-ua-compatible` | 13 | Internet Explorer document-mode hint |
+| `expect-ct` | 6 | certificate transparency enforcement, now deprecated |
+| `feature-policy` | 6 | predecessor to `Permissions-Policy` |
+| `content-md5` | 2 | obsoleted integrity header |
+
+`P3P` is my favorite. It's a privacy-policy header from the early 2000s, remembered mostly because setting *any* plausible-looking value could talk old IE into accepting third-party cookies. One value in the crawl is exactly the kind of thing you hope to dig up:
+
+```text
+CP="This is not a P3P policy! See g.co/p3phelp for more info."
+```
+
+The header is obsolete. The scar tissue stays.
+
+## Security headers are uneven
+
+Among the 417 eligible sites, adoption of common browser security headers ranged widely:
+
+| header | sites | share |
+| --- | ---: | ---: |
+| `strict-transport-security` | 270 | 64.7% |
+| `x-frame-options` | 214 | 51.3% |
+| `content-security-policy` | 194 | 46.5% |
+| `referrer-policy` | 105 | 25.2% |
+| `permissions-policy` | 63 | 15.1% |
+| `cross-origin-opener-policy` | 45 | 10.8% |
+| `cross-origin-resource-policy` | 28 | 6.7% |
+| `cross-origin-embedder-policy` | 2 | 0.5% |
+| `clear-site-data` | 0 | 0.0% |
+
+Plenty of sites have good reasons to skip some of these, so read the table as a map rather than a scorecard. `COEP` breaks the moment you embed a third-party resource. `Clear-Site-Data` is a sharp tool.
+
+The spread still tells a story. HSTS is now normal. CSP is common but not yet universal. The newer cross-origin isolation headers remain rare. Browser security is a stack of migrations, and most migrations never finish.
+
+## Cookies are still messy
+
+I redacted cookie values before writing anything to disk but kept enough metadata to count flags. Across 1,096 `Set-Cookie` headers in the eligible responses:
+
+| attribute | cookies with it | share |
+| --- | ---: | ---: |
+| `Secure` | 731 | 66.7% |
+| `HttpOnly` | 375 | 34.2% |
+| `SameSite` | 510 | 46.5% |
+| `Partitioned` | 23 | 2.1% |
+| `Priority` | 17 | 1.6% |
+
+The denominator matters here. Not every cookie needs every flag; a harmless preference cookie doesn't need `HttpOnly` if JavaScript is supposed to read it.
+
+Even so, the shape is clear. `Secure` rides two-thirds of cookies yet still falls short of automatic. `SameSite` has gone mainstream. `Partitioned` cookies sit at the bleeding edge of adoption.
+
+Headers show policy. Cookies show policy plus product pressure.
+
+## Infrastructure leaks through
+
+Some headers act as status lights on the machines behind the page.
+
+| header | sites | what it reveals |
+| --- | ---: | --- |
+| `server` | 303 | server or gateway family |
+| `x-cache` | 147 | cache state |
+| `via` | 146 | proxy/CDN path |
+| `x-served-by` | 53 | edge node or cache layer |
+| `x-powered-by` | 47 | framework or runtime |
+| `x-request-id` | 31 | request tracing |
+| `x-generator` | 7 | CMS or static-site generator |
+
+Some `Server` values are dull: `nginx`, `cloudflare`, `gws`, `AkamaiGHost`. Others say more. The crawl found `Express`, `Next.js`, `ASP.NET`, and Drupal generator strings scattered around.
+
+On its own, most of this is harmless operational metadata. But an outsider can use it to cluster sites by stack, host, CDN, framework, and sometimes deployment shape. The public web ships a lot of public implementation detail.
+
+## The largest headers were genuinely large
+
+The biggest header block I saw belonged to `state.gov`, around 15.6 KB. The runners-up were big enough to notice:
+
+| domain | page | approximate header bytes |
+| --- | --- | ---: |
+| `state.gov` | root | 15,622 |
+| `state.gov` | internal | 15,620 |
+| `eset.com` | internal | 12,819 |
+| `mixpanel.com` | internal | 12,554 |
+| `cursor.sh` | root | 11,702 |
+
+These are approximate, since the crawler redacts sensitive-looking values before analysis. The point holds: headers can grow into a real chunk of the response. The bulk usually comes from reporting endpoints, CSP directives, cookies, or CDN metadata. The body gets blamed for web bloat, but the prelude packs on weight too.
+
+## A protocol, plus sediment
+
+The clean mental model of HTTP is a request, a response, and a small set of standard fields. The real web is messier, and better for it.
+
+It carries standardized headers and de facto CDN headers, knobs for browsers that barely exist, cache gossip, security policies stuck halfway through adoption, cookies encoding years of platform churn, and infrastructure quietly naming itself.
+
+That's why headers are worth reading. They're the receipt, and the receipt says the web is still alive, still migrating, and still hauling a lot of old furniture from apartment to apartment.
