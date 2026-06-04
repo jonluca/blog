@@ -18,6 +18,12 @@ export interface AdjacentPosts {
   older?: Post;
 }
 
+export interface PostRedirect {
+  from: string;
+  status: 301;
+  to: string;
+}
+
 export async function getBlogPosts(): Promise<Post[]> {
   const posts = (await getCollection("posts")) as Post[];
 
@@ -32,8 +38,42 @@ export async function getSortedBlogPosts(): Promise<Post[]> {
   return (await getBlogPosts()).sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 }
 
-export function getPostSlugs(post: Post) {
-  return [post.id, ...(post.data.redirectFrom || []).map((redirect) => redirect.replace(/^\/posts\//, ""))];
+export function getPostPath(post: Post) {
+  return `/posts/${post.id}`;
+}
+
+export function getPostRedirects(posts: readonly Post[]): PostRedirect[] {
+  const canonicalPaths = new Set(posts.map(getPostPath));
+  const redirectsBySource = new Map<string, string>();
+  const redirects: PostRedirect[] = [];
+
+  for (const post of posts) {
+    const to = getPostPath(post);
+
+    for (const from of post.data.redirectFrom || []) {
+      if (from === to) {
+        throw new Error(`post "${post.id}" redirects from its canonical path`);
+      }
+
+      if (canonicalPaths.has(from)) {
+        throw new Error(`post "${post.id}" redirect "${from}" conflicts with a canonical post path`);
+      }
+
+      const existingTarget = redirectsBySource.get(from);
+      if (existingTarget) {
+        if (existingTarget !== to) {
+          throw new Error(`redirect "${from}" points to both "${existingTarget}" and "${to}"`);
+        }
+
+        continue;
+      }
+
+      redirectsBySource.set(from, to);
+      redirects.push({ from, to, status: 301 });
+    }
+  }
+
+  return redirects;
 }
 
 export function getAdjacentPosts(posts: readonly Post[], slug: string): AdjacentPosts {

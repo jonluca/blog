@@ -4,7 +4,7 @@ import Footer from "../../components/Footer.astro";
 import { mdxComponents } from "../../components/mdx/components";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { formatDate } from "../../lib/post-metadata";
-import { getAdjacentPosts, getPostSlugs, getSortedBlogPosts, type AdjacentPosts, type Post } from "../../lib/posts";
+import { getAdjacentPosts, getSortedBlogPosts, type AdjacentPosts, type Post } from "../../lib/posts";
 import { author, postUrl, siteName, siteUrl, socialImageUrl } from "../../lib/site";
 
 interface Props {
@@ -15,13 +15,13 @@ interface Props {
 export async function getStaticPaths() {
   const posts = await getSortedBlogPosts();
 
-  return posts.flatMap((post) => {
+  return posts.map((post) => {
     const adjacent = getAdjacentPosts(posts, post.id);
 
-    return getPostSlugs(post).map((slug) => ({
-      params: { slug },
+    return {
+      params: { slug: post.id },
       props: { adjacent, post },
-    }));
+    };
   });
 }
 

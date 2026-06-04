@@ -3,6 +3,7 @@ import test from "node:test";
 import { slugifyHeading } from "./headings";
 import { formatDate, normalizeRedirectFrom, parsePostDate } from "./post-metadata";
 import type { Post } from "./posts";
+import { buildCloudflareRedirects } from "./redirects";
 import { buildRssFeed, escapeXml } from "./rss";
 import { defaultSocialImagePath, postUrl, socialImageUrl } from "./site";
 import { validatePostWidgetUsage } from "./widget-config";
@@ -24,6 +25,13 @@ test("generates canonical post and social-image URLs", () => {
   assert.equal(socialImageUrl("/images/example.png"), "https://jonlu.ca/images/example.png");
   assert.equal(socialImageUrl("https://assets.jonlu.ca/example.png"), "https://assets.jonlu.ca/example.png");
   assert.equal(socialImageUrl(), `https://jonlu.ca${defaultSocialImagePath}`);
+});
+
+test("generates Cloudflare redirect rules for post aliases", () => {
+  assert.equal(
+    buildCloudflareRedirects([{ from: "/posts/old-slug", to: "/posts/new-slug", status: 301 }]),
+    "/posts/old-slug /posts/new-slug 301\n/posts/old-slug/ /posts/new-slug 301\n",
+  );
 });
 
 test("generates rendered heading anchor slugs", () => {
