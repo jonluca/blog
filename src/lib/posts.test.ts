@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { slugifyHeading } from "./headings";
+import { slugifyHeading, uniqueHeadingSlug } from "./headings";
 import { formatDate, normalizeRedirectFrom, parsePostDate } from "./post-metadata";
 import type { Post } from "./posts";
 import { buildCloudflareRedirects } from "./redirects";
@@ -36,6 +36,13 @@ test("generates Cloudflare redirect rules for post aliases", () => {
 
 test("generates rendered heading anchor slugs", () => {
   assert.equal(slugifyHeading("SPF & DKIM: Results"), "spf-and-dkim-results");
+});
+
+test("disambiguates repeated heading anchor slugs within a page", () => {
+  const page = {};
+  assert.equal(uniqueHeadingSlug("Top 100 Domains", page), "top-100-domains");
+  assert.equal(uniqueHeadingSlug("Top 100 Domains", page), "top-100-domains-1");
+  assert.equal(uniqueHeadingSlug("Top 100 Domains", {}), "top-100-domains");
 });
 
 test("escapes feed content and publishes canonical item URLs", () => {

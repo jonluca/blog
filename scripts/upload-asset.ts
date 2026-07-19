@@ -7,6 +7,7 @@ import { basename } from "path";
 
 // Hardcoded S3 bucket name
 const BUCKET_NAME = "assets";
+const PUBLIC_ASSET_ORIGIN = "https://assets.jonlu.ca";
 
 // AWS S3 client configuration
 const s3Client = new S3Client({
@@ -52,7 +53,7 @@ async function uploadFile(filePath: string): Promise<void> {
     console.log("✅ Upload successful!");
     console.log(`S3 Key: ${key}`);
     console.log(`ETag: ${response.ETag}`);
-    console.log(`URL: https://${BUCKET_NAME}.s3.amazonaws.com/${key}`);
+    console.log(`URL: ${PUBLIC_ASSET_ORIGIN}/${encodeURIComponent(key)}`);
   } catch (error) {
     if (error instanceof Error) {
       if (error.message.includes("ENOENT")) {

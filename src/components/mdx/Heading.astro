@@ -1,5 +1,5 @@
 ---
-import { slugifyHeading } from "../../lib/headings";
+import { uniqueHeadingSlug } from "../../lib/headings";
 
 interface Props {
   level: 1 | 2 | 3 | 4 | 5 | 6;
@@ -12,7 +12,7 @@ const label = renderedHeading
   .replaceAll("&amp;", "&")
   .replaceAll("&quot;", '"')
   .replaceAll("&#39;", "'");
-const slug = slugifyHeading(label);
+const slug = uniqueHeadingSlug(label, Astro.locals);
 const Tag: any = `h${level}`;
 ---
 
