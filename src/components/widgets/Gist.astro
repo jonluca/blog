@@ -29,9 +29,13 @@ const embedId = `${id}-${file || ""}`.replaceAll(/[^a-zA-Z0-9_-]/g, "-");
 <noscript><a href={url.toString()}>View {title}</a></noscript>
 
 <script>
-  const gistFrames = document.querySelectorAll<HTMLIFrameElement>("iframe[data-gist-src]:not([data-gist-ready])");
+  const gistFrames = document.querySelectorAll("iframe[data-gist-src]:not([data-gist-ready])");
 
-  const loadGist = (frame: HTMLIFrameElement) => {
+  const loadGist = (frame: Element) => {
+    if (!(frame instanceof HTMLIFrameElement)) {
+      return;
+    }
+
     frame.dataset.gistReady = "true";
     const url = JSON.stringify(frame.dataset.gistSrc);
     const id = JSON.stringify(frame.dataset.gistId);
@@ -52,22 +56,21 @@ const embedId = `${id}-${file || ""}`.replaceAll(/[^a-zA-Z0-9_-]/g, "-");
         new ResizeObserver(notify).observe(document.documentElement);
         window.addEventListener("load", notify);
       })();
-    <\/script>
-    <script src=${url}><\/script>
+    <${"/"}script>
+    <script src=${url}><${"/"}script>
   </body>
 </html>`;
   };
 
-  const gistWindow = window as Window & { gistResizeListenerInitialized?: boolean };
-  if (!gistWindow.gistResizeListenerInitialized) {
-    gistWindow.gistResizeListenerInitialized = true;
+  if (!document.documentElement.dataset.gistResizeListenerInitialized) {
+    document.documentElement.dataset.gistResizeListenerInitialized = "true";
     window.addEventListener("message", (event) => {
-      const data = event.data as { height?: unknown; id?: unknown; type?: unknown } | null;
+      const data = event.data;
       if (!data || data.type !== "jonluca-gist-height" || typeof data.id !== "string" || typeof data.height !== "number") {
         return;
       }
-      const frame = document.querySelector<HTMLIFrameElement>(`iframe[data-gist-id="${CSS.escape(data.id)}"]`);
-      if (frame?.contentWindow !== event.source || !Number.isFinite(data.height)) {
+      const frame = document.querySelector(`iframe[data-gist-id="${CSS.escape(data.id)}"]`);
+      if (!(frame instanceof HTMLIFrameElement) || frame.contentWindow !== event.source || !Number.isFinite(data.height)) {
         return;
       }
       frame.style.height = `${Math.min(600, Math.max(100, Math.ceil(data.height)))}px`;
@@ -80,7 +83,7 @@ const embedId = `${id}-${file || ""}`.replaceAll(/[^a-zA-Z0-9_-]/g, "-");
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             observer.unobserve(entry.target);
-            loadGist(entry.target as HTMLIFrameElement);
+            loadGist(entry.target);
           }
         });
       },
@@ -90,3 +93,4 @@ const embedId = `${id}-${file || ""}`.replaceAll(/[^a-zA-Z0-9_-]/g, "-");
   } else {
     gistFrames.forEach(loadGist);
   }
+</script>

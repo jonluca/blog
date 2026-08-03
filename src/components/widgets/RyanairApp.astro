@@ -81,21 +81,21 @@
 </section>
 
 <script>
-  const ryanairWidget = document.querySelector<HTMLElement>("[data-ryanair-app]:not([data-loaded])");
-  const startButton = ryanairWidget?.querySelector<HTMLButtonElement>("[data-ryanair-start]");
+  const ryanairWidget = document.querySelector("[data-ryanair-app]:not([data-loaded])");
+  const startButton = ryanairWidget?.querySelector("[data-ryanair-start]");
 
-  startButton?.addEventListener(
-    "click",
-    async () => {
-      if (!ryanairWidget) {
-        return;
-      }
-      startButton.disabled = true;
-      startButton.textContent = "Loading route graphs...";
-      const { initializeRyanairGraphs } = await import("../../scripts/ryanair");
-      initializeRyanairGraphs(ryanairWidget);
-      ryanairWidget.dataset.loaded = "true";
-      startButton.textContent = "Graphs loaded. Use the controls below to explore routes.";
-    },
-    { once: true },
-  );
+  if (ryanairWidget instanceof HTMLElement && startButton instanceof HTMLButtonElement) {
+    startButton.addEventListener(
+      "click",
+      async () => {
+        startButton.disabled = true;
+        startButton.textContent = "Loading route graphs...";
+        const { initializeRyanairGraphs } = await import("../../scripts/ryanair");
+        initializeRyanairGraphs(ryanairWidget);
+        ryanairWidget.dataset.loaded = "true";
+        startButton.textContent = "Graphs loaded. Use the controls below to explore routes.";
+      },
+      { once: true },
+    );
+  }
+</script>

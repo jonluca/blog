@@ -3,7 +3,9 @@ import { absoluteUrl, postUrl } from "../lib/site";
 import { escapeXml } from "../lib/rss";
 
 export async function GET() {
-  const routes = ["/", "/about", "/contact", "/interesting-snippets"].map((route) => `<url><loc>${absoluteUrl(route)}</loc></url>`);
+  const routes = ["/", "/about", "/contact", "/interesting-snippets", "/math"].map(
+    (route) => `<url><loc>${absoluteUrl(route)}</loc></url>`,
+  );
   const posts = (await getBlogPosts()).map(
     (post) => `<url><loc>${postUrl(post.id)}</loc><lastmod>${post.data.date.toISOString()}</lastmod></url>`,
   );

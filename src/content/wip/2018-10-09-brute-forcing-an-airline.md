@@ -156,4 +156,4 @@ This also would've been possible to do with BurpSuite and setting up Intruder, b
 
 Overall fairly successful for 10 minutes of work!
 
-Comments can be found on reddit, [here]()
+Comments can be found on reddit, [here](<>)

@@ -20,17 +20,17 @@ All "not in IANA" means is that the name isn't registered. The web runs on stand
 
 The crawl turned up a whole fossil bed:
 
-| header | sites | note |
-| --- | ---: | --- |
-| `x-xss-protection` | 178 | Chrome's old XSS auditor switch |
-| `pragma` | 84 | deprecated, but still used for cache control |
-| `p3p` | 24 | compact privacy policies for old Internet Explorer cookie behavior |
-| `x-ua-compatible` | 13 | Internet Explorer document-mode hint |
-| `expect-ct` | 6 | certificate transparency enforcement, now deprecated |
-| `feature-policy` | 6 | predecessor to `Permissions-Policy` |
-| `content-md5` | 2 | obsoleted integrity header |
+| header             | sites | note                                                               |
+| ------------------ | ----: | ------------------------------------------------------------------ |
+| `x-xss-protection` |   178 | Chrome's old XSS auditor switch                                    |
+| `pragma`           |    84 | deprecated, but still used for cache control                       |
+| `p3p`              |    24 | compact privacy policies for old Internet Explorer cookie behavior |
+| `x-ua-compatible`  |    13 | Internet Explorer document-mode hint                               |
+| `expect-ct`        |     6 | certificate transparency enforcement, now deprecated               |
+| `feature-policy`   |     6 | predecessor to `Permissions-Policy`                                |
+| `content-md5`      |     2 | obsoleted integrity header                                         |
 
-`P3P` is my favorite. It's a privacy-policy header from the early 2000s, remembered mostly because setting *any* plausible-looking value could talk old IE into accepting third-party cookies. One value in the crawl is exactly the kind of thing you hope to dig up:
+`P3P` is my favorite. It's a privacy-policy header from the early 2000s, remembered mostly because setting _any_ plausible-looking value could talk old IE into accepting third-party cookies. One value in the crawl is exactly the kind of thing you hope to dig up:
 
 ```text
 CP="This is not a P3P policy! See g.co/p3phelp for more info."
@@ -42,17 +42,17 @@ The header is obsolete. The scar tissue stays.
 
 Among the 417 eligible sites, adoption of common browser security headers ranged widely:
 
-| header | sites | share |
-| --- | ---: | ---: |
-| `strict-transport-security` | 270 | 64.7% |
-| `x-frame-options` | 214 | 51.3% |
-| `content-security-policy` | 194 | 46.5% |
-| `referrer-policy` | 105 | 25.2% |
-| `permissions-policy` | 63 | 15.1% |
-| `cross-origin-opener-policy` | 45 | 10.8% |
-| `cross-origin-resource-policy` | 28 | 6.7% |
-| `cross-origin-embedder-policy` | 2 | 0.5% |
-| `clear-site-data` | 0 | 0.0% |
+| header                         | sites | share |
+| ------------------------------ | ----: | ----: |
+| `strict-transport-security`    |   270 | 64.7% |
+| `x-frame-options`              |   214 | 51.3% |
+| `content-security-policy`      |   194 | 46.5% |
+| `referrer-policy`              |   105 | 25.2% |
+| `permissions-policy`           |    63 | 15.1% |
+| `cross-origin-opener-policy`   |    45 | 10.8% |
+| `cross-origin-resource-policy` |    28 |  6.7% |
+| `cross-origin-embedder-policy` |     2 |  0.5% |
+| `clear-site-data`              |     0 |  0.0% |
 
 Plenty of sites have good reasons to skip some of these, so read the table as a map rather than a scorecard. `COEP` breaks the moment you embed a third-party resource. `Clear-Site-Data` is a sharp tool.
 
@@ -62,15 +62,15 @@ The spread still tells a story. HSTS is now normal. CSP is common but not yet un
 
 Some headers act as status lights on the machines behind the page.
 
-| header | sites | what it reveals |
-| --- | ---: | --- |
-| `server` | 303 | server or gateway family |
-| `x-cache` | 147 | cache state |
-| `via` | 146 | proxy/CDN path |
-| `x-served-by` | 53 | edge node or cache layer |
-| `x-powered-by` | 47 | framework or runtime |
-| `x-request-id` | 31 | request tracing |
-| `x-generator` | 7 | CMS or static-site generator |
+| header         | sites | what it reveals              |
+| -------------- | ----: | ---------------------------- |
+| `server`       |   303 | server or gateway family     |
+| `x-cache`      |   147 | cache state                  |
+| `via`          |   146 | proxy/CDN path               |
+| `x-served-by`  |    53 | edge node or cache layer     |
+| `x-powered-by` |    47 | framework or runtime         |
+| `x-request-id` |    31 | request tracing              |
+| `x-generator`  |     7 | CMS or static-site generator |
 
 Some `Server` values are dull: `nginx`, `cloudflare`, `gws`, `AkamaiGHost`. Others say more. The crawl found `Express`, `Next.js`, `ASP.NET`, and Drupal generator strings scattered around.
 
@@ -80,13 +80,13 @@ On its own, most of this is harmless operational metadata. But an outsider can u
 
 The biggest header block I saw belonged to `state.gov`, around 15.6 KB. The runners-up were big enough to notice:
 
-| domain | page | approximate header bytes |
-| --- | --- | ---: |
-| `state.gov` | root | 15,622 |
-| `state.gov` | internal | 15,620 |
-| `eset.com` | internal | 12,819 |
-| `mixpanel.com` | internal | 12,554 |
-| `cursor.sh` | root | 11,702 |
+| domain         | page     | approximate header bytes |
+| -------------- | -------- | -----------------------: |
+| `state.gov`    | root     |                   15,622 |
+| `state.gov`    | internal |                   15,620 |
+| `eset.com`     | internal |                   12,819 |
+| `mixpanel.com` | internal |                   12,554 |
+| `cursor.sh`    | root     |                   11,702 |
 
 These are approximate, since the crawler redacts sensitive-looking values before analysis. The point holds: headers can grow into a real chunk of the response. The bulk usually comes from reporting endpoints, CSP directives, cookies, or CDN metadata. The body gets blamed for web bloat, but the prelude packs on weight too.
 
@@ -94,17 +94,17 @@ These are approximate, since the crawler redacts sensitive-looking values before
 
 A few headers in the crawl weren't metadata at all. Someone wrote them by hand.
 
-| header | value | site |
-| --- | --- | --- |
-| `x-clacks-overhead` | `GNU Terry Pratchett` | mozilla.org, debian.org |
-| `x-hacker` | a recruiting pitch (full text below) | wordpress.com |
-| `x-recruiting` | a recruiting pitch (full text below) | otto.de |
-| `x-launch-status` | `Go Flight!` | nasa.gov |
-| `x-olaf` | `⛄` | wordpress.org |
-| `x-ballmer` | `bff-section` | welt.de |
-| `x-frankenstein-eligible` | `true` | bloomberg.com |
-| `x-minion` | `Varnish` | washington.edu |
-| `x-asdf` | `l-70` | ivi.ru |
+| header                    | value                                | site                    |
+| ------------------------- | ------------------------------------ | ----------------------- |
+| `x-clacks-overhead`       | `GNU Terry Pratchett`                | mozilla.org, debian.org |
+| `x-hacker`                | a recruiting pitch (full text below) | wordpress.com           |
+| `x-recruiting`            | a recruiting pitch (full text below) | otto.de                 |
+| `x-launch-status`         | `Go Flight!`                         | nasa.gov                |
+| `x-olaf`                  | `⛄`                                 | wordpress.org           |
+| `x-ballmer`               | `bff-section`                        | welt.de                 |
+| `x-frankenstein-eligible` | `true`                               | bloomberg.com           |
+| `x-minion`                | `Varnish`                            | washington.edu          |
+| `x-asdf`                  | `l-70`                               | ivi.ru                  |
 
 The best one is `x-clacks-overhead`. Mozilla, Firefox, Ubuntu, and Debian all send `GNU Terry Pratchett`, a tribute to the author that started as a fan project and never stopped. It does nothing. That's the point.
 

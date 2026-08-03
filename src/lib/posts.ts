@@ -38,7 +38,7 @@ export async function getSortedBlogPosts(): Promise<Post[]> {
   return (await getBlogPosts()).sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 }
 
-export function getPostPath(post: Post) {
+function getPostPath(post: Post) {
   return `/posts/${post.id}`;
 }
 

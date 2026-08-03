@@ -11,9 +11,9 @@
 </section>
 
 <script>
-  const graphWidget = document.querySelector<HTMLElement>("[data-information-graph]:not([data-loaded])");
+  const graphWidget = document.querySelector("[data-information-graph]:not([data-loaded])");
 
-  if (graphWidget) {
+  if (graphWidget instanceof HTMLElement) {
     const loadGraph = async () => {
       graphWidget.dataset.loaded = "true";
       const { initializeInformationGraphs } = await import("../../scripts/information-graph");
@@ -35,3 +35,4 @@
       void loadGraph();
     }
   }
+</script>

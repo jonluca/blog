@@ -1,0 +1,106 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const papers = [
+  {
+    title: "Elementary classes of finite or finitely generated members of a semigroup variety",
+    date: "2026-07-24",
+    doi: "10.5281/zenodo.21538927",
+    recordId: "21538927",
+  },
+  {
+    title: "The square locus in the group of measure-preserving transformations",
+    date: "2026-07-24",
+    doi: "10.5281/zenodo.21538921",
+    recordId: "21538921",
+  },
+  {
+    title: "Effective Hausdorff dimensions in a two-generated profinite group",
+    date: "2026-07-24",
+    doi: "10.5281/zenodo.21538915",
+    recordId: "21538915",
+  },
+  {
+    title: "A counterexample on cyclic blocks in finitary permutation groups",
+    date: "2026-07-24",
+    doi: "10.5281/zenodo.21538908",
+    recordId: "21538908",
+  },
+  {
+    title: "Finite distributive sequentially differential lattices of negative slope",
+    date: "2026-07-24",
+    doi: "10.5281/zenodo.21538886",
+    recordId: "21538886",
+  },
+  {
+    title: "Rigidity of bounded-row standard Young tableau trees",
+    date: "2026-07-24",
+    doi: "10.5281/zenodo.21538867",
+    recordId: "21538867",
+  },
+  {
+    title: "Automorphisms of the Young-Fibonacci tableau tree",
+    date: "2026-07-24",
+    doi: "10.5281/zenodo.21538865",
+    recordId: "21538865",
+  },
+  {
+    title: "Analyticity of finite-mode quadratic bosonic no-jump semigroups",
+    date: "2026-07-24",
+    doi: "10.5281/zenodo.21538856",
+    recordId: "21538856",
+  },
+  {
+    title: "Odd-order groups cannot have commuting probability 1/17",
+    date: "2026-07-24",
+    doi: "10.5281/zenodo.21538840",
+    recordId: "21538840",
+  },
+  {
+    title: "A sharp generator bound from subgroups of coprime index",
+    date: "2026-07-24",
+    doi: "10.5281/zenodo.21538813",
+    recordId: "21538813",
+  },
+] as const;
+---
+
+<BaseLayout path="/math" title="Math" description="Mathematical preprints by JonLuca DeCaro">
+  <div class="text-page reading-column mb-8">
+    <h1 class="clear-both mt-0 mb-2 text-2xl leading-tight font-semibold uppercase">Math</h1>
+    <div class="prose">
+      <p>Mathematical preprints by JonLuca DeCaro. Each paper is available on Zenodo.</p>
+    </div>
+    <section class="mt-8" aria-labelledby="papers-heading">
+      <h2 id="papers-heading" class="mb-3 text-sm font-semibold tracking-wider text-neutral-500 uppercase">Papers</h2>
+      <ol class="flex flex-col">
+        {
+          papers.map((paper) => (
+            <li class="border-b border-neutral-100 py-4 first:pt-0">
+              <a
+                class="block text-base leading-snug"
+                href={`https://zenodo.org/records/${paper.recordId}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {paper.title}
+              </a>
+              <p class="mt-1 text-sm text-neutral-500">
+                <time datetime={paper.date}>
+                  {new Date(`${paper.date}T00:00:00Z`).toLocaleDateString("en-US", {
+                    timeZone: "UTC",
+                    month: "long",
+                    day: "numeric",
+                    year: "numeric",
+                  })}
+                </time>
+                <span aria-hidden="true"> · </span>
+                <span>{paper.doi}</span>
+              </p>
+            </li>
+          ))
+        }
+      </ol>
+    </section>
+  </div>
+</BaseLayout>

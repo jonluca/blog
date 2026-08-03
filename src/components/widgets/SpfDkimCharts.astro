@@ -1,9 +1,9 @@
 <div data-spf-dkim-charts aria-hidden="true"></div>
 
 <script>
-  const chartsMarker = document.querySelector<HTMLElement>("[data-spf-dkim-charts]:not([data-loaded])");
+  const chartsMarker = document.querySelector("[data-spf-dkim-charts]:not([data-loaded])");
 
-  if (chartsMarker) {
+  if (chartsMarker instanceof HTMLElement) {
     const loadCharts = async () => {
       chartsMarker.dataset.loaded = "true";
       const { initializeSpfDkimCharts } = await import("../../scripts/spf-dkim-charts");
@@ -25,3 +25,4 @@
       void loadCharts();
     }
   }
+</script>
