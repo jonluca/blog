@@ -3,16 +3,9 @@ allowBuilds:
   sharp: true
   workerd: true
 overrides:
-  "@rolldown/binding-wasm32-wasi@1.2.1>@emnapi/core": 2.0.0-alpha.4
-  "@rolldown/binding-wasm32-wasi@1.2.1>@emnapi/runtime": 2.0.0-alpha.4
   brace-expansion: 5.0.9
   esbuild: 0.28.2
-  fast-uri: 3.1.5
-  sharp: 0.35.3
-  svgo: 4.0.2
+  fast-uri: 3.1.7
+  sharp: 0.35.4
+  svgo: 4.1.0
   yaml: 2.9.0
-minimumReleaseAgeExclude:
-  - brace-expansion@5.0.9
-  - sharp@0.35.3
-  - svgo@4.0.2
-  - yaml@2.9.0
