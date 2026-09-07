@@ -73,6 +73,10 @@ code {
   font-size: 14px;
 }
 
+.prose {
+  overflow-wrap: anywhere;
+}
+
 .prose .anchor {
   @apply invisible absolute text-neutral-300 no-underline;
 

@@ -31,6 +31,10 @@
         { rootMargin: "200px" },
       );
       observer.observe(graphWidget);
+      const overview = document.getElementById("cy");
+      if (overview) {
+        observer.observe(overview);
+      }
     } else {
       void loadGraph();
     }

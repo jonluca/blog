@@ -63,7 +63,7 @@ function createGraph(container: HTMLElement, nodes: ElementDefinition[]) {
     .layout({ name: "concentric", boundingBox: { x1: 0, y1: 0, w: 250, h: 250 } })
     .run();
   graph
-    .nodes("[id>25]")
+    .nodes("[id>=25]")
     .layout({ name: "concentric", boundingBox: { x1: 500, y1: 0, w: 250, h: 250 } })
     .run();
   graph.fit();

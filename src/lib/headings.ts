@@ -18,7 +18,14 @@ export function uniqueHeadingSlug(value: string, request: object) {
     headingCountsByRequest.set(request, headingCounts);
   }
 
-  const occurrence = headingCounts.get(baseSlug) ?? 0;
-  headingCounts.set(baseSlug, occurrence + 1);
-  return occurrence === 0 ? baseSlug : `${baseSlug}-${occurrence}`;
+  let occurrence = headingCounts.get(baseSlug) ?? 0;
+  let slug = baseSlug;
+  while (headingCounts.has(slug)) {
+    occurrence += 1;
+    slug = `${baseSlug}-${occurrence}`;
+  }
+
+  headingCounts.set(baseSlug, occurrence);
+  headingCounts.set(slug, 0);
+  return slug;
 }

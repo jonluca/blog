@@ -9,6 +9,7 @@ import H6 from "./H6.astro";
 import Link from "./Link.astro";
 import MediaImage from "./MediaImage.astro";
 import Table from "./Table.astro";
+import ScrollableTable from "./ScrollableTable.astro";
 import Video from "./Video.astro";
 import ClockContent from "../widgets/ClockContent.astro";
 import Gist from "../widgets/Gist.astro";
@@ -27,6 +28,7 @@ export const mdxComponents = {
   h5: H5,
   h6: H6,
   img: MediaImage,
+  table: ScrollableTable,
   ClockContent,
   CustomImage,
   Gist,

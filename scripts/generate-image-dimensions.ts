@@ -90,7 +90,7 @@ function dimensionsFromBytes(data: Buffer, contentType: string): Dimensions | un
 
 async function probe(url: string) {
   try {
-    const response = await fetch(url, { headers: { Range: "bytes=0-524287" } });
+    const response = await fetch(url, { headers: { Range: "bytes=0-524287" }, signal: AbortSignal.timeout(30_000) });
     if (!response.ok) {
       throw new Error(`HTTP ${response.status}`);
     }
@@ -100,8 +100,7 @@ async function probe(url: string) {
     }
     return dimensions;
   } catch (error) {
-    console.warn(`Skipping dimensions for ${url}: ${error instanceof Error ? error.message : String(error)}`);
-    return undefined;
+    throw new Error(`Unable to refresh dimensions for ${url}: ${error instanceof Error ? error.message : String(error)}`, { cause: error });
   }
 }
 

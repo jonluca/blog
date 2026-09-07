@@ -20,7 +20,9 @@
         },
         { rootMargin: "300px" },
       );
-      observer.observe(chartsMarker);
+      document.querySelectorAll("#topDomainsSpf, #fortuneSpf, #topDomainsDmarc, #fortuneDmarc").forEach((canvas) => {
+        observer.observe(canvas);
+      });
     } else {
       void loadCharts();
     }

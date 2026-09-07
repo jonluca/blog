@@ -45,6 +45,20 @@ test("disambiguates repeated heading anchor slugs within a page", () => {
   assert.equal(uniqueHeadingSlug("Top 100 Domains", {}), "top-100-domains");
 });
 
+test("avoids collisions between heading text and generated anchor suffixes", () => {
+  const generatedFirstPage = {};
+  assert.deepEqual(
+    ["Section", "Section", "Section-1", "Section"].map((heading) => uniqueHeadingSlug(heading, generatedFirstPage)),
+    ["section", "section-1", "section-1-1", "section-2"],
+  );
+
+  const authoredFirstPage = {};
+  assert.deepEqual(
+    ["Section-1", "Section", "Section"].map((heading) => uniqueHeadingSlug(heading, authoredFirstPage)),
+    ["section-1", "section", "section-2"],
+  );
+});
+
 test("escapes feed content and publishes canonical item URLs", () => {
   const post = {
     id: "feed-test",
