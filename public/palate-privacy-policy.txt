@@ -1,86 +1,40 @@
 Privacy Policy for Palate
 
-Last updated: 1/12/2026
+Last updated: October 25, 2026
 
-Palate (“Palate,” “we,” “our,” or “us”) is an iOS application designed to operate fully on-device. Your privacy is a core design principle. This Privacy Policy explains what data we do and do not collect, how it is used, and your rights.
+Palate helps you organize restaurant visits using information on your device. This policy explains local processing, usage analytics, and crash diagnostics.
 
-1. Overview
+1. Your restaurant records
 
-Palate is a fully local, on-device application. All core functionality runs entirely on your device. We do not require accounts, do not upload your photos or content to our servers, and do not sell or share personal data.
+Your photos, calendar information, restaurant visit records, and notes are stored and processed on your device. Palate does not require an account or upload your photo library or calendar contents to a Palate server. You control access through iOS permissions and can remove local data by deleting the app. Information you choose to export or share is handled by the destination you select.
 
-2. Data We Do Not Collect
+2. Usage analytics
 
-Palate does not collect, store, or transmit:
+Palate uses Google Firebase Analytics to understand how the app is used. Events include screen views, features used, scan and import counts, export format, and the year selected for summaries. Some restaurant and visit events include an internal record identifier and, when a restaurant is viewed, its name. Firebase can also collect app-instance identifiers and device, operating-system, and app-version information. These events help us improve the app; they are not associated with a Palate account. Photo contents, calendar contents, and personal notes are not included in analytics events.
 
-Photos, videos, or media from your device
+Firebase Analytics is separate from crash reporting. Google's handling of analytics data is described at https://firebase.google.com/support/privacy. Palate does not sell personal information or use these events for advertising or tracking across other companies' apps and websites.
 
-Location data or precise GPS coordinates
+3. Crash and error diagnostics
 
-Contacts, calendars, messages, or call data
+Production builds send crash and unexpected-error reports to our self-hosted GlitchTip service to help diagnose faults and improve reliability. Reports can include the app version, operating-system version, device model, error type, and technical stack traces.
 
-User-generated content or metadata derived from it
+Crash reports exclude account identifiers, photos, calendar contents, restaurant records, notes, request payloads, screenshots, session recordings, and interaction histories. They are not linked to your identity and are not used for advertising or tracking. Crash reporting is enabled in production builds; it is not an optional in-app setting.
 
-Personally identifiable information (PII) such as name, email, phone number, or address
+4. Service providers and retention
 
-Payment or financial information
+Google Firebase processes usage analytics. Our hosting provider runs the self-hosted GlitchTip service for crash diagnostics. Apple may separately provide App Store and system diagnostics under its own privacy policy.
 
-Advertising identifiers for ad targeting
+Local restaurant data remains on your device until you remove it. Usage analytics and diagnostic reports are stored separately from your local records and used to understand app usage and investigate reliability problems. Contact us with questions about retained data or deletion requests. Because crash reports exclude account identity, we may be unable to identify a particular report as yours.
 
-All analysis and processing remain on your device.
+5. Children
 
-3. On-Device Processing
+Palate does not knowingly request personal information from children under 13. Contact us if you believe personal information from a child has been provided so we can investigate.
 
-Any analysis performed by Palate (including image recognition, classification, or organization) happens entirely on your device using local system APIs and models. No media or analysis results are transmitted off the device.
+6. Changes
 
-4. Telemetry & Diagnostics (Optional)
+Changes to this policy will be posted here with an updated date.
 
-To improve app stability and performance, Palate may collect limited, anonymized telemetry, which can include:
-
-App launch and crash reports
-
-Performance metrics (e.g., feature usage frequency, latency)
-
-Device information such as iOS version, app version, and hardware model
-
-Important:
-
-Telemetry data is not linked to your identity
-
-Telemetry does not include photos, content, or personal data
-
-Telemetry collection may be optional and configurable via system or in-app settings
-
-We do not use telemetry for advertising or tracking across apps
-
-We may use Apple-provided services (such as App Store or system diagnostics) to collect this information.
-
-5. Third-Party Services
-
-Palate does not integrate third-party SDKs for advertising, analytics, or tracking that collect personal data.
-
-If system-level Apple services are used (e.g., crash reporting), they are governed by Apple’s Privacy Policy.
-
-6. Data Retention
-
-Because Palate does not collect personal data or user content, there is no personal data retention on our servers.
-
-Any locally stored data remains on your device and is deleted when you delete the app.
-
-7. Children’s Privacy
-
-Palate does not knowingly collect any personal information from children under the age of 13. Because the app operates locally and does not collect personal data, no special data handling is required.
-
-8. Your Rights
-
-Since Palate does not collect or store personal data, there is no data to access, export, or delete from our servers. You remain in full control of your data on your device at all times.
-
-9. Changes to This Policy
-
-We may update this Privacy Policy from time to time. Any changes will be reflected by updating the “Last updated” date. Continued use of the app after changes constitutes acceptance of the revised policy.
-
-10. Contact
-
-If you have questions about this Privacy Policy, you may contact us at:
+7. Contact
 
 Email: jonluca.decaro@gmail.com
 Developer: JonLuca DeCaro
